@@ -32,6 +32,14 @@ public class OptionsManager : GenericMenu
 
     void OnEnable()
     {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+
         Load();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
