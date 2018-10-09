@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class DynamicText : MonoBehaviour
 {
-    public Text Message;
     public Image Background;
+    public Text Message;
 
     void OnEnable()
     {

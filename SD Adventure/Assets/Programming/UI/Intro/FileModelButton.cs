@@ -17,7 +17,7 @@ public class FileModelButton : MonoBehaviour
     public void Select()
     {
         DataManager.SetSelectedFile(fildeId);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Test");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
     }
 
 }
