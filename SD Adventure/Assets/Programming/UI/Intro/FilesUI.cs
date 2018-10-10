@@ -9,25 +9,11 @@ public class FilesUI : GenericMenu
     int[] currentFiles;
     public Sprite SceneBackground;
     public Text Counter;
-    GameObject[] avatarList;
+    
     FileData[] files;
-    Transform tempParent;
 
     void Start()
     {
-        tempParent = new GameObject("Avatar Parent").transform;
-        tempParent.SetParent(transform.transform);
-        tempParent.gameObject.SetActive(false);
-
-        avatarList = new GameObject[AvatarDatabase.ModelList.Length];
-        for(int i = 0; i < avatarList.Length; i++)
-        {
-            avatarList[i] = Instantiate(AvatarDatabase.ModelList[i]);
-            avatarList[i].transform.SetParent(tempParent);
-            avatarList[i].layer = 5;
-            avatarList[i].SetActive(true);
-        }
-
         UpdateFiles();
     }
 
@@ -60,18 +46,12 @@ public class FilesUI : GenericMenu
 
     void SetOptions()
     {
-
-        for(int i = 0; i < avatarList.Length; i++)
-        {
-            avatarList[i].transform.SetParent(tempParent);
-        }
-
         for(int i = 0; i < Buttons.Length; i++)
         {
             if(currentFiles[i] != -1)
-                Buttons[i].Set(files[currentFiles[i]], currentFiles[i], avatarList[files[currentFiles[i]].AvatarId].transform, SceneBackground);
+                Buttons[i].Set(files[currentFiles[i]], currentFiles[i], SceneBackground);
             else
-                Buttons[i].Set(null, -1, null, SceneBackground);
+                Buttons[i].Set(null, -1, SceneBackground);
             Buttons[i].SetInFront(i == 1);
         }
     }

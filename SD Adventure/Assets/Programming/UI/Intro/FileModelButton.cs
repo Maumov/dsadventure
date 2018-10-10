@@ -21,25 +21,45 @@ public class FileModelButton : MonoBehaviour
 
     IntroManager manager;
     FilesUI fileManager;
+    GameObject[] avatarList;
 
     private void Start()
     {
         manager = FindObjectOfType<IntroManager>();
         fileManager = FindObjectOfType<FilesUI>();
+        CreateAvatars();
     }
 
-    public void Set(FileData file, int id, Transform avatar, Sprite scene)
+    void CreateAvatars()
     {
+        if(avatarList != null)
+            return;
+
+        avatarList = new GameObject[AvatarDatabase.ModelList.Length];
+        for(int i = 0; i < avatarList.Length; i++)
+        {
+            avatarList[i] = Instantiate(AvatarDatabase.ModelList[i]);
+            avatarList[i].transform.SetParent(AvatarPivot);
+            avatarList[i].transform.localPosition = Vector3.zero;
+            avatarList[i].transform.localEulerAngles = Vector3.zero;
+            avatarList[i].transform.localScale = Vector3.one;
+            avatarList[i].layer = 5;
+            avatarList[i].SetActive(false);
+        }
+    }
+
+    public void Set(FileData file, int id, Sprite scene)
+    {
+        CreateAvatars();
+
+        for(int i = 0; i < avatarList.Length; i++)
+            avatarList[i].SetActive(false);
+
         filedId = id;
         if(id > -1)
         {
             FileName.text = file.FileName;
-            AvatarPivot.gameObject.SetActive(true);
-            avatar.SetParent(AvatarPivot);
-            avatar.transform.localPosition = Vector3.zero;
-            avatar.transform.localEulerAngles = Vector3.zero;
-            avatar.transform.localScale = Vector3.one;
-
+            avatarList[file.AvatarId].SetActive(true);
             Background.sprite = scene;
             Background.color = Color.white;
             AvatarEmpty.enabled = false;
@@ -47,7 +67,6 @@ public class FileModelButton : MonoBehaviour
         else
         {
             FileName.text = "Nuevo Personaje";
-            AvatarPivot.gameObject.SetActive(false);
             Background.sprite = EmptyBackground;
             Background.color = BlueBackground;
             AvatarEmpty.enabled = true;
