@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class FileModelButton : MonoBehaviour
 {
     public Text FileName;
-    public Image AddButton;
+    public Image ExtraButton;
+    public Sprite AddSprite;
+    public Sprite SelectSprite;
     public Sprite EmptyBackground;
     public Image Background;
     public Image AvatarEmpty;
@@ -39,7 +41,6 @@ public class FileModelButton : MonoBehaviour
 
             Background.sprite = scene;
             AvatarEmpty.enabled = false;
-            AddButton.enabled = false;
         }
         else
         {
@@ -47,7 +48,6 @@ public class FileModelButton : MonoBehaviour
             AvatarPivot.gameObject.SetActive(false);
             Background.sprite = EmptyBackground;
             AvatarEmpty.enabled = true;
-            AddButton.enabled = true;
         }
     }
 
@@ -55,6 +55,9 @@ public class FileModelButton : MonoBehaviour
     {
         Black.enabled = !sw;
         button.interactable = sw;
+        ExtraButton.enabled = sw;
+
+        ExtraButton.sprite = filedId > -1 ? SelectSprite : AddSprite;
 
         if(filedId > -1 && sw)
             DeleteButton.enabled = true;

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FilesUI : GenericMenu
 {
     public FileModelButton[] Buttons;
     int[] currentFiles;
     public Sprite SceneBackground;
+    public Text Counter;
     GameObject[] avatarList;
     FileData[] files;
     Transform tempParent;
@@ -35,6 +37,7 @@ public class FilesUI : GenericMenu
         SetIndex(1, dir);
         SetIndex(2, dir);
 
+        Counter.text = (currentFiles[1] + 2) + "/" + (currentFiles.Length);
         SetOptions();
     }
 
@@ -57,6 +60,12 @@ public class FilesUI : GenericMenu
 
     void SetOptions()
     {
+
+        for(int i = 0; i < avatarList.Length; i++)
+        {
+            avatarList[i].transform.SetParent(tempParent);
+        }
+
         for(int i = 0; i < Buttons.Length; i++)
         {
             if(currentFiles[i] != -1)
