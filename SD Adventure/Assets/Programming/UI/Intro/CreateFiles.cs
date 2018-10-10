@@ -13,10 +13,10 @@ public class CreateFiles : GenericMenu
 
     void Start()
     {
-        avatarList = AvatarDatabase.ModelList;
+        avatarList = new GameObject[AvatarDatabase.ModelList.Length];
         for(int i = 0; i < avatarList.Length; i++)
         {
-            avatarList[i] = Instantiate(avatarList[i]);
+            avatarList[i] = Instantiate(AvatarDatabase.ModelList[i]);
             avatarList[i].transform.SetParent(AvatarPivot);
             avatarList[i].transform.localPosition = Vector3.zero;
             avatarList[i].transform.localEulerAngles = Vector3.zero;

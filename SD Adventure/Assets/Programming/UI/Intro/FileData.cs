@@ -40,6 +40,13 @@ public class DataManager
         Save();
     }
 
+    public static void DeleteFile(int fileId)
+    {
+        Check();
+        Data.GameFiles.RemoveAt(fileId);
+        Save();
+    }
+
     static void Load()
     {
         string filePath = Application.persistentDataPath + fileName;
