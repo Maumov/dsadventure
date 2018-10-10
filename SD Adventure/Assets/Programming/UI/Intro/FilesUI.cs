@@ -9,7 +9,7 @@ public class FilesUI : GenericMenu
     int[] currentFiles;
     public Sprite SceneBackground;
     public Text Counter;
-    
+
     FileData[] files;
 
     void Start()
@@ -23,7 +23,7 @@ public class FilesUI : GenericMenu
         SetIndex(1, dir);
         SetIndex(2, dir);
 
-        Counter.text = (currentFiles[1] + 2) + "/" + (currentFiles.Length);
+        Counter.text = (currentFiles[1] + 2) + "/" + (files.Length + 1);
         SetOptions();
     }
 
