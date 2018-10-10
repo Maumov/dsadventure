@@ -17,6 +17,7 @@ public class FileModelButton : MonoBehaviour
     public Image DeleteButton;
     int filedId;
     public Button button;
+    public Color BlueBackground;
 
     IntroManager manager;
     FilesUI fileManager;
@@ -40,6 +41,7 @@ public class FileModelButton : MonoBehaviour
             avatar.transform.localScale = Vector3.one;
 
             Background.sprite = scene;
+            Background.color = Color.white;
             AvatarEmpty.enabled = false;
         }
         else
@@ -47,6 +49,7 @@ public class FileModelButton : MonoBehaviour
             FileName.text = "Nuevo Personaje";
             AvatarPivot.gameObject.SetActive(false);
             Background.sprite = EmptyBackground;
+            Background.color = BlueBackground;
             AvatarEmpty.enabled = true;
         }
     }
