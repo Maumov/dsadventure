@@ -151,8 +151,8 @@ public class OptionsManager : GenericMenu
     [System.Serializable]
     public struct TextColor
     {
-        public Color BackColor;
         public Color FontColor;
+        public Color BackColor;
     }
 }
 
