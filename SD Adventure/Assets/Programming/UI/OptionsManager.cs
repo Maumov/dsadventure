@@ -21,9 +21,12 @@ public class OptionsManager : GenericMenu
     public TextColor[] ColorSetting;
     public Font[] Fonts;
 
+    public Image Black;
+
     OptionsSave config;
     public static event UnityAction<Font, TextColor> TextChange;
     static OptionsManager instance;
+
     public static void ManualUpdate(out Font f, out TextColor c)
     {
         f = instance.Fonts[instance.config.FontId];
@@ -35,7 +38,7 @@ public class OptionsManager : GenericMenu
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(transform.parent.parent.gameObject);
         }
         else
             Destroy(gameObject);
@@ -72,12 +75,15 @@ public class OptionsManager : GenericMenu
             ColorOptions[i].isOn = false;
         ColorOptions[config.ColorId].isOn = true;
 
+        Black.enabled = true;
+
         base.Show();
     }
 
     public override void Hide()
     {
         base.Hide();
+        Black.enabled = false;
     }
 
 

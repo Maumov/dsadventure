@@ -7,6 +7,7 @@ public class IntroManager : MonoBehaviour
     public GenericMenu[] Menus;
     public GameObject BackButton;
     GenericMenu current;
+    WaitForSeconds changeTime = new WaitForSeconds(0.75f);
 
     void Start()
     {
@@ -18,13 +19,7 @@ public class IntroManager : MonoBehaviour
         if(current != null)
             current.Hide();
 
-        current = Menus[id];
-        current.Show();
-
-        if(current.BackMenu == null && string.IsNullOrEmpty(current.BackScene))
-            BackButton.SetActive(false);
-        else
-            BackButton.SetActive(true);
+        StartCoroutine(ChangeDelay(id));
     }
 
     public void Back()
@@ -39,6 +34,18 @@ public class IntroManager : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(current.BackScene);
         }
+    }
+
+    IEnumerator ChangeDelay(int id)
+    {
+        yield return changeTime;
+        current = Menus[id];
+        current.Show();
+
+        if(current.BackMenu == null && string.IsNullOrEmpty(current.BackScene))
+            BackButton.SetActive(false);
+        else
+            BackButton.SetActive(true);
 
     }
 
