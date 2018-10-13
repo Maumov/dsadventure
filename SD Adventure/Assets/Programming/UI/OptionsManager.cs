@@ -38,6 +38,7 @@ public class OptionsManager : GenericMenu
         if(instance == null)
         {
             instance = this;
+            transform.parent.parent.SetParent(null);
             DontDestroyOnLoad(transform.parent.parent.gameObject);
         }
         else
