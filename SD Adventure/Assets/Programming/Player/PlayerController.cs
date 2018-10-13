@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,25 +16,35 @@ public class PlayerController : MonoBehaviour
     //Components
     CharacterController controller;
     Vector3 move;
+    InteractionObject interaction;
+    ButtonHandler actionButton;
 
 
-    private void Awake ()
+    private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        actionButton = FindObjectOfType<ButtonHandler>();
+        actionButton.SetState(false);
     }
 
-    private void Update ()
+    private void Update()
     {
         GetInputs();
         Movement();
     }
 
-    void GetInputs ()
+    void GetInputs()
     {
-        axis.Set(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        axis.Set(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical"));
+        axis.Normalize();
+
+        if(CrossPlatformInputManager.GetButtonDown("Action") && interaction != null)
+        {
+            interaction.Action();
+        }
     }
 
-    void Movement ()
+    void Movement()
     {
         CamFaceY = Cam.forward;
         CamFaceY.y = 0;
@@ -52,6 +63,21 @@ public class PlayerController : MonoBehaviour
         {
             move.y = 0;
             transform.rotation = Quaternion.LookRotation(move.normalized);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        interaction = other.GetComponent<InteractionObject>();
+        actionButton.SetState(interaction != null);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.Equals(interaction.gameObject))
+        {
+            interaction = null;
+            actionButton.SetState(false);
         }
     }
 
