@@ -10,22 +10,23 @@ public class ConversationUI : MonoBehaviour
     public GameObject BackButton;
     bool writing;
     bool waiting;
+    bool back;
     WaitForSeconds charWait = new WaitForSeconds(0.05f);
 
-    public ConversationData Test;
+    static ConversationUI instance;
 
     void Start()
     {
+        instance = this;
         Content.SetActive(false);
-        ShowText(Test);
     }
 
     public void Next(int direction)
     {
         if(direction == -1)
         {
-            StopAllCoroutines();
-            ShowText(Test);
+            back = true;
+            writing = false;
         }
         else
         {
@@ -36,10 +37,10 @@ public class ConversationUI : MonoBehaviour
         }
     }
 
-    public void ShowText(ConversationData msg, System.Action onFinish = null)
+    public static void ShowText(ConversationData msg, System.Action onFinish = null)
     {
-        Content.SetActive(true);
-        StartCoroutine(WriteText(msg, onFinish));
+        instance.Content.SetActive(true);
+        instance.StartCoroutine(instance.WriteText(msg, onFinish));
     }
 
     IEnumerator WriteText(ConversationData msg, System.Action onFinish)
@@ -57,12 +58,27 @@ public class ConversationUI : MonoBehaviour
                 Message.text = displayText;
                 yield return charWait;
             }
+
+            if(back)
+            {
+                i -= 2;
+                back = false;
+                continue;
+            }
             writing = false;
             Message.text = msg.Pages[i];
 
             waiting = true;
             while(waiting)
+            {
+                if(back)
+                {
+                    i--;
+                    back = false;
+                    waiting = false;
+                }
                 yield return null;
+            }
         }
 
         Content.SetActive(false);
