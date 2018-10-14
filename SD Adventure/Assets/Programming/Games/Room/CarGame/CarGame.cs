@@ -16,9 +16,8 @@ public class CarGame : BaseGame
     int upwards;
     int downwards;
 
-    public override void Start()
+    protected override void Initialize()
     {
-        base.Start();
         Randomizer.Randomize(StartPlaces);
         for(int i = 0; i < Cars.Length; i++)
         {
@@ -67,18 +66,18 @@ public class CarGame : BaseGame
         }
     }
 
-    public override void Complete()
+    protected override void CompleteValidations()
     {
         for(int i = 0; i < Places.Length; i++)
         {
-            if(Places[i].bounds.Contains(Cars[i].targetPos))
+            if(Places[i].bounds.Contains(Cars[i].transform.position))
                 upwards++;
         }
         System.Array.Reverse(Cars);
 
         for(int i = 0; i < Places.Length; i++)
         {
-            if(Places[i].bounds.Contains(Cars[i].targetPos))
+            if(Places[i].bounds.Contains(Cars[i].transform.position))
                 downwards++;
         }
 
@@ -88,7 +87,5 @@ public class CarGame : BaseGame
             Debug.Log("Perfect : Flawless Victory");
         else
             Debug.Log("You Lose");
-
-        base.Complete();
     }
 }

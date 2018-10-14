@@ -10,12 +10,16 @@ public class CubesGame : BaseGame
     public string[] Ids;
     DragAndDrop control;
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
-        SetContainers();
         control = FindObjectOfType<DragAndDrop>();
         control.Active = false;
+    }
+
+    protected override void Initialize()
+    {
+        SetContainers();
     }
 
     public override void StartGame()
@@ -45,7 +49,7 @@ public class CubesGame : BaseGame
         }
     }
 
-    public override void Complete()
+    protected override void CompleteValidations()
     {
         int hits = 0;
         for(int i = 0; i < Containers.Length; i++)
@@ -56,8 +60,6 @@ public class CubesGame : BaseGame
             Debug.Log("Flawless Victory");
         else
             Debug.Log("Epic Fail");
-
-        base.Complete();
     }
 
     void CheckContainer(int ind, ref int hits)
