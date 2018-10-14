@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CarObject : MonoBehaviour
 {
-    public int CarId;
     [HideInInspector][System.NonSerialized]
     public Vector3 targetPos;
     bool follow;

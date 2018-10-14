@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -551,7 +551,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1285574044}
     m_Modifications:
     - target: {fileID: 224695287964081742, guid: 37e2bd5292223f545a4addb90c091f6e,
         type: 2}
@@ -566,7 +566,7 @@ Prefab:
     - target: {fileID: 224695287964081742, guid: 37e2bd5292223f545a4addb90c091f6e,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224695287964081742, guid: 37e2bd5292223f545a4addb90c091f6e,
         type: 2}
@@ -591,7 +591,7 @@ Prefab:
     - target: {fileID: 224695287964081742, guid: 37e2bd5292223f545a4addb90c091f6e,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224695287964081742, guid: 37e2bd5292223f545a4addb90c091f6e,
         type: 2}
@@ -601,7 +601,7 @@ Prefab:
     - target: {fileID: 224695287964081742, guid: 37e2bd5292223f545a4addb90c091f6e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 224695287964081742, guid: 37e2bd5292223f545a4addb90c091f6e,
         type: 2}
@@ -646,6 +646,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e2bd5292223f545a4addb90c091f6e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!224 &716557410 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224695287964081742, guid: 37e2bd5292223f545a4addb90c091f6e,
+    type: 2}
+  m_PrefabInternal: {fileID: 716557409}
 --- !u!1001 &746171423
 Prefab:
   m_ObjectHideFlags: 0
@@ -1394,6 +1399,7 @@ Transform:
   m_Children:
   - {fileID: 399048166}
   - {fileID: 1100575263}
+  - {fileID: 716557410}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

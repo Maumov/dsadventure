@@ -16,9 +16,8 @@ public class CarGame : BaseGame
     int upwards;
     int downwards;
 
-    public override void Start()
+    protected override void Initialize()
     {
-        base.Start();
         Randomizer.Randomize(StartPlaces);
         for(int i = 0; i < Cars.Length; i++)
         {
@@ -67,54 +66,26 @@ public class CarGame : BaseGame
         }
     }
 
-    public override void Complete()
+    protected override void CompleteValidations()
     {
-        base.Complete();
         for(int i = 0; i < Places.Length; i++)
         {
-            if(Places[i].bounds.Contains(Cars[i].targetPos))
+            if(Places[i].bounds.Contains(Cars[i].transform.position))
                 upwards++;
         }
         System.Array.Reverse(Cars);
 
         for(int i = 0; i < Places.Length; i++)
         {
-            if(Places[i].bounds.Contains(Cars[i].targetPos))
+            if(Places[i].bounds.Contains(Cars[i].transform.position))
                 downwards++;
         }
 
         System.Array.Reverse(Cars);
 
         if(upwards == 5 || downwards == 5)
-        {
             Debug.Log("Perfect : Flawless Victory");
-        }
         else
-        {
             Debug.Log("You Lose");
-        }
-
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
-    }
-
-
-}
-
-
-public class Randomizer
-{
-    public static void Randomize<T>(T[] items)
-    {
-        System.Random rand = new System.Random();
-
-        // For each spot in the array, pick
-        // a random item to swap into that spot.
-        for(int i = 0; i < items.Length - 1; i++)
-        {
-            int j = rand.Next(i, items.Length);
-            T temp = items[i];
-            items[i] = items[j];
-            items[j] = temp;
-        }
     }
 }

@@ -11,14 +11,17 @@ public class BaseGame : MonoBehaviour
     public ConversationData FirstWarning;
     public ConversationData SecondWarning;
 
-    WaitForSeconds inactivityTime = new WaitForSeconds(10);
+    WaitForSeconds inactivityTime = new WaitForSeconds(100);
 
-    public virtual void Start()
+    protected virtual void Start()
     {
         tutorial = FindObjectOfType<GameTutorial>();
         CompleteButton.SetActive(false);
         StartCoroutine(ShowDelay());
+        Initialize();
     }
+
+    protected virtual void Initialize() { }
 
     IEnumerator ShowDelay()
     {
@@ -26,7 +29,7 @@ public class BaseGame : MonoBehaviour
         tutorial.Show();
     }
 
-    public void StartGame()
+    public virtual void StartGame()
     {
         enableControls = true;
         StartCoroutine(InactivityCounter());
@@ -41,8 +44,11 @@ public class BaseGame : MonoBehaviour
 
     public virtual void Complete()
     {
-
+        CompleteValidations();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
     }
+
+    protected virtual void CompleteValidations() { }
 
 
     IEnumerator InactivityCounter()
