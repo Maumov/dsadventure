@@ -11,7 +11,7 @@ public class BaseGame : MonoBehaviour
     public ConversationData FirstWarning;
     public ConversationData SecondWarning;
 
-    WaitForSeconds inactivityTime = new WaitForSeconds(10);
+    WaitForSeconds inactivityTime = new WaitForSeconds(100);
 
     public virtual void Start()
     {
@@ -41,7 +41,7 @@ public class BaseGame : MonoBehaviour
 
     public virtual void Complete()
     {
-
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
     }
 
 
