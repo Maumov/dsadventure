@@ -26,7 +26,7 @@ public class BaseGame : MonoBehaviour
         tutorial.Show();
     }
 
-    public void StartGame()
+    public virtual void StartGame()
     {
         enableControls = true;
         StartCoroutine(InactivityCounter());

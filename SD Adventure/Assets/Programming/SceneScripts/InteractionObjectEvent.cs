@@ -10,7 +10,8 @@ public class InteractionObjectEvent : InteractionObject
     public override void Action()
     {
         base.Action();
-        ActionEvent.Invoke();
+        if(ActionEvent != null)
+            ActionEvent.Invoke();
     }
 }
 

@@ -8,18 +8,26 @@ public class CubesGame : BaseGame
     public Collider[] Containers;
     public GameObject[] Cubes;
     public string[] Ids;
-
+    DragAndDrop control;
 
     public override void Start()
     {
         base.Start();
         SetContainers();
+        control = FindObjectOfType<DragAndDrop>();
+        control.Active = false;
+    }
+
+    public override void StartGame()
+    {
+        base.StartGame();
+        control.Active = true;
     }
 
     void SetContainers()
     {
-        Randomizer.Randomize(Ids);
-        Randomizer.Randomize(Cubes);
+        //Randomizer.Randomize(Ids);
+        //Randomizer.Randomize(Cubes);
 
         for(int i = 0; i < Containers.Length; i++)
         {
@@ -40,9 +48,9 @@ public class CubesGame : BaseGame
     public override void Complete()
     {
         int hits = 0;
-        CheckContainer(0, ref hits);
-        CheckContainer(1, ref hits);
-        CheckContainer(2, ref hits);
+        for(int i = 0; i < Containers.Length; i++)
+            CheckContainer(i, ref hits);
+
 
         if(hits == Cubes.Length)
             Debug.Log("Flawless Victory");
@@ -59,6 +67,11 @@ public class CubesGame : BaseGame
             if(Containers[ind].name.Equals(Cubes[i].name) && Containers[ind].bounds.Contains(Cubes[i].transform.position))
                 hits++;
         }
+    }
+
+    public void CubeDrop()
+    {
+        EnableCompleteButton();
     }
 
 }
