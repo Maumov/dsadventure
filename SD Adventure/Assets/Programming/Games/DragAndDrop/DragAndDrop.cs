@@ -33,7 +33,7 @@ public class DragAndDrop : MonoBehaviour
         ray = Cam.ScreenPointToRay(mousePos);
         if(Input.GetMouseButtonDown(0))
         {
-            if(Physics.Raycast(ray, out hit, 50, PickLayer.value))
+            if(Physics.Raycast(ray, out hit, 100, PickLayer.value))
             {
                 if(hit.collider.CompareTag("Drag"))
                 {
@@ -48,7 +48,7 @@ public class DragAndDrop : MonoBehaviour
         }
         if(Input.GetMouseButton(0) && dragObject != null)
         {
-            if(Physics.Raycast(ray, out hit, 50, DragLayer.value))
+            if(Physics.Raycast(ray, out hit, 100, DragLayer.value))
             {
                 dragObject.transform.position = hit.point;
             }
