@@ -17,8 +17,22 @@ public class InteractionObjectEvent : InteractionObject
 
 public class InteractionObject : MonoBehaviour
 {
-    public virtual void Action()
-    {
+    public SpriteRenderer Icon;
+    public Sprite Hidden;
+    public Sprite Shown;
 
+    public virtual void Action() { }
+
+    public virtual void ShowUI()
+    {
+        if(Icon == null)
+            return;
+        Icon.sprite = Shown;
+    }
+    public virtual void HideUI()
+    {
+        if(Icon == null)
+            return;
+        Icon.sprite = Hidden;
     }
 }

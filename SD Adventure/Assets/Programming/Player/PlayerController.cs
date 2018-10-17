@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         interaction = other.GetComponent<InteractionObject>();
+        interaction.ShowUI();
         actionButton.SetState(interaction != null);
     }
 
@@ -76,6 +77,8 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.Equals(interaction.gameObject))
         {
+            if(interaction != null)
+                interaction.HideUI();
             interaction = null;
             actionButton.SetState(false);
         }

@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ToysGame : CubesGame
 {
     int max;
     int[] amounts = new int[3];
+
+    public Text[] Guides;
 
     protected override void Initialize()
     {
@@ -13,6 +16,11 @@ public class ToysGame : CubesGame
         amounts[0] = Random.Range(1, max);
         amounts[1] = Random.Range(1, max - amounts[0]);
         amounts[2] = max - amounts[0] - amounts[1];
+
+        for(int i = 0; i < Containers.Length; i++)
+        {
+            Guides[i].text = amounts[i].ToString();
+        }
     }
 
     protected override void CompleteValidations()
