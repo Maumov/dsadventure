@@ -45,7 +45,7 @@ public class BaseGame : MonoBehaviour
     public virtual void Complete()
     {
         CompleteValidations();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
+        SceneLoader.LoadScene("Room");
     }
 
     protected virtual void CompleteValidations() { }
@@ -60,12 +60,12 @@ public class BaseGame : MonoBehaviour
         ConversationUI.ShowText(SecondWarning);
 
         yield return inactivityTime;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
+        SceneLoader.LoadScene("Room");
         Debug.Log("AFK");
     }
 
     public void Back()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
+        SceneLoader.LoadScene("Room");
     }
 }
