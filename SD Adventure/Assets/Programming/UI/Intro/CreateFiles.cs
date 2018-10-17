@@ -67,6 +67,6 @@ public class CreateFiles : GenericMenu
         };
         DataManager.AddFile(newFile);
         DataManager.SetSelectedFile(DataManager.GetAllFiles().Length - 1);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
+        SceneLoader.LoadScene("Room");
     }
 }

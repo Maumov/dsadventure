@@ -6,7 +6,7 @@ public class Helper : MonoBehaviour
 {
     public void LoadScene(string scene)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+        SceneLoader.LoadScene(scene);
     }
 }
 

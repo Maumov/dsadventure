@@ -93,7 +93,7 @@ public class FileModelButton : MonoBehaviour
         if(filedId > -1)
         {
             DataManager.SetSelectedFile(filedId);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
+            SceneLoader.LoadScene("Room");
         }
         else
         {

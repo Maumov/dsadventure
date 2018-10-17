@@ -32,7 +32,7 @@ public class IntroManager : MonoBehaviour
         }
         else if(!string.IsNullOrEmpty(current.BackScene))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(current.BackScene);
+            SceneLoader.LoadScene(current.BackScene);
         }
     }
 
