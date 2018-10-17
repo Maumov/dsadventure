@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class CreateFiles : GenericMenu
 {
+    [Header("CreateFiles")]
     public Transform AvatarPivot;
     public Text Counter;
+    public GameObject CreateButton;
     GameObject[] avatarList;
     int avatarId;
     string fileName;
@@ -32,6 +34,8 @@ public class CreateFiles : GenericMenu
     public void SetName(string str)
     {
         fileName = str;
+
+        CreateButton.SetActive(!string.IsNullOrEmpty(str));
     }
 
     public void ChangeAvatar(int dir)
