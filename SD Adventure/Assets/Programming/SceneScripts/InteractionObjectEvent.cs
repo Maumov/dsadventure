@@ -27,11 +27,12 @@ public class InteractionObject : MonoBehaviour
     {
         if(Icon == null)
             return;
-
+        Icon.sprite = Shown;
     }
     public virtual void HideUI()
     {
         if(Icon == null)
             return;
+        Icon.sprite = Hidden;
     }
 }
