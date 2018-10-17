@@ -6,8 +6,8 @@ public class CubesGame : BaseGame
 {
     [Header("Cubes Game")]
     public Collider[] Containers;
-    public GameObject[] Cubes;
-    public string[] Ids;
+    public MeshRenderer[] Cubes;
+    public Material[] Ids;
     DragAndDrop control;
 
     protected override void Start()
@@ -31,17 +31,18 @@ public class CubesGame : BaseGame
     void SetContainers()
     {
         //Randomizer.Randomize(Ids);
-        //Randomizer.Randomize(Cubes);
+        Randomizer.Randomize(Cubes);
 
         for(int i = 0; i < Containers.Length; i++)
         {
-            Containers[i].name = Ids[i];
+            Containers[i].name = Ids[i].name;
         }
 
         int idsLenght = 0;
         for(int i = 0; i < Cubes.Length; i++)
         {
-            Cubes[i].name = Ids[idsLenght];
+            Cubes[i].name = Ids[idsLenght].name;
+            Cubes[i].material = Ids[idsLenght];
 
             idsLenght++;
             if(idsLenght > Ids.Length - 1)

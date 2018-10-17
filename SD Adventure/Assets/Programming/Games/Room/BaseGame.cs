@@ -63,4 +63,9 @@ public class BaseGame : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
         Debug.Log("AFK");
     }
+
+    public void Back()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Room");
+    }
 }

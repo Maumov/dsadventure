@@ -9,6 +9,7 @@ public class CarGame : BaseGame
     public Collider[] Places;
     public CarObject[] Cars;
     public Transform[] StartPlaces;
+    public LayerMask DragLayer;
     Ray ray;
     RaycastHit hit;
     CarObject current;
@@ -16,12 +17,14 @@ public class CarGame : BaseGame
     int upwards;
     int downwards;
 
+    public Transform Mark;
+
     protected override void Initialize()
     {
         Randomizer.Randomize(StartPlaces);
         for(int i = 0; i < Cars.Length; i++)
         {
-            //Cars[i].transform.position = StartPlaces[i].position;
+            Cars[i].transform.position = StartPlaces[i].position;
         }
     }
 
@@ -38,19 +41,24 @@ public class CarGame : BaseGame
                 if(hit.transform.CompareTag("Drag"))
                 {
                     current = hit.transform.GetComponent<CarObject>();
+                    Mark.gameObject.SetActive(true);
                 }
             }
         }
 
         if(current != null)
         {
-            Physics.Raycast(ray, out hit, 50);
-            current.SetTarget(hit.point);
+            if(Physics.Raycast(ray, out hit, 50, DragLayer.value))
+            {
+                current.SetTarget(hit.point);
+                Mark.position = hit.point;
+            }
         }
 
         if(Input.GetMouseButtonUp(0))
         {
             current = null;
+            Mark.gameObject.SetActive(false);
         }
     }
 

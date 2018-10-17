@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CarObject : MonoBehaviour
 {
-    [HideInInspector][System.NonSerialized]
+    [HideInInspector]
+    [System.NonSerialized]
     public Vector3 targetPos;
     bool follow;
     Rigidbody body;
@@ -14,6 +15,7 @@ public class CarObject : MonoBehaviour
     {
         body = GetComponent<Rigidbody>();
         manager = FindObjectOfType<CarGame>();
+        GetComponentInChildren<TextMesh>().text = (transform.GetSiblingIndex() + 1).ToString();
     }
     public void SetTarget(Vector3 target)
     {
