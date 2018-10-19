@@ -103,8 +103,17 @@ public class FileModelButton : MonoBehaviour
 
     public void Delete()
     {
+        ConfirmationPopUp.GetConfirmation("¿Estas seguro de borrar este archivo?", Confirm);
+    }
+
+    void Confirm(bool sw)
+    {
+        if(!sw)
+            return;
+
         DataManager.DeleteFile(filedId);
         fileManager.UpdateFiles();
     }
+
 
 }

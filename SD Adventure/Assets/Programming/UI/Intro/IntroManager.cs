@@ -12,6 +12,7 @@ public class IntroManager : MonoBehaviour
     void Start()
     {
         SetCurrentMenu(0);
+        StartCoroutine(OptionsDelay());
     }
 
     public void SetCurrentMenu(int id)
@@ -48,5 +49,14 @@ public class IntroManager : MonoBehaviour
             BackButton.SetActive(true);
 
     }
+
+    IEnumerator OptionsDelay()
+    {
+        OptionsManager.ButtonState(false);
+        WaitForSeconds t = new WaitForSeconds(1.25f);
+        yield return t;
+        OptionsManager.ButtonState(true);
+    }
+
 
 }

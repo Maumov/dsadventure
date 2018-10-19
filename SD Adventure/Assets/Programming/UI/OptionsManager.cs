@@ -27,10 +27,17 @@ public class OptionsManager : GenericMenu
     public static event UnityAction<Font, TextColor> TextChange;
     static OptionsManager instance;
 
+    public GameObject Btn;
+
     public static void ManualUpdate(out Font f, out TextColor c)
     {
         f = instance.Fonts[instance.config.FontId];
         c = instance.ColorSetting[instance.config.ColorId];
+    }
+
+    public static void ButtonState(bool sw)
+    {
+        instance.Btn.SetActive(sw);
     }
 
     void OnEnable()
