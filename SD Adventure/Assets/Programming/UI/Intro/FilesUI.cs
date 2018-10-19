@@ -53,6 +53,7 @@ public class FilesUI : GenericMenu
             Buttons[0].Hide();
             Buttons[2].Hide();
             Buttons[1].Set(null, -1, SceneBackground);
+            Buttons[1].SetInFront(true);
             return;
         }
 

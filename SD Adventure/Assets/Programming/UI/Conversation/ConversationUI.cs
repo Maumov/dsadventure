@@ -49,6 +49,7 @@ public class ConversationUI : MonoBehaviour
     IEnumerator WriteText(ConversationData msg, System.Action onFinish)
     {
         string displayText;
+        NextButton.sprite = Arrow;
 
         for(int i = 0; i < msg.Pages.Length; i++)
         {

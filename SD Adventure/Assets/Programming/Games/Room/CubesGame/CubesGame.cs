@@ -77,4 +77,10 @@ public class CubesGame : BaseGame
         EnableCompleteButton();
     }
 
+    public override void SetControl(bool sw)
+    {
+        base.SetControl(sw);
+        control.Active = sw;
+    }
+
 }

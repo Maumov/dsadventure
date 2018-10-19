@@ -68,4 +68,9 @@ public class BaseGame : MonoBehaviour
     {
         SceneLoader.LoadScene("Room");
     }
+
+    public virtual void SetControl(bool sw)
+    {
+        enableControls = sw;
+    }
 }

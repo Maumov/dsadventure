@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IntroManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class IntroManager : MonoBehaviour
     GenericMenu current;
     WaitForSeconds changeTime = new WaitForSeconds(0.75f);
     public GameObject Rights;
+
+    public GraphicRaycaster Interaction;
 
     void Start()
     {
@@ -40,6 +43,7 @@ public class IntroManager : MonoBehaviour
 
     IEnumerator ChangeDelay(int id)
     {
+        Interaction.enabled = false;
         if(id != 0)
             Rights.SetActive(false);
 
@@ -53,10 +57,10 @@ public class IntroManager : MonoBehaviour
             BackButton.SetActive(true);
 
         if(id == 0)
-        {
-            yield return changeTime;
             Rights.SetActive(true);
-        }
+
+        yield return changeTime;
+        Interaction.enabled = true;
 
     }
 
