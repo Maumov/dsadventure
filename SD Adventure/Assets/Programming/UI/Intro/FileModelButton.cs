@@ -52,6 +52,8 @@ public class FileModelButton : MonoBehaviour
     {
         CreateAvatars();
 
+        gameObject.SetActive(true);
+
         for(int i = 0; i < avatarList.Length; i++)
             avatarList[i].SetActive(false);
 
@@ -71,6 +73,11 @@ public class FileModelButton : MonoBehaviour
             Background.color = BlueBackground;
             AvatarEmpty.enabled = true;
         }
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 
     public void SetInFront(bool sw)

@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Helper h = FindObjectOfType<Helper>();
+        Debug.Log(h);
         if(h != null && h.PlayerSpeed != -1)
             MovementSpeed = h.PlayerSpeed;
     }
