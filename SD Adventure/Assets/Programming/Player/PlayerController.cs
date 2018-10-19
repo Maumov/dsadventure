@@ -27,6 +27,13 @@ public class PlayerController : MonoBehaviour
         actionButton.SetState(false);
     }
 
+    private void Start()
+    {
+        Helper h = FindObjectOfType<Helper>();
+        if(h != null && h.PlayerSpeed != -1)
+            MovementSpeed = h.PlayerSpeed;
+    }
+
     private void Update()
     {
         GetInputs();
