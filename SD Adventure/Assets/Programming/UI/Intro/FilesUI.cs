@@ -19,9 +19,10 @@ public class FilesUI : GenericMenu
 
     public void ChangeFiles(int dir)
     {
-        SetIndex(0, dir);
         SetIndex(1, dir);
-        SetIndex(2, dir);
+
+        currentFiles[0] = currentFiles[1] - 1;
+        currentFiles[2] = currentFiles[1] + 1;
 
         Counter.text = (currentFiles[1] + 2) + "/" + (files.Length + 1);
         SetOptions();
@@ -39,15 +40,30 @@ public class FilesUI : GenericMenu
         currentFiles[ind] += dir;
 
         if(currentFiles[ind] > files.Length - 1)
-            currentFiles[ind] = -1;
-        if(currentFiles[ind] < -1)
             currentFiles[ind] = files.Length - 1;
+
+        if(currentFiles[ind] < -1)
+            currentFiles[ind] = -1;
     }
 
     void SetOptions()
     {
+        if(files == null || files.Length == 0)
+        {
+            Buttons[0].Hide();
+            Buttons[2].Hide();
+            Buttons[1].Set(null, -1, SceneBackground);
+            return;
+        }
+
         for(int i = 0; i < Buttons.Length; i++)
         {
+            if(currentFiles[i] == -2 || currentFiles[i] == files.Length)
+            {
+                Buttons[i].Hide();
+                continue;
+            }
+
             if(currentFiles[i] != -1)
                 Buttons[i].Set(files[currentFiles[i]], currentFiles[i], SceneBackground);
             else

@@ -7,7 +7,6 @@ using UnityEngine;
 public class DataManager
 {
     static SaveData Data;
-    const string fileName = "/data.json";
     static int selectedFile;
 
     static void Check()
@@ -49,23 +48,19 @@ public class DataManager
 
     static void Load()
     {
-        string filePath = Application.persistentDataPath + fileName;
+        string dataAsJson = PlayerPrefs.GetString("Data");
 
-        if(File.Exists(filePath))
-        {
-            string dataAsJson = File.ReadAllText(filePath);
-            Data = JsonUtility.FromJson<SaveData>(dataAsJson);
-        }
-        else
+        if(string.IsNullOrEmpty(dataAsJson))
             Data = new SaveData();
+        else
+            Data = JsonUtility.FromJson<SaveData>(dataAsJson);
     }
 
     public static void Save()
     {
-        string filePath = Application.persistentDataPath + fileName;
         if(Data == null)
             Load();
-        File.WriteAllText(filePath, JsonUtility.ToJson(Data));
+        PlayerPrefs.SetString("Data", JsonUtility.ToJson(Data));
     }
 
     public static void RestoreData()
