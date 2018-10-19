@@ -39,7 +39,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void SetState(bool state)
         {
-            gameObject.SetActive(state);
+            //gameObject.SetActive(state);
         }
 
     }

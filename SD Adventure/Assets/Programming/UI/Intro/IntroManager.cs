@@ -8,10 +8,12 @@ public class IntroManager : MonoBehaviour
     public GameObject BackButton;
     GenericMenu current;
     WaitForSeconds changeTime = new WaitForSeconds(0.75f);
+    public GameObject Rights;
 
     void Start()
     {
         SetCurrentMenu(0);
+        StartCoroutine(OptionsDelay());
     }
 
     public void SetCurrentMenu(int id)
@@ -38,6 +40,9 @@ public class IntroManager : MonoBehaviour
 
     IEnumerator ChangeDelay(int id)
     {
+        if(id != 0)
+            Rights.SetActive(false);
+
         yield return changeTime;
         current = Menus[id];
         current.Show();
@@ -47,6 +52,21 @@ public class IntroManager : MonoBehaviour
         else
             BackButton.SetActive(true);
 
+        if(id == 0)
+        {
+            yield return changeTime;
+            Rights.SetActive(true);
+        }
+
     }
+
+    IEnumerator OptionsDelay()
+    {
+        OptionsManager.ButtonState(false);
+        WaitForSeconds t = new WaitForSeconds(1.25f);
+        yield return t;
+        OptionsManager.ButtonState(true);
+    }
+
 
 }

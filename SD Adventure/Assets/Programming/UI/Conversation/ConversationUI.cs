@@ -8,6 +8,9 @@ public class ConversationUI : MonoBehaviour
     public GameObject Content;
     public Text Message;
     public GameObject BackButton;
+    public Sprite Arrow;
+    public Sprite FinalText;
+    public Image NextButton;
     bool writing;
     bool waiting;
     bool back;
@@ -67,6 +70,11 @@ public class ConversationUI : MonoBehaviour
             }
             writing = false;
             Message.text = msg.Pages[i];
+
+            if(i == msg.Pages.Length - 1)
+                NextButton.sprite = FinalText;
+            else
+                NextButton.sprite = Arrow;
 
             waiting = true;
             while(waiting)

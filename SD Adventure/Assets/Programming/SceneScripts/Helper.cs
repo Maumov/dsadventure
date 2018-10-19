@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Helper : MonoBehaviour
 {
+    public float PlayerSpeed = -1;
+
     public void LoadScene(string scene)
     {
         SceneLoader.LoadScene(scene);
