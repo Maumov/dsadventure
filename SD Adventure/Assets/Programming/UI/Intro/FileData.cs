@@ -41,6 +41,25 @@ public class DataManager
         return Data.GameFiles[selectedFile].GetKeyValue(key, out sw);
     }
 
+    public static void SetAsHardGame()
+    {
+        Check();
+        bool total = false, current = false;
+        string[] gamesKeys = new string[] { "CarGame", "CubesGame", "DicesGame", "ToysGame", "BasketGame" };
+        for(int i = 0; i < gamesKeys.Length; i++)
+        {
+            ProgressKeyValue(gamesKeys[i], out current);
+
+            if(i == 0)
+                total = current;
+            else
+                total = current && total;
+        }
+        if(total)
+            Data.GameFiles[selectedFile].HardGame = true;
+        Save();
+    }
+
     public static void SetSelectedFile(int i)
     {
         selectedFile = i;
@@ -107,7 +126,7 @@ public class FileData
     public string FileName;
     public int AvatarId;
     public string LastScene;
-
+    public bool HardGame;
     public List<ProgressKey> ProgressKeys = new List<ProgressKey>();
 
     public bool CheckKey(string k)
@@ -132,7 +151,7 @@ public class FileData
         {
             if(ProgressKeys[i].Key.Equals(key))
             {
-                sw = true;
+                sw = ProgressKeys[i].Value;
                 return true;
             }
         }

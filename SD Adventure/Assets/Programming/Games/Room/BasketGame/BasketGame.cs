@@ -49,7 +49,10 @@ public class BasketGame : BaseGame
     void SetQuestion()
     {
         if(tries > 5)
+        {
             Complete();
+            return;
+        }
 
         for(int i = 0; i < ballPositions.Length; i++)
         {
@@ -102,6 +105,7 @@ public class BasketGame : BaseGame
             Debug.Log("Lose");
             DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, false);
         }
+        DataManager.SetAsHardGame();
     }
 
     private void Update()

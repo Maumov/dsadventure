@@ -2587,7 +2587,6 @@ GameObject:
   - component: {fileID: 446044896}
   - component: {fileID: 446044895}
   - component: {fileID: 446044894}
-  - component: {fileID: 446044893}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2613,18 +2612,6 @@ RectTransform:
   m_AnchoredPosition: {x: 77.5, y: -77.5}
   m_SizeDelta: {x: 115, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &446044893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446044891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a58f5067ff9e1aa41b5f5f75b9f7b660, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerSpeed: -1
 --- !u!95 &446044894
 Animator:
   serializedVersion: 3
@@ -2682,7 +2669,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 446044893}
+      - m_Target: {fileID: 1938247193}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -11630,6 +11617,7 @@ MonoBehaviour:
   FollowSpeed: 5
   Min: {x: -4, y: 0, z: -4}
   Max: {x: 1, y: 0, z: 1}
+  Offset: {x: -5.17, y: 9.5, z: -4.9999995}
 --- !u!1 &1701639215
 GameObject:
   m_ObjectHideFlags: 0
@@ -13080,6 +13068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 2.8
+  ScenePosition: []
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0
