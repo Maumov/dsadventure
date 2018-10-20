@@ -25,7 +25,16 @@ public class ToysGame : CubesGame
 
     protected override void CompleteValidations()
     {
-        Debug.Log(CheckContainers(0) && CheckContainers(1) && CheckContainers(2));
+        if(CheckContainers(0) && CheckContainers(1) && CheckContainers(2))
+        {
+            Debug.Log("Win");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, true);
+        }
+        else
+        {
+            Debug.Log("Lose");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, false);
+        }
     }
 
     bool CheckContainers(int ind)

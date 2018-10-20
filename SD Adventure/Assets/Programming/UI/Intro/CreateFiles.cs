@@ -63,7 +63,8 @@ public class CreateFiles : GenericMenu
         {
             FileName = fileName,
             AvatarId = avatarId,
-            LastScene = ""
+            LastScene = "",
+            ProgressKeys = new List<ProgressKey>()
         };
         DataManager.AddFile(newFile);
         DataManager.SetSelectedFile(DataManager.GetAllFiles().Length - 1);

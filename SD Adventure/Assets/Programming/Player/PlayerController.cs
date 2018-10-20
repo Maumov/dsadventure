@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     public float MovementSpeed = 1;
     public Transform Cam;
+    [HideInInspector]
+    [System.NonSerialized]
+    public bool ControlState = true;
 
     //Inputs
     Vector3 axis;
@@ -14,6 +17,7 @@ public class PlayerController : MonoBehaviour
     Vector3 CamFaceX;
 
     //Components
+    MobileControlRig inputs;
     CharacterController controller;
     Vector3 move;
     InteractionObject interaction;
@@ -24,19 +28,24 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         actionButton = FindObjectOfType<ButtonHandler>();
+        inputs = FindObjectOfType<MobileControlRig>();
         actionButton.SetState(false);
     }
 
     private void Start()
     {
         Helper h = FindObjectOfType<Helper>();
-        Debug.Log(h);
         if(h != null && h.PlayerSpeed != -1)
             MovementSpeed = h.PlayerSpeed;
     }
 
     private void Update()
     {
+        if(ControlState != inputs.gameObject.activeInHierarchy)
+            inputs.gameObject.SetActive(ControlState);
+        if(!ControlState)
+            return;
+
         GetInputs();
         Movement();
     }
