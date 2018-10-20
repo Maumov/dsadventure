@@ -10,6 +10,7 @@ public class SceneLoader : MonoBehaviour
     public CanvasGroup Fade;
 
     WaitForSeconds loadDelay = new WaitForSeconds(0.5f);
+    public static string LastScene;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class SceneLoader : MonoBehaviour
     {
         Fade.alpha = 0;
         Content.SetActive(true);
+        LastScene = SceneManager.GetActiveScene().name;
 
         yield return StartCoroutine(FadeAnimation(0, 1));
         yield return loadDelay;
