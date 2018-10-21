@@ -15,6 +15,15 @@ public class DataManager
             Load();
     }
 
+    public static bool IsHardGame
+    {
+        get
+        {
+            Check();
+            return Data.GameFiles[selectedFile].HardGame;
+        }
+    }
+
     public static FileData GetSelectedFile()
     {
         Check();

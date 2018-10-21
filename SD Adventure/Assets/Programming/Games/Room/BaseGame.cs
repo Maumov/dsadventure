@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class BaseGame : MonoBehaviour
 {
-    GameTutorial tutorial;
+    protected GameTutorial tutorial;
     protected bool enableControls;
     [Header("Base")]
     public GameObject CompleteButton;
     public ConversationData FirstWarning;
     public ConversationData SecondWarning;
+    public string BaseScene = "Room";
 
     WaitForSeconds inactivityTime = new WaitForSeconds(100);
 
     protected virtual void Start()
     {
         tutorial = FindObjectOfType<GameTutorial>();
-        CompleteButton.SetActive(false);
+        if(CompleteButton != null)
+            CompleteButton.SetActive(false);
         StartCoroutine(ShowDelay());
         Initialize();
     }
@@ -37,7 +39,8 @@ public class BaseGame : MonoBehaviour
 
     protected void EnableCompleteButton()
     {
-        CompleteButton.SetActive(true);
+        if(CompleteButton != null)
+            CompleteButton.SetActive(true);
         StopAllCoroutines();
         StartCoroutine(InactivityCounter());
     }
@@ -45,7 +48,7 @@ public class BaseGame : MonoBehaviour
     public virtual void Complete()
     {
         CompleteValidations();
-        SceneLoader.LoadScene("Room");
+        SceneLoader.LoadScene(BaseScene);
     }
 
     protected virtual void CompleteValidations() { }
