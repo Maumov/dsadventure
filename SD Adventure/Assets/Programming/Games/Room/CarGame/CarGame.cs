@@ -92,8 +92,14 @@ public class CarGame : BaseGame
         System.Array.Reverse(Cars);
 
         if(upwards == 5 || downwards == 5)
-            Debug.Log("Perfect : Flawless Victory");
+        {
+            Debug.Log("Win");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, true);
+        }
         else
-            Debug.Log("You Lose");
+        {
+            Debug.Log("Lose");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, false);
+        }
     }
 }

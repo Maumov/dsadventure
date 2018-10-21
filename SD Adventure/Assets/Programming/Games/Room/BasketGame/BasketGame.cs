@@ -49,7 +49,10 @@ public class BasketGame : BaseGame
     void SetQuestion()
     {
         if(tries > 5)
+        {
             Complete();
+            return;
+        }
 
         for(int i = 0; i < ballPositions.Length; i++)
         {
@@ -93,9 +96,16 @@ public class BasketGame : BaseGame
     protected override void CompleteValidations()
     {
         if(hits == tries)
-            Debug.Log("Perfect");
+        {
+            Debug.Log("Win");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, true);
+        }
         else
-            Debug.Log("Fail");
+        {
+            Debug.Log("Lose");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, false);
+        }
+        DataManager.SetAsHardGame();
     }
 
     private void Update()
@@ -147,7 +157,7 @@ public class BasketGame : BaseGame
         t = 0;
         while(t < 0.5f)
         {
-            currentBall.transform.Translate(Vector3.down * 50 * Time.deltaTime);
+            currentBall.transform.Translate(Vector3.down * 75 * Time.deltaTime);
             t += Time.deltaTime;
             yield return null;
         }

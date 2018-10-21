@@ -8,17 +8,17 @@ public class DynamicText : MonoBehaviour
     public Image Background;
     public Text Message;
 
-    void OnEnable()
+    private void Start()
     {
-        OptionsManager.TextChange += UpdateText;
-
         Font f;
         OptionsManager.TextColor c;
         OptionsManager.ManualUpdate(out f, out c);
         UpdateText(f, c);
+
+        OptionsManager.TextChange += UpdateText;
     }
 
-    void OnDisable()
+    private void OnDestroy()
     {
         OptionsManager.TextChange -= UpdateText;
     }

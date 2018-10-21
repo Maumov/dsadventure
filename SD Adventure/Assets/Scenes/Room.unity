@@ -1833,8 +1833,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1501248466}
-  - {fileID: 1550297126}
   - {fileID: 366596873}
+  - {fileID: 1550297126}
   - {fileID: 685191083}
   - {fileID: 928401914}
   - {fileID: 1955572293}
@@ -1938,8 +1938,9 @@ GameObject:
   - component: {fileID: 366596873}
   - component: {fileID: 366596875}
   - component: {fileID: 366596874}
+  - component: {fileID: 366596876}
   m_Layer: 9
-  m_Name: Text (2)
+  m_Name: CubesGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1957,7 +1958,7 @@ Transform:
   m_Children:
   - {fileID: 247788852}
   m_Father: {fileID: 333065913}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &366596874
 MonoBehaviour:
@@ -1973,6 +1974,7 @@ MonoBehaviour:
   Icon: {fileID: 247788853}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
+  Message: Juego de cubos
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2001,6 +2003,77 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &366596876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366596872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: CarGame
+      Value: 1
+    - Key: CubesGame
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 366596872}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: CarGame
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 366596872}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: CubesGame
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 366596872}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &379812143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,7 +2587,6 @@ GameObject:
   - component: {fileID: 446044896}
   - component: {fileID: 446044895}
   - component: {fileID: 446044894}
-  - component: {fileID: 446044893}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2540,18 +2612,6 @@ RectTransform:
   m_AnchoredPosition: {x: 77.5, y: -77.5}
   m_SizeDelta: {x: 115, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &446044893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446044891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a58f5067ff9e1aa41b5f5f75b9f7b660, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerSpeed: -1
 --- !u!95 &446044894
 Animator:
   serializedVersion: 3
@@ -2609,7 +2669,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 446044893}
+      - m_Target: {fileID: 1938247193}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -4067,8 +4127,9 @@ GameObject:
   - component: {fileID: 685191083}
   - component: {fileID: 685191085}
   - component: {fileID: 685191084}
+  - component: {fileID: 685191086}
   m_Layer: 9
-  m_Name: Text (3)
+  m_Name: ToysGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4102,6 +4163,7 @@ MonoBehaviour:
   Icon: {fileID: 388536221}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
+  Message: Juego de juguetes
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -4130,6 +4192,77 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.3
   m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &685191086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 685191082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: DicesGame
+      Value: 1
+    - Key: ToysGame
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 685191082}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: DicesGame
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 685191082}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: ToysGame
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 685191082}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &686087818
 GameObject:
   m_ObjectHideFlags: 0
@@ -4192,6 +4325,7 @@ RectTransform:
   m_Children:
   - {fileID: 87998373}
   - {fileID: 446044892}
+  - {fileID: 2052456037}
   m_Father: {fileID: 1669958471}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5446,6 +5580,106 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787853190}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &800807354
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 694509875}
+    m_Modifications:
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0feeddd8068629d4a853e3ac7226f878, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &820450863
 GameObject:
   m_ObjectHideFlags: 0
@@ -6121,8 +6355,9 @@ GameObject:
   - component: {fileID: 928401914}
   - component: {fileID: 928401916}
   - component: {fileID: 928401915}
+  - component: {fileID: 928401917}
   m_Layer: 9
-  m_Name: Text (4)
+  m_Name: BasketGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6156,6 +6391,7 @@ MonoBehaviour:
   Icon: {fileID: 1465463415}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
+  Message: Juego de cestas
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -6184,6 +6420,77 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.2
   m_Center: {x: -0.3, y: -1, z: 0.06}
+--- !u!114 &928401917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928401913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: ToysGame
+      Value: 1
+    - Key: BasketGame
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 928401913}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: ToysGame
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 928401913}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: BasketGame
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 928401913}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &941104052
 GameObject:
   m_ObjectHideFlags: 0
@@ -8791,19 +9098,6 @@ Prefab:
       propertyPath: Cam
       value: 
       objectReference: {fileID: 1698849964}
-    - target: {fileID: 224876231367344172, guid: fa429c883e1ecc34992730aecf6c2af0,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4601693767139392, guid: fa429c883e1ecc34992730aecf6c2af0, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 2.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4601693767139392, guid: fa429c883e1ecc34992730aecf6c2af0, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa429c883e1ecc34992730aecf6c2af0, type: 2}
   m_IsPrefabAsset: 0
@@ -9893,8 +10187,9 @@ GameObject:
   - component: {fileID: 1501248466}
   - component: {fileID: 1501248468}
   - component: {fileID: 1501248467}
+  - component: {fileID: 1501248469}
   m_Layer: 9
-  m_Name: Text (0)
+  m_Name: CarGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9928,6 +10223,7 @@ MonoBehaviour:
   Icon: {fileID: 860734599}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
+  Message: Juego de carros
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -9956,6 +10252,56 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1501248469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1501248465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: CarGame
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1501248465}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: CarGame
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1501248465}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1504237271
 Prefab:
   m_ObjectHideFlags: 0
@@ -10085,8 +10431,9 @@ GameObject:
   - component: {fileID: 1550297126}
   - component: {fileID: 1550297128}
   - component: {fileID: 1550297127}
+  - component: {fileID: 1550297129}
   m_Layer: 9
-  m_Name: Text (1)
+  m_Name: DicesGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10104,7 +10451,7 @@ Transform:
   m_Children:
   - {fileID: 765039066}
   m_Father: {fileID: 333065913}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1550297127
 MonoBehaviour:
@@ -10120,6 +10467,7 @@ MonoBehaviour:
   Icon: {fileID: 765039067}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
+  Message: Juego de dados
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -10148,6 +10496,77 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.3
   m_Center: {x: -0.27, y: 0, z: 0}
+--- !u!114 &1550297129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1550297125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: CubesGame
+      Value: 1
+    - Key: DicesGame
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1550297125}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: CubesGame
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1550297125}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: DicesGame
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1550297125}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &1576747898
 GameObject:
   m_ObjectHideFlags: 0
@@ -11198,6 +11617,7 @@ MonoBehaviour:
   FollowSpeed: 5
   Min: {x: -4, y: 0, z: -4}
   Max: {x: 1, y: 0, z: 1}
+  Offset: {x: -5.17, y: 9.5, z: -4.9999995}
 --- !u!1 &1701639215
 GameObject:
   m_ObjectHideFlags: 0
@@ -12628,6 +13048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1938247194}
   - component: {fileID: 1938247193}
+  - component: {fileID: 1938247195}
   m_Layer: 0
   m_Name: Programming
   m_TagString: Untagged
@@ -12647,6 +13068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 2.8
+  ScenePosition: []
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0
@@ -12664,6 +13086,134 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1938247195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938247192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94adde341b2258141ac3a5de0648ed42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Conversations:
+  - Keys:
+      Key: MomCinematic
+      Value: 0
+    Message:
+      Name: MomCinematic
+      Pages:
+      - Hola hijo ya viene tu amiga, ordena tu cuarto
+    AutoComplete: 1
+    OnFinish:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1938247195}
+          m_MethodName: ShowConversations
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+      Key: FriendText1
+      Value: 0
+    Message:
+      Name: FriendText1
+      Pages:
+      - Hagamos una competencia de ordenar
+      - Empieza ordenando los carros
+    AutoComplete: 1
+    OnFinish:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+      Key: CarGame
+      Value: 0
+    Message:
+      Name: PlayCarGame
+      Pages:
+      - Empieza ordenando los carros
+    AutoComplete: 0
+    OnFinish:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+      Key: CubesGame
+      Value: 0
+    Message:
+      Name: PlayCubesGame
+      Pages:
+      - Ahora ordena los cubos
+    AutoComplete: 0
+    OnFinish:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+      Key: DicesGame
+      Value: 0
+    Message:
+      Name: PlayDicesGame
+      Pages:
+      - Sigue con los dados
+    AutoComplete: 0
+    OnFinish:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+      Key: ToysGame
+      Value: 0
+    Message:
+      Name: PlayToysGame
+      Pages:
+      - Acomoda los juguetes
+    AutoComplete: 0
+    OnFinish:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+      Key: BasketGame
+      Value: 0
+    Message:
+      Name: PlayBasketGame
+      Pages:
+      - Guarda los balones
+    AutoComplete: 0
+    OnFinish:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+      Key: BasketGame
+      Value: 1
+    Message:
+      Name: GoToStreet
+      Pages:
+      - Ahora vayamos afuera
+    AutoComplete: 0
+    OnFinish:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &1955225613
 GameObject:
   m_ObjectHideFlags: 0
@@ -12759,8 +13309,9 @@ GameObject:
   - component: {fileID: 1955572293}
   - component: {fileID: 1955572295}
   - component: {fileID: 1955572294}
+  - component: {fileID: 1955572296}
   m_Layer: 9
-  m_Name: Text (5)
+  m_Name: Calle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12794,6 +13345,7 @@ MonoBehaviour:
   Icon: {fileID: 1882850746}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
+  Message: Ir a la calle
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -12822,6 +13374,56 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.3
   m_Center: {x: -0.13, y: 0, z: -0.75}
+--- !u!114 &1955572296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1955572292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: BasketGame
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1955572292}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: BasketGame
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1955572292}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &1965616064
 GameObject:
   m_ObjectHideFlags: 0
@@ -13031,6 +13633,11 @@ Transform:
   m_Father: {fileID: 1868441329}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &2052456037 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+    type: 2}
+  m_PrefabInternal: {fileID: 800807354}
 --- !u!1 &2082511126
 GameObject:
   m_ObjectHideFlags: 0

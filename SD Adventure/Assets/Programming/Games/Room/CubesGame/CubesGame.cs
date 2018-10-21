@@ -58,9 +58,15 @@ public class CubesGame : BaseGame
 
 
         if(hits == Cubes.Length)
-            Debug.Log("Flawless Victory");
+        {
+            Debug.Log("Win");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, true);
+        }
         else
-            Debug.Log("Epic Fail");
+        {
+            Debug.Log("Lose");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, false);
+        }
     }
 
     void CheckContainer(int ind, ref int hits)

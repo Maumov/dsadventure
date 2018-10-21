@@ -20,6 +20,7 @@ public class InteractionObject : MonoBehaviour
     public SpriteRenderer Icon;
     public Sprite Hidden;
     public Sprite Shown;
+    public string Message;
 
     public virtual void Action() { }
 
@@ -28,11 +29,16 @@ public class InteractionObject : MonoBehaviour
         if(Icon == null)
             return;
         Icon.sprite = Shown;
+        if(!string.IsNullOrEmpty(Message))
+            InfoText.Instance.Show(Message);
     }
+
     public virtual void HideUI()
     {
         if(Icon == null)
             return;
         Icon.sprite = Hidden;
+        if(!string.IsNullOrEmpty(Message))
+            InfoText.Instance.Hide();
     }
 }

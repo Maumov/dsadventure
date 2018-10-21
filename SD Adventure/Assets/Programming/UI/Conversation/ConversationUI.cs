@@ -18,7 +18,7 @@ public class ConversationUI : MonoBehaviour
 
     static ConversationUI instance;
 
-    void Start()
+    void Awake()
     {
         instance = this;
         Content.SetActive(false);

@@ -5,10 +5,43 @@ using UnityEngine;
 public class Helper : MonoBehaviour
 {
     public float PlayerSpeed = -1;
+    public PlayerPosition[] ScenePosition;
+    PlayerController player;
 
     public void LoadScene(string scene)
     {
         SceneLoader.LoadScene(scene);
+    }
+
+    public void SetKey(string key)
+    {
+        DataManager.AddProgressKey(key);
+    }
+
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerController>();
+        SetPlayerPosition();
+    }
+
+    void SetPlayerPosition()
+    {
+        for(int i = 0; i < ScenePosition.Length; i++)
+        {
+            if(SceneLoader.LastScene.Equals(ScenePosition[i].FromScene))
+            {
+                player.transform.position = ScenePosition[i].Position;
+                return;
+            }
+        }
+    }
+
+    [System.Serializable]
+    public struct PlayerPosition
+    {
+        public string FromScene;
+        public Vector3 Position;
+
     }
 }
 

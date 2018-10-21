@@ -6,22 +6,27 @@ public class PlayerCamera : MonoBehaviour
 {
     public Transform Target;
     public float FollowSpeed = 5;
-    Vector3 offset;
     Vector3 nextPos;
 
     public Vector3 Min;
     public Vector3 Max;
+    public Vector3 Offset;
+
+    [ContextMenu("Get Offset")]
+    void SetOffset()
+    {
+        Offset = transform.position - Target.position;
+    }
 
     private void Start()
     {
-        offset = transform.position - Target.position;
         nextPos = transform.position;
         Min.y = Max.y = transform.position.y;
     }
 
     private void LateUpdate()
     {
-        nextPos = Vector3.Lerp(nextPos, Target.position + offset, Time.deltaTime * FollowSpeed);
+        nextPos = Vector3.Lerp(nextPos, Target.position + Offset, Time.deltaTime * FollowSpeed);
 
         nextPos.x = Mathf.Clamp(nextPos.x, Min.x, Max.x);
         nextPos.y = Mathf.Clamp(nextPos.y, Min.y, Max.y);
