@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
     public CanvasGroup Fade;
 
     WaitForSeconds loadDelay = new WaitForSeconds(0.5f);
-    public static string LastScene;
+    public static string LastScene = string.Empty;
 
     private void Awake()
     {

@@ -725,8 +725,9 @@ GameObject:
   - component: {fileID: 170578319}
   - component: {fileID: 170578321}
   - component: {fileID: 170578320}
+  - component: {fileID: 170578322}
   m_Layer: 9
-  m_Name: Text (2)
+  m_Name: Step-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -760,6 +761,7 @@ MonoBehaviour:
   Icon: {fileID: 1352486726}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
+  Message: Arma el pastel
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -771,7 +773,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Reposteria
+          m_StringArgument: ConstruccionPastel
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -788,6 +790,77 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.5
   m_Center: {x: 0.5, y: -1, z: 0}
+--- !u!114 &170578322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170578318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: CakeShop-2
+      Value: 1
+    - Key: CakeShopComplete
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 170578318}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: CakeShop-2
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 170578318}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: CakeShopComplete
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 170578318}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &171402075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,7 +1543,6 @@ GameObject:
   - component: {fileID: 446044896}
   - component: {fileID: 446044895}
   - component: {fileID: 446044894}
-  - component: {fileID: 446044893}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1496,18 +1568,6 @@ RectTransform:
   m_AnchoredPosition: {x: 77.5, y: -77.5}
   m_SizeDelta: {x: 115, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &446044893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446044891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a58f5067ff9e1aa41b5f5f75b9f7b660, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerSpeed: -1
 --- !u!95 &446044894
 Animator:
   serializedVersion: 3
@@ -1565,7 +1625,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 446044893}
+      - m_Target: {fileID: 1938247193}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -2243,6 +2303,7 @@ RectTransform:
   m_Children:
   - {fileID: 87998373}
   - {fileID: 446044892}
+  - {fileID: 1031687260}
   m_Father: {fileID: 1669958471}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3760,6 +3821,111 @@ Transform:
   m_Father: {fileID: 1760843581}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1031687259
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 694509875}
+    m_Modifications:
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0feeddd8068629d4a853e3ac7226f878, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!224 &1031687260 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+    type: 2}
+  m_PrefabInternal: {fileID: 1031687259}
 --- !u!1001 &1071667826
 Prefab:
   m_ObjectHideFlags: 0
@@ -5880,8 +6046,9 @@ GameObject:
   - component: {fileID: 1501248466}
   - component: {fileID: 1501248468}
   - component: {fileID: 1501248467}
+  - component: {fileID: 1501248469}
   m_Layer: 9
-  m_Name: Text (0)
+  m_Name: Setp-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5915,6 +6082,7 @@ MonoBehaviour:
   Icon: {fileID: 860734599}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
+  Message: Selecciona la mezcla
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5926,7 +6094,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Reposteria
+          m_StringArgument: SeleccionMasas
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -5943,6 +6111,37 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &1501248469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1501248465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: CakeShop-1
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1501248465}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1504237271
 Prefab:
   m_ObjectHideFlags: 0
@@ -6904,6 +7103,7 @@ MonoBehaviour:
   FollowSpeed: 5
   Min: {x: -4, y: 0, z: -4}
   Max: {x: 4, y: 0, z: 6.5}
+  Offset: {x: -5.17, y: 9.5, z: -4.9999995}
 --- !u!1 &1703976796
 GameObject:
   m_ObjectHideFlags: 0
@@ -7377,8 +7577,9 @@ GameObject:
   - component: {fileID: 1914314833}
   - component: {fileID: 1914314835}
   - component: {fileID: 1914314834}
+  - component: {fileID: 1914314836}
   m_Layer: 9
-  m_Name: Text (1)
+  m_Name: Step-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7412,6 +7613,7 @@ MonoBehaviour:
   Icon: {fileID: 1239238559}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
+  Message: Hornea
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -7423,7 +7625,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Reposteria
+          m_StringArgument: SeleccionHorno
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -7440,6 +7642,77 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &1914314836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1914314832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: CakeShop-1
+      Value: 1
+    - Key: CakeShop-2
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1914314832}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: CakeShop-1
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1914314832}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: CakeShop-2
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1914314832}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &1922927206
 GameObject:
   m_ObjectHideFlags: 0
@@ -7696,6 +7969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: -1
+  ScenePosition: []
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0
@@ -7724,7 +7998,7 @@ GameObject:
   - component: {fileID: 1959636887}
   - component: {fileID: 1959636886}
   m_Layer: 9
-  m_Name: Text (3)
+  m_Name: Calle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7758,6 +8032,7 @@ MonoBehaviour:
   Icon: {fileID: 458486849}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
+  Message: 
   ActionEvent:
     m_PersistentCalls:
       m_Calls:

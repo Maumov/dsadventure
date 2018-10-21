@@ -13,6 +13,11 @@ public class Helper : MonoBehaviour
         SceneLoader.LoadScene(scene);
     }
 
+    public void SetKey(string key)
+    {
+        DataManager.AddProgressKey(key);
+    }
+
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
