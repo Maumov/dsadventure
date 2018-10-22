@@ -57,10 +57,12 @@ public class BaseGame : MonoBehaviour
     IEnumerator InactivityCounter()
     {
         yield return inactivityTime;
-        ConversationUI.ShowText(FirstWarning);
+        SetControl(false);
+        ConversationUI.ShowText(FirstWarning, ()=> SetControl(true));
 
         yield return inactivityTime;
-        ConversationUI.ShowText(SecondWarning);
+        SetControl(false);
+        ConversationUI.ShowText(SecondWarning, () => SetControl(true));
 
         yield return inactivityTime;
         SceneLoader.LoadScene("Room");

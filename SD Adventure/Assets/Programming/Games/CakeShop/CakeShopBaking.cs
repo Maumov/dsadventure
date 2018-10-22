@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CakeShopBaking : BaseGame
 {
-
     [Header("Cake Shop")]
     public CakeOption[] Options;
     DragAndDrop control;
@@ -60,7 +59,7 @@ public class CakeShopBaking : BaseGame
         control.Active = sw;
     }
 
-    void Check()
+    void Check(GameObject go)
     {
         bool inPos;
 

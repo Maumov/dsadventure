@@ -57,7 +57,7 @@ public class CakeShopSelection : BaseGame
         control.Active = sw;
     }
 
-    void Check()
+    void Check(GameObject go)
     {
         bool correct = false;
         bool attempt = false;
