@@ -27,6 +27,7 @@ public class CakeShopBaking : BaseGame
         control.OnDrop += Check;
 
         Randomizer.Randomize(Options);
+        Debug.Log(DataManager.IsHardGame);
         if(DataManager.IsHardGame)
         {
             tutorial.TutorialText = HardConversation;
@@ -39,7 +40,7 @@ public class CakeShopBaking : BaseGame
         }
         else
         {
-            tutorial.TutorialText = HardConversation;
+            tutorial.TutorialText = EasyConversation;
             for(int i = 0; i < Options.Length; i++)
             {
                 Options[i].Option.transform.localScale = Scales[i];

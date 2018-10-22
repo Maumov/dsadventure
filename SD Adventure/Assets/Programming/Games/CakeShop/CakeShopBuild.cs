@@ -29,7 +29,7 @@ public class CakeShopBuild : BaseGame
         control.OnDrop += Check;
         control.OnDrag += Grab;
 
-        if(!DataManager.IsHardGame)
+        if(DataManager.IsHardGame)
         {
             tutorial.TutorialText = HardConversation;
             for(int i = 0; i < Options.Length; i++)
