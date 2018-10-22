@@ -39,7 +39,7 @@ public class CakeShopSelection : BaseGame
         }
         else
         {
-            tutorial.TutorialText = HardConversation;
+            tutorial.TutorialText = EasyConversation;
             for(int i = 0; i < Options.Length; i++)
                 Options[i].Option.transform.localScale = Vector3.one * Scales[i];
         }
@@ -60,26 +60,28 @@ public class CakeShopSelection : BaseGame
     void Check()
     {
         bool correct = false;
-        bool attemp = false;
+        bool attempt = false;
         for(int i = 0; i < Options.Length; i++)
         {
             if(Container.bounds.Contains(Options[i].Option.transform.position))
             {
                 if(i == Options.Length - 1)
                     correct = true;
-                attemp = true;
+                attempt = true;
             }
             else
                 Options[i].Option.transform.position = startPos[i];
         }
 
-        if(attemp)
+        if(attempt)
         {
             control.Active = false;
             if(correct)
                 ConversationUI.ShowText(GoodText, Win);
             else
                 ConversationUI.ShowText(WrongText, ResetLevel);
+
+            EnableCompleteButton();
         }
     }
 
@@ -94,10 +96,10 @@ public class CakeShopSelection : BaseGame
         SceneLoader.LoadScene(BaseScene);
     }
 
-    [System.Serializable]
-    public struct CakeOption
-    {
-        public GameObject Option;
-        public TextMesh Text;
-    }
+}
+[System.Serializable]
+public struct CakeOption
+{
+    public GameObject Option;
+    public TextMesh Text;
 }
