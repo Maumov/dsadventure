@@ -19,6 +19,8 @@ public class DragAndDrop : MonoBehaviour
     public LayerMask PickLayer;
     public LayerMask DragLayer;
 
+    public event System.Action OnDrop;
+
     public virtual void Start()
     {
         Cam = GetComponent<Camera>();
@@ -41,7 +43,8 @@ public class DragAndDrop : MonoBehaviour
                     dragCollider = hit.collider;
                     dragRigidbody = hit.rigidbody;
                     dragCollider.enabled = false;
-                    dragRigidbody.isKinematic = true;
+                    if(dragRigidbody != null)
+                        dragRigidbody.isKinematic = true;
                     BeginDrag();
                 }
             }
@@ -63,10 +66,14 @@ public class DragAndDrop : MonoBehaviour
     public virtual void Drop()
     {
         dragCollider.enabled = true;
-        dragRigidbody.isKinematic = false;
+        if(dragRigidbody != null)
+            dragRigidbody.isKinematic = false;
         dragObject = null;
         dragCollider = null;
         dragRigidbody = null;
+
+        if(OnDrop != null)
+            OnDrop();
     }
 
     public virtual void BeginDrag()
