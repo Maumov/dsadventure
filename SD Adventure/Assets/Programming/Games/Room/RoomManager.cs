@@ -6,8 +6,12 @@ using UnityEngine.Events;
 public class RoomManager : MonoBehaviour
 {
     public KeyConversation[] Conversations;
+    public ConversationData WellDoneText;
+    public ConversationData FailText;
     PlayerController player;
     int current;
+    bool feedback;
+
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
@@ -21,6 +25,18 @@ public class RoomManager : MonoBehaviour
             if(DataManager.CheckProgressKey(Conversations[i].Keys.Key) == Conversations[i].Keys.Value)
             {
                 player.ControlState = false;
+                if(!feedback && SceneLoader.LastScene.Contains("Game") && i > 2)
+                {
+                    bool sw = false;
+                    DataManager.ProgressKeyValue(Conversations[i - 1].Keys.Key, out sw);
+                    if(sw)
+                        ConversationUI.ShowText(WellDoneText, ShowConversations);
+                    else
+                        ConversationUI.ShowText(FailText, ShowConversations);
+                    feedback = true;
+                    return;
+                }
+
                 current = i;
                 ConversationUI.ShowText(Conversations[i].Message, () =>
                 {

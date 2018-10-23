@@ -17,11 +17,14 @@ public class ConversationUI : MonoBehaviour
     WaitForSeconds charWait = new WaitForSeconds(0.05f);
 
     static ConversationUI instance;
+    public TextAsset ConversationKeys;
+    ConversationData[] allConversations;
 
     void Awake()
     {
         instance = this;
         Content.SetActive(false);
+        allConversations = JsonUtility.FromJson<ConversationKeyJson>(ConversationKeys.text).Conversations;
     }
 
     public void Next(int direction)
@@ -50,6 +53,8 @@ public class ConversationUI : MonoBehaviour
     {
         string displayText;
         NextButton.sprite = Arrow;
+
+        msg = GetConversation(msg);
 
         for(int i = 0; i < msg.Pages.Length; i++)
         {
@@ -96,7 +101,15 @@ public class ConversationUI : MonoBehaviour
             onFinish();
     }
 
+    ConversationData GetConversation(ConversationData cd)
+    {
+        for(int i = 0; i < allConversations.Length; i++)
+            if(allConversations[i].Name.Equals(cd.Name))
+                return allConversations[i];
 
+        cd.Pages = new string[] { cd.Name };
+        return cd;
+    }
 }
 
 [System.Serializable]
@@ -104,4 +117,10 @@ public class ConversationData
 {
     public string Name;
     public string[] Pages;
+}
+
+[System.Serializable]
+public class ConversationKeyJson
+{
+    public ConversationData[] Conversations;
 }

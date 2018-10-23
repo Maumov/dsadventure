@@ -13102,9 +13102,9 @@ MonoBehaviour:
       Key: MomCinematic
       Value: 0
     Message:
-      Name: MomCinematic
+      Name: MomText-1
       Pages:
-      - Hola hijo ya viene tu amiga, ordena tu cuarto
+      - MomText-1
     AutoComplete: 1
     OnFinish:
       m_PersistentCalls:
@@ -13126,10 +13126,9 @@ MonoBehaviour:
       Key: FriendText1
       Value: 0
     Message:
-      Name: FriendText1
+      Name: FriendText-1
       Pages:
-      - Hagamos una competencia de ordenar
-      - Empieza ordenando los carros
+      - FriendText-1
     AutoComplete: 1
     OnFinish:
       m_PersistentCalls:
@@ -13142,7 +13141,7 @@ MonoBehaviour:
     Message:
       Name: PlayCarGame
       Pages:
-      - Empieza ordenando los carros
+      - Ordena los carros
     AutoComplete: 0
     OnFinish:
       m_PersistentCalls:
@@ -13155,7 +13154,7 @@ MonoBehaviour:
     Message:
       Name: PlayCubesGame
       Pages:
-      - Ahora ordena los cubos
+      - PlayCubesGame
     AutoComplete: 0
     OnFinish:
       m_PersistentCalls:
@@ -13168,7 +13167,7 @@ MonoBehaviour:
     Message:
       Name: PlayDicesGame
       Pages:
-      - Sigue con los dados
+      - PlayDicesGame
     AutoComplete: 0
     OnFinish:
       m_PersistentCalls:
@@ -13181,7 +13180,7 @@ MonoBehaviour:
     Message:
       Name: PlayToysGame
       Pages:
-      - Acomoda los juguetes
+      - PlayToysGame
     AutoComplete: 0
     OnFinish:
       m_PersistentCalls:
@@ -13194,7 +13193,7 @@ MonoBehaviour:
     Message:
       Name: PlayBasketGame
       Pages:
-      - Guarda los balones
+      - PlayBasketGame
     AutoComplete: 0
     OnFinish:
       m_PersistentCalls:
@@ -13207,13 +13206,19 @@ MonoBehaviour:
     Message:
       Name: GoToStreet
       Pages:
-      - Ahora vayamos afuera
+      - GoToStreet
     AutoComplete: 0
     OnFinish:
       m_PersistentCalls:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  WellDoneText:
+    Name: RoomWellDone
+    Pages: []
+  FailText:
+    Name: RoomFail
+    Pages: []
 --- !u!1 &1955225613
 GameObject:
   m_ObjectHideFlags: 0
