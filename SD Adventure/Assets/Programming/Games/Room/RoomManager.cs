@@ -6,8 +6,10 @@ using UnityEngine.Events;
 public class RoomManager : MonoBehaviour
 {
     public KeyConversation[] Conversations;
-    public ConversationData WellDoneText;
-    public ConversationData FailText;
+    public ConversationData[] WellDone;
+    public ConversationData[] Fail;
+    public ConversationData TryAgain;
+    public ConversationData WellcomeBack;
     PlayerController player;
     int current;
     bool feedback;
@@ -25,16 +27,52 @@ public class RoomManager : MonoBehaviour
             if(DataManager.CheckProgressKey(Conversations[i].Keys.Key) == Conversations[i].Keys.Value)
             {
                 player.ControlState = false;
-                if(!feedback && SceneLoader.LastScene.Contains("Game") && i > 2)
+                //if(!feedback && SceneLoader.LastScene.Contains("Game"))
+                //{
+                //    if(BaseGame.Quit)
+                //    {
+                //        BaseGame.Quit = false;
+                //        ConversationUI.ShowText(TryAgain, ShowConversations);
+                //        return;
+                //    }
+
+                //    bool sw = false;
+                //    DataManager.ProgressKeyValue(Conversations[i - 1].Keys.Key, out sw);
+                //    if(sw)
+                //        ConversationUI.ShowText(WellDone[i-1], ShowConversations);
+                //    else
+                //        ConversationUI.ShowText(Fail[i-1], ShowConversations);
+                //    feedback = true;
+                //    return;
+                //}
+
+                if(!feedback)
                 {
-                    bool sw = false;
-                    DataManager.ProgressKeyValue(Conversations[i - 1].Keys.Key, out sw);
-                    if(sw)
-                        ConversationUI.ShowText(WellDoneText, ShowConversations);
-                    else
-                        ConversationUI.ShowText(FailText, ShowConversations);
                     feedback = true;
-                    return;
+                    if(SceneLoader.LastScene.Contains("Game"))
+                    {
+                        if(BaseGame.Quit)
+                        {
+                            BaseGame.Quit = false;
+                            ConversationUI.ShowText(TryAgain, ShowConversations);
+                            return;
+                        }
+                        else
+                        {
+                            bool sw = false;
+                            DataManager.ProgressKeyValue(Conversations[i - 1].Keys.Key, out sw);
+                            if(sw)
+                                ConversationUI.ShowText(WellDone[i - 1], ShowConversations);
+                            else
+                                ConversationUI.ShowText(Fail[i - 1], ShowConversations);
+                            return;
+                        }
+                    }
+                    else if(i > 0)
+                    {
+                        ConversationUI.ShowText(WellcomeBack, ShowConversations);
+                        return;
+                    }
                 }
 
                 current = i;

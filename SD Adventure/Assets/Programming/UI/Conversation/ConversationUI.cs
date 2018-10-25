@@ -20,6 +20,8 @@ public class ConversationUI : MonoBehaviour
     public TextAsset ConversationKeys;
     ConversationData[] allConversations;
 
+    const string playerName = "<nombre>";
+
     void Awake()
     {
         instance = this;
@@ -53,7 +55,6 @@ public class ConversationUI : MonoBehaviour
     {
         string displayText;
         NextButton.sprite = Arrow;
-
         msg = GetConversation(msg);
 
         for(int i = 0; i < msg.Pages.Length; i++)
@@ -61,6 +62,9 @@ public class ConversationUI : MonoBehaviour
             BackButton.SetActive(i != 0);
             writing = true;
             displayText = string.Empty;
+
+            msg.Pages[i] = msg.Pages[i].Replace(playerName, DataManager.GetSelectedFile().FileName);
+
             for(int j = 0; j < msg.Pages[i].Length && writing; j++)
             {
                 displayText = string.Concat(displayText, msg.Pages[i][j]);
@@ -104,7 +108,7 @@ public class ConversationUI : MonoBehaviour
     ConversationData GetConversation(ConversationData cd)
     {
         for(int i = 0; i < allConversations.Length; i++)
-            if(allConversations[i].Name.Equals(cd.Name))
+            if(allConversations[i].Name.Equals(cd.Name) && allConversations[i].Pages != null && !string.IsNullOrEmpty(allConversations[i].Pages[0]))
                 return allConversations[i];
 
         cd.Pages = new string[] { cd.Name };

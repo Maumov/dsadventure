@@ -12,7 +12,8 @@ public class BaseGame : MonoBehaviour
     public ConversationData SecondWarning;
     public string BaseScene = "Room";
 
-    WaitForSeconds inactivityTime = new WaitForSeconds(100);
+    WaitForSeconds inactivityTime = new WaitForSeconds(5);
+    public static bool Quit;
 
     protected virtual void Start()
     {
@@ -65,12 +66,13 @@ public class BaseGame : MonoBehaviour
         ConversationUI.ShowText(SecondWarning, () => SetControl(true));
 
         yield return inactivityTime;
+        Quit = true;
         SceneLoader.LoadScene("Room");
-        Debug.Log("AFK");
     }
 
     public void Back()
     {
+        Quit = true;
         SceneLoader.LoadScene("Room");
     }
 
