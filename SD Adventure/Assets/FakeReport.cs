@@ -18,6 +18,11 @@ public class FakeReport : MonoBehaviour
 
     private void Start()
     {
+        Refresh();
+    }
+
+    public void Refresh()
+    {
         int k = -2;
         T.text = string.Empty;
         for(int i = 0; i < Keys.Length; i++)
@@ -26,6 +31,8 @@ public class FakeReport : MonoBehaviour
             k++;
             T.text += Keys[i].GameName + ": " + LevelsText[k] + "\n";
         }
+
+        T.text += "Dificultad: " + LevelsText[DataManager.GetSelectedFile().GameDifficult + 1];
     }
 
 }

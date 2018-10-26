@@ -14,9 +14,15 @@ public class RoomManager : MonoBehaviour
     int current;
     bool feedback;
 
+    public string[] GameKeys;
+    int[] gameValues;
+    bool breakRoom;
+
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        if(DataManager.GetSelectedFile().GameDifficult == -1)
+            Evaluate();
         ShowConversations();
     }
 
@@ -71,6 +77,97 @@ public class RoomManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    void Evaluate()
+    {
+        gameValues = new int[GameKeys.Length];
+        for(int i = 0; i < GameKeys.Length; i++)
+            DataManager.ProgressKeyValue(GameKeys[i], out gameValues[i]);
+
+        int temp;
+        int last;
+
+        #region First Rule
+
+        temp = 0;
+        last = -100;
+        for(int i = 0; i < gameValues.Length; i++)
+        {
+            if(gameValues[i] == 2)
+                temp++;
+        }
+
+        if(temp > 2)
+        {
+            DataManager.SetGameDifficult(2);
+            breakRoom = true;
+            return;
+        }
+
+        #endregion
+
+        #region Second Rule
+
+        temp = 0;
+        last = -100;
+        for(int i = 0; i < gameValues.Length; i++)
+        {
+            if(gameValues[i] == 1 && last == 1)
+            {
+                DataManager.SetGameDifficult(1);
+                breakRoom = true;
+                return;
+            }
+
+            last = gameValues[i];
+        }
+
+        #endregion
+
+        #region Third Rule
+
+        temp = 0;
+        last = -100;
+        for(int i = 0; i < gameValues.Length; i++)
+        {
+            if(gameValues[i] == 0 && last == 0)
+            {
+                DataManager.SetGameDifficult(0);
+                breakRoom = true;
+                return;
+            }
+            last = gameValues[i];
+        }
+
+        #endregion
+
+        #region Fourth Rule
+
+        temp = 0;
+        last = 0;
+        for(int i = 0; i < gameValues.Length; i++)
+        {
+            if(gameValues[i] == 1)
+                temp++;
+            if(gameValues[i] == 0)
+                last++;
+        }
+
+        if(temp + last > 2)
+        {
+            if(last > temp)
+                DataManager.SetGameDifficult(0);
+            else
+                DataManager.SetGameDifficult(1);
+            breakRoom = true;
+            return;
+        }
+
+        #endregion
+
+
+
     }
 
 

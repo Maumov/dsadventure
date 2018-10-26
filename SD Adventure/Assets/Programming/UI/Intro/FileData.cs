@@ -20,7 +20,7 @@ public class DataManager
         get
         {
             Check();
-            return Data.GameFiles[selectedFile].HardGame;
+            return Data.GameFiles[selectedFile].GameDifficult == 2;
         }
     }
 
@@ -50,7 +50,7 @@ public class DataManager
         return Data.GameFiles[selectedFile].GetKeyValue(key, out value);
     }
 
-    public static void SetAsHardGame()
+    public static void SetGameDifficult(int i)
     {
         Check();
         //bool total = false, current = false;
@@ -67,7 +67,8 @@ public class DataManager
         //if(total)
         //    Data.GameFiles[selectedFile].HardGame = true;
 
-        Data.GameFiles[selectedFile].HardGame = false;
+        Data.GameFiles[selectedFile].GameDifficult = i;
+        Debug.Log("Game difficutl set to " + i);
         Save();
     }
 
@@ -137,7 +138,7 @@ public class FileData
     public string FileName;
     public int AvatarId;
     public string LastScene;
-    public bool HardGame;
+    public int GameDifficult = -1;
     public List<ProgressKey> ProgressKeys = new List<ProgressKey>();
 
     public bool CheckKey(string k)

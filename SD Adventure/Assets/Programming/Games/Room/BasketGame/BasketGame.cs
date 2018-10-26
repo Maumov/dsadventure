@@ -110,7 +110,6 @@ public class BasketGame : BaseGame
             Debug.Log("N/A");
             DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 0);
         }
-        DataManager.SetAsHardGame();
     }
 
     private void Update()
