@@ -27,24 +27,6 @@ public class RoomManager : MonoBehaviour
             if(DataManager.CheckProgressKey(Conversations[i].Keys.Key) == Conversations[i].Keys.Value)
             {
                 player.ControlState = false;
-                //if(!feedback && SceneLoader.LastScene.Contains("Game"))
-                //{
-                //    if(BaseGame.Quit)
-                //    {
-                //        BaseGame.Quit = false;
-                //        ConversationUI.ShowText(TryAgain, ShowConversations);
-                //        return;
-                //    }
-
-                //    bool sw = false;
-                //    DataManager.ProgressKeyValue(Conversations[i - 1].Keys.Key, out sw);
-                //    if(sw)
-                //        ConversationUI.ShowText(WellDone[i-1], ShowConversations);
-                //    else
-                //        ConversationUI.ShowText(Fail[i-1], ShowConversations);
-                //    feedback = true;
-                //    return;
-                //}
 
                 if(!feedback)
                 {
@@ -59,9 +41,9 @@ public class RoomManager : MonoBehaviour
                         }
                         else
                         {
-                            bool sw = false;
+                            int sw = -1;
                             DataManager.ProgressKeyValue(Conversations[i - 1].Keys.Key, out sw);
-                            if(sw)
+                            if(sw == 2)
                                 ConversationUI.ShowText(WellDone[i - 1], ShowConversations);
                             else
                                 ConversationUI.ShowText(Fail[i - 1], ShowConversations);
@@ -79,7 +61,7 @@ public class RoomManager : MonoBehaviour
                 ConversationUI.ShowText(Conversations[i].Message, () =>
                 {
                     if(Conversations[current].AutoComplete)
-                        DataManager.AddProgressKey(Conversations[current].Keys.Key, true);
+                        DataManager.AddProgressKey(Conversations[current].Keys.Key, 1);
 
                     player.ControlState = true;
 

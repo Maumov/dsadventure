@@ -10,6 +10,7 @@ public class CubesGame : BaseGame
     public Material[] Ids;
     DragAndDrop control;
 
+    public int[] CheckValue;
     protected override void Start()
     {
         base.Start();
@@ -57,15 +58,20 @@ public class CubesGame : BaseGame
             CheckContainer(i, ref hits);
 
 
-        if(hits == Cubes.Length)
+        if(hits > CheckValue[0])
         {
-            Debug.Log("Win");
-            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, true);
+            Debug.Log("Avanzado");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 2);
+        }
+        else if(hits > CheckValue[1])
+        {
+            Debug.Log("Aprendiz");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 1);
         }
         else
         {
-            Debug.Log("Lose");
-            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, false);
+            Debug.Log("N/A");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 0);
         }
     }
 

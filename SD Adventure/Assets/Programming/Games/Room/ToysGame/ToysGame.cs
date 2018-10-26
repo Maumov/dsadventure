@@ -12,9 +12,9 @@ public class ToysGame : CubesGame
 
     protected override void Initialize()
     {
-        max = Random.Range((int)(Cubes.Length * 0.75f), Cubes.Length - 1);
-        amounts[0] = Random.Range(1, max);
-        amounts[1] = Random.Range(1, max - amounts[0]);
+        max = Random.Range((int)(Cubes.Length * 0.8f), Cubes.Length - 1);
+        amounts[0] = Random.Range(1, (int)(max * 0.8f));
+        amounts[1] = Random.Range(1, max - amounts[0] - 1);
         amounts[2] = max - amounts[0] - amounts[1];
 
         for(int i = 0; i < Containers.Length; i++)
@@ -25,15 +25,27 @@ public class ToysGame : CubesGame
 
     protected override void CompleteValidations()
     {
-        if(CheckContainers(0) && CheckContainers(1) && CheckContainers(2))
+        int hits = 0;
+        for(int i = 0; i < 3; i++)
         {
-            Debug.Log("Win");
-            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, true);
+            if(CheckContainers(i))
+                hits++;
+        }
+
+        if(hits > 1)
+        {
+            Debug.Log("Avanzado");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 2);
+        }
+        else if(hits > 0)
+        {
+            Debug.Log("Aprendiz");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 1);
         }
         else
         {
-            Debug.Log("Lose");
-            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, false);
+            Debug.Log("N/A");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 0);
         }
     }
 

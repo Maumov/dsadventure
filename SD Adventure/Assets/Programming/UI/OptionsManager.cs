@@ -49,7 +49,7 @@ public class OptionsManager : GenericMenu
             DontDestroyOnLoad(transform.parent.parent.gameObject);
         }
         else
-            Destroy(gameObject);
+            Destroy(transform.parent.parent.gameObject);
 
         Load();
         SceneManager.sceneLoaded += OnSceneLoaded;

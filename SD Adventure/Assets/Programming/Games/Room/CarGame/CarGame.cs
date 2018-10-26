@@ -93,13 +93,18 @@ public class CarGame : BaseGame
 
         if(upwards == 5 || downwards == 5)
         {
-            Debug.Log("Win");
-            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, true);
+            Debug.Log("Avanzado");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 2);
+        }
+        else if(upwards > 0 || downwards > 0)
+        {
+            Debug.Log("Aprendiz");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 1);
         }
         else
         {
-            Debug.Log("Lose");
-            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, false);
+            Debug.Log("N/A");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 0);
         }
     }
 }

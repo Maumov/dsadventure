@@ -12,7 +12,7 @@ public class BaseGame : MonoBehaviour
     public ConversationData SecondWarning;
     public string BaseScene = "Room";
 
-    WaitForSeconds inactivityTime = new WaitForSeconds(5);
+    WaitForSeconds inactivityTime = new WaitForSeconds(30);
     public static bool Quit;
 
     protected virtual void Start()

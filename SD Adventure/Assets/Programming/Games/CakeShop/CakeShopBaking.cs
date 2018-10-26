@@ -126,8 +126,8 @@ public class CakeShopBaking : BaseGame
 
     void Win()
     {
-        DataManager.AddProgressKey("CakeShop-2", true);
-        DataManager.AddProgressKey("PetShopOpen", true);
+        DataManager.AddProgressKey("CakeShop-2", 1);
+        DataManager.AddProgressKey("PetShopOpen", 1);
         SceneLoader.LoadScene(BaseScene);
     }
 

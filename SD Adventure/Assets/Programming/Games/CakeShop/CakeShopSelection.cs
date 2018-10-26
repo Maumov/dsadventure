@@ -92,7 +92,7 @@ public class CakeShopSelection : BaseGame
 
     void Win()
     {
-        DataManager.AddProgressKey("CakeShop-1", true);
+        DataManager.AddProgressKey("CakeShop-1", 1);
         SceneLoader.LoadScene(BaseScene);
     }
 

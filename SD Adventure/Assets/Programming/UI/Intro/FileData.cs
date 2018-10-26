@@ -30,7 +30,7 @@ public class DataManager
         return Data.GameFiles[selectedFile];
     }
 
-    public static void AddProgressKey(string key, bool value = false)
+    public static void AddProgressKey(string key, int value = 0)
     {
         Check();
         if(!Data.GameFiles[selectedFile].CheckKey(key))
@@ -44,28 +44,30 @@ public class DataManager
         return Data.GameFiles[selectedFile].CheckKey(key);
     }
 
-    public static bool ProgressKeyValue(string key, out bool sw)
+    public static bool ProgressKeyValue(string key, out int value)
     {
         Check();
-        return Data.GameFiles[selectedFile].GetKeyValue(key, out sw);
+        return Data.GameFiles[selectedFile].GetKeyValue(key, out value);
     }
 
     public static void SetAsHardGame()
     {
         Check();
-        bool total = false, current = false;
-        string[] gamesKeys = new string[] { "CarGame", "CubesGame", "DicesGame", "ToysGame", "BasketGame" };
-        for(int i = 0; i < gamesKeys.Length; i++)
-        {
-            ProgressKeyValue(gamesKeys[i], out current);
+        //bool total = false, current = false;
+        //string[] gamesKeys = new string[] { "CarGame", "CubesGame", "DicesGame", "ToysGame", "BasketGame" };
+        //for(int i = 0; i < gamesKeys.Length; i++)
+        //{
+        //    ProgressKeyValue(gamesKeys[i], out current);
 
-            if(i == 0)
-                total = current;
-            else
-                total = current && total;
-        }
-        if(total)
-            Data.GameFiles[selectedFile].HardGame = true;
+        //    if(i == 0)
+        //        total = current;
+        //    else
+        //        total = current && total;
+        //}
+        //if(total)
+        //    Data.GameFiles[selectedFile].HardGame = true;
+
+        Data.GameFiles[selectedFile].HardGame = false;
         Save();
     }
 
@@ -149,23 +151,23 @@ public class FileData
         return false;
     }
 
-    public void AddKey(string k, bool sw)
+    public void AddKey(string k, int v)
     {
-        ProgressKeys.Add(new ProgressKey(k, sw));
+        ProgressKeys.Add(new ProgressKey(k, v));
     }
 
-    public bool GetKeyValue(string key, out bool sw)
+    public bool GetKeyValue(string key, out int v)
     {
         for(int i = 0; i < ProgressKeys.Count; i++)
         {
             if(ProgressKeys[i].Key.Equals(key))
             {
-                sw = ProgressKeys[i].Value;
+                v = ProgressKeys[i].Value;
                 return true;
             }
         }
 
-        sw = false;
+        v = -1;
         return false;
     }
 }
@@ -174,11 +176,11 @@ public class FileData
 public class ProgressKey
 {
     public string Key;
-    public bool Value;
+    public int Value;
 
-    public ProgressKey(string k, bool sw)
+    public ProgressKey(string k, int v)
     {
         Key = k;
-        Value = sw;
+        Value = v;
     }
 }

@@ -134,7 +134,7 @@ public class CakeShopBuild : BaseGame
 
     void Win()
     {
-        DataManager.AddProgressKey("CakeShopComplete", true);
+        DataManager.AddProgressKey("CakeShopComplete", 1);
         SceneLoader.LoadScene(BaseScene);
     }
 }
