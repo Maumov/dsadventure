@@ -86,7 +86,7 @@ public class CubesGame : BaseGame
 
     public void CubeDrop()
     {
-        EnableCompleteButton();
+        ImportantAction();
     }
 
     public override void SetControl(bool sw)

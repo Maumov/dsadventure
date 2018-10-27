@@ -81,7 +81,7 @@ public class CakeShopSelection : BaseGame
             else
                 ConversationUI.ShowText(WrongText, ResetLevel);
 
-            EnableCompleteButton();
+            ImportantAction();
         }
     }
 

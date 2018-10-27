@@ -48,9 +48,10 @@ public class BasketGame : BaseGame
 
     void SetQuestion()
     {
-        if(tries > 5)
+        if(tries > 4)
         {
             Complete();
+            enableControls = false;
             return;
         }
 
@@ -135,7 +136,7 @@ public class BasketGame : BaseGame
     void CheckAnswer()
     {
         UIContent.SetActive(false);
-        EnableCompleteButton();
+        ImportantAction();
         CompleteButton.SetActive(false);
 
         tries++;

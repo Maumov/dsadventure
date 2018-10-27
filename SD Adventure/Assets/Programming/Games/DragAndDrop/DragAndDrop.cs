@@ -24,6 +24,7 @@ public class DragAndDrop : MonoBehaviour
     public event System.Action<GameObject> OnDrop;
     public event System.Action<GameObject> OnDrag;
 
+    Vector2 dragStartPos;
     public virtual void Start()
     {
         Cam = GetComponent<Camera>();
@@ -71,6 +72,8 @@ public class DragAndDrop : MonoBehaviour
         if(OnDrop != null)
             OnDrop(dragObject);
 
+        StatsHandler.Instance.AddDrag(dragObject.name, dragStartPos, mousePos);
+
         dragCollider.enabled = true;
         if(dragRigidbody != null)
             dragRigidbody.isKinematic = false;
@@ -81,6 +84,7 @@ public class DragAndDrop : MonoBehaviour
 
     public virtual void BeginDrag()
     {
+        dragStartPos = mousePos;
         if(OnDrag != null)
             OnDrag(dragObject);
     }

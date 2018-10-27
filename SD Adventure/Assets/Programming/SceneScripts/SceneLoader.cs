@@ -11,6 +11,7 @@ public class SceneLoader : MonoBehaviour
 
     WaitForSeconds loadDelay = new WaitForSeconds(0.5f);
     public static string LastScene = string.Empty;
+    public static string CurrentScene = string.Empty;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class SceneLoader : MonoBehaviour
         Fade.alpha = 0;
         Content.SetActive(true);
         LastScene = SceneManager.GetActiveScene().name;
+        CurrentScene = scene;
 
         yield return StartCoroutine(FadeAnimation(0, 1));
         yield return loadDelay;

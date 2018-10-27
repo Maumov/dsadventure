@@ -71,7 +71,7 @@ public class CakeShopBuild : BaseGame
                 currentOrder[i].layer = 2;
             go.layer = 10;
             Table.layer = 2;
-            EnableCompleteButton();
+            ImportantAction();
         }
         else
         {

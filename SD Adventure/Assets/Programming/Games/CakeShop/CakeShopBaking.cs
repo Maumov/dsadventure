@@ -74,7 +74,7 @@ public class CakeShopBaking : BaseGame
                     Options[i].Option.transform.position = Containers[j].transform.position;
                     Containers[j].enabled = false;
                     inPos = true;
-                    EnableCompleteButton();
+                    ImportantAction();
                     break;
                 }
                 if(Containers[j].transform.position == Options[i].Option.transform.position)

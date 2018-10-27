@@ -35,13 +35,16 @@ public class BaseGame : MonoBehaviour
     public virtual void StartGame()
     {
         enableControls = true;
+        StatsHandler.Instance.Create();
         StartCoroutine(InactivityCounter());
     }
 
-    protected void EnableCompleteButton()
+    protected void ImportantAction()
     {
-        if(CompleteButton != null)
+        if(CompleteButton != null && !CompleteButton.activeInHierarchy)
             CompleteButton.SetActive(true);
+
+        StatsHandler.Instance.AddAction();
         StopAllCoroutines();
         StartCoroutine(InactivityCounter());
     }
@@ -49,6 +52,7 @@ public class BaseGame : MonoBehaviour
     public virtual void Complete()
     {
         CompleteValidations();
+        StatsHandler.Instance.Send(GameStats.FinishType.Complete);
         SceneLoader.LoadScene(BaseScene);
     }
 
@@ -59,7 +63,7 @@ public class BaseGame : MonoBehaviour
     {
         yield return inactivityTime;
         SetControl(false);
-        ConversationUI.ShowText(FirstWarning, ()=> SetControl(true));
+        ConversationUI.ShowText(FirstWarning, () => SetControl(true));
 
         yield return inactivityTime;
         SetControl(false);
@@ -67,12 +71,14 @@ public class BaseGame : MonoBehaviour
 
         yield return inactivityTime;
         Quit = true;
+        StatsHandler.Instance.Send(GameStats.FinishType.Afk);
         SceneLoader.LoadScene("Room");
     }
 
     public void Back()
     {
         Quit = true;
+        StatsHandler.Instance.Send(GameStats.FinishType.Quit);
         SceneLoader.LoadScene("Room");
     }
 
