@@ -59,7 +59,8 @@ public class CarGame : BaseGame
 
         if(Input.GetMouseButtonUp(0))
         {
-            StatsHandler.Instance.AddDrag(current.name, dragStartPos, Input.mousePosition);
+            if(current != null)
+                StatsHandler.Instance.AddDrag(current.name, dragStartPos, Input.mousePosition);
             current = null;
             Mark.gameObject.SetActive(false);
         }
