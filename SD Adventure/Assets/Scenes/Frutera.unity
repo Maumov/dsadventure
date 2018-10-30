@@ -1893,6 +1893,7 @@ GameObject:
   - component: {fileID: 366596873}
   - component: {fileID: 366596875}
   - component: {fileID: 366596874}
+  - component: {fileID: 366596876}
   m_Layer: 9
   m_Name: Text (2)
   m_TagString: Untagged
@@ -1928,7 +1929,7 @@ MonoBehaviour:
   Icon: {fileID: 247788853}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
-  Message: 
+  Message: Marca Pilas
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1940,7 +1941,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CubesGame
+          m_StringArgument: CuentaMarcaPilas
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -1957,6 +1958,56 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &366596876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366596872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: FruitShop-2
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 366596872}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: FruitShopComplete
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 366596872}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &370923562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5138,6 +5189,7 @@ RectTransform:
   m_Children:
   - {fileID: 87998373}
   - {fileID: 446044892}
+  - {fileID: 1321217122}
   m_Father: {fileID: 1669958471}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9342,6 +9394,11 @@ Transform:
   m_Father: {fileID: 2101959344}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0.83000004, z: 0}
+--- !u!224 &1321217122 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+    type: 2}
+  m_PrefabInternal: {fileID: 1711782413}
 --- !u!1001 &1337029773
 Prefab:
   m_ObjectHideFlags: 0
@@ -10274,6 +10331,7 @@ GameObject:
   - component: {fileID: 1501248466}
   - component: {fileID: 1501248468}
   - component: {fileID: 1501248467}
+  - component: {fileID: 1501248469}
   m_Layer: 9
   m_Name: Text (0)
   m_TagString: Untagged
@@ -10309,7 +10367,7 @@ MonoBehaviour:
   Icon: {fileID: 860734599}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
-  Message: 
+  Message: Cuenta Canasta
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -10321,7 +10379,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CarGame
+          m_StringArgument: CuentaCanasta
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -10338,6 +10396,37 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &1501248469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1501248465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: FruitShop-1
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1501248465}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1504237271
 Prefab:
   m_ObjectHideFlags: 0
@@ -10395,6 +10484,7 @@ GameObject:
   - component: {fileID: 1550297126}
   - component: {fileID: 1550297128}
   - component: {fileID: 1550297127}
+  - component: {fileID: 1550297129}
   m_Layer: 9
   m_Name: Text (1)
   m_TagString: Untagged
@@ -10430,7 +10520,7 @@ MonoBehaviour:
   Icon: {fileID: 765039067}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
-  Message: 
+  Message: Cuenta Tipo Fruta
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -10442,7 +10532,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: DicesGame
+          m_StringArgument: CuentaTipoFruta
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -10459,6 +10549,56 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &1550297129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1550297125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd619e32d88d94ba0f4d7080f5ada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Keys:
+    - Key: FruitShop-1
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1550297125}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: FruitShop-2
+      Value: 1
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1550297125}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &1552716071
 GameObject:
   m_ObjectHideFlags: 0
@@ -11057,6 +11197,106 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1688059526}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1711782413
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 694509875}
+    m_Modifications:
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443066455344976, guid: 0feeddd8068629d4a853e3ac7226f878,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0feeddd8068629d4a853e3ac7226f878, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1715220021
 GameObject:
   m_ObjectHideFlags: 0
@@ -13539,7 +13779,7 @@ MonoBehaviour:
   Icon: {fileID: 458486849}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
-  Message: 
+  Message: Calle
   ActionEvent:
     m_PersistentCalls:
       m_Calls:
