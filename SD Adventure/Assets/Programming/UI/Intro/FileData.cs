@@ -20,7 +20,7 @@ public class DataManager
         get
         {
             Check();
-            return Data.GameFiles[selectedFile].HardGame;
+            return Data.GameFiles[selectedFile].GameDifficult == 2;
         }
     }
 
@@ -30,7 +30,7 @@ public class DataManager
         return Data.GameFiles[selectedFile];
     }
 
-    public static void AddProgressKey(string key, bool value = false)
+    public static void AddProgressKey(string key, int value = 0)
     {
         Check();
         if(!Data.GameFiles[selectedFile].CheckKey(key))
@@ -44,28 +44,16 @@ public class DataManager
         return Data.GameFiles[selectedFile].CheckKey(key);
     }
 
-    public static bool ProgressKeyValue(string key, out bool sw)
+    public static bool ProgressKeyValue(string key, out int value)
     {
         Check();
-        return Data.GameFiles[selectedFile].GetKeyValue(key, out sw);
+        return Data.GameFiles[selectedFile].GetKeyValue(key, out value);
     }
 
-    public static void SetAsHardGame()
+    public static void SetGameDifficult(int i)
     {
         Check();
-        bool total = false, current = false;
-        string[] gamesKeys = new string[] { "CarGame", "CubesGame", "DicesGame", "ToysGame", "BasketGame" };
-        for(int i = 0; i < gamesKeys.Length; i++)
-        {
-            ProgressKeyValue(gamesKeys[i], out current);
-
-            if(i == 0)
-                total = current;
-            else
-                total = current && total;
-        }
-        if(total)
-            Data.GameFiles[selectedFile].HardGame = true;
+        Data.GameFiles[selectedFile].GameDifficult = i;
         Save();
     }
 
@@ -135,7 +123,7 @@ public class FileData
     public string FileName;
     public int AvatarId;
     public string LastScene;
-    public bool HardGame;
+    public int GameDifficult = -1;
     public List<ProgressKey> ProgressKeys = new List<ProgressKey>();
 
     public bool CheckKey(string k)
@@ -149,23 +137,23 @@ public class FileData
         return false;
     }
 
-    public void AddKey(string k, bool sw)
+    public void AddKey(string k, int v)
     {
-        ProgressKeys.Add(new ProgressKey(k, sw));
+        ProgressKeys.Add(new ProgressKey(k, v));
     }
 
-    public bool GetKeyValue(string key, out bool sw)
+    public bool GetKeyValue(string key, out int v)
     {
         for(int i = 0; i < ProgressKeys.Count; i++)
         {
             if(ProgressKeys[i].Key.Equals(key))
             {
-                sw = ProgressKeys[i].Value;
+                v = ProgressKeys[i].Value;
                 return true;
             }
         }
 
-        sw = false;
+        v = -1;
         return false;
     }
 }
@@ -174,11 +162,111 @@ public class FileData
 public class ProgressKey
 {
     public string Key;
-    public bool Value;
+    public int Value;
 
-    public ProgressKey(string k, bool sw)
+    public ProgressKey(string k, int v)
     {
         Key = k;
-        Value = sw;
+        Value = v;
     }
+}
+
+[System.Serializable]
+public class GameStats
+{
+
+    #region Variables
+    public string GameName;
+    public float FirstActionTime;
+    public float GameTime;
+    public int ActionsAmount;
+    public FinishType EndBy;
+
+    public List<Vector2> TouchCount;
+    public List<DragInfo> DragCount;
+
+    [System.NonSerialized]
+    float startTime;
+    [System.NonSerialized]
+    DragInfo currentDrag;
+
+    #endregion
+
+    #region Constructors
+    public GameStats(string name)
+    {
+        GameName = name;
+        FirstActionTime = -1;
+        GameTime = -1;
+        ActionsAmount = 0;
+        EndBy = FinishType.None;
+        TouchCount = new List<Vector2>();
+        DragCount = new List<DragInfo>();
+
+        startTime = Time.time;
+        currentDrag = new DragInfo("empty");
+    }
+
+    [System.Serializable]
+    public enum FinishType
+    {
+        None = 0,
+        Complete,
+        Quit,
+        Afk
+    }
+
+    [System.Serializable]
+    public struct DragInfo
+    {
+        public string ObjectName;
+        public Vector2 Ini;
+        public Vector2 End;
+
+        public DragInfo(string str)
+        {
+            ObjectName = str;
+            Ini = new Vector2(0, 0);
+            End = new Vector2(0, 0);
+        }
+
+        public DragInfo(string obj, Vector2 i, Vector2 e)
+        {
+            ObjectName = obj;
+            Ini = i;
+            End = e;
+        }
+    }
+
+
+    #endregion
+
+    #region Methods
+    public void AddAction()
+    {
+        if(ActionsAmount == 0)
+            FirstActionTime = Time.time - startTime;
+        ActionsAmount++;
+    }
+
+    public void Close(FinishType finishType)
+    {
+        GameTime = Time.time - startTime;
+        EndBy = finishType;
+    }
+
+    public void AddTouch(Vector2 pos)
+    {
+        TouchCount.Add(pos);
+    }
+
+    public void AddDrag(string obj, Vector2 ini, Vector2 end)
+    {
+        currentDrag.ObjectName = obj;
+        currentDrag.Ini.Set(ini.x / Screen.width, ini.y / Screen.height);
+        currentDrag.End.Set(end.x / Screen.width, end.y / Screen.height);
+
+        DragCount.Add(currentDrag);
+    }
+    #endregion
 }

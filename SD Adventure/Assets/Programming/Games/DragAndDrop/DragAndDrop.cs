@@ -5,7 +5,9 @@ public class DragAndDrop : MonoBehaviour
 {
     Ray ray;
     RaycastHit hit;
-    protected Camera Cam;
+    [HideInInspector]
+    [System.NonSerialized]
+    public Camera Cam;
 
     [HideInInspector]
     public bool Active = true;
@@ -19,8 +21,10 @@ public class DragAndDrop : MonoBehaviour
     public LayerMask PickLayer;
     public LayerMask DragLayer;
 
-    public event System.Action OnDrop;
+    public event System.Action<GameObject> OnDrop;
+    public event System.Action<GameObject> OnDrag;
 
+    Vector2 dragStartPos;
     public virtual void Start()
     {
         Cam = GetComponent<Camera>();
@@ -65,19 +69,23 @@ public class DragAndDrop : MonoBehaviour
 
     public virtual void Drop()
     {
+        if(OnDrop != null)
+            OnDrop(dragObject);
+
+        StatsHandler.Instance.AddDrag(dragObject.name, dragStartPos, mousePos);
+
         dragCollider.enabled = true;
         if(dragRigidbody != null)
             dragRigidbody.isKinematic = false;
         dragObject = null;
         dragCollider = null;
         dragRigidbody = null;
-
-        if(OnDrop != null)
-            OnDrop();
     }
 
     public virtual void BeginDrag()
     {
-
+        dragStartPos = mousePos;
+        if(OnDrag != null)
+            OnDrag(dragObject);
     }
 }

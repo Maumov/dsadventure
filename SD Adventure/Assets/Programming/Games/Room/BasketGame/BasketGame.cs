@@ -48,9 +48,10 @@ public class BasketGame : BaseGame
 
     void SetQuestion()
     {
-        if(tries > 5)
+        if(tries > 4)
         {
             Complete();
+            enableControls = false;
             return;
         }
 
@@ -95,17 +96,21 @@ public class BasketGame : BaseGame
 
     protected override void CompleteValidations()
     {
-        if(hits == tries)
+        if(hits > 2)
         {
-            Debug.Log("Win");
-            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, true);
+            Debug.Log("Avanzado");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 2);
+        }
+        else if(hits > 0)
+        {
+            Debug.Log("Aprendiz");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 1);
         }
         else
         {
-            Debug.Log("Lose");
-            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, false);
+            Debug.Log("N/A");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 0);
         }
-        DataManager.SetAsHardGame();
     }
 
     private void Update()
@@ -131,7 +136,7 @@ public class BasketGame : BaseGame
     void CheckAnswer()
     {
         UIContent.SetActive(false);
-        EnableCompleteButton();
+        ImportantAction();
         CompleteButton.SetActive(false);
 
         tries++;

@@ -64,6 +64,7 @@ public class CreateFiles : GenericMenu
             FileName = fileName,
             AvatarId = avatarId,
             LastScene = "",
+            GameDifficult = -1,
             ProgressKeys = new List<ProgressKey>()
         };
         DataManager.AddFile(newFile);

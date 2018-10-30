@@ -12,7 +12,8 @@ public class BaseGame : MonoBehaviour
     public ConversationData SecondWarning;
     public string BaseScene = "Room";
 
-    WaitForSeconds inactivityTime = new WaitForSeconds(100);
+    WaitForSeconds inactivityTime = new WaitForSeconds(30);
+    public static bool Quit;
 
     protected virtual void Start()
     {
@@ -34,13 +35,16 @@ public class BaseGame : MonoBehaviour
     public virtual void StartGame()
     {
         enableControls = true;
+        StatsHandler.Instance.Create();
         StartCoroutine(InactivityCounter());
     }
 
-    protected void EnableCompleteButton()
+    protected void ImportantAction()
     {
-        if(CompleteButton != null)
+        if(CompleteButton != null && !CompleteButton.activeInHierarchy)
             CompleteButton.SetActive(true);
+
+        StatsHandler.Instance.AddAction();
         StopAllCoroutines();
         StartCoroutine(InactivityCounter());
     }
@@ -48,6 +52,7 @@ public class BaseGame : MonoBehaviour
     public virtual void Complete()
     {
         CompleteValidations();
+        StatsHandler.Instance.Send(GameStats.FinishType.Complete);
         SceneLoader.LoadScene(BaseScene);
     }
 
@@ -57,18 +62,23 @@ public class BaseGame : MonoBehaviour
     IEnumerator InactivityCounter()
     {
         yield return inactivityTime;
-        ConversationUI.ShowText(FirstWarning);
+        SetControl(false);
+        ConversationUI.ShowText(FirstWarning, () => SetControl(true));
 
         yield return inactivityTime;
-        ConversationUI.ShowText(SecondWarning);
+        SetControl(false);
+        ConversationUI.ShowText(SecondWarning, () => SetControl(true));
 
         yield return inactivityTime;
+        Quit = true;
+        StatsHandler.Instance.Send(GameStats.FinishType.Afk);
         SceneLoader.LoadScene("Room");
-        Debug.Log("AFK");
     }
 
     public void Back()
     {
+        Quit = true;
+        StatsHandler.Instance.Send(GameStats.FinishType.Quit);
         SceneLoader.LoadScene("Room");
     }
 

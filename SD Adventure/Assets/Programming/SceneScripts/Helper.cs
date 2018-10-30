@@ -63,3 +63,16 @@ public class Randomizer
         }
     }
 }
+
+[System.Serializable]
+public class TextKeyJson
+{
+    public TextKey[] Keys;
+}
+
+[System.Serializable]
+public class TextKey
+{
+    public string Key;
+    public string Value;
+}

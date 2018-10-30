@@ -18,6 +18,7 @@ public class CarGame : BaseGame
     int downwards;
 
     public Transform Mark;
+    Vector2 dragStartPos;
 
     protected override void Initialize()
     {
@@ -42,6 +43,7 @@ public class CarGame : BaseGame
                 {
                     current = hit.transform.GetComponent<CarObject>();
                     Mark.gameObject.SetActive(true);
+                    dragStartPos = Input.mousePosition;
                 }
             }
         }
@@ -57,6 +59,8 @@ public class CarGame : BaseGame
 
         if(Input.GetMouseButtonUp(0))
         {
+            if(current != null)
+                StatsHandler.Instance.AddDrag(current.name, dragStartPos, Input.mousePosition);
             current = null;
             Mark.gameObject.SetActive(false);
         }
@@ -68,7 +72,7 @@ public class CarGame : BaseGame
         {
             if(Places[i].bounds.Contains(car.position))
             {
-                EnableCompleteButton();
+                ImportantAction();
                 return;
             }
         }
@@ -93,13 +97,18 @@ public class CarGame : BaseGame
 
         if(upwards == 5 || downwards == 5)
         {
-            Debug.Log("Win");
-            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, true);
+            Debug.Log("Avanzado");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 2);
+        }
+        else if(upwards > 0 || downwards > 0)
+        {
+            Debug.Log("Aprendiz");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 1);
         }
         else
         {
-            Debug.Log("Lose");
-            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, false);
+            Debug.Log("N/A");
+            DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 0);
         }
     }
 }

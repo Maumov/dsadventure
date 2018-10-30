@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 262562624}
   - component: {fileID: 262562623}
   m_Layer: 0
-  m_Name: New Text 3
+  m_Name: Price 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,10 +229,10 @@ Transform:
   m_GameObject: {fileID: 262562621}
   m_LocalRotation: {x: -0.2495351, y: -0, z: -0, w: 0.9683658}
   m_LocalPosition: {x: -0.857, y: 1.695, z: 9.826}
-  m_LocalScale: {x: -0.015, y: 0.014999999, z: 0.014999999}
+  m_LocalScale: {x: -0.014999999, y: 0.014999996, z: 0.014999996}
   m_Children: []
   m_Father: {fileID: 1232560847}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -28.9, y: 0, z: 0}
 --- !u!102 &262562623
 TextMesh:
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 303845002}
   - component: {fileID: 303845001}
   m_Layer: 0
-  m_Name: New Text 2
+  m_Name: Price 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,21 +719,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CompleteButton: {fileID: 0}
   FirstWarning:
-    Name: 
+    Name: RoomGameWarning-1
     Pages:
     - Hey juega
   SecondWarning:
-    Name: 
+    Name: RoomGameWarning-2
     Pages:
     - Hey juega
   BaseScene: Reposteria
   Options:
   - Option: {fileID: 1621406185}
-    Text: {fileID: 1920245161}
+    Text: {fileID: 262562623}
   - Option: {fileID: 1399509407}
     Text: {fileID: 303845001}
   - Option: {fileID: 379003732}
-    Text: {fileID: 262562623}
+    Text: {fileID: 1920245161}
   Scales:
   - 0.45
   - 0.5
@@ -741,19 +741,19 @@ MonoBehaviour:
   Prices: 050000000a0000000f000000
   Container: {fileID: 1147428307}
   HardConversation:
-    Name: Masa cara
+    Name: CakeShop-1-HardText
     Pages:
     - Selecciona la masa mas cara
   EasyConversation:
-    Name: 
+    Name: CakeShop-1-EasyText
     Pages:
-    - Selecciona la masa mas grande
+    - 
   GoodText:
-    Name: 
+    Name: CakeShop-1-GoodText
     Pages:
     - Bien hecho
   WrongText:
-    Name: 
+    Name: CakeShop-1-WrongText
     Pages:
     - Esa no era, intenta de nuevo
 --- !u!1 &484837707
@@ -1244,13 +1244,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 883045518}
-  m_LocalRotation: {x: 0.51158184, y: -3.7653095e-10, z: -8.6796664e-10, w: -0.8592346}
-  m_LocalPosition: {x: 0.03, y: 2.111, z: 7.686}
+  m_LocalRotation: {x: 0.62637854, y: -2.5184307e-10, z: -9.119851e-10, w: -0.779519}
+  m_LocalPosition: {x: 0.03, y: 1.93, z: 8.017}
   m_LocalScale: {x: 5, y: 1.1, z: 0.01}
   m_Children: []
   m_Father: {fileID: 477619429}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -61.538002, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -77.567, y: 0, z: 0}
 --- !u!65 &883045520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1261,8 +1261,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.7213435, z: 1}
-  m_Center: {x: 1.5230724e-17, y: 0.36067468, z: 0.00000037590246}
+  m_Size: {x: 1, y: 2.1273766, z: 1}
+  m_Center: {x: 1.31492e-17, y: 0.15765972, z: 0.0000060027223}
 --- !u!1 &909517113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,11 +1659,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1621406186}
-  - {fileID: 1920245160}
+  - {fileID: 262562622}
   - {fileID: 1399509408}
   - {fileID: 303845000}
   - {fileID: 379003733}
-  - {fileID: 262562622}
+  - {fileID: 1920245160}
   m_Father: {fileID: 477619429}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2732,7 +2732,7 @@ GameObject:
   - component: {fileID: 1920245162}
   - component: {fileID: 1920245161}
   m_Layer: 0
-  m_Name: New Text 1
+  m_Name: Price 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2744,12 +2744,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1920245159}
-  m_LocalRotation: {x: -0.2495351, y: 0, z: 0, w: 0.9683658}
-  m_LocalPosition: {x: 1.194, y: 1.695, z: 9.826}
-  m_LocalScale: {x: -0.015, y: 0.015, z: 0.015}
+  m_LocalRotation: {x: -0.2495351, y: -0, z: -0, w: 0.9683658}
+  m_LocalPosition: {x: 1.1940001, y: 1.695, z: 9.826}
+  m_LocalScale: {x: -0.015000001, y: 0.014999998, z: 0.014999998}
   m_Children: []
   m_Father: {fileID: 1232560847}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -28.9, y: 0, z: 0}
 --- !u!102 &1920245161
 TextMesh:
