@@ -9,15 +9,18 @@ public class PetShopShape : BaseGame
     public GameObject HardContent;
 
     DragAndDrop control;
+    public string[] OnCompleteKeys = new string[] { "PetShop-1" };
 
     [Header("Hard")]
     public Transform[] Pets;
     public List<PetGroup> Groups = new List<PetGroup>();
+    public float GroupDistance = 1.2f;
+    public int GroupsSize = 3;
 
     [Header("Easy")]
     public Collider[] Container;
-    List<GameObject> leftContent = new List<GameObject>();
-    List<GameObject> rightContent = new List<GameObject>();
+    List<GameObject> content = new List<GameObject>();
+    public string[] Options = new string[] { "Cat", "Dog" };
 
     protected override void Initialize()
     {
@@ -52,7 +55,7 @@ public class PetShopShape : BaseGame
     {
         for(int i = 0; i < Pets.Length; i++)
         {
-            if(go.name != Pets[i].name && Vector3.SqrMagnitude(go.transform.position - Pets[i].position) < 1.2f)
+            if(go.name != Pets[i].name && Vector3.SqrMagnitude(go.transform.position - Pets[i].position) < GroupDistance)
                 ImportantAction();
         }
     }
@@ -67,7 +70,7 @@ public class PetShopShape : BaseGame
                 Groups.Add(new PetGroup());
                 for(int j = 0; j < Pets.Length; j++)
                 {
-                    if(Vector3.SqrMagnitude(Pets[i].position - Pets[j].position) < 1.2f)
+                    if(Vector3.SqrMagnitude(Pets[i].position - Pets[j].position) < GroupDistance)
                     {
                         Groups[Groups.Count - 1].Group.Add(Pets[j]);
                     }
@@ -97,17 +100,17 @@ public class PetShopShape : BaseGame
             int leftovers = 0;
             for(int i = 0; i < Groups.Count; i++)
             {
-                if(Groups[i].Group.Count > 3)
+                if(Groups[i].Group.Count > GroupsSize)
                 {
                     Debug.Log("Group too big");
                     return;
                 }
 
-                if(Groups[i].Group.Count < 3)
+                if(Groups[i].Group.Count < GroupsSize)
                     leftovers += Groups[i].Group.Count;
             }
 
-            if(leftovers > 2)
+            if(leftovers > GroupsSize - 1)
             {
                 Debug.Log("Incomplete groups");
                 return;
@@ -117,66 +120,56 @@ public class PetShopShape : BaseGame
         }
         else
         {
-            leftContent.Clear();
-            rightContent.Clear();
-            for(int i = 0; i < Pets.Length; i++)
-            {
-                if(Container[0].bounds.Contains(Pets[i].transform.position))
-                {
-                    leftContent.Add(Pets[i].gameObject);
-                }
+            int total = 0, each = 0;
 
-                if(Container[1].bounds.Contains(Pets[i].transform.position))
+            for(int i = 0; i < Container.Length; i++)
+            {
+                each = 0;
+                for(int j = 0; j < Pets.Length; j++)
                 {
-                    rightContent.Add(Pets[i].gameObject);
+                    if(Container[i].bounds.Contains(Pets[j].position))
+                    {
+                        total++;
+                        each++;
+                    }
+                }
+                if(each == 0)
+                {
+                    Debug.Log("No content on " + Container[i].name);
+                    return;
                 }
             }
 
-            if(leftContent.Count + rightContent.Count != Pets.Length)
+            if(total != Pets.Length)
             {
                 Debug.Log("Unclasified pets");
                 return;
             }
 
-            if(leftContent.Count == 0)
+            string checking = string.Empty;
+
+            for(int i = 0; i < Container.Length; i++)
             {
-                Debug.Log("No content on left content");
-                return;
-            }
-
-            if(rightContent.Count == 0)
-            {
-                Debug.Log("No content on right content");
-                return;
-            }
-
-            string checking;
-
-            if(leftContent[0].name.Contains("Cat"))
-                checking = "Cat";
-            else
-                checking = "Dog";
-
-            for(int i = 0; i < leftContent.Count; i++)
-            {
-                if(!leftContent[i].name.Contains(checking))
+                content.Clear();
+                for(int j = 0; j < Pets.Length; j++)
                 {
-                    Debug.Log("No match on left content");
-                    return;
+                    if(Container[i].bounds.Contains(Pets[j].position))
+                        content.Add(Pets[j].gameObject);
                 }
-            }
 
-            if(rightContent[0].name.Contains("Cat"))
-                checking = "Cat";
-            else
-                checking = "Dog";
-
-            for(int i = 0; i < rightContent.Count; i++)
-            {
-                if(!rightContent[i].name.Contains(checking))
+                for(int j = 0; j < Options.Length; j++)
                 {
-                    Debug.Log("No match on right content");
-                    return;
+                    if(content[0].name.Contains(Options[j]))
+                        checking = Options[j];
+                }
+
+                for(int j = 0; j < content.Count; j++)
+                {
+                    if(!content[j].name.Contains(checking))
+                    {
+                        Debug.Log("No match on " + Container[i].name);
+                        return;
+                    }
                 }
             }
 
@@ -187,7 +180,9 @@ public class PetShopShape : BaseGame
 
     void Win()
     {
-        DataManager.AddProgressKey("PetShop-1", 1);
+        for(int i = 0; i < OnCompleteKeys.Length; i++)
+            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
+
         SceneLoader.LoadScene(BaseScene);
     }
 
