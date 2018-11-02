@@ -21,6 +21,7 @@ public class FruitShopCount : BaseGame
 
 
     [Header("Fruit Shop Hard")]
+    public GameObject HardContent;
     public TextMesh RequiredFruits;
     public Collider FruitContainer;
     public GameObject[] HardFruits;
@@ -52,6 +53,9 @@ public class FruitShopCount : BaseGame
 
     void InitHard()
     {
+        HardContent.SetActive(true);
+        EasyContent.SetActive(false);
+
         control.OnDrag += HardDrag;
         control.OnDrop += HardDrop;
 
@@ -104,6 +108,9 @@ public class FruitShopCount : BaseGame
 
     void InitEasy()
     {
+        HardContent.SetActive(false);
+        EasyContent.SetActive(true);
+
         CompleteButton = null;
         startPos = new Vector3[Numbers.Length];
         for(int i = 0; i < startPos.Length; i++)
