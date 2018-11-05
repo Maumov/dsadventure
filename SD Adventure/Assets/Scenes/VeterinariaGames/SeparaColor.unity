@@ -2858,7 +2858,7 @@ GameObject:
   - component: {fileID: 446044895}
   - component: {fileID: 446044894}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3530,7 +3530,7 @@ Transform:
   m_Children:
   - {fileID: 1203619289}
   m_Father: {fileID: 1938247194}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &530397505
 MonoBehaviour:
@@ -5945,7 +5945,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1938247194}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1081111765
 MonoBehaviour:
@@ -5958,6 +5958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a759a7db7b5c7d24b9081a7a55151de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelKeyName: PetShop-3
   CompleteButton: {fileID: 494376671}
   FirstWarning:
     Name: 
@@ -5966,6 +5967,9 @@ MonoBehaviour:
     Name: 
     Pages: []
   BaseScene: Veterinaria
+  NextScene: Veterinaria
+  OnCompleteKeys:
+  - PetShopComplete
   EasyContent: {fileID: 1579246154}
   HardContent: {fileID: 441485373}
   OnCompleteKeys:
@@ -7924,53 +7928,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.49999997
   m_Center: {x: -0.0000076293945, y: -0.00000011920929, z: -0.0000038146973}
---- !u!1001 &1504237271
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1938247194}
-    m_Modifications:
-    - target: {fileID: 4829292832559884, guid: 68ee853d0cb8c574ab01ef653659397a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4829292832559884, guid: 68ee853d0cb8c574ab01ef653659397a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4829292832559884, guid: 68ee853d0cb8c574ab01ef653659397a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4829292832559884, guid: 68ee853d0cb8c574ab01ef653659397a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4829292832559884, guid: 68ee853d0cb8c574ab01ef653659397a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4829292832559884, guid: 68ee853d0cb8c574ab01ef653659397a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4829292832559884, guid: 68ee853d0cb8c574ab01ef653659397a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4829292832559884, guid: 68ee853d0cb8c574ab01ef653659397a, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 68ee853d0cb8c574ab01ef653659397a, type: 2}
-  m_IsPrefabAsset: 0
---- !u!4 &1504237272 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4829292832559884, guid: 68ee853d0cb8c574ab01ef653659397a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1504237271}
 --- !u!1 &1537302380
 GameObject:
   m_ObjectHideFlags: 0
@@ -10005,6 +9962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: -1
   ScenePosition: []
+  Scene: 
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0
@@ -10016,7 +9974,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1669958471}
-  - {fileID: 1504237272}
   - {fileID: 1081111764}
   - {fileID: 530397504}
   m_Father: {fileID: 0}

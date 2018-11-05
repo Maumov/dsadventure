@@ -6,7 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerController : MonoBehaviour
 {
     public float MovementSpeed = 1;
-    public Transform Cam;
+    Transform cam;
     [HideInInspector]
     [System.NonSerialized]
     public bool ControlState = true;
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         actionButton = FindObjectOfType<ButtonHandler>();
         inputs = FindObjectOfType<MobileControlRig>();
+        cam = FindObjectOfType<PlayerCamera>().transform;
         actionButton.SetState(false);
     }
 
@@ -63,11 +64,11 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-        CamFaceY = Cam.forward;
+        CamFaceY = cam.forward;
         CamFaceY.y = 0;
         CamFaceY.Normalize();
 
-        CamFaceX = Cam.right;
+        CamFaceX = cam.right;
         CamFaceX.y = 0;
         CamFaceX.Normalize();
 

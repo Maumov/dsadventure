@@ -503,6 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3887479fa7f7748bbbeefb2579c6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelKeyName: CakeShop-2
   CompleteButton: {fileID: 393568972}
   FirstWarning:
     Name: RoomGameWarning-1
@@ -513,6 +514,10 @@ MonoBehaviour:
     Pages:
     - Hey juega
   BaseScene: Reposteria
+  NextScene: Reposteria
+  OnCompleteKeys:
+  - CakeShop-2
+  - PetShopOpen
   Options:
   - Option: {fileID: 117144428}
     Text: {fileID: 614767028}
@@ -529,22 +534,6 @@ MonoBehaviour:
   - {fileID: 358564337}
   - {fileID: 1630730431}
   - {fileID: 622342297}
-  HardConversation:
-    Name: CakeShop-2-HardText
-    Pages:
-    - Coloca los moldes en el horno segun tiempo
-  EasyConversation:
-    Name: CakeShop-2-EasyText
-    Pages:
-    - "Coloca los moldes en el horno por tama\xF1o"
-  GoodText:
-    Name: CakeShop-2-GoodText
-    Pages:
-    - Bien hecho
-  WrongText:
-    Name: CakeShop-2-WrongText
-    Pages:
-    - Mal hecho, intenta de nuevo
 --- !u!1 &218663223
 GameObject:
   m_ObjectHideFlags: 0
@@ -5594,6 +5583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: -1
   ScenePosition: []
+  Scene: 
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0

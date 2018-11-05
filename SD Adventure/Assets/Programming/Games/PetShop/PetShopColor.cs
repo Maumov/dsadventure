@@ -53,7 +53,7 @@ public class PetShopColor : PetShopShape
         {
             if(Groups[i].Group.Count > GroupsSize)
             {
-                Debug.Log("Group too big");
+                ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
                 return;
             }
 
@@ -63,7 +63,7 @@ public class PetShopColor : PetShopShape
 
         if(leftovers > GroupsSize - 1)
         {
-            Debug.Log("Incomplete groups");
+            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
             return;
         }
 
@@ -85,12 +85,12 @@ public class PetShopColor : PetShopShape
             {
                 if(!Groups[i].Group[j].name.Contains(checking))
                 {
-                    Debug.Log("No match on group " + i);
+                    ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
                     return;
                 }
             }
         }
 
-        Win();
+        ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
     }
 }

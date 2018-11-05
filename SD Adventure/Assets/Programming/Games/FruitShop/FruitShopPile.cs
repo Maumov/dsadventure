@@ -5,7 +5,6 @@ using UnityEngine;
 public class FruitShopPile : BaseGame
 {
     [Header("Fruit Shop")]
-    public string[] OnCompleteKeys;
     public LayerMask DropLayer;
     DragAndDrop control;
     Ray ray;
@@ -110,15 +109,16 @@ public class FruitShopPile : BaseGame
         if(Physics.Raycast(ray, out hit, 100, DropLayer.value))
         {
             ImportantAction();
+            SetControl(false);
             if(go.name.Equals(targetNumber.ToString()))
             {
                 go.transform.position = hit.transform.position + go.transform.forward * -0.01f;
-                Win();
+                ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
             }
             else
             {
                 go.transform.position = numbersPos[go.transform.GetSiblingIndex()];
-                Debug.Log("Bad");
+                ConversationUI.ShowText(LevelKeyName + Hard + Fine, ()=> SetControl(true));
             }
         }
         else
@@ -127,7 +127,6 @@ public class FruitShopPile : BaseGame
 
     void InitEasy()
     {
-
         EasyContent.SetActive(true);
         HardContent.SetActive(false);
 
@@ -231,19 +230,13 @@ public class FruitShopPile : BaseGame
 
     void CheckEasy()
     {
+        CompleteButton.SetActive(false);
         if(assignedYellow.Equals(yellow.ToString()) && assignedRed.Equals(red.ToString()) && assignedGreen.Equals(green.ToString()) && assignedBrown.Equals(brown.ToString()))
-            Win();
+            ConversationUI.ShowText(LevelKeyName + Easy + Wrong, Win);
         else
-            Debug.Log("Bad");
+            ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
     }
 
-    void Win()
-    {
-        for(int i = 0; i < OnCompleteKeys.Length; i++)
-            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
-
-        SceneLoader.LoadScene(BaseScene);
-    }
 
 
     [System.Serializable]

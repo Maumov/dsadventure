@@ -6,7 +6,6 @@ public class DressmakingManiquies : BaseGame
 {
     [Header("Dressmaking")]
     public GameObject[] Maniquies;
-    public string[] OnCompleteKeys;
     Vector3[] threeLayout;
     DragAndDrop control;
 
@@ -44,6 +43,10 @@ public class DressmakingManiquies : BaseGame
 
     void InitHard()
     {
+        EasyClothes.SetActive(false);
+        for(int i = 0; i < HardClothes.Length; i++)
+            HardClothes[i].SetActive(true);
+
         int m = Random.Range(3, 5);
         if(m == 3)
         {
@@ -60,11 +63,15 @@ public class DressmakingManiquies : BaseGame
                 Maniquies[i].transform.position = FourLayout[i].position;
         }
 
-        
+
     }
 
     void InitEasy()
     {
+        EasyClothes.SetActive(true);
+        for(int i = 0; i < HardClothes.Length; i++)
+            HardClothes[i].SetActive(false);
+
         CompleteButton = null;
 
         Maniquies[Maniquies.Length - 1].SetActive(false);
@@ -86,7 +93,12 @@ public class DressmakingManiquies : BaseGame
                     matches++;
                     go.SetActive(false);
                     if(matches == 3)
-                        Win();
+                        ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
+                }
+                else
+                {
+                    SetControl(false);
+                    ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ()=> SetControl(true));
                 }
                 ImportantAction();
                 return;
@@ -103,17 +115,8 @@ public class DressmakingManiquies : BaseGame
     {
         matches++;
         if(matches == 2)
-            Win();
+            ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         else
-            Debug.Log("Fail");
+            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
     }
-
-    void Win()
-    {
-        for(int i = 0; i < OnCompleteKeys.Length; i++)
-            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
-
-        SceneLoader.LoadScene(BaseScene);
-    }
-
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class FruitShopCount : BaseGame
 {
     [Header("Fruit Shop")]
-    public string[] OnCompleteKeys;
     public LayerMask DropLayer;
     DragAndDrop control;
     Ray ray;
@@ -83,6 +82,7 @@ public class FruitShopCount : BaseGame
 
     public void CheckHard()
     {
+        SetControl(false);
         int lemons = 0;
         for(int i = 0; i < HardFruits.Length; i++)
         {
@@ -90,7 +90,7 @@ public class FruitShopCount : BaseGame
             {
                 if(i < 9)
                 {
-                    Debug.Log("Fruta incorrecta");
+                    ConversationUI.ShowText(LevelKeyName + Hard + Wrong, () => SetControl(true));
                     return;
                 }
                 else
@@ -99,11 +99,12 @@ public class FruitShopCount : BaseGame
         }
         if(lemons != targetNumber)
         {
-            Debug.Log("Cantidad incorrecta");
+            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, () => SetControl(true));
             return;
         }
 
-        Win();
+        ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
+
     }
 
     void InitEasy()
@@ -137,29 +138,24 @@ public class FruitShopCount : BaseGame
         ray = control.Cam.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, 100, DropLayer.value))
         {
+            SetControl(false);
             ImportantAction();
             if(go.name.Equals(targetNumber.ToString()))
             {
-                Win();
-                SetControl(false);
+                ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
                 go.transform.SetParent(GoodPosition);
                 go.transform.localPosition = Vector3.zero;
                 go.transform.localRotation = GoodPosition.rotation;
                 go.transform.localScale = Vector3.one;
                 return;
             }
+            else
+            {
+                ConversationUI.ShowText(LevelKeyName + Easy + Wrong, () => SetControl(true));
+            }
         }
 
         for(int i = 0; i < startPos.Length; i++)
             Numbers[i].transform.position = startPos[i];
-    }
-
-
-    void Win()
-    {
-        for(int i = 0; i < OnCompleteKeys.Length; i++)
-            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
-
-        SceneLoader.LoadScene(BaseScene);
     }
 }

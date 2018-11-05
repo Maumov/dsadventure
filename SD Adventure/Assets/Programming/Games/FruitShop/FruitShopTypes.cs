@@ -5,7 +5,6 @@ using UnityEngine;
 public class FruitShopTypes : BaseGame
 {
     [Header("Fruit Shop")]
-    public string[] OnCompleteKeys;
     public LayerMask DropLayer;
     DragAndDrop control;
     Ray ray;
@@ -96,13 +95,15 @@ public class FruitShopTypes : BaseGame
     void CheckEasy()
     {
         int lemons = 0;
+        SetControl(false);
+        CompleteButton.SetActive(false);
         for(int i = 0; i < EasyFruits.Length; i++)
         {
             if(FruitContainer.bounds.Contains(EasyFruits[i].transform.position))
             {
                 if(i < 11)
                 {
-                    Debug.Log("Fruta incorrecta");
+                    ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
                     return;
                 }
                 else
@@ -111,11 +112,11 @@ public class FruitShopTypes : BaseGame
         }
         if(lemons != targetNumber)
         {
-            Debug.Log("Cantidad incorrecta");
+            ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
             return;
         }
 
-        Win();
+        ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
     }
 
     void InitHard()
@@ -205,17 +206,10 @@ public class FruitShopTypes : BaseGame
 
     void CheckHard()
     {
+        SetControl(false);
         if(asignedYellow.Equals(yellow.ToString()) && asignedRed.Equals(red.ToString()) && asignedGreen.Equals(green.ToString()))
-            Win();
+            ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         else
-            Debug.Log("Bad");
-    }
-
-    void Win()
-    {
-        for(int i = 0; i < OnCompleteKeys.Length; i++)
-            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
-
-        SceneLoader.LoadScene(BaseScene);
+            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
     }
 }

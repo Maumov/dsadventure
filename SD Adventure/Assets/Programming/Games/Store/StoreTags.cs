@@ -5,8 +5,6 @@ using UnityEngine;
 public class StoreTags : BaseGame
 {
     [Header("Store")]
-    public string[] OnCompleteKeys;
-
     public GameObject EasyNumbersParent;
     public GameObject HardNumbersParent;
 
@@ -72,26 +70,25 @@ public class StoreTags : BaseGame
         if(Physics.Raycast(ray, out hit, 100, DropLayer.value))
         {
             ImportantAction();
+            SetControl(false);
             if(go.name.Equals(targetNumber.ToString()))
             {
                 go.transform.position = hit.transform.position + go.transform.forward * -0.01f;
-                Win();
+                if(DataManager.IsHardGame)
+                    ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
+                else
+                    ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
             }
             else
             {
                 go.transform.position = numbersPos[go.transform.GetSiblingIndex() + go.transform.parent.GetSiblingIndex() * EasyNumbers.Length];
-                Debug.Log("Bad");
+                if(DataManager.IsHardGame)
+                    ConversationUI.ShowText(LevelKeyName + Hard + Wrong, () => SetControl(true));
+                else
+                    ConversationUI.ShowText(LevelKeyName + Easy + Wrong, () => SetControl(true));
             }
         }
         else
             go.transform.position = numbersPos[go.transform.GetSiblingIndex() + go.transform.parent.GetSiblingIndex() * EasyNumbers.Length];
-    }
-
-    void Win()
-    {
-        for(int i = 0; i < OnCompleteKeys.Length; i++)
-            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
-
-        SceneLoader.LoadScene(BaseScene);
     }
 }

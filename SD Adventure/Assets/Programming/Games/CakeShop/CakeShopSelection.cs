@@ -14,13 +14,6 @@ public class CakeShopSelection : BaseGame
 
     public Collider Container;
 
-    [Header("Conversations")]
-    public ConversationData HardConversation;
-    public ConversationData EasyConversation;
-
-    public ConversationData GoodText;
-    public ConversationData WrongText;
-
     protected override void Initialize()
     {
         control = FindObjectOfType<DragAndDrop>();
@@ -29,7 +22,6 @@ public class CakeShopSelection : BaseGame
         Randomizer.Randomize(Options);
         if(DataManager.IsHardGame)
         {
-            tutorial.TutorialText = HardConversation;
             for(int i = 0; i < Options.Length; i++)
             {
                 Options[i].Text.text = "$" + Prices[i];
@@ -39,7 +31,6 @@ public class CakeShopSelection : BaseGame
         }
         else
         {
-            tutorial.TutorialText = EasyConversation;
             for(int i = 0; i < Options.Length; i++)
                 Options[i].Option.transform.localScale = Vector3.one * Scales[i];
         }
@@ -77,25 +68,23 @@ public class CakeShopSelection : BaseGame
         {
             control.Active = false;
             if(correct)
-                ConversationUI.ShowText(GoodText, Win);
+            {
+                if(DataManager.IsHardGame)
+                    ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
+                else
+                    ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
+            }
             else
-                ConversationUI.ShowText(WrongText, ResetLevel);
+            {
+                if(DataManager.IsHardGame)
+                    ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
+                else
+                    ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
+            }
 
             ImportantAction();
         }
     }
-
-    void ResetLevel()
-    {
-        SceneLoader.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-    }
-
-    void Win()
-    {
-        DataManager.AddProgressKey("CakeShop-1", 1);
-        SceneLoader.LoadScene(BaseScene);
-    }
-
 }
 [System.Serializable]
 public struct CakeOption

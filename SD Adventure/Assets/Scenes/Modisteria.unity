@@ -4345,9 +4345,8 @@ GameObject:
   - component: {fileID: 446044896}
   - component: {fileID: 446044895}
   - component: {fileID: 446044894}
-  - component: {fileID: 446044893}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4371,19 +4370,6 @@ RectTransform:
   m_AnchoredPosition: {x: 77.5, y: -77.5}
   m_SizeDelta: {x: 115, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &446044893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446044891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a58f5067ff9e1aa41b5f5f75b9f7b660, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerSpeed: -1
-  ScenePosition: []
 --- !u!95 &446044894
 Animator:
   serializedVersion: 3
@@ -4441,7 +4427,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 446044893}
+      - m_Target: {fileID: 1938247193}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -11705,18 +11691,13 @@ Prefab:
       propertyPath: Cam
       value: 
       objectReference: {fileID: 840650101}
-    - target: {fileID: 114396803713905600, guid: fa429c883e1ecc34992730aecf6c2af0,
-        type: 2}
-      propertyPath: MovementSpeed
-      value: 2.8
-      objectReference: {fileID: 0}
     - target: {fileID: 4601693767139392, guid: fa429c883e1ecc34992730aecf6c2af0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.3
+      value: 3.223
       objectReference: {fileID: 0}
     - target: {fileID: 4601693767139392, guid: fa429c883e1ecc34992730aecf6c2af0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.85
+      value: 11.031
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa429c883e1ecc34992730aecf6c2af0, type: 2}
@@ -15263,8 +15244,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58f5067ff9e1aa41b5f5f75b9f7b660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerSpeed: -1
-  ScenePosition: []
+  PlayerSpeed: 2.8
+  ScenePosition:
+  - FromScene: Calle
+    Position: {x: 9.3, y: 0.2374999, z: 0.14999998}
+  - FromScene: VisteManiquies
+    Position: {x: 3.25, y: 0.2374999, z: 1.39}
+  - FromScene: ColocaGanchos
+    Position: {x: 15.83, y: 0.2374999, z: 3.87}
+  - FromScene: ColocaCajas
+    Position: {x: 3.223, y: 0.2374999, z: 13.031}
+  Scene: ColocaCajas
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0

@@ -43,6 +43,28 @@ public class Helper : MonoBehaviour
         public Vector3 Position;
 
     }
+
+    public string Scene;
+    [ContextMenu("Add Scene Pos")]
+    void AddScenePos()
+    {
+        for(int i = 0; i < ScenePosition.Length; i++)
+        {
+            if(ScenePosition[i].FromScene.Equals(Scene))
+            {
+                ScenePosition[i].Position = FindObjectOfType<PlayerController>().transform.position;
+                return;
+            }
+        }
+
+        List<PlayerPosition> p = new List<PlayerPosition>();
+        p.AddRange(ScenePosition);
+        PlayerPosition pos = new PlayerPosition();
+        pos.FromScene = Scene;
+        pos.Position = FindObjectOfType<PlayerController>().transform.position;
+        p.Add(pos);
+        ScenePosition = p.ToArray();
+    }
 }
 
 

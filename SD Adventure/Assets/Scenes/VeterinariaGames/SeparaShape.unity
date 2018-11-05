@@ -556,6 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e66cf8be4ec1bf944a6468761dae6a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelKeyName: PetShop-1
   CompleteButton: {fileID: 714114006}
   FirstWarning:
     Name: 
@@ -564,6 +565,9 @@ MonoBehaviour:
     Name: 
     Pages: []
   BaseScene: Veterinaria
+  NextScene: SeparaSize
+  OnCompleteKeys:
+  - PetShop-1
   EasyContent: {fileID: 1698849961}
   HardContent: {fileID: 1647843770}
   Pets:
@@ -1125,7 +1129,7 @@ GameObject:
   - component: {fileID: 446044895}
   - component: {fileID: 446044894}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4442,6 +4446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: -1
   ScenePosition: []
+  Scene: 
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0

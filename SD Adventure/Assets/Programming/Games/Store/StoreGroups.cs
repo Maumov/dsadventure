@@ -5,10 +5,12 @@ using UnityEngine;
 public class StoreGroups : BaseGame
 {
     [Header("Store")]
-    public string[] OnCompleteKeys;
 
     public GameObject EasyNumbersParent;
     public GameObject HardNumbersParent;
+
+    public GameObject BottlesEasyParent;
+    public GameObject BottlesHardParent;
 
     public GameObject[] EasyNumbers;
     public GameObject[] HardNumbers;
@@ -42,6 +44,9 @@ public class StoreGroups : BaseGame
 
         if(DataManager.IsHardGame)
         {
+            BottlesEasyParent.SetActive(false);
+            BottlesHardParent.SetActive(true);
+
             targetNumber = Random.Range(3, 21);
             for(int i = 0; i < BottlesHard.Length; i++)
             {
@@ -75,6 +80,9 @@ public class StoreGroups : BaseGame
         }
         else
         {
+            BottlesEasyParent.SetActive(true);
+            BottlesHardParent.SetActive(false);
+
             targetNumber = Random.Range(2, 10);
             for(int i = 0; i < BottlesEasy.Length; i++)
             {
@@ -115,28 +123,28 @@ public class StoreGroups : BaseGame
         if(Physics.Raycast(ray, out hit, 100, DropLayer.value))
         {
             ImportantAction();
+            SetControl(false);
             if(go.name.Equals(targetNumber.ToString()))
             {
                 go.transform.position = hit.transform.position + go.transform.forward * -0.01f;
-                Win();
+                if(DataManager.IsHardGame)
+                    ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
+                else
+                    ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
             }
             else
             {
                 go.transform.position = numbersPos[go.transform.GetSiblingIndex() + go.transform.parent.GetSiblingIndex() * EasyNumbers.Length];
-                Debug.Log("Bad");
+                if(DataManager.IsHardGame)
+                    ConversationUI.ShowText(LevelKeyName + Hard + Wrong, () => SetControl(true));
+                else
+                    ConversationUI.ShowText(LevelKeyName + Easy + Wrong, () => SetControl(true));
             }
         }
         else
             go.transform.position = numbersPos[go.transform.GetSiblingIndex() + go.transform.parent.GetSiblingIndex() * EasyNumbers.Length];
     }
 
-    void Win()
-    {
-        for(int i = 0; i < OnCompleteKeys.Length; i++)
-            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
-
-        SceneLoader.LoadScene(BaseScene);
-    }
 
     [System.Serializable]
     public class GameObjectArray

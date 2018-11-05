@@ -16,13 +16,6 @@ public class CakeShopBuild : BaseGame
     RaycastHit hit;
     List<GameObject> currentOrder = new List<GameObject>();
 
-    [Header("Conversations")]
-    public ConversationData HardConversation;
-    public ConversationData EasyConversation;
-
-    public ConversationData GoodText;
-    public ConversationData WrongText;
-
     protected override void Initialize()
     {
         control = FindObjectOfType<DragAndDrop>();
@@ -31,14 +24,12 @@ public class CakeShopBuild : BaseGame
 
         if(DataManager.IsHardGame)
         {
-            tutorial.TutorialText = HardConversation;
             for(int i = 0; i < Options.Length; i++)
                 Options[i].Text.text = "" + OptionsValues[i];
 
         }
         else
         {
-            tutorial.TutorialText = EasyConversation;
             for(int i = 0; i < Options.Length; i++)
                 Options[i].Text.text = "";
         }
@@ -122,19 +113,18 @@ public class CakeShopBuild : BaseGame
 
         control.Active = false;
         if(win)
-            ConversationUI.ShowText(GoodText, Win);
+        {
+            if(DataManager.IsHardGame)
+                ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
+            else
+                ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
+        }
         else
-            ConversationUI.ShowText(WrongText, ResetLevel);
-    }
-
-    void ResetLevel()
-    {
-        SceneLoader.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-    }
-
-    void Win()
-    {
-        DataManager.AddProgressKey("CakeShopComplete", 1);
-        SceneLoader.LoadScene(BaseScene);
+        {
+            if(DataManager.IsHardGame)
+                ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
+            else
+                ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
+        }
     }
 }

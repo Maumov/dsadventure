@@ -213,7 +213,8 @@ public class GameStats
         None = 0,
         Complete,
         Quit,
-        Afk
+        Afk,
+        Fail
     }
 
     [System.Serializable]

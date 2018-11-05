@@ -717,6 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded7616c0fb0f6346a8831b35f547a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelKeyName: CakeShop-1
   CompleteButton: {fileID: 0}
   FirstWarning:
     Name: RoomGameWarning-1
@@ -727,6 +728,9 @@ MonoBehaviour:
     Pages:
     - Hey juega
   BaseScene: Reposteria
+  NextScene: SeleccionHorno
+  OnCompleteKeys:
+  - CakeShop-1
   Options:
   - Option: {fileID: 1621406185}
     Text: {fileID: 262562623}
@@ -740,22 +744,6 @@ MonoBehaviour:
   - 0.6
   Prices: 050000000a0000000f000000
   Container: {fileID: 1147428307}
-  HardConversation:
-    Name: CakeShop-1-HardText
-    Pages:
-    - Selecciona la masa mas cara
-  EasyConversation:
-    Name: CakeShop-1-EasyText
-    Pages:
-    - 
-  GoodText:
-    Name: CakeShop-1-GoodText
-    Pages:
-    - Bien hecho
-  WrongText:
-    Name: CakeShop-1-WrongText
-    Pages:
-    - Esa no era, intenta de nuevo
 --- !u!1 &484837707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3064,6 +3052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: -1
   ScenePosition: []
+  Scene: 
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0

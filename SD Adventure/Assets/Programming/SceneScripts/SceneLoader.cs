@@ -25,6 +25,8 @@ public class SceneLoader : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(instance.gameObject);
+
+        CurrentScene = SceneManager.GetActiveScene().name;
     }
 
     public static void LoadScene(string scene)

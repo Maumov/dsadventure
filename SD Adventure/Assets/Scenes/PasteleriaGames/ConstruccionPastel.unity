@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ce5b35eef6e9142b1c2012e9f16bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelKeyName: CakeShop-3
   CompleteButton: {fileID: 618063954}
   FirstWarning:
     Name: RoomGameWarning-1
@@ -167,6 +168,9 @@ MonoBehaviour:
     Pages:
     - Hey juega
   BaseScene: Reposteria
+  NextScene: Reposteria
+  OnCompleteKeys:
+  - CakeShopComplete
   Options:
   - Option: {fileID: 1718541007}
     Text: {fileID: 950563655}
@@ -183,22 +187,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   Table: {fileID: 1073925922}
-  HardConversation:
-    Name: CakeShop-3-HardText
-    Pages:
-    - Ordena las partes segun peso
-  EasyConversation:
-    Name: CakeShop-3-EasyText
-    Pages:
-    - "Ordena las partes segun tama\xF1o"
-  GoodText:
-    Name: CakeShop-3-GoodText
-    Pages:
-    - Bien hecho
-  WrongText:
-    Name: CakeShop-3-WrongText
-    Pages:
-    - Mal hecho, intenta de nuevo
 --- !u!1 &30872014
 GameObject:
   m_ObjectHideFlags: 0
@@ -5113,6 +5101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: -1
   ScenePosition: []
+  Scene: 
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0

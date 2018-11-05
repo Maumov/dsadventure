@@ -9,7 +9,6 @@ public class PetShopShape : BaseGame
     public GameObject HardContent;
 
     DragAndDrop control;
-    public string[] OnCompleteKeys = new string[] { "PetShop-1" };
     public Transform[] Pets;
 
     [Header("Hard")]
@@ -75,6 +74,7 @@ public class PetShopShape : BaseGame
 
     protected virtual void CheckHard()
     {
+        SetControl(false);
         Groups.Clear();
         for(int i = 0; i < Pets.Length; i++)
         {
@@ -113,7 +113,7 @@ public class PetShopShape : BaseGame
         {
             if(Groups[i].Group.Count > GroupsSize)
             {
-                Debug.Log("Group too big");
+                ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
                 return;
             }
 
@@ -123,15 +123,17 @@ public class PetShopShape : BaseGame
 
         if(leftovers > GroupsSize - 1)
         {
-            Debug.Log("Incomplete groups");
+            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
             return;
         }
 
-        Win();
+        ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
     }
 
     protected void CheckEasy()
     {
+        SetControl(false);
+        CompleteButton.SetActive(false);
         int total = 0, each = 0;
 
         for(int i = 0; i < Container.Length; i++)
@@ -147,14 +149,14 @@ public class PetShopShape : BaseGame
             }
             if(each == 0)
             {
-                Debug.Log("No content on " + Container[i].name);
+                ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
                 return;
             }
         }
 
         if(total != Pets.Length)
         {
-            Debug.Log("Unclasified pets");
+            ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
             return;
         }
 
@@ -179,21 +181,13 @@ public class PetShopShape : BaseGame
             {
                 if(!content[j].name.Contains(checking))
                 {
-                    Debug.Log("No match on " + Container[i].name);
+                    ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
                     return;
                 }
             }
         }
 
-        Win();
-    }
-
-    protected void Win()
-    {
-        for(int i = 0; i < OnCompleteKeys.Length; i++)
-            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
-
-        SceneLoader.LoadScene(BaseScene);
+        ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
     }
 
     [System.Serializable]

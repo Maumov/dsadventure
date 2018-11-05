@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DressmakingHanger : BaseGame
 {
-    [Header("Dressmaking")]
-    public string[] OnCompleteKeys;
     Vector3[] startPos;
 
     [Header("Dressmaking Hard")]
@@ -75,14 +73,15 @@ public class DressmakingHanger : BaseGame
         {
             if(Closet.bounds.Contains(ClothesEasy[i].transform.position))
             {
+                SetControl(false);
                 if(ClothesEasy[i].name.Equals("Ok"))
                 {
-                    Win();
+                    ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
                     ClothesEasy[i].SetActive(false);
                 }
                 else
                 {
-                    ResetLevel();
+                    ConversationUI.ShowText(LevelKeyName + Easy + Wrong, () => SetControl(true));
                 }
                 ImportantAction();
             }
@@ -93,23 +92,10 @@ public class DressmakingHanger : BaseGame
 
     public void CheckHard()
     {
+        SetControl(false);
         if(Box.bounds.Contains(ClothesHard[0].transform.position))
-            Win();
+            ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         else
-            ResetLevel();
+            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
     }
-
-    void Win()
-    {
-        for(int i = 0; i < OnCompleteKeys.Length; i++)
-            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
-
-        SceneLoader.LoadScene(BaseScene);
-    }
-
-    void ResetLevel()
-    {
-        SceneLoader.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-    }
-
 }

@@ -48,15 +48,20 @@ public class ConversationUI : MonoBehaviour
     public static void ShowText(ConversationData msg, System.Action onFinish = null)
     {
         instance.Content.SetActive(true);
-        instance.StartCoroutine(instance.WriteText(msg, onFinish));
+        instance.StartCoroutine(instance.WriteText(instance.GetConversation(msg), onFinish));
+    }
+
+    public static void ShowText(string msg, System.Action onFinish = null)
+    {
+        instance.Content.SetActive(true);
+        instance.StartCoroutine(instance.WriteText(instance.GetConversation(msg), onFinish));
     }
 
     IEnumerator WriteText(ConversationData msg, System.Action onFinish)
     {
         string displayText;
         NextButton.sprite = Arrow;
-        msg = GetConversation(msg);
-
+        
         for(int i = 0; i < msg.Pages.Length; i++)
         {
             BackButton.SetActive(i != 0);
@@ -113,6 +118,17 @@ public class ConversationUI : MonoBehaviour
 
         cd.Pages = new string[] { cd.Name };
         return cd;
+    }
+
+    ConversationData GetConversation(string cd)
+    {
+        for(int i = 0; i < allConversations.Length; i++)
+            if(allConversations[i].Name.Equals(cd) && allConversations[i].Pages != null && !string.IsNullOrEmpty(allConversations[i].Pages[0]))
+                return allConversations[i];
+
+        ConversationData c = new ConversationData();
+        c.Pages = new string[] { cd};
+        return c;
     }
 }
 

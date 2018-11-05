@@ -14,23 +14,14 @@ public class CakeShopBaking : BaseGame
 
     public Collider[] Containers;
 
-    [Header("Conversations")]
-    public ConversationData HardConversation;
-    public ConversationData EasyConversation;
-
-    public ConversationData GoodText;
-    public ConversationData WrongText;
-
     protected override void Initialize()
     {
         control = FindObjectOfType<DragAndDrop>();
         control.OnDrop += Check;
 
         Randomizer.Randomize(Options);
-        Debug.Log(DataManager.IsHardGame);
         if(DataManager.IsHardGame)
         {
-            tutorial.TutorialText = HardConversation;
             for(int i = 0; i < Options.Length; i++)
             {
                 Options[i].Text.text = Weights[i] + "";
@@ -40,14 +31,12 @@ public class CakeShopBaking : BaseGame
         }
         else
         {
-            tutorial.TutorialText = EasyConversation;
             for(int i = 0; i < Options.Length; i++)
             {
                 Options[i].Option.transform.localScale = Scales[i];
                 Options[i].Text.text = string.Empty;
             }
         }
-
 
         startPos = new Vector3[Options.Length];
         for(int i = 0; i < startPos.Length; i++)
@@ -113,22 +102,18 @@ public class CakeShopBaking : BaseGame
 
         control.Active = false;
         if(win)
-            ConversationUI.ShowText(GoodText, Win);
+        {
+            if(DataManager.IsHardGame)
+                ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
+            else
+                ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
+        }
         else
-            ConversationUI.ShowText(WrongText, ResetLevel);
+        {
+            if(DataManager.IsHardGame)
+                ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
+            else
+                ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
+        }
     }
-
-
-    void ResetLevel()
-    {
-        SceneLoader.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-    }
-
-    void Win()
-    {
-        DataManager.AddProgressKey("CakeShop-2", 1);
-        DataManager.AddProgressKey("PetShopOpen", 1);
-        SceneLoader.LoadScene(BaseScene);
-    }
-
 }

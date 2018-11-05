@@ -1378,7 +1378,7 @@ GameObject:
   - component: {fileID: 446044895}
   - component: {fileID: 446044894}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4975,6 +4975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34304b6060c6c7418dd9432bdc0d182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelKeyName: Dressmaking-1
   CompleteButton: {fileID: 1921663243}
   FirstWarning:
     Name: 
@@ -4983,13 +4984,14 @@ MonoBehaviour:
     Name: 
     Pages: []
   BaseScene: Modisteria
+  NextScene: ColocaGanchos
+  OnCompleteKeys:
+  - Dressmaking-1
   Maniquies:
   - {fileID: 1200099923}
   - {fileID: 1830177703}
   - {fileID: 107930531}
   - {fileID: 909523992}
-  OnCompleteKeys:
-  - Dressmaking-1
   FourLayout:
   - {fileID: 1477434931}
   - {fileID: 1206963666}
@@ -5729,6 +5731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: -1
   ScenePosition: []
+  Scene: 
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0

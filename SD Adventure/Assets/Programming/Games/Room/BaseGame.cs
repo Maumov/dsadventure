@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseGame : MonoBehaviour
 {
+    public string LevelKeyName;
     protected GameTutorial tutorial;
     protected bool enableControls;
     [Header("Base")]
@@ -11,9 +12,16 @@ public class BaseGame : MonoBehaviour
     public ConversationData FirstWarning;
     public ConversationData SecondWarning;
     public string BaseScene = "Room";
+    public string NextScene = "Room";
+    public string[] OnCompleteKeys;
 
     WaitForSeconds inactivityTime = new WaitForSeconds(3000);
     public static bool Quit;
+
+    protected const string Hard = "-HardText";
+    protected const string Easy = "-EasyText";
+    protected const string Wrong = "-Wrong";
+    protected const string Fine = "-Fine";
 
     protected virtual void Start()
     {
@@ -28,6 +36,11 @@ public class BaseGame : MonoBehaviour
 
     IEnumerator ShowDelay()
     {
+        if(DataManager.IsHardGame)
+            tutorial.TutorialText.Name = LevelKeyName + Hard;
+        else
+            tutorial.TutorialText.Name = LevelKeyName + Easy;
+
         yield return null;
         tutorial.Show();
     }
@@ -72,18 +85,32 @@ public class BaseGame : MonoBehaviour
         yield return inactivityTime;
         Quit = true;
         StatsHandler.Instance.Send(GameStats.FinishType.Afk);
-        SceneLoader.LoadScene("Room");
+        SceneLoader.LoadScene(BaseScene);
     }
 
     public void Back()
     {
         Quit = true;
         StatsHandler.Instance.Send(GameStats.FinishType.Quit);
-        SceneLoader.LoadScene("Room");
+        SceneLoader.LoadScene(BaseScene);
     }
 
     public virtual void SetControl(bool sw)
     {
         enableControls = sw;
+    }
+
+    protected void Win()
+    {
+        for(int i = 0; i < OnCompleteKeys.Length; i++)
+            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
+
+        SceneLoader.LoadScene(NextScene);
+    }
+
+    protected void ResetLevel()
+    {
+        StatsHandler.Instance.Send(GameStats.FinishType.Fail);
+        SceneLoader.LoadScene(SceneLoader.CurrentScene);
     }
 }

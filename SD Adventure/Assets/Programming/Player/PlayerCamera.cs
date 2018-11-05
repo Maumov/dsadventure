@@ -22,6 +22,8 @@ public class PlayerCamera : MonoBehaviour
     {
         nextPos = transform.position;
         Min.y = Max.y = transform.position.y;
+        nextPos = Target.position + Offset;
+
     }
 
     private void LateUpdate()

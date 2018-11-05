@@ -7,9 +7,6 @@ public class DressmakingBoxes : BaseGame
     DragAndDrop control;
     Vector3[] pos;
 
-    [Header("Dressmaking")]
-    public string[] OnCompleteKeys;
-
     [Header("Dressmaking Easy")]
     public GameObject EasyContent;
     public Collider[] EasyContainers;
@@ -37,6 +34,7 @@ public class DressmakingBoxes : BaseGame
 
     void InitEasy()
     {
+        CompleteButton = null;
         pos = new Vector3[EasyContainers.Length];
         for(int i = 0; i < pos.Length; i++)
             pos[i] = EasyContainers[i].transform.position;
@@ -65,11 +63,11 @@ public class DressmakingBoxes : BaseGame
         {
             if(!EasyContainers[i].bounds.Contains(EasyClothes[i].transform.position))
             {
-                Debug.Log("Bad");
+                ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
                 return;
             }
         }
-        Win();
+        ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
     }
 
     void InitHard()
@@ -90,16 +88,8 @@ public class DressmakingBoxes : BaseGame
     {
         ImportantAction();
         if(HardContainer.bounds.Contains(HardClothes[0].transform.position))
-            Win();
+            ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         else
-            Debug.Log("Bad");
-    }
-
-    void Win()
-    {
-        for(int i = 0; i < OnCompleteKeys.Length; i++)
-            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
-
-        SceneLoader.LoadScene(BaseScene);
+            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
     }
 }
