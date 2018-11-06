@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseGame : MonoBehaviour
 {
     public string LevelKeyName;
+    public bool OverrideTutorial = true;
     protected GameTutorial tutorial;
     protected bool enableControls;
     [Header("Base")]
@@ -36,10 +37,13 @@ public class BaseGame : MonoBehaviour
 
     IEnumerator ShowDelay()
     {
-        if(DataManager.IsHardGame)
-            tutorial.TutorialText.Name = LevelKeyName + Hard;
-        else
-            tutorial.TutorialText.Name = LevelKeyName + Easy;
+        if(OverrideTutorial)
+        {
+            if(DataManager.IsHardGame)
+                tutorial.TutorialText.Name = LevelKeyName + Hard;
+            else
+                tutorial.TutorialText.Name = LevelKeyName + Easy;
+        }
 
         yield return null;
         tutorial.Show();

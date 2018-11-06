@@ -15,14 +15,24 @@ public class InteractionObjectEvent : InteractionObject
     }
 }
 
-public class InteractionObject : MonoBehaviour
+public class InteractionObject : Interaction
 {
     public SpriteRenderer Icon;
     public Sprite Hidden;
     public Sprite Shown;
     public string Message;
 
-    public virtual void Action() { }
+    public override void BeginInteraction()
+    {
+        base.BeginInteraction();
+        ShowUI();
+    }
+
+    public override void EndInteraction()
+    {
+        base.EndInteraction();
+        HideUI();
+    }
 
     public virtual void ShowUI()
     {
@@ -41,4 +51,13 @@ public class InteractionObject : MonoBehaviour
         if(!string.IsNullOrEmpty(Message))
             InfoText.Instance.Hide();
     }
+}
+
+public class Interaction : MonoBehaviour
+{
+    public virtual void Action() { }
+
+    public virtual void BeginInteraction() { }
+
+    public virtual void EndInteraction() { }
 }

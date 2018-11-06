@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     MobileControlRig inputs;
     CharacterController controller;
     Vector3 move;
-    InteractionObject interaction;
+    Interaction interaction;
     ButtonHandler actionButton;
 
 
@@ -56,6 +56,11 @@ public class PlayerController : MonoBehaviour
         axis.Set(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical"));
         axis.Normalize();
 
+        if(CrossPlatformInputManager.GetButtonDown("Action"))
+        {
+            Debug.Log("action");
+        }
+
         if(CrossPlatformInputManager.GetButtonDown("Action") && interaction != null)
         {
             interaction.Action();
@@ -86,8 +91,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        interaction = other.GetComponent<InteractionObject>();
-        interaction.ShowUI();
+        interaction = other.GetComponent<Interaction>();
+        interaction.BeginInteraction();
         actionButton.SetState(interaction != null);
     }
 
@@ -96,7 +101,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.Equals(interaction.gameObject))
         {
             if(interaction != null)
-                interaction.HideUI();
+                interaction.EndInteraction();
             interaction = null;
             actionButton.SetState(false);
         }

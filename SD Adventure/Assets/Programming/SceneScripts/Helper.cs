@@ -7,6 +7,7 @@ public class Helper : MonoBehaviour
     public float PlayerSpeed = -1;
     public PlayerPosition[] ScenePosition;
     PlayerController player;
+    public NpcDatabase NpcTexts;
 
     public void LoadScene(string scene)
     {
