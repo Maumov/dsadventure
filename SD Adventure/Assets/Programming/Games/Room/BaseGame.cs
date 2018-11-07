@@ -10,19 +10,25 @@ public class BaseGame : MonoBehaviour
     protected bool enableControls;
     [Header("Base")]
     public GameObject CompleteButton;
-    public ConversationData FirstWarning;
-    public ConversationData SecondWarning;
     public string BaseScene = "Room";
     public string NextScene = "Room";
     public string[] OnCompleteKeys;
 
-    WaitForSeconds inactivityTime = new WaitForSeconds(3000);
+    WaitForSeconds inactivityTime = new WaitForSeconds(30);
+    float timeLimit1 = 180;
+    float timeLimit2 = 60;
+    float startTime;
+    int clues;
+
     public static bool Quit;
 
     protected const string Hard = "-HardText";
     protected const string Easy = "-EasyText";
     protected const string Wrong = "-Wrong";
     protected const string Fine = "-Fine";
+    protected const string Warning = "-Warning";
+    protected const string Clue = "-Clue";
+    bool firstAction;
 
     protected virtual void Start()
     {
@@ -54,6 +60,7 @@ public class BaseGame : MonoBehaviour
         enableControls = true;
         StatsHandler.Instance.Create();
         StartCoroutine(InactivityCounter());
+        startTime = Time.time;
     }
 
     protected void ImportantAction()
@@ -64,6 +71,7 @@ public class BaseGame : MonoBehaviour
         StatsHandler.Instance.AddAction();
         StopAllCoroutines();
         StartCoroutine(InactivityCounter());
+        firstAction = true;
     }
 
     public virtual void Complete()
@@ -80,16 +88,54 @@ public class BaseGame : MonoBehaviour
     {
         yield return inactivityTime;
         SetControl(false);
-        ConversationUI.ShowText(FirstWarning, () => SetControl(true));
+        if(firstAction)
+        {
+            SetCompleteButton(false);
+
+            if(OverrideTutorial)
+            {
+                ConversationUI.ShowText(LevelKeyName + Clue + 1, Restore);
+                clues++;
+            }
+            else
+                ConversationUI.ShowText(LevelKeyName + Warning + 1, Restore);
+        }
+        else
+            ConversationUI.ShowText(LevelKeyName + Warning + 1, () => SetControl(true));
 
         yield return inactivityTime;
         SetControl(false);
-        ConversationUI.ShowText(SecondWarning, () => SetControl(true));
+        if(firstAction)
+        {
+            SetCompleteButton(false);
+
+            if(OverrideTutorial)
+            {
+                ConversationUI.ShowText(LevelKeyName + Clue + 2, Restore);
+                clues++;
+            }
+            else
+                ConversationUI.ShowText(LevelKeyName + Warning + 2, Restore);
+        }
+        else
+            ConversationUI.ShowText(LevelKeyName + Warning + 2, () => SetControl(true));
 
         yield return inactivityTime;
         Quit = true;
         StatsHandler.Instance.Send(GameStats.FinishType.Afk);
         SceneLoader.LoadScene(BaseScene);
+    }
+
+    void Restore()
+    {
+        SetControl(true);
+        SetCompleteButton(true);
+    }
+
+    void SetCompleteButton(bool sw)
+    {
+        if(CompleteButton != null)
+            CompleteButton.SetActive(sw);
     }
 
     public void Back()
@@ -106,6 +152,23 @@ public class BaseGame : MonoBehaviour
 
     protected void Win()
     {
+        if(DataManager.GetSelectedFile().GameDifficult != 0)
+        {
+            if(Time.time - startTime > timeLimit2 || clues > 1)
+            {
+                Debug.Log("Fin no exitoso");
+                ResetLevel();
+                return;
+            }
+            else if(Time.time - startTime < timeLimit1 && clues == 0)
+            {
+                Debug.Log("Fin exitoso 1");
+            }
+            else
+                Debug.Log("Fin exitoso 2");
+        }
+
+        StatsHandler.Instance.Send(GameStats.FinishType.Complete);
         for(int i = 0; i < OnCompleteKeys.Length; i++)
             DataManager.AddProgressKey(OnCompleteKeys[i], 1);
 

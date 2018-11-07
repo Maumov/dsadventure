@@ -13,6 +13,9 @@ public class SceneLoader : MonoBehaviour
     public static string LastScene = string.Empty;
     public static string CurrentScene = string.Empty;
 
+    readonly string[] SceneName = { "Room", "Calle", "Reposteria", "Veterinaria", "Modisteria", "Frutera", "Tienda" };
+
+
     private void Awake()
     {
         if(instance == null)
@@ -40,6 +43,7 @@ public class SceneLoader : MonoBehaviour
         Content.SetActive(true);
         LastScene = SceneManager.GetActiveScene().name;
         CurrentScene = scene;
+        AddLastScene();
 
         yield return StartCoroutine(FadeAnimation(0, 1));
         yield return loadDelay;
@@ -65,5 +69,17 @@ public class SceneLoader : MonoBehaviour
             yield return null;
         }
         Fade.alpha = to;
+    }
+
+    void AddLastScene()
+    {
+        for(int i = 0; i < SceneName.Length; i++)
+        {
+            if(SceneName[i].Equals(CurrentScene))
+            {
+                DataManager.LastScene = CurrentScene;
+                return;
+            }
+        }
     }
 }

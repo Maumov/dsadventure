@@ -24,6 +24,21 @@ public class DataManager
         }
     }
 
+    public static string LastScene
+    {
+        get
+        {
+            if(string.IsNullOrEmpty(Data.GameFiles[selectedFile].LastScene))
+                return "Room";
+            return Data.GameFiles[selectedFile].LastScene;
+        }
+        set
+        {
+            Data.GameFiles[selectedFile].LastScene = value;
+            Save();
+        }
+    }
+
     public static FileData GetSelectedFile()
     {
         Check();

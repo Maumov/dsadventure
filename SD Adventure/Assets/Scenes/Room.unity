@@ -9316,6 +9316,14 @@ Prefab:
       propertyPath: Cam
       value: 
       objectReference: {fileID: 1698849964}
+    - target: {fileID: 4601693767139392, guid: fa429c883e1ecc34992730aecf6c2af0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601693767139392, guid: fa429c883e1ecc34992730aecf6c2af0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.36
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa429c883e1ecc34992730aecf6c2af0, type: 2}
   m_IsPrefabAsset: 0
@@ -13495,7 +13503,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 2.8
-  ScenePosition: []
+  ScenePosition:
+  - FromScene: MainMenu
+    Position: {x: 2.42, y: 0.2374999, z: 1.64}
+  - FromScene: Calle
+    Position: {x: 2.42, y: 0.2374999, z: 1.64}
+  NpcTexts: {fileID: 0}
+  Scene: Calle
 --- !u!4 &1938247194
 Transform:
   m_ObjectHideFlags: 0

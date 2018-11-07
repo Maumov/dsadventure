@@ -362,7 +362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &71822650
 Transform:
   m_ObjectHideFlags: 0
@@ -1414,6 +1414,7 @@ GameObject:
   - component: {fileID: 199324808}
   - component: {fileID: 199324810}
   - component: {fileID: 199324809}
+  - component: {fileID: 199324811}
   m_Layer: 0
   m_Name: Npc (9)
   m_TagString: InteractionObject
@@ -1459,6 +1460,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &199324811
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 199324807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &199599350
 Prefab:
   m_ObjectHideFlags: 0
@@ -2718,7 +2732,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1.5
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!114 &354048567
 MonoBehaviour:
@@ -2923,6 +2937,7 @@ GameObject:
   - component: {fileID: 367039996}
   - component: {fileID: 367039998}
   - component: {fileID: 367039997}
+  - component: {fileID: 367039999}
   m_Layer: 0
   m_Name: Npc (2)
   m_TagString: InteractionObject
@@ -2968,6 +2983,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &367039999
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 367039995}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &371911732
 GameObject:
   m_ObjectHideFlags: 0
@@ -2978,6 +3006,7 @@ GameObject:
   - component: {fileID: 371911733}
   - component: {fileID: 371911735}
   - component: {fileID: 371911734}
+  - component: {fileID: 371911736}
   m_Layer: 0
   m_Name: Npc (3)
   m_TagString: InteractionObject
@@ -3023,6 +3052,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &371911736
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 371911732}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &373617597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3720,6 +3762,8 @@ MonoBehaviour:
   ScenePosition:
   - FromScene: Room
     Position: {x: 3.96, y: 0.3, z: -7.11}
+  - FromScene: MainMenu
+    Position: {x: 3.96, y: 0.3, z: -7.11}
   - FromScene: Reposteria
     Position: {x: 0.85, y: 0.3, z: 2.43}
   - FromScene: Veterinaria
@@ -4345,6 +4389,7 @@ GameObject:
   - component: {fileID: 602380912}
   - component: {fileID: 602380914}
   - component: {fileID: 602380913}
+  - component: {fileID: 602380915}
   m_Layer: 0
   m_Name: NpcPet
   m_TagString: InteractionObject
@@ -4359,7 +4404,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 602380911}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.94, y: 0.29, z: 2.85}
+  m_LocalPosition: {x: 48.99, y: 0.29, z: 2.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 918668671}
@@ -4390,6 +4435,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &602380915
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602380911}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &605666873
 GameObject:
   m_ObjectHideFlags: 0
@@ -5410,6 +5468,7 @@ GameObject:
   - component: {fileID: 745491564}
   - component: {fileID: 745491566}
   - component: {fileID: 745491565}
+  - component: {fileID: 745491567}
   m_Layer: 0
   m_Name: NpcDressmaker
   m_TagString: InteractionObject
@@ -5424,7 +5483,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 745491563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 72.35, y: 0.29, z: 2.85}
+  m_LocalPosition: {x: 74.66, y: 0.29, z: 3.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 608204006}
@@ -5455,6 +5514,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &745491567
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 745491563}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &768146616
 Prefab:
   m_ObjectHideFlags: 0
@@ -6357,6 +6429,7 @@ GameObject:
   - component: {fileID: 887798715}
   - component: {fileID: 887798717}
   - component: {fileID: 887798716}
+  - component: {fileID: 887798718}
   m_Layer: 0
   m_Name: Npc (5)
   m_TagString: InteractionObject
@@ -6402,6 +6475,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &887798718
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 887798714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &897916676
 GameObject:
   m_ObjectHideFlags: 0
@@ -7192,6 +7278,7 @@ GameObject:
   - component: {fileID: 993977496}
   - component: {fileID: 993977498}
   - component: {fileID: 993977497}
+  - component: {fileID: 993977499}
   m_Layer: 0
   m_Name: Npc (4)
   m_TagString: InteractionObject
@@ -7237,6 +7324,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &993977499
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 993977495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &1009786666
 Prefab:
   m_ObjectHideFlags: 0
@@ -9587,6 +9687,7 @@ GameObject:
   - component: {fileID: 1305117122}
   - component: {fileID: 1305117124}
   - component: {fileID: 1305117123}
+  - component: {fileID: 1305117125}
   m_Layer: 0
   m_Name: Npc (1)
   m_TagString: InteractionObject
@@ -9632,6 +9733,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &1305117125
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1305117121}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &1307410626
 Prefab:
   m_ObjectHideFlags: 0
@@ -10811,7 +10925,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1467604801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 65.64, y: 1.5, z: -28.31}
+  m_LocalPosition: {x: 65.64, y: 1.5, z: -27.23}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
   - {fileID: 2112078721}
@@ -10942,6 +11056,7 @@ GameObject:
   - component: {fileID: 1477355251}
   - component: {fileID: 1477355253}
   - component: {fileID: 1477355252}
+  - component: {fileID: 1477355254}
   m_Layer: 0
   m_Name: Npc (7)
   m_TagString: InteractionObject
@@ -10987,6 +11102,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &1477355254
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1477355250}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1483542461
 GameObject:
   m_ObjectHideFlags: 0
@@ -10997,6 +11125,7 @@ GameObject:
   - component: {fileID: 1483542462}
   - component: {fileID: 1483542464}
   - component: {fileID: 1483542463}
+  - component: {fileID: 1483542465}
   m_Layer: 0
   m_Name: NpcFruit
   m_TagString: InteractionObject
@@ -11011,7 +11140,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1483542461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 63.47, y: 0.29, z: -30.18}
+  m_LocalPosition: {x: 64.42, y: 0.29, z: -32.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1216851188}
@@ -11042,6 +11171,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &1483542465
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1483542461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1492744421
 GameObject:
   m_ObjectHideFlags: 0
@@ -11788,6 +11930,7 @@ GameObject:
   - component: {fileID: 1602980034}
   - component: {fileID: 1602980036}
   - component: {fileID: 1602980035}
+  - component: {fileID: 1602980037}
   m_Layer: 0
   m_Name: NpcStore
   m_TagString: InteractionObject
@@ -11802,7 +11945,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1602980033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.7, y: 0.29, z: -30.05}
+  m_LocalPosition: {x: 49.52, y: 0.29, z: -27.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 657679019}
@@ -11833,6 +11976,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &1602980037
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602980033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1603537409 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 091de253e8df6594e87ed4ac605006e4,
@@ -12009,6 +12165,7 @@ GameObject:
   - component: {fileID: 1616671417}
   - component: {fileID: 1616671419}
   - component: {fileID: 1616671418}
+  - component: {fileID: 1616671420}
   m_Layer: 0
   m_Name: Npc (6)
   m_TagString: InteractionObject
@@ -12054,6 +12211,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &1616671420
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1616671416}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &1645349129
 Prefab:
   m_ObjectHideFlags: 0
@@ -14348,6 +14518,7 @@ GameObject:
   - component: {fileID: 1903607951}
   - component: {fileID: 1903607953}
   - component: {fileID: 1903607952}
+  - component: {fileID: 1903607954}
   m_Layer: 0
   m_Name: NpcCake
   m_TagString: InteractionObject
@@ -14362,7 +14533,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1903607950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.69, y: 0.29, z: 2.91}
+  m_LocalPosition: {x: 5.52, y: 0.29, z: 2.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 182175551}
@@ -14393,6 +14564,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &1903607954
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1903607950}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &1903968975
 Prefab:
   m_ObjectHideFlags: 0
@@ -16177,6 +16361,7 @@ GameObject:
   - component: {fileID: 2135818915}
   - component: {fileID: 2135818917}
   - component: {fileID: 2135818916}
+  - component: {fileID: 2135818918}
   m_Layer: 0
   m_Name: Npc (8)
   m_TagString: InteractionObject
@@ -16222,3 +16407,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &2135818918
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135818914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}

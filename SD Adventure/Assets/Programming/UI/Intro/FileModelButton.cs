@@ -100,7 +100,7 @@ public class FileModelButton : MonoBehaviour
         if(filedId > -1)
         {
             DataManager.SetSelectedFile(filedId);
-            SceneLoader.LoadScene("Room");
+            SceneLoader.LoadScene(DataManager.LastScene);
         }
         else
         {

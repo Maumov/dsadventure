@@ -973,7 +973,7 @@ GameObject:
   - component: {fileID: 88005919}
   - component: {fileID: 88005918}
   - component: {fileID: 88005917}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,8 +1003,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.8179307, z: 1}
+  m_Center: {x: 0, y: 0.90896595, z: -0}
 --- !u!23 &88005918
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1061,7 +1061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &125818475
 Transform:
   m_ObjectHideFlags: 0
@@ -3649,7 +3649,7 @@ GameObject:
   - component: {fileID: 541951214}
   - component: {fileID: 541951213}
   - component: {fileID: 541951212}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3937,13 +3937,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelKeyName: FruitShop-2
+  OverrideTutorial: 1
   CompleteButton: {fileID: 522179514}
-  FirstWarning:
-    Name: 
-    Pages: []
-  SecondWarning:
-    Name: 
-    Pages: []
   BaseScene: Frutera
   NextScene: Frutera
   OnCompleteKeys:
@@ -9187,7 +9182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1389323852
 Transform:
   m_ObjectHideFlags: 0
@@ -9228,7 +9223,7 @@ Transform:
   m_GameObject: {fileID: 1399346173}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 8.23, y: 1.213731, z: -1.813}
-  m_LocalScale: {x: 0.73295, y: 0.34572, z: 0.66986996}
+  m_LocalScale: {x: 1.0355117, y: 0.34572, z: 0.9083164}
   m_Children:
   - {fileID: 541951211}
   - {fileID: 1524884399}
@@ -9569,7 +9564,7 @@ GameObject:
   - component: {fileID: 1461037108}
   - component: {fileID: 1461037107}
   - component: {fileID: 1461037106}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9599,8 +9594,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.9031477, z: 1}
+  m_Center: {x: 0, y: 0.9515747, z: -0}
 --- !u!23 &1461037107
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10073,7 +10068,7 @@ GameObject:
   - component: {fileID: 1524884402}
   - component: {fileID: 1524884401}
   - component: {fileID: 1524884400}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10103,8 +10098,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9999999, y: 2.903131, z: 1}
+  m_Center: {x: 0, y: 0.951566, z: 0}
 --- !u!23 &1524884401
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10995,7 +10990,7 @@ GameObject:
   - component: {fileID: 1769845688}
   - component: {fileID: 1769845687}
   - component: {fileID: 1769845686}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11025,8 +11020,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9999999, y: 2.8463316, z: 1}
+  m_Center: {x: 0, y: 0.9231661, z: 0}
 --- !u!23 &1769845687
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12335,6 +12330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: -1
   ScenePosition: []
+  NpcTexts: {fileID: 0}
   Scene: 
 --- !u!4 &1938247194
 Transform:

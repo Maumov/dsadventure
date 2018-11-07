@@ -69,6 +69,6 @@ public class CreateFiles : GenericMenu
         };
         DataManager.AddFile(newFile);
         DataManager.SetSelectedFile(DataManager.GetAllFiles().Length - 1);
-        SceneLoader.LoadScene("Room");
+        SceneLoader.LoadScene(DataManager.LastScene);
     }
 }

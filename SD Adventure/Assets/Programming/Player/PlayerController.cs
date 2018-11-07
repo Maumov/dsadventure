@@ -56,11 +56,6 @@ public class PlayerController : MonoBehaviour
         axis.Set(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical"));
         axis.Normalize();
 
-        if(CrossPlatformInputManager.GetButtonDown("Action"))
-        {
-            Debug.Log("action");
-        }
-
         if(CrossPlatformInputManager.GetButtonDown("Action") && interaction != null)
         {
             interaction.Action();
