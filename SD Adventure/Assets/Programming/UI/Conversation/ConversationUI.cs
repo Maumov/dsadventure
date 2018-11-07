@@ -21,6 +21,7 @@ public class ConversationUI : MonoBehaviour
     ConversationData[] allConversations;
 
     const string playerName = "<nombre>";
+    const string value = "<value{0}>";
 
     void Awake()
     {
@@ -45,23 +46,23 @@ public class ConversationUI : MonoBehaviour
         }
     }
 
-    public static void ShowText(ConversationData msg, System.Action onFinish = null)
+    public static void ShowText(ConversationData msg, System.Action onFinish = null, string[] values = null)
     {
         instance.Content.SetActive(true);
-        instance.StartCoroutine(instance.WriteText(instance.GetConversation(msg), onFinish));
+        instance.StartCoroutine(instance.WriteText(instance.GetConversation(msg), onFinish, values));
     }
 
-    public static void ShowText(string msg, System.Action onFinish = null)
+    public static void ShowText(string msg, System.Action onFinish = null, string[] values = null)
     {
         instance.Content.SetActive(true);
-        instance.StartCoroutine(instance.WriteText(instance.GetConversation(msg), onFinish));
+        instance.StartCoroutine(instance.WriteText(instance.GetConversation(msg), onFinish, values));
     }
 
-    IEnumerator WriteText(ConversationData msg, System.Action onFinish)
+    IEnumerator WriteText(ConversationData msg, System.Action onFinish, string[] values)
     {
         string displayText;
         NextButton.sprite = Arrow;
-        
+
         for(int i = 0; i < msg.Pages.Length; i++)
         {
             BackButton.SetActive(i != 0);
@@ -69,6 +70,11 @@ public class ConversationUI : MonoBehaviour
             displayText = string.Empty;
 
             msg.Pages[i] = msg.Pages[i].Replace(playerName, DataManager.GetSelectedFile().FileName);
+            if(values != null)
+            {
+                for(int j = 0; j < values.Length; j++)
+                    msg.Pages[i] = msg.Pages[i].Replace(string.Format(value, j.ToString()), values[j]);
+            }
 
             for(int j = 0; j < msg.Pages[i].Length && writing; j++)
             {
@@ -127,7 +133,7 @@ public class ConversationUI : MonoBehaviour
                 return allConversations[i];
 
         ConversationData c = new ConversationData();
-        c.Pages = new string[] { cd};
+        c.Pages = new string[] { cd };
         return c;
     }
 }

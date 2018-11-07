@@ -55,7 +55,10 @@
       ]
     },
     {
-      "Name": "WelcomeBack"
+      "Name": "WelcomeBack",
+      "Pages": [
+        "¡Te estaba esperando!"
+      ]
     },
     {
       "Name": "AFKText",
@@ -128,7 +131,7 @@
     {
       "Name": "DicesGameTutorial",
       "Pages": [
-        "Cada cubo/dado va en una caja, guárdalos según su número"
+        "Cada cubo va en una caja, guárdalos según su número"
       ]
     },
     {
@@ -227,7 +230,8 @@
     {
       "Name": "CakeShop-1-EasyText",
       "Pages": [
-        "Es momento de preparar la torta para la fiesta. ¡Ayúdame a vaciar dentro del molde la mezcla que hay en la taza más grande!"
+        "Es momento de preparar la torta para la fiesta.",
+        "¡Ayúdame a vaciar dentro del molde la mezcla que hay en la taza más grande!"
       ]
     },
     {
@@ -244,7 +248,12 @@
       ]
     },
     {
-      "Name": "CakeShop-2-HardText"
+      "Name": "CakeShop-2-HardText",
+      "Pages": [
+        "Listo ahora metamos las mezclas a los hornos.",
+        "Debes ordenar las mezclas por tiempo de cocción.",
+        "Inicia en el horno de la izquierda."
+      ]
     },
     {
       "Name": "CakeShop-2-EasyText",
@@ -266,7 +275,11 @@
       ]
     },
     {
-      "Name": "CakeShop-3-HardText"
+      "Name": "CakeShop-3-HardText",
+      "Pages": [
+        "¡Es hora de terminar!... ya casi acabamos.",
+        "Ayúdame armando la torta, recuerda ordenar los pisos por el peso"
+      ]
     },
     {
       "Name": "CakeShop-3-EasyText",
@@ -285,6 +298,449 @@
       "Name": "CakeShop-3-WrongText",
       "Pages": [
         "¡La torta se cayó! Intentemos armarla de nuevo."
+      ]
+    },
+    {
+      "Name": "FriendText-ToCakeShop",
+      "Pages": [
+        "<Nombre>, vamos a ver cómo va el señor <Panadero> con la torta."
+      ]
+    },
+    {
+      "Name": "FriendText-ToPetShop",
+      "Pages": [
+        "<Nombre>, ya tenemos la torta lista.Vamos a ver cómo va la señora <Veterinaria> con los cachorros para adopción."
+      ]
+    },
+    {
+      "Name": "FriendText-ToDressmaking",
+      "Pages": [
+        "<Nombre>, ya tenemos la torta y los animalitos están listos para adopción. La fiesta va muy bien! Vamos a revisar como va <nombre modista> con los atuendos para la celebración."
+      ]
+    },
+    {
+      "Name": "FriendText-ToFruitShop",
+      "Pages": [
+        "<Nombre>, parece que todo va muy bien! Ahora vayamos a ver como va el señor <nombre frutero> con los jugos y frutas para la fiesta"
+      ]
+    },
+    {
+      "Name": "FriendText-ToStore",
+      "Pages": [
+        "<Nombre>, ya falta muy poco para la fiesta! Todo va de maravilla! Solo queda por ver como va <EL TENDERO> con los pasabocas y las bebidas."
+      ]
+    },
+    {
+      "Name": "(Al salir de la tienda)",
+      "Pages": [
+        "Ya todo está listo! Vamos al parque a ver cómo quedó la fiesta!"
+      ]
+    },
+    {
+      "Name": "Al llegar al parque",
+      "Pages": [
+        "Todo quedó muy bien! Lo logramos!"
+      ]
+    },
+    {
+      "Name": "Car-Warning",
+      "Pages": [
+        "¡Ánimo!, observa los carros y ordénalos según su número"
+      ]
+    },
+    {
+      "Name": "Cubes-Warning",
+      "Pages": [
+        "¡Tú puedes! ¡Ordena los cubos en las cajas!"
+      ]
+    },
+    {
+      "Name": "Dices-Warning",
+      "Pages": [
+        "¡Recuerda ¡Debes guardar los dados en las cajas!"
+      ]
+    },
+    {
+      "Name": "Toys-Warning",
+      "Pages": [
+        "¡Continúa! ¡Coloca los juguetes en las canastas!"
+      ]
+    },
+    {
+      "Name": "Basket-Warning",
+      "Pages": [
+        "!Toca un balón para encestar!"
+      ]
+    },
+    {
+      "Name": "CakeShop-1-Warning"
+    },
+    {
+      "Name": "CakeShop-1-Clue"
+    },
+    {
+      "Name": "CakeShop-1-EasyText-Wrong",
+      "Pages": [
+        "<Nombre>, con esa mezcla no alcanza para hacer una torta para todos.",
+        "¡Intentemos de nuevo!"
+      ]
+    },
+    {
+      "Name": "CakeShop-1-EasyText-Fine",
+      "Pages": [
+        "Perfecto, ahora podemos meterlo en horno!"
+      ]
+    },
+    {
+      "Name": "CakeShop-2-Warning"
+    },
+    {
+      "Name": "CakeShop-2-Clue"
+    },
+    {
+      "Name": "CakeShop-2-EasyText-Wrong",
+      "Pages": [
+        "¡Ups, se quemó el pastel… Probemos de nuevo!"
+      ]
+    },
+    {
+      "Name": "CakeShop-2-EasyText-Fine",
+      "Pages": [
+        "¡Muy bien, las tortas quedaron perfectas!"
+      ]
+    },
+    {
+      "Name": "CakeShop-3-Warning"
+    },
+    {
+      "Name": "CakeShop-3-Clue"
+    },
+    {
+      "Name": "CakeShop-3-EasyText-Wrong",
+      "Pages": [
+        "¡La torta se cayó! Intentemos armarla de nuevo."
+      ]
+    },
+    {
+      "Name": "CakeShop-3-EasyText-Fine",
+      "Pages": [
+        "¡Muy bien, el pastel quedó perfecto!"
+      ]
+    },
+    {
+      "Name": "PetShop-1-EasyText",
+      "Pages": [
+        "Los perros y gatos se mezclaron!",
+        "Ayudame a separarlos para darles comida."
+      ]
+    },
+    {
+      "Name": "PetShop-1-Warning"
+    },
+    {
+      "Name": "PetShop-1-Clue"
+    },
+    {
+      "Name": "PetShop-1-EasyText-Wrong",
+      "Pages": [
+        "<Nombre>, creo que nos equivocamos.",
+        "Algunos perros se quedarán sin comer.",
+        "¡Hay que intentarlo otra vez!"
+      ]
+    },
+    {
+      "Name": "PetShop-1-EasyText-Fine",
+      "Pages": [
+        "Perfecto, ya todos están comiendo felices."
+      ]
+    },
+    {
+      "Name": "PetShop-2-EasyText",
+      "Pages": [
+        "Ayúdame a separar los perros por tamaño."
+      ]
+    },
+    {
+      "Name": "PetShop-2-Warning"
+    },
+    {
+      "Name": "PetShop-2-Clue"
+    },
+    {
+      "Name": "PetShop-2-EasyText-Wrong",
+      "Pages": [
+        "Hay unos perros en los grupos equivocados.",
+        "¡Tratemos de nuevo!"
+      ]
+    },
+    {
+      "Name": "PetShop-2-EasyText-Fine",
+      "Pages": [
+        "¡Muy bien, los perros están listos para adopción!"
+      ]
+    },
+    {
+      "Name": "PetShop-3-EasyText",
+      "Pages": [
+        "Ayúdame a separar los gatos por color."
+      ]
+    },
+    {
+      "Name": "PetShop-3-Warning"
+    },
+    {
+      "Name": "PetShop-3-Clue"
+    },
+    {
+      "Name": "PetShop-3-EasyText-Wrong",
+      "Pages": [
+        "Hay unos gatos en los grupos equivocados.",
+        "¡Intentemos de nuevo!"
+      ]
+    },
+    {
+      "Name": "PetShop-3-EasyText-Fine",
+      "Pages": [
+        "¡Muy bien, ahora los gatos también están listos para adopción!"
+      ]
+    },
+    {
+      "Name": "Dressmaking-1-EasyText",
+      "Pages": [
+        "Tengo todos estos uniformes pero estoy confundida a quien corresponden.",
+        "Ayudame a colocarlos en los maniquíes."
+      ]
+    },
+    {
+      "Name": "Dressmaking-1-Warning"
+    },
+    {
+      "Name": "Dressmaking-1-Clue"
+    },
+    {
+      "Name": "Dressmaking-1-EasyText-Wrong",
+      "Pages": [
+        "<Nombre>, creo que nos equivocamos.",
+        "Algunos maniquíes tienen la ropa equivocada.",
+        "¡Intentemos de nuevo!"
+      ]
+    },
+    {
+      "Name": "Dressmaking-1-EasyText-Fine",
+      "Pages": [
+        "Perfecto, ya se a quien corresponde cada uniforme."
+      ]
+    },
+    {
+      "Name": "Dressmaking-2-EasyText",
+      "Pages": [
+        "Ayúdame, tengo estos ganchos para la ropa de los payasos.",
+        "Se deben acomodar los atuendos en los ganchos.",
+        "Elige la pila con los uniformes necesarios.",
+        "Recuerda, es solo una pila."
+      ]
+    },
+    {
+      "Name": "Dressmaking-2-Warning"
+    },
+    {
+      "Name": "Dressmaking-2-Clue"
+    },
+    {
+      "Name": "Dressmaking-2-EasyText-Wrong",
+      "Pages": [
+        "<Nombre>, creo que nos equivocamos",
+        "No concuerda el número de ganchos con las prendas.",
+        "¡Hay que intentar nuevamente!"
+      ]
+    },
+    {
+      "Name": "Dressmaking-2-EasyText-Fine",
+      "Pages": [
+        "¡Excelente, los uniformes quedaron bien acomodados!"
+      ]
+    },
+    {
+      "Name": "Dressmaking-3-EasyText",
+      "Pages": [
+        "Ya tengo los uniformes de los meseros apilados.",
+        "Ayudame a guardarlos en cajas."
+      ]
+    },
+    {
+      "Name": "Dressmaking-3-Warning"
+    },
+    {
+      "Name": "Dressmaking-3-Clue"
+    },
+    {
+      "Name": "Dressmaking-3-EasyText-Wrong",
+      "Pages": [
+        "<Nombre>, creo que nos equivocamos.",
+        "Las cajas no se llenaron bien.",
+        "¡Intentemos otra vez!"
+      ]
+    },
+    {
+      "Name": "Dressmaking-3-EasyText-Fine",
+      "Pages": [
+        "Perfecto, los meseros tendrán sus uniformes!"
+      ]
+    },
+    {
+      "Name": "FruitShop-1-EasyText",
+      "Pages": [
+        "Haré una canasta de frutas que regalaré en la feria pero no sé cuántas frutas hay en esta canasta.",
+        "¿Cuántas hay?"
+      ]
+    },
+    {
+      "Name": "FruitShop-1-Warning"
+    },
+    {
+      "Name": "FruitShop-1-Clue"
+    },
+    {
+      "Name": "FruitShop-1-EasyText-Wrong",
+      "Pages": [
+        "<Nombre>, fallamos en algo ¡No hay esa cantidad de frutas en la canasta!",
+        "¡Vamos a contar de nuevo!"
+      ]
+    },
+    {
+      "Name": "FruitShop-1-EasyText-Fine",
+      "Pages": [
+        "Perfecto, hay suficientes frutas para regalar en la feria!"
+      ]
+    },
+    {
+      "Name": "FruitShop-2-EasyText",
+      "Pages": [
+        "Ahora vamos a preparar limonada.Pasame <value0> limones!"
+      ]
+    },
+    {
+      "Name": "FruitShop-2-Warning"
+    },
+    {
+      "Name": "FruitShop-2-Clue"
+    },
+    {
+      "Name": "FruitShop-2-EasyText-Wrong",
+      "Pages": [
+        "¡Esta limonada sabe algo raro!",
+        "¡Probemos hacerla de nuevo!"
+      ]
+    },
+    {
+      "Name": "FruitShop-2-EasyText-Fine",
+      "Pages": [
+        "¡Perfecto, esta limonada sabe bien!"
+      ]
+    },
+    {
+      "Name": "FruitShop-3-EasyText",
+      "Pages": [
+        "Haré más jugo con otras frutas Ayúdame a contar cuántas frutas hay de cada una."
+      ]
+    },
+    {
+      "Name": "FruitShop-3-Warning"
+    },
+    {
+      "Name": "FruitShop-3-Clue"
+    },
+    {
+      "Name": "FruitShop-3-EasyText-Wrong",
+      "Pages": [
+        "<Nombre>, parece que no hay esas cantidades de frutas. ¡Contemos de nuevo!"
+      ]
+    },
+    {
+      "Name": "FruitShop-3-EasyText-Fine",
+      "Pages": [
+        "Perfecto, podré hacer muchos tipos de jugo!"
+      ]
+    },
+    {
+      "Name": "Store-1-EasyText",
+      "Pages": [
+        "No sé cuántas botellas de agua y de leche de sabores tengo aquí,",
+        "Dime cuántas bebidas hay en total."
+      ]
+    },
+    {
+      "Name": "Store-1-Warning"
+    },
+    {
+      "Name": "Store-1-Clue"
+    },
+    {
+      "Name": "Store-1-EasyText-Wrong",
+      "Pages": [
+        "<Nombre>, hemos cometido un error.",
+        "No parece haber esa cantidad de agua y leche.",
+        "¡Intentemos de nuevo!"
+      ]
+    },
+    {
+      "Name": "Store-1-EasyText-Fine",
+      "Pages": [
+        "Excelente! Ya sé cuántas bebidas daré en la fiesta!"
+      ]
+    },
+    {
+      "Name": "Store-2-EasyText",
+      "Pages": [
+        "¡Estoy confundido!",
+        "Tengo <value0> galletas y papitas en total en ese total hay <value1> galletas.",
+        "¿Entonces cuántas papitas hay?"
+      ]
+    },
+    {
+      "Name": "Store-2-Warning"
+    },
+    {
+      "Name": "Store-2-Clue"
+    },
+    {
+      "Name": "Store-2-EasyText-Wrong",
+      "Pages": [
+        "No parece haber esa cantidad de papitas.",
+        "¡Intentemos de nuevo!"
+      ]
+    },
+    {
+      "Name": "Store-2-EasyText-Fine",
+      "Pages": [
+        "Excelente! Ya sé cuántas papitas tengo para repartir!"
+      ]
+    },
+    {
+      "Name": "Store-3-EasyText",
+      "Pages": [
+        "Necesito saber cuanto pesan estas bolsas de almendras.",
+        "Mira las etiquetas de cada bolsa.",
+        "¿Cuanto pesan ambas bolsas en total?"
+      ]
+    },
+    {
+      "Name": "Store-3-Warning"
+    },
+    {
+      "Name": "Store-3-Clue"
+    },
+    {
+      "Name": "Store-3-EasyText-Wrong",
+      "Pages": [
+        "Ese no parece ser el peso de las bolsas.",
+        "¡Intentemos de nuevo!"
+      ]
+    },
+    {
+      "Name": "Store-3-EasyText-Fine",
+      "Pages": [
+        "Muy bien! Entonces alcanzarán las almendras para la fiesta!"
       ]
     }
   ]

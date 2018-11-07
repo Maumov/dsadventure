@@ -8,6 +8,7 @@ public class GameTutorial : MonoBehaviour
     public ConversationData TutorialText;
     BaseGame gameManager;
     bool alreadyShown;
+    string[] values;
 
     private void Start()
     {
@@ -19,7 +20,12 @@ public class GameTutorial : MonoBehaviour
     {
         Content.SetActive(true);
         gameManager.SetControl(false);
-        ConversationUI.ShowText(TutorialText, Finish);
+        ConversationUI.ShowText(TutorialText, Finish, values);
+    }
+
+    public void SetValues(string[] v)
+    {
+        values = v;
     }
 
     void Finish()

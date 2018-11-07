@@ -47,6 +47,7 @@ public class StoreTags : BaseGame
         targetNumber = Random.Range(2, max);
         Total.text = max.ToString();
         Cokies.text = (max - targetNumber).ToString();
+        tutorial.SetValues(new string[] { max.ToString(), (max - targetNumber).ToString() });
     }
 
     public override void SetControl(bool sw)

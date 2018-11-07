@@ -72,6 +72,8 @@ public class FruitShopTypes : BaseGame
 
         targetNumber = Random.Range(4, 9);
         RequiredFruits.text = targetNumber.ToString();
+
+        tutorial.SetValues(new string[] { targetNumber.ToString() });
     }
 
     void EasyDrag(GameObject go)
