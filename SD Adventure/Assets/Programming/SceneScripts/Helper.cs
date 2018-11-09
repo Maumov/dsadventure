@@ -25,6 +25,19 @@ public class Helper : MonoBehaviour
         SetPlayerPosition();
     }
 
+    public void Back(string str)
+    {
+        bool c = player.ControlState;
+        player.ControlState = false;
+        ConfirmationPopUp.GetConfirmation("¿Quieres salir?", (sw) =>
+        {
+            if(sw)
+                LoadScene(str);
+            else
+                player.ControlState = c;
+        });
+    }
+
     void SetPlayerPosition()
     {
         for(int i = 0; i < ScenePosition.Length; i++)

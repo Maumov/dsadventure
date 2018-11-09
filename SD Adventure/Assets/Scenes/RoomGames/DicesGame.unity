@@ -824,6 +824,7 @@ MonoBehaviour:
     - Este es el tutorial del juego de los dados
     - Aqui se explica en que consiste el juego
     - Fin del tutorial
+  HelpButton: {fileID: 718120058}
 --- !u!1 &189255602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2724,6 +2725,111 @@ Transform:
   m_Father: {fileID: 85913311}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.23499, z: 0}
+--- !u!1001 &996652995
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1756136982}
+    m_Modifications:
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7f590cb44fac08e419de9f73efd1a73c, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!224 &996652996 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
+    type: 2}
+  m_PrefabInternal: {fileID: 996652995}
 --- !u!1 &1015484715
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,14 +4194,6 @@ MonoBehaviour:
   LevelKeyName: Dices
   OverrideTutorial: 0
   CompleteButton: {fileID: 1952160751}
-  FirstWarning:
-    Name: DicesWarning-1
-    Pages:
-    - Hey juega
-  SecondWarning:
-    Name: DicesWarning-2
-    Pages:
-    - Hey juega
   BaseScene: Room
   NextScene: Room
   OnCompleteKeys: []
@@ -4515,6 +4613,7 @@ RectTransform:
   - {fileID: 1952160756}
   - {fileID: 2031637345}
   - {fileID: 718120059}
+  - {fileID: 996652996}
   m_Father: {fileID: 424581082}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

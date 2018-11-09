@@ -118,7 +118,7 @@ public class FruitShopPile : BaseGame
             else
             {
                 go.transform.position = numbersPos[go.transform.GetSiblingIndex()];
-                ConversationUI.ShowText(LevelKeyName + Hard + Fine, ()=> SetControl(true));
+                ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ()=> SetControl(true));
             }
         }
         else
@@ -232,7 +232,7 @@ public class FruitShopPile : BaseGame
     {
         CompleteButton.SetActive(false);
         if(assignedYellow.Equals(yellow.ToString()) && assignedRed.Equals(red.ToString()) && assignedGreen.Equals(green.ToString()) && assignedBrown.Equals(brown.ToString()))
-            ConversationUI.ShowText(LevelKeyName + Easy + Wrong, Win);
+            ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
         else
             ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
     }

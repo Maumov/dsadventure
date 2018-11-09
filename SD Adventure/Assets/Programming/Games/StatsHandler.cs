@@ -18,6 +18,9 @@ public class StatsHandler : MonoBehaviour
     GameStats stats;
     Vector2 pos;
 
+    [System.NonSerialized]
+    public bool initialized;
+
     private void Update()
     {
         if(stats != null && Input.GetMouseButtonDown(0))
@@ -30,6 +33,7 @@ public class StatsHandler : MonoBehaviour
     public void Create()
     {
         stats = new GameStats(SceneLoader.CurrentScene);
+        initialized = true;
     }
 
     public void AddAction()
@@ -51,5 +55,11 @@ public class StatsHandler : MonoBehaviour
     public void AddDrag(string obj, Vector2 ini, Vector2 end)
     {
         stats.AddDrag(obj, ini, end);
+    }
+
+
+    private void OnDestroy()
+    {
+        instance = null;
     }
 }

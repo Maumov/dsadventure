@@ -14,7 +14,6 @@ public class BaseGame : MonoBehaviour
     public string NextScene = "Room";
     public string[] OnCompleteKeys;
 
-    WaitForSeconds inactivityTime = new WaitForSeconds(30);
     float timeLimit1 = 180;
     float timeLimit2 = 60;
     float startTime;
@@ -29,6 +28,10 @@ public class BaseGame : MonoBehaviour
     protected const string Warning = "-Warning";
     protected const string Clue = "-Clue";
     bool firstAction;
+
+    const float inactivityLimit = 30;
+    float currentInactivitry;
+    bool counting;
 
     protected virtual void Start()
     {
@@ -59,6 +62,7 @@ public class BaseGame : MonoBehaviour
     {
         enableControls = true;
         StatsHandler.Instance.Create();
+        counting = true;
         StartCoroutine(InactivityCounter());
         startTime = Time.time;
     }
@@ -70,6 +74,7 @@ public class BaseGame : MonoBehaviour
 
         StatsHandler.Instance.AddAction();
         StopAllCoroutines();
+        counting = true;
         StartCoroutine(InactivityCounter());
         firstAction = true;
     }
@@ -86,7 +91,14 @@ public class BaseGame : MonoBehaviour
 
     IEnumerator InactivityCounter()
     {
-        yield return inactivityTime;
+        currentInactivitry = 0;
+        while(currentInactivitry < inactivityLimit)
+        {
+            if(counting)
+                currentInactivitry += Time.deltaTime;
+            yield return null;
+        }
+
         SetControl(false);
         if(firstAction)
         {
@@ -103,7 +115,14 @@ public class BaseGame : MonoBehaviour
         else
             ConversationUI.ShowText(LevelKeyName + Warning + 1, () => SetControl(true));
 
-        yield return inactivityTime;
+        currentInactivitry = 0;
+        while(currentInactivitry < inactivityLimit)
+        {
+            if(counting)
+                currentInactivitry += Time.deltaTime;
+            yield return null;
+        }
+
         SetControl(false);
         if(firstAction)
         {
@@ -120,7 +139,13 @@ public class BaseGame : MonoBehaviour
         else
             ConversationUI.ShowText(LevelKeyName + Warning + 2, () => SetControl(true));
 
-        yield return inactivityTime;
+        currentInactivitry = 0;
+        while(currentInactivitry < inactivityLimit)
+        {
+            if(counting)
+                currentInactivitry += Time.deltaTime;
+            yield return null;
+        }
         Quit = true;
         StatsHandler.Instance.Send(GameStats.FinishType.Afk);
         SceneLoader.LoadScene(BaseScene);
@@ -140,9 +165,23 @@ public class BaseGame : MonoBehaviour
 
     public void Back()
     {
-        Quit = true;
-        StatsHandler.Instance.Send(GameStats.FinishType.Quit);
-        SceneLoader.LoadScene(BaseScene);
+        SetControl(false);
+        counting = false;
+        ConfirmationPopUp.GetConfirmation("¿Quieres salir?", (sw) =>
+        {
+            if(sw)
+            {
+                Quit = true;
+                if(StatsHandler.Instance.initialized)
+                    StatsHandler.Instance.Send(GameStats.FinishType.Quit);
+                SceneLoader.LoadScene(BaseScene);
+            }
+            else
+            {
+                SetControl(true);
+                counting = true;
+            }
+        });
     }
 
     public virtual void SetControl(bool sw)
@@ -179,5 +218,11 @@ public class BaseGame : MonoBehaviour
     {
         StatsHandler.Instance.Send(GameStats.FinishType.Fail);
         SceneLoader.LoadScene(SceneLoader.CurrentScene);
+    }
+
+
+    public void TimerState(bool sw)
+    {
+        counting = sw;
     }
 }

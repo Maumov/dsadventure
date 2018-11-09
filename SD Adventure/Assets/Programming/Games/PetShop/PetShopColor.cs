@@ -6,16 +6,11 @@ public class PetShopColor : PetShopShape
 {
 
     public Transform PetsParent;
-    protected override void Initialize()
-    {
-        base.Initialize();
-        if(DataManager.IsHardGame)
-            PetsParent.position += Vector3.forward * -1.8f;
-    }
 
     protected override void CheckHard()
     {
         Groups.Clear();
+        CompleteButton.SetActive(false);
         for(int i = 0; i < Pets.Length; i++)
         {
             Groups.Add(new PetGroup());

@@ -55,7 +55,10 @@ public class PetShopShape : BaseGame
         for(int i = 0; i < Pets.Length; i++)
         {
             if(go.name != Pets[i].name && Vector3.SqrMagnitude(go.transform.position - Pets[i].position) < GroupDistance)
+            {
                 ImportantAction();
+                return;
+            }
         }
     }
 
@@ -75,6 +78,7 @@ public class PetShopShape : BaseGame
     protected virtual void CheckHard()
     {
         SetControl(false);
+        CompleteButton.SetActive(false);
         Groups.Clear();
         for(int i = 0; i < Pets.Length; i++)
         {

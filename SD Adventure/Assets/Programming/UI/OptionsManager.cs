@@ -28,6 +28,7 @@ public class OptionsManager : GenericMenu
     static OptionsManager instance;
 
     public GameObject Btn;
+    public GameObject Parent;
 
     public static void ManualUpdate(out Font f, out TextColor c)
     {
@@ -40,17 +41,20 @@ public class OptionsManager : GenericMenu
         instance.Btn.SetActive(sw);
     }
 
-    void OnEnable()
+    private void Awake()
     {
         if(instance == null)
         {
             instance = this;
             transform.parent.parent.SetParent(null);
-            DontDestroyOnLoad(transform.parent.parent.gameObject);
+            DontDestroyOnLoad(Parent);
         }
         else
-            Destroy(transform.parent.parent.gameObject);
+            Destroy(Parent);
+    }
 
+    void OnEnable()
+    {
         Load();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -62,7 +66,6 @@ public class OptionsManager : GenericMenu
 
     void Start()
     {
-        instance = this;
         Hide();
         Mixer.SetFloat("BGMVol", config.BgmState ? 0 : -80);
         Mixer.SetFloat("VFXVol", config.VfxState ? 0 : -80);

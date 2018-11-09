@@ -57,9 +57,12 @@ public class PlayerController : MonoBehaviour
         axis.Normalize();
 
         if(CrossPlatformInputManager.GetButtonDown("Action") && interaction != null)
-        {
             interaction.Action();
-        }
+    }
+
+    public void ForceInteraction(Interaction i)
+    {
+        i.Action();
     }
 
     void Movement()

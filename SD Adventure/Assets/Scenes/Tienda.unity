@@ -2041,6 +2041,7 @@ GameObject:
   - component: {fileID: 366596874}
   - component: {fileID: 366596876}
   - component: {fileID: 366596877}
+  - component: {fileID: 366596878}
   m_Layer: 9
   m_Name: Text (2)
   m_TagString: Untagged
@@ -2060,6 +2061,7 @@ Transform:
   m_Children:
   - {fileID: 247788852}
   - {fileID: 1106594235}
+  - {fileID: 1959896421}
   m_Father: {fileID: 333065913}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2156,6 +2158,27 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  - Keys:
+    - Key: Store-2
+      Value: 1
+    - Key: StoreComplete
+      Value: 0
+    Call:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 366596878}
+          m_MethodName: Auto
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &366596877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2168,6 +2191,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Conversation: Store-3
+--- !u!114 &366596878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366596872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665ab994fc56d69478bd00f0de090dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NpcFront: {fileID: 1959896421}
+  ComingFrom: EligeEtiqueta
 --- !u!1 &370862256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,7 +2708,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1938247193}
-        m_MethodName: LoadScene
+        m_MethodName: Back
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8696,6 +8732,34 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: -1, z: 0}
+--- !u!1 &1959896420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959896421}
+  m_Layer: 9
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1959896421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1959896420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: -1.367, z: -2.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 366596873}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1981726810
 GameObject:
   m_ObjectHideFlags: 0
