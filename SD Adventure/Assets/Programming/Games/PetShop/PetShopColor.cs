@@ -9,81 +9,60 @@ public class PetShopColor : PetShopShape
 
     protected override void CheckHard()
     {
-        Groups.Clear();
+        SetControl(false);
         CompleteButton.SetActive(false);
-        for(int i = 0; i < Pets.Length; i++)
+
+        int currentGroup;
+        int grouped = 0;
+        int leftOvers = 0;
+        string feature;
+
+        for(int i = 0; i < ContainerHard.Length; i++)
         {
-            Groups.Add(new PetGroup());
-            for(int j = 0; j < Pets.Length; j++)
+            currentGroup = 0;
+            feature = string.Empty;
+            for(int j = 0; j < allHardPets; j++)
             {
-                if(Vector3.SqrMagnitude(Pets[i].position - Pets[j].position) < GroupDistance)
+                if(ContainerHard[i].bounds.Contains(PetsHard[j].position))
                 {
-                    Groups[Groups.Count - 1].Group.Add(Pets[j]);
+                    currentGroup++;
+                    grouped++;
+
+                    if(string.IsNullOrEmpty(feature))
+                    {
+                        for(int k = 0; k < Options.Length; k++)
+                        {
+                            if(PetsHard[j].name.Contains(Options[k]))
+                                feature = Options[k];
+                        }
+                    }
+                    if(!PetsHard[j].name.Contains(feature))
+                    {
+                        ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
+                        return;
+                    }
                 }
             }
-            if(Groups[Groups.Count - 1].Group.Count == 0)
-                Groups.RemoveAt(Groups.Count - 1);
-            else
-                Groups[Groups.Count - 1].Group.Sort(delegate (Transform x, Transform y)
-                {
-                    return x.name.CompareTo(y.name);
-                });
-        }
-
-        for(int i = 0; i < Groups.Count; i++)
-        {
-            for(int j = 0; j < Groups.Count; j++)
-            {
-                if(i != j && Groups[i].Compare(Groups[j]))
-                {
-                    Groups.RemoveAt(j);
-                    j--;
-                }
-            }
-        }
-
-
-        int leftovers = 0;
-        for(int i = 0; i < Groups.Count; i++)
-        {
-            if(Groups[i].Group.Count > GroupsSize)
+            if(currentGroup > GroupsSize)
             {
                 ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
                 return;
             }
 
-            if(Groups[i].Group.Count < GroupsSize)
-                leftovers += Groups[i].Group.Count;
+            if(currentGroup < GroupsSize)
+                leftOvers += currentGroup;
         }
 
-        if(leftovers > GroupsSize - 1)
+        if(allHardPets - grouped > GroupsSize - 1)
         {
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
             return;
         }
 
-
-        string checking = string.Empty;
-
-        for(int i = 0; i < Groups.Count; i++)
+        if(allHardPets - grouped + leftOvers > GroupsSize - 1)
         {
-            if(Groups[i].Group.Count != GroupsSize)
-                continue;
-
-            for(int j = 0; j < Options.Length; j++)
-            {
-                if(Groups[i].Group[0].name.Contains(Options[j]))
-                    checking = Options[j];
-            }
-
-            for(int j = 0; j < Groups[i].Group.Count; j++)
-            {
-                if(!Groups[i].Group[j].name.Contains(checking))
-                {
-                    ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
-                    return;
-                }
-            }
+            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
+            return;
         }
 
         ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
