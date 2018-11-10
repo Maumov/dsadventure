@@ -208,6 +208,7 @@ public class FruitShopTypes : BaseGame
 
     void CheckHard()
     {
+        CompleteButton.SetActive(false);
         SetControl(false);
         if(asignedYellow.Equals(yellow.ToString()) && asignedRed.Equals(red.ToString()) && asignedGreen.Equals(green.ToString()))
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);

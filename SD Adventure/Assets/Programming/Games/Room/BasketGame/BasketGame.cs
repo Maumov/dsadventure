@@ -55,6 +55,7 @@ public class BasketGame : BaseGame
             return;
         }
 
+        Randomizer.Randomize(ballPositions);
         for(int i = 0; i < ballPositions.Length; i++)
         {
             Balls[i].transform.position = ballPositions[i];

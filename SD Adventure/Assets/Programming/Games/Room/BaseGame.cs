@@ -191,6 +191,7 @@ public class BaseGame : MonoBehaviour
 
     protected void Win()
     {
+        int v = 0;
         if(DataManager.GetSelectedFile().GameDifficult != 0)
         {
             if(Time.time - startTime > timeLimit2 || clues > 1)
@@ -202,14 +203,18 @@ public class BaseGame : MonoBehaviour
             else if(Time.time - startTime < timeLimit1 && clues == 0)
             {
                 Debug.Log("Fin exitoso 1");
+                v = 1;
             }
             else
+            {
                 Debug.Log("Fin exitoso 2");
+                v = 2;
+            }
         }
 
         StatsHandler.Instance.Send(GameStats.FinishType.Complete);
         for(int i = 0; i < OnCompleteKeys.Length; i++)
-            DataManager.AddProgressKey(OnCompleteKeys[i], 1);
+            DataManager.AddProgressKey(OnCompleteKeys[i], v);
 
         SceneLoader.LoadScene(NextScene);
     }

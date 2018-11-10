@@ -101,6 +101,8 @@ public class FruitShopPile : BaseGame
             else
                 Groups[Groups.Length - 1].Fruits[i].SetActive(true);
         }
+
+        tutorial.SetValues(new string[] { requestedFeature });
     }
 
     void DropHard(GameObject go)
@@ -118,7 +120,7 @@ public class FruitShopPile : BaseGame
             else
             {
                 go.transform.position = numbersPos[go.transform.GetSiblingIndex()];
-                ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ()=> SetControl(true));
+                ConversationUI.ShowText(LevelKeyName + Hard + Wrong, () => SetControl(true));
             }
         }
         else
