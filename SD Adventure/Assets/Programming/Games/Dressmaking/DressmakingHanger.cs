@@ -41,7 +41,10 @@ public class DressmakingHanger : BaseGame
 
         startPos = new Vector3[ClothesHard.Length];
         for(int i = 0; i < startPos.Length; i++)
+        {
             startPos[i] = ClothesHard[i].transform.position;
+            ClothesHard[i].transform.localScale = Vector3.one;
+        }
 
         Randomizer.Randomize(startPos);
 

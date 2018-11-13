@@ -32,7 +32,10 @@ public class CakeShopSelection : BaseGame
         else
         {
             for(int i = 0; i < Options.Length; i++)
+            {
                 Options[i].Option.transform.localScale = Vector3.one * Scales[i];
+                Options[i].Text.text = string.Empty;
+            }
         }
 
         startPos = new Vector3[Options.Length];

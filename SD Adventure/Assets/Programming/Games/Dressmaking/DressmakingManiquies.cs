@@ -12,6 +12,7 @@ public class DressmakingManiquies : BaseGame
     [Header("Hard Settings")]
     public Transform[] FourLayout;
     public GameObject[] HardClothes;
+    public Collider Container;
 
     [Header("Easy Settings")]
     public GameObject EasyClothes;
@@ -98,7 +99,7 @@ public class DressmakingManiquies : BaseGame
                 else
                 {
                     SetControl(false);
-                    ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ()=> SetControl(true));
+                    ConversationUI.ShowText(LevelKeyName + Easy + Wrong, () => SetControl(true));
                 }
                 ImportantAction();
                 return;
@@ -113,7 +114,14 @@ public class DressmakingManiquies : BaseGame
 
     public void Check()
     {
-        matches++;
+        CompleteButton.SetActive(false);
+
+        for(int i = 0; i < HardClothes.Length; i++)
+        {
+            if(Container.bounds.Contains(HardClothes[i].transform.position))
+                matches++;
+        }
+
         if(matches == 2)
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         else

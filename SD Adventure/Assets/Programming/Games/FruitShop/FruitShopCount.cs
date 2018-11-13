@@ -42,18 +42,20 @@ public class FruitShopCount : BaseGame
 
     protected override void Initialize()
     {
-        control = FindObjectOfType<DragAndDrop>();
-
         if(DataManager.IsHardGame)
             InitHard();
         else
             InitEasy();
+
+        SetControl(false);
     }
 
     void InitHard()
     {
         HardContent.SetActive(true);
         EasyContent.SetActive(false);
+
+        control = FindObjectOfType<DragAndDrop>();
 
         control.OnDrag += HardDrag;
         control.OnDrop += HardDrop;
@@ -83,6 +85,7 @@ public class FruitShopCount : BaseGame
     public void CheckHard()
     {
         SetControl(false);
+        CompleteButton.SetActive(false);
         int lemons = 0;
         for(int i = 0; i < HardFruits.Length; i++)
         {
@@ -90,7 +93,7 @@ public class FruitShopCount : BaseGame
             {
                 if(i < 9)
                 {
-                    ConversationUI.ShowText(LevelKeyName + Hard + Wrong, () => SetControl(true));
+                    ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
                     return;
                 }
                 else
@@ -99,7 +102,7 @@ public class FruitShopCount : BaseGame
         }
         if(lemons != targetNumber)
         {
-            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, () => SetControl(true));
+            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
             return;
         }
 
@@ -111,6 +114,8 @@ public class FruitShopCount : BaseGame
     {
         HardContent.SetActive(false);
         EasyContent.SetActive(true);
+
+        control = FindObjectOfType<DragAndDrop>();
 
         CompleteButton = null;
         startPos = new Vector3[Numbers.Length];

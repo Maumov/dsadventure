@@ -18,10 +18,15 @@ public class FileModelButton : MonoBehaviour
     int filedId;
     public Button button;
     public Color BlueBackground;
+    public Image Stars;
+    public Sprite[] FillStars;
 
     IntroManager manager;
     FilesUI fileManager;
     GameObject[] avatarList;
+
+    public Sprite[] ScenePictures;
+    public LevelStars[] Levels;
 
     private void Start()
     {
@@ -48,7 +53,7 @@ public class FileModelButton : MonoBehaviour
         }
     }
 
-    public void Set(FileData file, int id, Sprite scene)
+    public void Set(FileData file, int id)
     {
         CreateAvatars();
 
@@ -62,7 +67,27 @@ public class FileModelButton : MonoBehaviour
         {
             FileName.text = file.FileName;
             avatarList[file.AvatarId].SetActive(true);
-            Background.sprite = scene;
+
+            for(int i = 0; i < ScenePictures.Length; i++)
+                if(file.LastScene.Equals(ScenePictures[i].name))
+                    Background.sprite = ScenePictures[i];
+
+            Stars.sprite = FillStars[0];
+            int starCount = 0;
+            for(int i = 0; i < Levels.Length; i++)
+            {
+                if(file.LastScene.Equals(Levels[i].SceneName))
+                {
+                    for(int j = 0; j < Levels[i].GameNames.Length; j++)
+                    {
+                        if(file.CheckKey(Levels[i].GameNames[j]))
+                            starCount++;
+                    }
+                    Stars.sprite = FillStars[starCount];
+                    break;
+                }
+            }
+
             Background.color = Color.white;
             AvatarEmpty.enabled = false;
         }
@@ -121,6 +146,12 @@ public class FileModelButton : MonoBehaviour
         DataManager.DeleteFile(filedId);
         fileManager.UpdateFiles();
     }
+}
 
 
+[System.Serializable]
+public class LevelStars
+{
+    public string SceneName;
+    public string[] GameNames;
 }

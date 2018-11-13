@@ -7,7 +7,6 @@ public class FilesUI : GenericMenu
 {
     public FileModelButton[] Buttons;
     int[] currentFiles;
-    public Sprite SceneBackground;
     public Text Counter;
 
     FileData[] files;
@@ -52,7 +51,7 @@ public class FilesUI : GenericMenu
         {
             Buttons[0].Hide();
             Buttons[2].Hide();
-            Buttons[1].Set(null, -1, SceneBackground);
+            Buttons[1].Set(null, -1);
             Buttons[1].SetInFront(true);
             return;
         }
@@ -66,9 +65,9 @@ public class FilesUI : GenericMenu
             }
 
             if(currentFiles[i] != -1)
-                Buttons[i].Set(files[currentFiles[i]], currentFiles[i], SceneBackground);
+                Buttons[i].Set(files[currentFiles[i]], currentFiles[i]);
             else
-                Buttons[i].Set(null, -1, SceneBackground);
+                Buttons[i].Set(null, -1);
             Buttons[i].SetInFront(i == 1);
         }
     }

@@ -13,6 +13,7 @@ public class FakeReport : MonoBehaviour
 
     public ReportText[] Keys;
     public string[] LevelsText;
+    public string[] ExitLevel = new string[] { "---------", "N/A", "Exito 2", "Exito 1" };
 
     public UnityEngine.UI.Text T;
 
@@ -29,7 +30,7 @@ public class FakeReport : MonoBehaviour
         {
             DataManager.ProgressKeyValue(Keys[i].Key, out k);
             k++;
-            T.text += Keys[i].GameName + ": " + LevelsText[k] + "\n";
+            T.text += Keys[i].GameName + ": " + ExitLevel[k] + "\n";
         }
 
         T.text += "Dificultad: " + LevelsText[DataManager.GetSelectedFile().GameDifficult + 1];

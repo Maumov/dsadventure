@@ -13,6 +13,7 @@ public class DressmakingBoxes : BaseGame
     public GameObject[] EasyClothes;
 
     [Header("Dressmaking Hard")]
+    public GameObject HardContent;
     public Collider HardContainer;
     public GameObject[] HardClothes;
 
@@ -34,7 +35,9 @@ public class DressmakingBoxes : BaseGame
 
     void InitEasy()
     {
-        CompleteButton = null;
+        EasyContent.SetActive(true);
+        HardContent.SetActive(false);
+        //CompleteButton = null;
         pos = new Vector3[EasyContainers.Length];
         for(int i = 0; i < pos.Length; i++)
             pos[i] = EasyContainers[i].transform.position;
@@ -59,6 +62,7 @@ public class DressmakingBoxes : BaseGame
 
     public void CompleteEasy()
     {
+        CompleteButton.SetActive(false);
         for(int i = 0; i < EasyContainers.Length; i++)
         {
             if(!EasyContainers[i].bounds.Contains(EasyClothes[i].transform.position))
@@ -72,6 +76,8 @@ public class DressmakingBoxes : BaseGame
 
     void InitHard()
     {
+        EasyContent.SetActive(false);
+        HardContent.SetActive(true);
         CompleteButton = null;
 
         pos = new Vector3[HardClothes.Length];

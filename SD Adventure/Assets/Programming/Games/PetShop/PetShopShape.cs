@@ -9,17 +9,21 @@ public class PetShopShape : BaseGame
     public GameObject HardContent;
 
     DragAndDrop control;
-    public Transform[] Pets;
 
     [Header("Hard")]
     public List<PetGroup> Groups = new List<PetGroup>();
     public float GroupDistance = 1.2f;
     public int GroupsSize = 3;
+    public Transform[] PetsHard;
+    public Collider[] ContainerHard;
+    public int minPets;
+    protected int allHardPets;
 
     [Header("Easy")]
+    public Transform[] Pets;
     public Collider[] Container;
-    List<GameObject> content = new List<GameObject>();
     public string[] Options = new string[] { "Cat", "Dog" };
+    List<GameObject> content = new List<GameObject>();
 
     protected override void Initialize()
     {
@@ -28,6 +32,12 @@ public class PetShopShape : BaseGame
             EasyContent.SetActive(false);
             HardContent.SetActive(true);
             control = HardContent.GetComponent<DragAndDrop>();
+
+            allHardPets = Random.Range(minPets, PetsHard.Length);
+            for(int i = allHardPets; i < PetsHard.Length; i++)
+            {
+                PetsHard[i].gameObject.SetActive(false);
+            }
         }
         else
         {
@@ -55,7 +65,10 @@ public class PetShopShape : BaseGame
         for(int i = 0; i < Pets.Length; i++)
         {
             if(go.name != Pets[i].name && Vector3.SqrMagnitude(go.transform.position - Pets[i].position) < GroupDistance)
+            {
                 ImportantAction();
+                return;
+            }
         }
     }
 
@@ -75,53 +88,39 @@ public class PetShopShape : BaseGame
     protected virtual void CheckHard()
     {
         SetControl(false);
-        Groups.Clear();
-        for(int i = 0; i < Pets.Length; i++)
+        CompleteButton.SetActive(false);
+
+        int currentGroup;
+        int grouped = 0;
+        int leftOvers = 0;
+        for(int i = 0; i < ContainerHard.Length; i++)
         {
-            Groups.Add(new PetGroup());
-            for(int j = 0; j < Pets.Length; j++)
+            currentGroup = 0;
+            for(int j = 0; j < allHardPets; j++)
             {
-                if(Vector3.SqrMagnitude(Pets[i].position - Pets[j].position) < GroupDistance)
+                if(ContainerHard[i].bounds.Contains(PetsHard[j].position))
                 {
-                    Groups[Groups.Count - 1].Group.Add(Pets[j]);
+                    currentGroup++;
+                    grouped++;
                 }
             }
-            if(Groups[Groups.Count - 1].Group.Count == 0)
-                Groups.RemoveAt(Groups.Count - 1);
-            else
-                Groups[Groups.Count - 1].Group.Sort(delegate (Transform x, Transform y)
-                {
-                    return x.name.CompareTo(y.name);
-                });
-        }
-
-        for(int i = 0; i < Groups.Count; i++)
-        {
-            for(int j = 0; j < Groups.Count; j++)
-            {
-                if(i != j && Groups[i].Compare(Groups[j]))
-                {
-                    Groups.RemoveAt(j);
-                    j--;
-                }
-            }
-        }
-
-
-        int leftovers = 0;
-        for(int i = 0; i < Groups.Count; i++)
-        {
-            if(Groups[i].Group.Count > GroupsSize)
+            if(currentGroup > GroupsSize)
             {
                 ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
                 return;
             }
 
-            if(Groups[i].Group.Count < GroupsSize)
-                leftovers += Groups[i].Group.Count;
+            if(currentGroup < GroupsSize)
+                leftOvers += currentGroup;
         }
 
-        if(leftovers > GroupsSize - 1)
+        if(allHardPets - grouped > GroupsSize - 1)
+        {
+            ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
+            return;
+        }
+
+        if(allHardPets - grouped + leftOvers > GroupsSize - 1)
         {
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
             return;
