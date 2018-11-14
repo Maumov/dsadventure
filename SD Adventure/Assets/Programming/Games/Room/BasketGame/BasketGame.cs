@@ -27,8 +27,8 @@ public class BasketGame : BaseGame
 
     public Transform FinalPos;
 
-    Vector3 initialScale = new Vector3(10, 10, 10);
-    Vector3 finalScale = new Vector3(5, 5, 5);
+    Vector3 initialScale = new Vector3(35, 35, 35);
+    Vector3 finalScale = new Vector3(22, 22, 22);
 
     public override void StartGame()
     {
