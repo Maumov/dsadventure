@@ -13,6 +13,8 @@ public class BaseGame : MonoBehaviour
     public string BaseScene = "Room";
     public string NextScene = "Room";
     public string[] OnCompleteKeys;
+    public float FinishDelay;
+    WaitForSeconds finishWait;
 
     float timeLimit1 = 180;
     float timeLimit2 = 60;
@@ -35,6 +37,7 @@ public class BaseGame : MonoBehaviour
 
     protected virtual void Start()
     {
+        finishWait = new WaitForSeconds(FinishDelay);
         tutorial = FindObjectOfType<GameTutorial>();
         if(CompleteButton != null)
             CompleteButton.SetActive(false);
@@ -83,6 +86,12 @@ public class BaseGame : MonoBehaviour
     {
         CompleteValidations();
         StatsHandler.Instance.Send(GameStats.FinishType.Complete);
+        StartCoroutine(CompleteDelay());
+    }
+
+    IEnumerator CompleteDelay()
+    {
+        yield return finishWait;
         SceneLoader.LoadScene(BaseScene);
     }
 

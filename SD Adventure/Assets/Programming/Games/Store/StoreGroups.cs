@@ -146,9 +146,9 @@ public class StoreGroups : BaseGame
     }
 
 
-    [System.Serializable]
-    public class GameObjectArray
-    {
-        public GameObject[] Objects;
-    }
+}
+[System.Serializable]
+public class GameObjectArray
+{
+    public GameObject[] Objects;
 }

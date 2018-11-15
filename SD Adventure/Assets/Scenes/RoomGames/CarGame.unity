@@ -271,6 +271,11 @@ Transform:
   m_Father: {fileID: 399048166}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &48344466 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137865956018072102, guid: 889ee0eed3f9e58469cd2229f4987905,
+    type: 2}
+  m_PrefabInternal: {fileID: 1194672421}
 --- !u!1001 &105560478
 Prefab:
   m_ObjectHideFlags: 0
@@ -470,6 +475,11 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 65994769275404678, guid: 2d5fa12258e82f44f8fc1bba12b9c658,
     type: 2}
   m_PrefabInternal: {fileID: 746171423}
+--- !u!137 &208671404 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137865956018072102, guid: 889ee0eed3f9e58469cd2229f4987905,
+    type: 2}
+  m_PrefabInternal: {fileID: 877163288}
 --- !u!1 &399048165
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +529,7 @@ MonoBehaviour:
   BaseScene: Room
   NextScene: Room
   OnCompleteKeys: []
+  FinishDelay: 2
   GameCam: {fileID: 187387916}
   Places:
   - {fileID: 2091712329}
@@ -526,6 +537,12 @@ MonoBehaviour:
   - {fileID: 1604625004}
   - {fileID: 198610547}
   - {fileID: 1484999352}
+  GarageDoors:
+  - {fileID: 1585091231}
+  - {fileID: 208671404}
+  - {fileID: 2039314206}
+  - {fileID: 48344466}
+  - {fileID: 1328180118}
   Cars:
   - {fileID: 1129540749}
   - {fileID: 491418514}
@@ -1274,11 +1291,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4154007034161816, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1336613533801912, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
       propertyPath: m_Name
-      value: Garaje (2)
+      value: Garaje (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
@@ -1381,11 +1398,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4154007034161816, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1336613533801912, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
       propertyPath: m_Name
-      value: Garaje (3)
+      value: Garaje (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
@@ -1864,11 +1881,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1233718759}
+  - {fileID: 877163289}
   - {fileID: 1188205081}
   - {fileID: 1194672422}
   - {fileID: 844070800}
-  - {fileID: 877163289}
-  - {fileID: 1233718759}
   m_Father: {fileID: 2095960364}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1961,7 +1978,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4154007034161816, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336613533801912, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
+      propertyPath: m_Name
+      value: Garaje (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
@@ -2008,11 +2029,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4154007034161816, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1336613533801912, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
       propertyPath: m_Name
-      value: Garaje (1)
+      value: Garaje (4)
       objectReference: {fileID: 0}
     - target: {fileID: 137865956018072102, guid: 889ee0eed3f9e58469cd2229f4987905,
         type: 2}
@@ -2064,11 +2085,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4154007034161816, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1336613533801912, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
       propertyPath: m_Name
-      value: Garaje (4)
+      value: Garaje (0)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 889ee0eed3f9e58469cd2229f4987905, type: 2}
@@ -2706,6 +2727,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224924471180062820, guid: e385ada7749a8df43911e5d160060f0f,
     type: 2}
   m_PrefabInternal: {fileID: 1321148152}
+--- !u!137 &1328180118 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137865956018072102, guid: 889ee0eed3f9e58469cd2229f4987905,
+    type: 2}
+  m_PrefabInternal: {fileID: 844070799}
 --- !u!4 &1484999351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4846781118589016, guid: 2d5fa12258e82f44f8fc1bba12b9c658,
@@ -2885,6 +2911,11 @@ Transform:
   m_Father: {fileID: 23793696}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &1585091231 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137865956018072102, guid: 889ee0eed3f9e58469cd2229f4987905,
+    type: 2}
+  m_PrefabInternal: {fileID: 1233718758}
 --- !u!4 &1604625003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4846781118589016, guid: 2d5fa12258e82f44f8fc1bba12b9c658,
@@ -3650,6 +3681,11 @@ Transform:
   m_Father: {fileID: 23793696}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &2039314206 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137865956018072102, guid: 889ee0eed3f9e58469cd2229f4987905,
+    type: 2}
+  m_PrefabInternal: {fileID: 1188205080}
 --- !u!1001 &2041681876
 Prefab:
   m_ObjectHideFlags: 0

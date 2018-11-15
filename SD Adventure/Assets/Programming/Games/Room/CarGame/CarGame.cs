@@ -7,6 +7,7 @@ public class CarGame : BaseGame
     [Header("Car Game")]
     public Camera GameCam;
     public Collider[] Places;
+    public SkinnedMeshRenderer[] GarageDoors;
     public CarObject[] Cars;
     public Transform[] StartPlaces;
     public LayerMask DragLayer;
@@ -80,6 +81,8 @@ public class CarGame : BaseGame
 
     protected override void CompleteValidations()
     {
+        enableControls = false;
+
         for(int i = 0; i < Places.Length; i++)
         {
             if(Places[i].bounds.Contains(Cars[i].transform.position))
@@ -91,6 +94,18 @@ public class CarGame : BaseGame
         {
             if(Places[i].bounds.Contains(Cars[i].transform.position))
                 downwards++;
+        }
+
+        for(int i = 0; i < Places.Length; i++)
+        {
+            for(int j = 0; j < Cars.Length; j++)
+            {
+                if(Places[i].bounds.Contains(Cars[j].transform.position))
+                {
+                    SaveCar(j, i);
+                    break;
+                }
+            }
         }
 
         System.Array.Reverse(Cars);
@@ -110,5 +125,15 @@ public class CarGame : BaseGame
             Debug.Log("N/A");
             DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 0);
         }
+    }
+
+    void SaveCar(int car, int place)
+    {
+        Cars[car].transform.LookAt(GarageDoors[place].transform.position + Vector3.up * -0.09f);
+        Cars[car].Disable();
+        LeanTween.move(Cars[car].gameObject, GarageDoors[place].transform.position + Vector3.up * -0.09f, 1f).onComplete += () =>
+        {
+            LeanTween.value(gameObject, (v) => GarageDoors[place].SetBlendShapeWeight(0, v), 100, 0, 0.5f);
+        };
     }
 }
