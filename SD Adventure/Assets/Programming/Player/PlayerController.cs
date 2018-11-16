@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
         }
 
         GetInputs();
+        Movement();
     }
 
     void GetInputs()

@@ -21,6 +21,8 @@ public class BaseGame : MonoBehaviour
     float startTime;
     int clues;
 
+    protected int acomplishmentLevel;
+
     public static bool Quit;
 
     protected const string Hard = "-HardText";
@@ -85,7 +87,7 @@ public class BaseGame : MonoBehaviour
     public virtual void Complete()
     {
         CompleteValidations();
-        StatsHandler.Instance.Send(GameStats.FinishType.Complete);
+        StatsHandler.Instance.Send(GameStats.FinishType.Complete, acomplishmentLevel);
         StartCoroutine(CompleteDelay());
     }
 
@@ -156,7 +158,7 @@ public class BaseGame : MonoBehaviour
             yield return null;
         }
         Quit = true;
-        StatsHandler.Instance.Send(GameStats.FinishType.Afk);
+        StatsHandler.Instance.Send(GameStats.FinishType.Afk, -1);
         SceneLoader.LoadScene(BaseScene);
     }
 
@@ -182,7 +184,7 @@ public class BaseGame : MonoBehaviour
             {
                 Quit = true;
                 if(StatsHandler.Instance.initialized)
-                    StatsHandler.Instance.Send(GameStats.FinishType.Quit);
+                    StatsHandler.Instance.Send(GameStats.FinishType.Quit, -1);
                 SceneLoader.LoadScene(BaseScene);
             }
             else
@@ -221,7 +223,7 @@ public class BaseGame : MonoBehaviour
             }
         }
 
-        StatsHandler.Instance.Send(GameStats.FinishType.Complete);
+        StatsHandler.Instance.Send(GameStats.FinishType.Complete, v);
         for(int i = 0; i < OnCompleteKeys.Length; i++)
             DataManager.AddProgressKey(OnCompleteKeys[i], v);
 
@@ -230,7 +232,7 @@ public class BaseGame : MonoBehaviour
 
     protected void ResetLevel()
     {
-        StatsHandler.Instance.Send(GameStats.FinishType.Fail);
+        StatsHandler.Instance.Send(GameStats.FinishType.Fail, -1);
         SceneLoader.LoadScene(SceneLoader.CurrentScene);
     }
 

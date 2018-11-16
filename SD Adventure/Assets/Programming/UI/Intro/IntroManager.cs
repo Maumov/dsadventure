@@ -17,6 +17,7 @@ public class IntroManager : MonoBehaviour
     {
         SetCurrentMenu(0);
         StartCoroutine(OptionsDelay());
+        StartCoroutine(FilesCheck());
     }
 
     public void SetCurrentMenu(int id)
@@ -73,4 +74,31 @@ public class IntroManager : MonoBehaviour
     }
 
 
+    public FileData[] files;
+
+    IEnumerator FilesCheck()
+    {
+        bool wait = true;
+        files = DataManager.GetAllFiles();
+        for(int i = 0; i < files.Length; i++)
+        {
+            for(int j = 0; j < files[i].PendingJsonFiles.Count; j++)
+            {
+                wait = true;
+                yield return StartCoroutine(StatsHandler.Server(files[i].PendingJsonFiles[j], (sw) =>
+                {
+                    if(sw)
+                    {
+                        files[i].PendingJsonFiles.RemoveAt(j);
+                        j--;
+                    }
+                    wait = false;
+                }));
+                while(wait)
+                    yield return null;
+            }
+        }
+        DataManager.Save();
+        yield return null;
+    }
 }

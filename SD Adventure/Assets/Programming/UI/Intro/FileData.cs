@@ -15,6 +15,14 @@ public class DataManager
             Load();
     }
 
+    public static void AddJson(string json)
+    {
+        Check();
+        GetSelectedFile().PendingJsonFiles.Add(json);
+        Debug.Log(GetSelectedFile().PendingJsonFiles.Count);
+        Save();
+    }
+
     public static bool IsHardGame
     {
         get
@@ -141,14 +149,12 @@ public class FileData
     public string LastScene;
     public int GameDifficult = -1;
     public List<ProgressKey> ProgressKeys = new List<ProgressKey>();
+    public List<string> PendingJsonFiles = new List<string>();
 
     public FileData(string fileName, int avatarId)
     {
         FileName = fileName;
-
-        System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
-        int cur_time = (int)(System.DateTime.UtcNow - epochStart).TotalSeconds;
-        FileId = (fileName + cur_time.ToString()).GetHashCode().ToString();
+        FileId = (fileName + DataHelper.GetTime().ToString()).GetHashCode().ToString();
 
         AvatarId = avatarId;
         LastScene = "";
@@ -212,36 +218,11 @@ public class GameStats
 
     public PlayerInfo[] Players;
 
-    public string GameName;
-    public float FirstActionTime;
-    public float GameTime;
-    public int ActionsAmount;
-    public FinishType EndBy;
-
-    public List<Vector2> TouchCount;
-    public List<DragInfo> DragCount;
-
-    [System.NonSerialized]
-    float startTime;
-    [System.NonSerialized]
-    DragInfo currentDrag;
-
     #endregion
 
     #region Constructors
     public GameStats(string name)
     {
-        GameName = name;
-        FirstActionTime = -1;
-        GameTime = -1;
-        ActionsAmount = 0;
-        EndBy = FinishType.None;
-        TouchCount = new List<Vector2>();
-        DragCount = new List<DragInfo>();
-
-        startTime = Time.time;
-        currentDrag = new DragInfo("empty");
-
         Players = new PlayerInfo[] { new PlayerInfo() };
     }
 
@@ -256,28 +237,6 @@ public class GameStats
     }
 
     [System.Serializable]
-    public struct DragInfo
-    {
-        public string ObjectName;
-        public Vector2 Ini;
-        public Vector2 End;
-
-        public DragInfo(string str)
-        {
-            ObjectName = str;
-            Ini = new Vector2(0, 0);
-            End = new Vector2(0, 0);
-        }
-
-        public DragInfo(string obj, Vector2 i, Vector2 e)
-        {
-            ObjectName = obj;
-            Ini = i;
-            End = e;
-        }
-    }
-
-    [System.Serializable]
     public class PlayerInfo
     {
         public string ID;
@@ -285,48 +244,136 @@ public class GameStats
         public string Nombre;
         public string Edad;
 
+        public GameSessionData[] GameSessions;
+
         public PlayerInfo()
         {
             ID = DataManager.GetSelectedFile().FileId;
             Nivel = DataManager.GetSelectedFile().GameDifficult.ToString();
             Nombre = DataManager.GetSelectedFile().FileName;
             Edad = "";
+
+            GameSessions = new GameSessionData[] { new GameSessionData() };
         }
     }
 
+    [System.Serializable]
+    public class GameSessionData
+    {
+        public string TimeStamp;
+        public MinigameSessionData[] MiniGameSessions;
 
+        public GameSessionData()
+        {
+            TimeStamp = DataHelper.GetTime().ToString();
+            MiniGameSessions = new MinigameSessionData[] { new MinigameSessionData() };
+        }
+    }
+
+    [System.Serializable]
+    public class MinigameSessionData
+    {
+        public string ID;
+        public string TimeStamp;
+        public ActivitySessionData[] ActivitySessions;
+
+        public MinigameSessionData()
+        {
+            ID = "0";
+            TimeStamp = DataHelper.GetTime().ToString();
+            ActivitySessions = new ActivitySessionData[] { new ActivitySessionData() };
+        }
+    }
+
+    [System.Serializable]
+    public class ActivitySessionData
+    {
+        public string ID;
+        [System.NonSerialized]
+        public string GameName;
+        public string TimeStampStart;
+        public string TimeStampEnd;
+        public string TimeToFirstEvent;
+        public int LevelOfAccomplishment;
+        [System.NonSerialized]
+        public int ActionsAmount;
+        [System.NonSerialized]
+        public FinishType EndBy;
+
+        public List<ActionEventData> ActionEvents;
+
+        public ActivitySessionData()
+        {
+            ID = "0";
+            GameName = "";// name;
+            TimeStampStart = DataHelper.GetTime().ToString();
+            TimeToFirstEvent = "";
+            ActionsAmount = 0;
+            EndBy = FinishType.None;
+            ActionEvents = new List<ActionEventData>();
+        }
+    }
+
+    [System.Serializable]
+    public class ActionEventData
+    {
+        public string TimeStamp;
+        public string type;
+        public string CoordinatesStart;
+        public string CoordinatesEnd;
+        public string ObjectInteractedID;
+
+        public ActionEventData(Vector2 pos, string obj)//touch
+        {
+            TimeStamp = DataHelper.GetTime().ToString();
+            type = "touch";
+            CoordinatesStart = pos.ToString();
+            ObjectInteractedID = obj;
+        }
+
+        public ActionEventData(Vector2 ini, Vector2 end, string obj)//touch
+        {
+            TimeStamp = DataHelper.GetTime().ToString();
+            type = "DAndD";
+            CoordinatesStart = ini.ToString();
+            CoordinatesEnd = end.ToString();
+            ObjectInteractedID = obj;
+        }
+    }
     #endregion
 
     #region Methods
     public void AddAction()
     {
-        if(ActionsAmount == 0)
-            FirstActionTime = Time.time - startTime;
-        ActionsAmount++;
+        if(Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].ActionsAmount == 0)
+            Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].TimeToFirstEvent = DataHelper.GetTime().ToString();
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].ActionsAmount++;
     }
 
-    public void Close(FinishType finishType)
+    public void Close(FinishType finishType, int acomplishment)
     {
-        GameTime = Time.time - startTime;
-        EndBy = finishType;
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].TimeStampEnd = DataHelper.GetTime().ToString();
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].LevelOfAccomplishment = acomplishment;
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].EndBy = finishType;
     }
 
-    public void AddTouch(Vector2 pos)
+    public void AddTouch(Vector2 pos, string obj)
     {
-        TouchCount.Add(pos);
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].ActionEvents.Add(new ActionEventData(pos, obj));
     }
 
     public void AddDrag(string obj, Vector2 ini, Vector2 end)
     {
-        currentDrag.ObjectName = obj;
-        currentDrag.Ini.Set(ini.x / Screen.width, ini.y / Screen.height);
-        currentDrag.End.Set(end.x / Screen.width, end.y / Screen.height);
-
-        DragCount.Add(currentDrag);
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].ActionEvents.Add(new ActionEventData(new Vector2(ini.x / Screen.width, ini.y / Screen.height), new Vector2(end.x / Screen.width, end.y / Screen.height), obj));
     }
     #endregion
 }
 
-//System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
-//int cur_time = (int)(System.DateTime.UtcNow - epochStart).TotalSeconds;
-//miniGameSession = new MiniGameSession(MiniGameID, cur_time.ToString ());
+public class DataHelper
+{
+    public static int GetTime()
+    {
+        System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
+        return (int)(System.DateTime.UtcNow - epochStart).TotalSeconds;
+    }
+}
