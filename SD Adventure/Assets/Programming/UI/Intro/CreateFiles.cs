@@ -59,14 +59,7 @@ public class CreateFiles : GenericMenu
         if(string.IsNullOrEmpty(fileName))
             return;
 
-        FileData newFile = new FileData()
-        {
-            FileName = fileName,
-            AvatarId = avatarId,
-            LastScene = "",
-            GameDifficult = -1,
-            ProgressKeys = new List<ProgressKey>()
-        };
+        FileData newFile = new FileData(fileName, avatarId);
         DataManager.AddFile(newFile);
         DataManager.SetSelectedFile(DataManager.GetAllFiles().Length - 1);
         SceneLoader.LoadScene(DataManager.LastScene);

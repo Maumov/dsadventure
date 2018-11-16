@@ -44,7 +44,7 @@ public class StatsHandler : MonoBehaviour
     public void Send(GameStats.FinishType finishType)
     {
         stats.Close(finishType);
-        Debug.Log("Send to server: " + JsonUtility.ToJson(stats));
+        Debug.Log("Send to server: \n" + TranslateJson(JsonUtility.ToJson(stats)));
     }
 
     public void AddTouch(Vector2 pos)
@@ -62,4 +62,16 @@ public class StatsHandler : MonoBehaviour
     {
         instance = null;
     }
+
+    string TranslateJson(string json)
+    {
+        string str = json;
+
+        str = str.Replace("DocVersion", "Version de Documento");
+        str = str.Replace("GameVersion", "Version del Juego");
+        str = str.Replace("ParameterVersion", "Version de Parametros");
+
+        return str;
+    }
+
 }

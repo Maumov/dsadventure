@@ -97,7 +97,7 @@ public class DataManager
         Save();
     }
 
-    static void Load()
+    public static void Load()
     {
         string dataAsJson = PlayerPrefs.GetString("Data");
 
@@ -136,10 +136,25 @@ public class SaveData
 public class FileData
 {
     public string FileName;
+    public string FileId;
     public int AvatarId;
     public string LastScene;
     public int GameDifficult = -1;
     public List<ProgressKey> ProgressKeys = new List<ProgressKey>();
+
+    public FileData(string fileName, int avatarId)
+    {
+        FileName = fileName;
+
+        System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
+        int cur_time = (int)(System.DateTime.UtcNow - epochStart).TotalSeconds;
+        FileId = (fileName + cur_time.ToString()).GetHashCode().ToString();
+
+        AvatarId = avatarId;
+        LastScene = "";
+        GameDifficult = -1;
+        ProgressKeys = new List<ProgressKey>();
+    }
 
     public bool CheckKey(string k)
     {
@@ -191,6 +206,12 @@ public class GameStats
 {
 
     #region Variables
+    public string DocVersion = "0.1";
+    public string GameVersion = "0.1";
+    public string ParameterVersion = "0.1";
+
+    public PlayerInfo[] Players;
+
     public string GameName;
     public float FirstActionTime;
     public float GameTime;
@@ -220,6 +241,8 @@ public class GameStats
 
         startTime = Time.time;
         currentDrag = new DragInfo("empty");
+
+        Players = new PlayerInfo[] { new PlayerInfo() };
     }
 
     [System.Serializable]
@@ -251,6 +274,23 @@ public class GameStats
             ObjectName = obj;
             Ini = i;
             End = e;
+        }
+    }
+
+    [System.Serializable]
+    public class PlayerInfo
+    {
+        public string ID;
+        public string Nivel;
+        public string Nombre;
+        public string Edad;
+
+        public PlayerInfo()
+        {
+            ID = DataManager.GetSelectedFile().FileId;
+            Nivel = DataManager.GetSelectedFile().GameDifficult.ToString();
+            Nombre = DataManager.GetSelectedFile().FileName;
+            Edad = "";
         }
     }
 
@@ -286,3 +326,7 @@ public class GameStats
     }
     #endregion
 }
+
+//System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
+//int cur_time = (int)(System.DateTime.UtcNow - epochStart).TotalSeconds;
+//miniGameSession = new MiniGameSession(MiniGameID, cur_time.ToString ());
