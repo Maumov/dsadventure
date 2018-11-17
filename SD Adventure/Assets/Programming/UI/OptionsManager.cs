@@ -68,7 +68,7 @@ public class OptionsManager : GenericMenu
     {
         Hide();
         Mixer.SetFloat("BGMVol", config.BgmState ? 0 : -80);
-        Mixer.SetFloat("VFXVol", config.VfxState ? 0 : -80);
+        Mixer.SetFloat("SFXVol", config.VfxState ? 0 : -80);
         Mixer.SetFloat("VoiceVol", config.VoicesState ? 0 : -80);
     }
 
@@ -108,7 +108,7 @@ public class OptionsManager : GenericMenu
     public void SetVfx(bool state)
     {
         config.VfxState = state;
-        Mixer.SetFloat("VFXVol", state ? 0 : -80);
+        Mixer.SetFloat("SFXVol", state ? 0 : -80);
         Save();
     }
 
