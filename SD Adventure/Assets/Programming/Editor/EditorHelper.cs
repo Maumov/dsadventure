@@ -19,7 +19,7 @@ public class EditorHelper : Editor
     {
         if(DataManager.GetAllFiles().Length == 0)
         {
-            FileData newFile = new FileData("Helper", 0);
+            FileData newFile = new FileData("Helper", "-1", 0);
             DataManager.AddFile(newFile);
             DataManager.SetSelectedFile(0);
         }

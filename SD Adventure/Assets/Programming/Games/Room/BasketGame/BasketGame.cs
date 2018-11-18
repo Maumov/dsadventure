@@ -161,6 +161,7 @@ public class BasketGame : BaseGame
         }
 
         t = 0;
+        SfxManager.Play(SFXType.Basket);
         while(t < 0.5f)
         {
             currentBall.transform.Translate(Vector3.down * 75 * Time.deltaTime);

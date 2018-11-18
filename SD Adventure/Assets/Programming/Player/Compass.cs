@@ -25,7 +25,7 @@ public class Compass : MonoBehaviour
                 target = t[i].position;
         }
 
-        if(target == null)
+        if(target == Vector3.zero)
             gameObject.SetActive(false);
         else
             player = FindObjectOfType<PlayerController>().transform;

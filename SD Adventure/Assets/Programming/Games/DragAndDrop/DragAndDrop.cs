@@ -50,6 +50,7 @@ public class DragAndDrop : MonoBehaviour
                     if(dragRigidbody != null)
                         dragRigidbody.isKinematic = true;
                     BeginDrag();
+                    SfxManager.Play(SFXType.Pick);
                 }
             }
         }

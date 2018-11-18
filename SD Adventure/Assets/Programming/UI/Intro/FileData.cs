@@ -144,6 +144,7 @@ public class SaveData
 public class FileData
 {
     public string FileName;
+    public string Age;
     public string FileId;
     public int AvatarId;
     public string LastScene;
@@ -151,9 +152,10 @@ public class FileData
     public List<ProgressKey> ProgressKeys = new List<ProgressKey>();
     public List<string> PendingJsonFiles = new List<string>();
 
-    public FileData(string fileName, int avatarId)
+    public FileData(string fileName, string age, int avatarId)
     {
         FileName = fileName;
+        Age = age;
         FileId = (fileName + DataHelper.GetTime().ToString()).GetHashCode().ToString();
 
         AvatarId = avatarId;
@@ -251,7 +253,7 @@ public class GameStats
             ID = DataManager.GetSelectedFile().FileId;
             Nivel = DataManager.GetSelectedFile().GameDifficult.ToString();
             Nombre = DataManager.GetSelectedFile().FileName;
-            Edad = "";
+            Edad = DataManager.GetSelectedFile().Age;
 
             GameSessions = new GameSessionData[] { new GameSessionData() };
         }

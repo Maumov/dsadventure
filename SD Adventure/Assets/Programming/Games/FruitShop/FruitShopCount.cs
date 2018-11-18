@@ -61,6 +61,7 @@ public class FruitShopCount : BaseGame
         control.OnDrop += HardDrop;
 
         targetNumber = Random.Range(10, 21);
+        tutorial.SetValues(new string[] { targetNumber.ToString() });
         RequiredFruits.text = targetNumber.ToString();
     }
 
