@@ -9,9 +9,11 @@ public class CreateFiles : GenericMenu
     public Transform AvatarPivot;
     public Text Counter;
     public GameObject CreateButton;
+
     GameObject[] avatarList;
     int avatarId;
     string fileName;
+    string age;
 
     void Start()
     {
@@ -34,8 +36,13 @@ public class CreateFiles : GenericMenu
     public void SetName(string str)
     {
         fileName = str;
+        CreateButton.SetActive(!string.IsNullOrEmpty(age) && !string.IsNullOrEmpty(fileName));
+    }
 
-        CreateButton.SetActive(!string.IsNullOrEmpty(str));
+    public void SetAge(string str)
+    {
+        age = str;
+        CreateButton.SetActive(!string.IsNullOrEmpty(age) && !string.IsNullOrEmpty(fileName));
     }
 
     public void ChangeAvatar(int dir)
@@ -59,14 +66,7 @@ public class CreateFiles : GenericMenu
         if(string.IsNullOrEmpty(fileName))
             return;
 
-        FileData newFile = new FileData()
-        {
-            FileName = fileName,
-            AvatarId = avatarId,
-            LastScene = "",
-            GameDifficult = -1,
-            ProgressKeys = new List<ProgressKey>()
-        };
+        FileData newFile = new FileData(fileName, age, avatarId);
         DataManager.AddFile(newFile);
         DataManager.SetSelectedFile(DataManager.GetAllFiles().Length - 1);
         SceneLoader.LoadScene(DataManager.LastScene);

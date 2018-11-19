@@ -63,6 +63,7 @@ public class FileModelButton : MonoBehaviour
             avatarList[i].SetActive(false);
 
         filedId = id;
+        Stars.sprite = FillStars[0];
         if(id > -1)
         {
             FileName.text = file.FileName;
@@ -72,7 +73,6 @@ public class FileModelButton : MonoBehaviour
                 if(file.LastScene.Equals(ScenePictures[i].name))
                     Background.sprite = ScenePictures[i];
 
-            Stars.sprite = FillStars[0];
             int starCount = 0;
             for(int i = 0; i < Levels.Length; i++)
             {

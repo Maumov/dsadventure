@@ -15,6 +15,8 @@ public class TriggerEvent : MonoBehaviour
         {
             if(Trigger != null)
                 Trigger.Invoke();
+            if(TargetTag.Equals("Drag"))
+                SfxManager.Play(SFXType.Basket);
         }
     }
 }

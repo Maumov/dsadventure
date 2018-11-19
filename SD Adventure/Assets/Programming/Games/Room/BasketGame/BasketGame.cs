@@ -41,9 +41,11 @@ public class BasketGame : BaseGame
         UIContent.SetActive(false);
         ballPositions = new Vector3[Balls.Length];
         for(int i = 0; i < ballPositions.Length; i++)
-        {
             ballPositions[i] = Balls[i].transform.position;
-        }
+
+        Question.text = string.Empty;
+        for(int i = 0; i < Answers.Length; i++)
+            Answers[i].text = string.Empty;
     }
 
     void SetQuestion()
@@ -99,17 +101,17 @@ public class BasketGame : BaseGame
     {
         if(hits > 2)
         {
-            Debug.Log("Avanzado");
+            acomplishmentLevel = 2;
             DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 2);
         }
         else if(hits > 0)
         {
-            Debug.Log("Aprendiz");
+            acomplishmentLevel = 1;
             DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 1);
         }
         else
         {
-            Debug.Log("N/A");
+            acomplishmentLevel = 0;
             DataManager.AddProgressKey(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, 0);
         }
     }
@@ -161,6 +163,7 @@ public class BasketGame : BaseGame
         }
 
         t = 0;
+        SfxManager.Play(SFXType.Basket);
         while(t < 0.5f)
         {
             currentBall.transform.Translate(Vector3.down * 75 * Time.deltaTime);

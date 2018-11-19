@@ -44,8 +44,13 @@ public class PlayerController : MonoBehaviour
     {
         if(ControlState != inputs.gameObject.activeInHierarchy)
             inputs.gameObject.SetActive(ControlState);
+
         if(!ControlState)
+        {
+            axis.Set(0, 0, 0);
+            Movement();
             return;
+        }
 
         GetInputs();
         Movement();

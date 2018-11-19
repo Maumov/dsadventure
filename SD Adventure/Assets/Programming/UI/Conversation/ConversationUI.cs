@@ -21,6 +21,13 @@ public class ConversationUI : MonoBehaviour
     ConversationData[] allConversations;
 
     const string playerName = "<nombre>";
+    const string friendName = "<amiga>";
+    const string cakeNpc = "<panaderia>";
+    const string petNpc = "<veterinaria>";
+    const string clothesNpc = "<modista>";
+    const string fruitsNpc = "<frutera>";
+    const string storeNpc = "<tienda>";
+
     const string value = "<value{0}>";
 
     void Awake()
@@ -69,7 +76,7 @@ public class ConversationUI : MonoBehaviour
             writing = true;
             displayText = string.Empty;
 
-            msg.Pages[i] = msg.Pages[i].Replace(playerName, DataManager.GetSelectedFile().FileName);
+            msg.Pages[i] = ReplaceTexts(msg.Pages[i]);
             if(values != null)
             {
                 for(int j = 0; j < values.Length; j++)
@@ -135,6 +142,18 @@ public class ConversationUI : MonoBehaviour
         ConversationData c = new ConversationData();
         c.Pages = new string[] { cd };
         return c;
+    }
+
+    string ReplaceTexts(string str)
+    {
+        str = str.Replace(playerName, DataManager.GetSelectedFile().FileName);
+        str = str.Replace(friendName, "amiga");
+        str = str.Replace(cakeNpc, "panadero");
+        str = str.Replace(petNpc, "veterinaria");
+        str = str.Replace(clothesNpc, "modista");
+        str = str.Replace(fruitsNpc, "frutero");
+        str = str.Replace(storeNpc, "el tendero");
+        return str;
     }
 }
 
