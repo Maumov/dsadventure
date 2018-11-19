@@ -41,9 +41,11 @@ public class BasketGame : BaseGame
         UIContent.SetActive(false);
         ballPositions = new Vector3[Balls.Length];
         for(int i = 0; i < ballPositions.Length; i++)
-        {
             ballPositions[i] = Balls[i].transform.position;
-        }
+
+        Question.text = string.Empty;
+        for(int i = 0; i < Answers.Length; i++)
+            Answers[i].text = string.Empty;
     }
 
     void SetQuestion()

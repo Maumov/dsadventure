@@ -10,20 +10,17 @@ public class Compass : MonoBehaviour
 
     IEnumerator Start()
     {
-        yield return null;
         KeyEvents[] games = FindObjectsOfType<KeyEvents>();
         Transform[] t = new Transform[games.Length];
 
         for(int i = 0; i < games.Length; i++)
-        {
             t[games[i].transform.GetSiblingIndex() - 1] = games[i].transform;
-        }
+
+        yield return null;
 
         for(int i = 0; i < t.Length; i++)
-        {
             if(t[i].gameObject.activeSelf)
                 target = t[i].position;
-        }
 
         if(target == Vector3.zero)
             gameObject.SetActive(false);
