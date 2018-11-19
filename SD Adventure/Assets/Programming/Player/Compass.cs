@@ -7,10 +7,15 @@ public class Compass : MonoBehaviour
     public Vector3 PlayerOffset;
     Transform player;
     Vector3 target;
+    KeyEvents[] games;
+
+    void Awake()
+    {
+        games = FindObjectsOfType<KeyEvents>();
+    }
 
     IEnumerator Start()
     {
-        KeyEvents[] games = FindObjectsOfType<KeyEvents>();
         Transform[] t = new Transform[games.Length];
 
         for(int i = 0; i < games.Length; i++)

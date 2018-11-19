@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NpcCharacter : Interaction
+public class NpcCharacter : InteractionObject
 {
     public string NpcName;
     PlayerController controller;
