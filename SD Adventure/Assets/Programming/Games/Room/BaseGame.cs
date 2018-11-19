@@ -241,4 +241,17 @@ public class BaseGame : MonoBehaviour
     {
         counting = sw;
     }
+
+    protected void NAEnd()
+    {
+
+        ConversationUI.ShowText("GenericaNAText", () =>
+        {
+            StatsHandler.Instance.Send(GameStats.FinishType.Complete, -1);
+            for(int i = 0; i < OnCompleteKeys.Length; i++)
+                DataManager.AddProgressKey(OnCompleteKeys[i], -1);
+
+            SceneLoader.LoadScene(NextScene);
+        });
+    }
 }

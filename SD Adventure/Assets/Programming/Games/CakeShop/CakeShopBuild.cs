@@ -100,6 +100,14 @@ public class CakeShopBuild : BaseGame
     public override void Complete()
     {
         CompleteButton.SetActive(false);
+
+        if(DataManager.IsNAGame)
+        {
+            NAEnd();
+            SetControl(false);
+            return;
+        }
+
         bool win = true;
 
         for(int i = 0; i < currentOrder.Count; i++)

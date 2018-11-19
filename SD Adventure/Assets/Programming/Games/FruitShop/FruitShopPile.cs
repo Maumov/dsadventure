@@ -56,6 +56,13 @@ public class FruitShopPile : BaseGame
 
     public void Check()
     {
+        if(DataManager.IsNAGame)
+        {
+            NAEnd();
+            SetControl(false);
+            return;
+        }
+
         if(DataManager.IsHardGame)
             CheckEasy();
         else
@@ -112,6 +119,11 @@ public class FruitShopPile : BaseGame
         {
             ImportantAction();
             SetControl(false);
+            if(DataManager.IsNAGame)
+            {
+                NAEnd();
+                return;
+            }
             if(go.name.Equals(targetNumber.ToString()))
             {
                 go.transform.position = hit.transform.position + go.transform.forward * -0.01f;

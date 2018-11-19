@@ -115,6 +115,12 @@ public class DressmakingManiquies : BaseGame
     public void Check()
     {
         CompleteButton.SetActive(false);
+        if(DataManager.IsNAGame)
+        {
+            NAEnd();
+            SetControl(false);
+            return;
+        }
 
         for(int i = 0; i < HardClothes.Length; i++)
         {

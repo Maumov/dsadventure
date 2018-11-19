@@ -74,6 +74,12 @@ public class PetShopShape : BaseGame
 
     public void Check()
     {
+        if(DataManager.IsNAGame)
+        {
+            NAEnd();
+            SetControl(false);
+            return;
+        }
         if(DataManager.IsHardGame)
         {
             CheckHard();

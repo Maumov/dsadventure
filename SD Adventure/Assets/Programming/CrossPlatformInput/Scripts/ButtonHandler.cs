@@ -42,5 +42,10 @@ namespace UnityStandardAssets.CrossPlatformInput
             //gameObject.SetActive(state);
         }
 
+        private void OnDisable()
+        {
+            SetUpState();
+        }
+
     }
 }

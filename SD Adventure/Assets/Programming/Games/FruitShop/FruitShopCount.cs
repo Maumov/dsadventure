@@ -87,6 +87,12 @@ public class FruitShopCount : BaseGame
     {
         SetControl(false);
         CompleteButton.SetActive(false);
+        if(DataManager.IsNAGame)
+        {
+            NAEnd();
+            return;
+        }
+
         int lemons = 0;
         for(int i = 0; i < HardFruits.Length; i++)
         {
@@ -146,6 +152,13 @@ public class FruitShopCount : BaseGame
         {
             SetControl(false);
             ImportantAction();
+
+            if(DataManager.IsNAGame)
+            {
+                NAEnd();
+                return;
+            }
+
             if(go.name.Equals(targetNumber.ToString()))
             {
                 ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
