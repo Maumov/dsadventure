@@ -63,6 +63,13 @@ public class DressmakingBoxes : BaseGame
     public void CompleteEasy()
     {
         CompleteButton.SetActive(false);
+        if(DataManager.IsNAGame)
+        {
+            NAEnd();
+            SetControl(false);
+            return;
+        }
+
         for(int i = 0; i < EasyContainers.Length; i++)
         {
             if(!EasyContainers[i].bounds.Contains(EasyClothes[i].transform.position))
@@ -93,6 +100,12 @@ public class DressmakingBoxes : BaseGame
     public void CheckHard()
     {
         ImportantAction();
+        if(DataManager.IsNAGame)
+        {
+            NAEnd();
+            SetControl(false);
+            return;
+        }
         if(HardContainer.bounds.Contains(HardClothes[0].transform.position))
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         else

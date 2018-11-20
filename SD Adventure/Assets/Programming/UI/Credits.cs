@@ -7,6 +7,7 @@ public class Credits : MonoBehaviour
     bool active;
     float timeActive;
     public CanvasGroup CanvasContent;
+    public bool Ending;
 
     private void Update()
     {
@@ -15,7 +16,10 @@ public class Credits : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0) && Time.time - timeActive > 1)
         {
-            SetState(false);
+            if(!Ending)
+                SetState(false);
+            else
+                SceneLoader.LoadScene("MainMenu");
         }
 
     }

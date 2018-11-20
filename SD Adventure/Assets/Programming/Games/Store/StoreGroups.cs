@@ -124,6 +124,11 @@ public class StoreGroups : BaseGame
         {
             ImportantAction();
             SetControl(false);
+            if(DataManager.IsNAGame)
+            {
+                NAEnd();
+                return;
+            }
             if(go.name.Equals(targetNumber.ToString()))
             {
                 go.transform.position = hit.transform.position + go.transform.forward * -0.01f;

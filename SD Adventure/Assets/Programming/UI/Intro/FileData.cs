@@ -32,6 +32,15 @@ public class DataManager
         }
     }
 
+    public static bool IsNAGame
+    {
+        get
+        {
+            Check();
+            return Data.GameFiles[selectedFile].GameDifficult == 0;
+        }
+    }
+
     public static string LastScene
     {
         get
@@ -77,6 +86,7 @@ public class DataManager
     {
         Check();
         Data.GameFiles[selectedFile].GameDifficult = i;
+        Debug.Log(JsonUtility.ToJson(new EvaluationJson(i.ToString())));
         Save();
     }
 
@@ -377,5 +387,20 @@ public class DataHelper
     {
         System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
         return (int)(System.DateTime.UtcNow - epochStart).TotalSeconds;
+    }
+}
+
+[System.Serializable]
+public class EvaluationJson
+{
+    public string Id;
+    public string Time;
+    public string Level;
+
+    public EvaluationJson(string e)
+    {
+        Id = DataManager.GetSelectedFile().FileId;
+        Time = DataHelper.GetTime().ToString();
+        Level = e;
     }
 }

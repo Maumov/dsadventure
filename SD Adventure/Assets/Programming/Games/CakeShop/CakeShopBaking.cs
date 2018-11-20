@@ -93,6 +93,14 @@ public class CakeShopBaking : BaseGame
     public override void Complete()
     {
         CompleteButton.SetActive(false);
+        if(DataManager.IsNAGame)
+        {
+            NAEnd();
+            SetControl(false);
+            return;
+        }
+
+
         bool win = true;
         for(int i = 0; i < Containers.Length; i++)
         {

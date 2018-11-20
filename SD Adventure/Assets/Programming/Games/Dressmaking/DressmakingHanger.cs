@@ -77,6 +77,11 @@ public class DressmakingHanger : BaseGame
             if(Closet.bounds.Contains(ClothesEasy[i].transform.position))
             {
                 SetControl(false);
+                if(DataManager.IsNAGame)
+                {
+                    NAEnd();
+                    return;
+                }
                 if(ClothesEasy[i].name.Equals("Ok"))
                 {
                     ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
@@ -96,6 +101,11 @@ public class DressmakingHanger : BaseGame
     public void CheckHard()
     {
         SetControl(false);
+        if(DataManager.IsNAGame)
+        {
+            NAEnd();
+            return;
+        }
         if(Box.bounds.Contains(ClothesHard[0].transform.position))
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         else

@@ -70,6 +70,15 @@ public class CakeShopSelection : BaseGame
         if(attempt)
         {
             control.Active = false;
+            ImportantAction();
+
+            if(DataManager.IsNAGame)
+            {
+                NAEnd();
+                SetControl(false);
+                return;
+            }
+
             if(correct)
             {
                 if(DataManager.IsHardGame)
@@ -85,7 +94,6 @@ public class CakeShopSelection : BaseGame
                     ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
             }
 
-            ImportantAction();
         }
     }
 }

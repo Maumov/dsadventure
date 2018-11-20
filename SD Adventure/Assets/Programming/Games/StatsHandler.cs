@@ -83,7 +83,7 @@ public class StatsHandler : MonoBehaviour
             }
             else
             {
-                Debug.Log("Succed");
+                Debug.Log("Success");
                 if(response != null)
                     response(true);
             }
