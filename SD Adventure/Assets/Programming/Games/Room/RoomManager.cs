@@ -11,6 +11,7 @@ public class RoomManager : MonoBehaviour
     public ConversationData TryAgain;
     public ConversationData WellcomeBack;
     PlayerController player;
+    RoomCinematics cinematics;
     int current;
     bool feedback;
 
@@ -21,6 +22,8 @@ public class RoomManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        cinematics = FindObjectOfType<RoomCinematics>();
+
         if(DataManager.GetSelectedFile().GameDifficult == -1)
             Evaluate();
         ShowConversations();
@@ -34,7 +37,13 @@ public class RoomManager : MonoBehaviour
             {
                 player.ControlState = false;
 
-                if(!feedback)
+                if(i > 1)
+                {
+                    FriendNpc.CurrentConversation = Conversations[i].Message.Name;
+                    cinematics.SetStaticFriend();
+                }
+
+                if(!feedback && i > 1)
                 {
                     feedback = true;
                     if(SceneLoader.LastScene.Contains("Game"))
@@ -64,6 +73,13 @@ public class RoomManager : MonoBehaviour
                 }
 
                 current = i;
+
+                if(i == 0 || i == 1)
+                {
+                    cinematics.CallEvent(i, Conversations[i], player);
+                    return;
+                }
+
                 ConversationUI.ShowText(Conversations[i].Message, () =>
                 {
                     if(Conversations[current].AutoComplete)

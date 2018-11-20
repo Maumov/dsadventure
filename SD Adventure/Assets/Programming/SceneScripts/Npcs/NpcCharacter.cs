@@ -8,7 +8,7 @@ public class NpcCharacter : InteractionObject
     PlayerController controller;
     static NpcDatabase database;
 
-    private void Start()
+    void Start()
     {
         controller = FindObjectOfType<PlayerController>();
         if(database == null)

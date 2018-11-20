@@ -26,7 +26,7 @@ public class EditorHelper : Editor
 
         DataManager.GetSelectedFile().GameDifficult++;
         if(DataManager.GetSelectedFile().GameDifficult > 2)
-            DataManager.GetSelectedFile().GameDifficult = 0;
+            DataManager.GetSelectedFile().GameDifficult = -1;
 
         DataManager.Save();
         Debug.Log("Game[0] difficulty: " + DataManager.GetSelectedFile().GameDifficult);
