@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     Vector3 move;
     Interaction interaction;
+    [System.NonSerialized]
+    public Interaction Friend;
     ButtonHandler actionButton;
 
 
@@ -61,9 +63,12 @@ public class PlayerController : MonoBehaviour
         axis.Set(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical"));
         axis.Normalize();
 
-        if(CrossPlatformInputManager.GetButtonDown("Action") && interaction != null)
+        if(CrossPlatformInputManager.GetButtonDown("Action"))
         {
-            interaction.Action();
+            if(interaction != null)
+                interaction.Action();
+            else if(Friend != null)
+                Friend.Action();
         }
     }
 

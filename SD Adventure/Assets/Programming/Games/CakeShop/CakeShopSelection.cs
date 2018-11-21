@@ -25,7 +25,7 @@ public class CakeShopSelection : BaseGame
             for(int i = 0; i < Options.Length; i++)
             {
                 Options[i].Text.text = "$" + Prices[i];
-                Options[i].Option.transform.localScale = Vector3.one * 0.5f;
+                Options[i].Option.transform.localScale = Vector3.one * 0.75f;
             }
 
         }

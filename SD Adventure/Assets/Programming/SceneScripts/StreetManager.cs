@@ -23,6 +23,7 @@ public class StreetManager : MonoBehaviour
                 player.ControlState = false;
 
                 current = i;
+                FriendNpc.CurrentConversation = Conversations[i].Message.Name;
                 ConversationUI.ShowText(Conversations[i].Message, () =>
                 {
                     if(Conversations[current].AutoComplete)
