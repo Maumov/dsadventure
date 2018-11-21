@@ -55,7 +55,12 @@ public class CakeShopBuild : BaseGame
             //go.layer = 10;
             go.transform.position = hit.transform.position;
             go.transform.position = new Vector3(go.transform.position.x, hit.collider.bounds.max.y, go.transform.position.z);
-            go.transform.localScale = Vector3.one * 2;
+            if(!go.name.Equals("Adorno"))
+                go.transform.localScale = Vector3.one * 3.5f;
+            else
+                go.transform.localScale = Vector3.one * 2;
+
+            go.GetComponentInChildren<TextMesh>().GetComponent<MeshRenderer>().enabled = false;
 
             currentOrder.Add(go);
             for(int i = 0; i < currentOrder.Count; i++)
@@ -71,6 +76,7 @@ public class CakeShopBuild : BaseGame
                 if(Options[i].Option.Equals(go))
                 {
                     go.transform.position = startPos[i];
+                    go.GetComponentInChildren<TextMesh>().GetComponent<MeshRenderer>().enabled = true;
                     go.layer = 0;
                     go.transform.localScale = Vector3.one;
                 }

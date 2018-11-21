@@ -25,7 +25,7 @@ public class CakeShopBaking : BaseGame
             for(int i = 0; i < Options.Length; i++)
             {
                 Options[i].Text.text = Weights[i] + "";
-                Options[i].Option.transform.localScale = Scales[1];
+                //Options[i].Option.transform.localScale = Scales[1];
             }
 
         }
