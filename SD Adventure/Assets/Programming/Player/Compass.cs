@@ -8,11 +8,13 @@ public class Compass : MonoBehaviour
     Transform player;
     Vector3 target;
     KeyEvents[] games;
+    SpriteRenderer icon;
 
     void Awake()
     {
         games = FindObjectsOfType<KeyEvents>();
-        transform.GetChild(0).gameObject.layer = 9;
+        icon = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        icon.gameObject.layer = 9;
     }
 
     IEnumerator Start()
@@ -41,6 +43,10 @@ public class Compass : MonoBehaviour
 
         transform.position = player.position + PlayerOffset;
         target.y = transform.position.y;
+        if(Vector3.SqrMagnitude(transform.position - target) < 9f)
+            icon.enabled = false;
+        else
+            icon.enabled = true;
         transform.LookAt(target);
     }
 
