@@ -8,6 +8,7 @@ public class Credits : MonoBehaviour
     float timeActive;
     public CanvasGroup CanvasContent;
     public bool Ending;
+    public string EndingText;
 
     private void Update()
     {
@@ -21,10 +22,23 @@ public class Credits : MonoBehaviour
             else
                 SceneLoader.LoadScene("MainMenu");
         }
-
     }
 
     public void SetState(bool sw)
+    {
+        if(Ending)
+        {
+            FindObjectOfType<PlayerController>().ControlState = false;
+            ConversationUI.ShowText(EndingText, () => 
+            {
+                Set(sw);
+            });
+        }
+        else
+            Set(sw);
+    }
+
+    void Set(bool sw)
     {
         if(sw)
         {

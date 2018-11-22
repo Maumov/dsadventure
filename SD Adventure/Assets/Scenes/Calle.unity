@@ -11458,6 +11458,18 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  - Keys:
+      Key: Store-2
+      Value: 1
+    Message:
+      Name: FriendText-ToPark
+      Pages: []
+    AutoComplete: 0
+    OnFinish:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1001 &440913088
 Prefab:
   m_ObjectHideFlags: 0
@@ -35033,6 +35045,16 @@ Prefab:
     - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286384052785728, guid: 077cab086e0150b41a7067a27b945cd9,
+        type: 2}
+      propertyPath: Ending
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286384052785728, guid: 077cab086e0150b41a7067a27b945cd9,
+        type: 2}
+      propertyPath: EndingText
+      value: FriendText-End
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}

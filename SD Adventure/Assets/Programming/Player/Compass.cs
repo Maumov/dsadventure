@@ -12,6 +12,7 @@ public class Compass : MonoBehaviour
     void Awake()
     {
         games = FindObjectsOfType<KeyEvents>();
+        transform.GetChild(0).gameObject.layer = 9;
     }
 
     IEnumerator Start()
