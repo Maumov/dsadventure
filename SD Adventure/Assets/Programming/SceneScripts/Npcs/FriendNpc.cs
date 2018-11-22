@@ -23,9 +23,9 @@ public class FriendNpc : InteractionObject
 
         if(FollowPlayer)
         {
-            transform.position = player.transform.position + Vector3.forward * 2;
             player.Friend = this;
             yield return null;
+            transform.position = player.transform.position + Vector3.forward * 2;
             speed = player.MovementSpeed;
         }
     }
