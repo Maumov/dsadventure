@@ -59,6 +59,7 @@ public class FruitShopTypes : BaseGame
         if(DataManager.IsNAGame)
         {
             NAEnd();
+            CompleteButton.SetActive(false);
             SetControl(false);
             return;
         }

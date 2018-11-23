@@ -156,6 +156,10 @@ public class FruitShopCount : BaseGame
             if(DataManager.IsNAGame)
             {
                 NAEnd();
+                go.transform.SetParent(GoodPosition);
+                go.transform.localPosition = Vector3.zero;
+                go.transform.localEulerAngles = Vector3.zero;
+                go.transform.localScale = Vector3.one;
                 return;
             }
 
@@ -164,7 +168,7 @@ public class FruitShopCount : BaseGame
                 ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
                 go.transform.SetParent(GoodPosition);
                 go.transform.localPosition = Vector3.zero;
-                go.transform.localRotation = GoodPosition.rotation;
+                go.transform.localEulerAngles = Vector3.zero;
                 go.transform.localScale = Vector3.one;
                 return;
             }
