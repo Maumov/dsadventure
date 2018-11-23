@@ -76,8 +76,9 @@ public class PetShopShape : BaseGame
     {
         if(DataManager.IsNAGame)
         {
-            NAEnd();
             SetControl(false);
+            CompleteButton.SetActive(false);
+            NAEnd();
             return;
         }
         if(DataManager.IsHardGame)
