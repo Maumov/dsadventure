@@ -38,9 +38,10 @@ GameObject:
   - component: {fileID: 4884876668076898}
   - component: {fileID: 114203207114628740}
   - component: {fileID: 143541811011096838}
+  - component: {fileID: 135427257265509060}
   m_Layer: 0
   m_Name: Friend
-  m_TagString: Untagged
+  m_TagString: InteractionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,15 +82,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255632281475128}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 0.29, z: -0.73}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 6.5281544, y: 0.12000108, z: 3.942}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4911594533325188}
   - {fileID: 4443144969317976}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4911594533325188
 Transform:
   m_ObjectHideFlags: 1
@@ -177,8 +178,20 @@ MonoBehaviour:
   Icon: {fileID: 212876356761140638}
   Hidden: {fileID: 21300000, guid: 2b5673d0e7f2a0340bf961d64635c855, type: 3}
   Shown: {fileID: 21300000, guid: ff80a838b6245b846b50aa7ac5c080f5, type: 3}
-  Message: NpcDefaultText
-  FollowPlayer: 1
+  Message: 
+  FollowPlayer: 0
+--- !u!135 &135427257265509060
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1255632281475128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &143541811011096838
 CharacterController:
   m_ObjectHideFlags: 1
