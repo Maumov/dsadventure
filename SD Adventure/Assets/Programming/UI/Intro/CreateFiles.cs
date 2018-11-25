@@ -26,6 +26,10 @@ public class CreateFiles : GenericMenu
             avatarList[i].transform.localEulerAngles = Vector3.zero;
             avatarList[i].transform.localScale = Vector3.one;
             avatarList[i].layer = 5;
+            for(int j = 0; j < avatarList[i].transform.childCount; j++)
+            {
+                avatarList[i].transform.GetChild(j).gameObject.layer = 5;
+            }
             avatarList[i].SetActive(false);
         }
         avatarList[0].SetActive(true);

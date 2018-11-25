@@ -117,14 +117,14 @@ public class BaseGame : MonoBehaviour
 
             if(OverrideTutorial)
             {
-                ConversationUI.ShowText(LevelKeyName + Clue + 1, Restore);
+                ConversationUI.ShowText(LevelKeyName + Clue + "-" + 1, Restore);
                 clues++;
             }
             else
-                ConversationUI.ShowText(LevelKeyName + Warning + 1, Restore);
+                ConversationUI.ShowText(LevelKeyName + Warning + "-" + 1, Restore);
         }
         else
-            ConversationUI.ShowText(LevelKeyName + Warning + 1, () => SetControl(true));
+            ConversationUI.ShowText(LevelKeyName + Warning + "-" + 1, () => SetControl(true));
 
         currentInactivitry = 0;
         while(currentInactivitry < inactivityLimit)
@@ -141,14 +141,14 @@ public class BaseGame : MonoBehaviour
 
             if(OverrideTutorial)
             {
-                ConversationUI.ShowText(LevelKeyName + Clue + 2, Restore);
+                ConversationUI.ShowText(LevelKeyName + Clue + "-" + 2, Restore);
                 clues++;
             }
             else
-                ConversationUI.ShowText(LevelKeyName + Warning + 2, Restore);
+                ConversationUI.ShowText(LevelKeyName + Warning + "-" + 2, Restore);
         }
         else
-            ConversationUI.ShowText(LevelKeyName + Warning + 2, () => SetControl(true));
+            ConversationUI.ShowText(LevelKeyName + Warning + "-" + 2, () => SetControl(true));
 
         currentInactivitry = 0;
         while(currentInactivitry < inactivityLimit)
