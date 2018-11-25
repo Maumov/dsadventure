@@ -1,42 +1,96 @@
 fileFormatVersion: 2
-guid: 6e0bdf6d80c6f58469a12906543427f8
+guid: ba8990580b62202438689a35a5e1385d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cabello-1
-    100002: Cabello-2
-    100004: Cabello-3
-    100006: Falda
-    100008: //RootNode
-    100010: Girl
-    400000: Cabello-1
-    400002: Cabello-2
-    400004: Cabello-3
-    400006: Falda
-    400008: //RootNode
-    400010: Girl
-    2100000: Girl
-    2100002: PM3D_Sphere3D2
-    2100004: PM3D_Sphere3D2_2
-    2100006: PM3D_Sphere3D3
+    100000: Base HumanHead
+    100002: Base HumanLCalf
+    100004: Base HumanLCollarbone
+    100006: Base HumanLDigit11
+    100008: Base HumanLFoot
+    100010: Base HumanLForearm
+    100012: Base HumanLPalm
+    100014: Base HumanLPlatform
+    100016: Base HumanLThigh
+    100018: Base HumanLUpperarm
+    100020: Base HumanNeck1
+    100022: Base HumanNeck2
+    100024: Base HumanPelvis
+    100026: Base HumanRCalf
+    100028: Base HumanRCollarbone
+    100030: Base HumanRDigit11
+    100032: Base HumanRFoot
+    100034: Base HumanRForearm
+    100036: Base HumanRibcage
+    100038: Base HumanRPalm
+    100040: Base HumanRPlatform
+    100042: Base HumanRThigh
+    100044: Base HumanRUpperarm
+    100046: Base HumanSpine1
+    100048: Base HumanSpine2
+    100050: Base HumanSpine3
+    100052: Cabello-1
+    100054: Cabello-2
+    100056: Cabello-3
+    100058: Falda
+    100060: Girl
+    100062: //RootNode
+    400000: Base HumanHead
+    400002: Base HumanLCalf
+    400004: Base HumanLCollarbone
+    400006: Base HumanLDigit11
+    400008: Base HumanLFoot
+    400010: Base HumanLForearm
+    400012: Base HumanLPalm
+    400014: Base HumanLPlatform
+    400016: Base HumanLThigh
+    400018: Base HumanLUpperarm
+    400020: Base HumanNeck1
+    400022: Base HumanNeck2
+    400024: Base HumanPelvis
+    400026: Base HumanRCalf
+    400028: Base HumanRCollarbone
+    400030: Base HumanRDigit11
+    400032: Base HumanRFoot
+    400034: Base HumanRForearm
+    400036: Base HumanRibcage
+    400038: Base HumanRPalm
+    400040: Base HumanRPlatform
+    400042: Base HumanRThigh
+    400044: Base HumanRUpperarm
+    400046: Base HumanSpine1
+    400048: Base HumanSpine2
+    400050: Base HumanSpine3
+    400052: Cabello-1
+    400054: Cabello-2
+    400056: Cabello-3
+    400058: Falda
+    400060: Girl
+    400062: //RootNode
+    2100000: 'Material #16'
+    2100002: Girl
+    2100004: Boy
+    2100006: 'Material #17'
     2300000: Cabello-1
     2300002: Cabello-2
     2300004: Cabello-3
     2300006: Falda
-    2300008: Girl
     3300000: Cabello-1
     3300002: Cabello-2
     3300004: Cabello-3
     3300006: Falda
-    3300008: Girl
     4300000: Girl
-    4300002: Cabello-1
-    4300004: Cabello-3
+    4300002: Falda
+    4300004: Cabello-1
     4300006: Cabello-2
-    4300008: Falda
+    4300008: Cabello-3
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Girl
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -47,14 +101,22 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'Base HumanSpine2' : position
+      error = 31.910759 mm\n\t'Base HumanSpine3' : position error = 27.104889 mm\n\t'Base
+      HumanRibcage' : position error = 29.787653 mm\n\t'Base HumanLCollarbone' : position
+      error = 3.624827 mm\n\t'Base HumanLUpperarm' : position error = 1.266460 mm\n\t'Base
+      HumanRCollarbone' : position error = 3.624744 mm\n\t'Base HumanRUpperarm' :
+      position error = 1.266092 mm\nAvatar Rig Configuration mis-match. Inbetween
+      bone rotation in configuration does not match rotation in animation file:\n\t'Base
+      HumanRibcage' : rotation error = 0.179099 deg\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -85,8 +147,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -96,8 +158,344 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
-    human: []
-    skeleton: []
+    human:
+    - boneName: Base HumanPelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLThigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRThigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLCalf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRCalf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanSpine1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanSpine2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanNeck2
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanHead
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLCollarbone
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRCollarbone
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLUpperarm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRUpperarm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLForearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRForearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLPalm
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRPalm
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLDigit11
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRDigit11
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanSpine3
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Girl-2(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLPlatform
+      parentName: Girl-2(Clone)
+      position: {x: -0.16664717, y: -0.0000000028888343, z: 0.030016068}
+      rotation: {x: 0.5213097, y: -0.5213096, z: -0.47774076, w: 0.47774082}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRPlatform
+      parentName: Girl-2(Clone)
+      position: {x: 0.16664717, y: -0.0000000028888434, z: 0.03001612}
+      rotation: {x: 0.47774088, y: -0.47774082, z: -0.52130955, w: 0.5213096}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Falda
+      parentName: Girl-2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Girl
+      parentName: Girl-2(Clone)
+      position: {x: -0, y: -0.0015395355, z: 0}
+      rotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanPelvis
+      parentName: Girl-2(Clone)
+      position: {x: 0.000000065950786, y: 0.63746995, z: -0.026658596}
+      rotation: {x: 0.49912703, y: -0.50087154, z: -0.49912694, w: 0.5008715}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLThigh
+      parentName: Base HumanPelvis
+      position: {x: -0.038941268, y: 0.036499884, z: 0.102036014}
+      rotation: {x: -0.011207075, y: 0.99764794, z: 0.0030305851, w: 0.06755594}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLCalf
+      parentName: Base HumanLThigh
+      position: {x: -0.2995918, y: 0.000000028610229, z: -0.000000019073486}
+      rotation: {x: 0.002137029, y: 0.041051965, z: 0.09573551, w: 0.9945576}
+      scale: {x: 1.0000007, y: 1.0000001, z: 0.9999995}
+    - name: Base HumanLFoot
+      parentName: Base HumanLCalf
+      position: {x: -0.3225354, y: 0, z: 0}
+      rotation: {x: -0.05295379, y: -0.0041065696, z: -0.68436766, w: 0.7272001}
+      scale: {x: 0.99999994, y: 0.99999905, z: 1.0000008}
+    - name: Base HumanLDigit11
+      parentName: Base HumanLFoot
+      position: {x: -0.10186632, y: -0.0037166355, z: -0.0000010681152}
+      rotation: {x: 0.000521202, y: 0.007468936, z: -0.11150645, w: 0.99373555}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Base HumanRThigh
+      parentName: Base HumanPelvis
+      position: {x: -0.038941268, y: 0.036499884, z: -0.10203604}
+      rotation: {x: -0.011200942, y: 0.9976474, z: -0.0030297372, w: -0.06756486}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRCalf
+      parentName: Base HumanRThigh
+      position: {x: -0.29959175, y: 0.0000000333786, z: 0.000000019073486}
+      rotation: {x: -0.00214296, y: -0.04095948, z: 0.09568404, w: 0.99456644}
+      scale: {x: 1.0000004, y: 1, z: 0.9999998}
+    - name: Base HumanRFoot
+      parentName: Base HumanRCalf
+      position: {x: -0.3225354, y: 0, z: 0}
+      rotation: {x: 0.05278681, y: 0.0037818458, z: -0.68432736, w: 0.7272519}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Base HumanRDigit11
+      parentName: Base HumanRFoot
+      position: {x: -0.10186632, y: -0.003716626, z: 0.0000010871887}
+      rotation: {x: -0.00055978366, y: -0.0071268873, z: -0.1115334, w: 0.99373496}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: Base HumanSpine1
+      parentName: Base HumanPelvis
+      position: {x: -0.062962644, y: -0.004817307, z: -0.000000011955744}
+      rotation: {x: 0.000000014950334, y: -0.00000009184989, z: -0.025013464, w: 0.99968714}
+      scale: {x: 1.0000006, y: 1.0000006, z: 1.0000001}
+    - name: Base HumanSpine2
+      parentName: Base HumanSpine1
+      position: {x: -0.20855826, y: 0.000000009536743, z: -1.8189894e-14}
+      rotation: {x: -0.00000004149256, y: 0.00000005843133, z: 0.017719591, w: 0.999843}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Base HumanSpine3
+      parentName: Base HumanSpine2
+      position: {x: -0.17714836, y: 0, z: 0}
+      rotation: {x: -0.0000000051319433, y: 0.00000002383036, z: 0.07576322, w: 0.99712586}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRibcage
+      parentName: Base HumanSpine3
+      position: {x: -0.19468254, y: 0.000000009536743, z: 0}
+      rotation: {x: 0.000000029782623, y: -0.000000011648617, z: -0.070226915, w: 0.99753106}
+      scale: {x: 0.99999917, y: 0.99999917, z: 0.9999999}
+    - name: Base HumanNeck1
+      parentName: Base HumanRibcage
+      position: {x: -0.037335586, y: 0.07684086, z: -0.000000021581435}
+      rotation: {x: 0.0000000011839664, y: 0.0000000042976716, z: -0.012256059, w: 0.9999249}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Base HumanNeck2
+      parentName: Base HumanNeck1
+      position: {x: -0.026291199, y: 0.0000000023841857, z: 0}
+      rotation: {x: -3.0531133e-15, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHead
+      parentName: Base HumanNeck2
+      position: {x: -0.02629135, y: 0.0000000023841857, z: 0}
+      rotation: {x: -0.0000000011839746, y: -0.000000004297671, z: 0.012256058, w: 0.9999249}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: Cabello-1
+      parentName: Base HumanHead
+      position: {x: 1.3685501, y: -0.03083518, z: 0.00000069156636}
+      rotation: {x: -0.5005401, y: 0.49945086, z: 0.50054854, w: 0.49945936}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cabello-2
+      parentName: Base HumanHead
+      position: {x: 1.3685501, y: -0.03083518, z: 0.00000069156636}
+      rotation: {x: -0.5008709, y: 0.49911907, z: 0.5008794, w: 0.4991276}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cabello-3
+      parentName: Base HumanHead
+      position: {x: 1.3685501, y: -0.03083518, z: 0.00000069156636}
+      rotation: {x: -0.5005401, y: 0.49945086, z: 0.50054854, w: 0.49945936}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLCollarbone
+      parentName: Base HumanRibcage
+      position: {x: 0.07004654, y: 0.05842273, z: 0.045252528}
+      rotation: {x: -0.029074887, y: 0.7020488, z: 0.065409675, w: 0.7085222}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLUpperarm
+      parentName: Base HumanLCollarbone
+      position: {x: -0.1411723, y: -0.000000076293944, z: 0.000000076293944}
+      rotation: {x: -0.03205716, y: 0.020221198, z: -0.023527265, w: 0.9990045}
+      scale: {x: 1.0000002, y: 1, z: 0.9999998}
+    - name: Base HumanLForearm
+      parentName: Base HumanLUpperarm
+      position: {x: -0.24306503, y: 0.000000019073486, z: 0.000000114440915}
+      rotation: {x: 0.024130506, y: 0.019735798, z: -0.023228407, w: 0.99924403}
+      scale: {x: 1.0000001, y: 0.99999994, z: 0.9999999}
+    - name: Base HumanLPalm
+      parentName: Base HumanLForearm
+      position: {x: -0.21833283, y: 0.0000002670288, z: 0.000001411438}
+      rotation: {x: -0.69662684, y: 0.005393332, z: 0.09117128, w: 0.71159667}
+      scale: {x: 1.0000015, y: 0.9999981, z: 1}
+    - name: Base HumanRCollarbone
+      parentName: Base HumanRibcage
+      position: {x: 0.07004669, y: 0.058423858, z: -0.045252543}
+      rotation: {x: 0.029064475, y: -0.7020486, z: 0.06540525, w: 0.70852333}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRUpperarm
+      parentName: Base HumanRCollarbone
+      position: {x: -0.14117232, y: -0.000000095367426, z: 0.00000015258789}
+      rotation: {x: 0.03205557, y: -0.020222535, z: -0.023531381, w: 0.99900436}
+      scale: {x: 0.9999999, y: 1, z: 1.0000002}
+    - name: Base HumanRForearm
+      parentName: Base HumanRUpperarm
+      position: {x: -0.24306495, y: -0.000000038146972, z: 0.000000076293944}
+      rotation: {x: -0.024131881, y: -0.019741243, z: -0.023231147, w: 0.99924386}
+      scale: {x: 1, y: 0.99999994, z: 1.0000002}
+    - name: Base HumanRPalm
+      parentName: Base HumanRForearm
+      position: {x: -0.21833298, y: -0.00000028610228, z: 0.000001373291}
+      rotation: {x: 0.69662523, y: -0.005386778, z: 0.09116646, w: 0.7115989}
+      scale: {x: 0.99999857, y: 1.000002, z: 0.9999996}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -108,10 +506,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
