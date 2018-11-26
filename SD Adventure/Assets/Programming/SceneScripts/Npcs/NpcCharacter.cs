@@ -18,8 +18,6 @@ public class NpcCharacter : InteractionObject
             if(a[i].runtimeAnimatorController.name.Equals("Avatar"))
                 anim = a[i];
         }
-        anim.transform.localScale = Vector3.one * 1.2f;
-        anim.transform.localEulerAngles = new Vector3(0, 0, 0);
         controller = FindObjectOfType<PlayerController>();
         if(database == null)
             database = FindObjectOfType<Helper>().NpcTexts;
