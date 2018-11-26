@@ -7,12 +7,14 @@ public class FriendNpc : InteractionObject
     PlayerController player;
     public static string CurrentConversation;
     static NpcDatabase database;
+    public Animator Anim;
 
     public bool FollowPlayer;
     float speed;
     Vector3 followPos;
     Vector3 followDirection;
     CharacterController controller;
+    float lastTime;
 
     IEnumerator Start()
     {
@@ -38,20 +40,30 @@ public class FriendNpc : InteractionObject
             ConversationUI.ShowText(CurrentConversation, () => player.ControlState = true);
         else
             ConversationUI.ShowText(database.GetConversation(string.Empty), () => player.ControlState = true);
+        Anim.Play("Talk");
     }
 
-    void Update()
+    void LateUpdate()
     {
         if(!FollowPlayer)
             return;
 
         followPos = player.transform.position;
         followPos.y = transform.position.y;
-        if(Vector3.SqrMagnitude(followPos - transform.position) > 1)
+        if(Vector3.SqrMagnitude(followPos - transform.position) > 3.5f)
         {
-            transform.LookAt(followPos);
-            followDirection = (followPos - transform.position).normalized;
-            controller.Move((followDirection * speed + Vector3.up * -5) * Time.deltaTime);
+            if(Time.time - lastTime > 0.2f)
+            {
+                transform.LookAt(followPos);
+                followDirection = (followPos - transform.position).normalized;
+                controller.Move((followDirection * speed + Vector3.up * -5) * Time.deltaTime);
+                Anim.SetFloat("Movement", speed);
+            }
+        }
+        else
+        {
+            Anim.SetFloat("Movement", 0);
+            lastTime = Time.time;
         }
 
     }

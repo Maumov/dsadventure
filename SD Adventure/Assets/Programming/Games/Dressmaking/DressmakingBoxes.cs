@@ -78,6 +78,7 @@ public class DressmakingBoxes : BaseGame
                 return;
             }
         }
+        InGameStars.Show(LevelPos);
         ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
     }
 
@@ -107,7 +108,10 @@ public class DressmakingBoxes : BaseGame
             return;
         }
         if(HardContainer.bounds.Contains(HardClothes[0].transform.position))
+        {
+            InGameStars.Show(LevelPos);
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
+        }
         else
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
     }

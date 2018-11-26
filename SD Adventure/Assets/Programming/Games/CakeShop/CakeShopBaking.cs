@@ -111,6 +111,7 @@ public class CakeShopBaking : BaseGame
         control.Active = false;
         if(win)
         {
+            InGameStars.Show(LevelPos);
             if(DataManager.IsHardGame)
                 ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
             else

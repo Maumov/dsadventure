@@ -88,13 +88,22 @@ public class DressmakingManiquies : BaseGame
         {
             if(ManiquiesContainers[i].bounds.Contains(go.transform.position))
             {
+                if(DataManager.IsNAGame)
+                {
+                    NAEnd();
+                    SetControl(false);
+                    return;
+                }
                 if(ManiquiesContainers[i].name.Contains(go.name))
                 {
                     Debug.Log("Match");
                     matches++;
                     go.SetActive(false);
                     if(matches == 3)
+                    {
+                        InGameStars.Show(LevelPos);
                         ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
+                    }
                 }
                 else
                 {
@@ -129,7 +138,10 @@ public class DressmakingManiquies : BaseGame
         }
 
         if(matches == 2)
+        {
+            InGameStars.Show(LevelPos);
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
+        }
         else
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
     }

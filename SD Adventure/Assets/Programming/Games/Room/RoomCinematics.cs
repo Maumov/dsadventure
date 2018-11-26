@@ -12,13 +12,14 @@ public class RoomCinematics : MonoBehaviour
     PlayerController player;
 
     [Header("Mom")]
-    public GameObject Mom;
+    public Animator Mom;
     public Transform MomFinalPos;
     Vector3 momExitPos;
 
 
     [Header("Friend")]
     public FriendNpc Friend;
+    public Animator FriendAnim;
     public Transform FriendFinalPos;
     public Transform FriendStaticPos;
 
@@ -43,12 +44,16 @@ public class RoomCinematics : MonoBehaviour
     IEnumerator MomSequence()
     {
         yield return new WaitForSeconds(0.5f);
-        LeanTween.move(Mom, MomFinalPos.transform.position, 2);
+        Mom.SetFloat("Movement", 2.4f);
+        LeanTween.move(Mom.gameObject, MomFinalPos.transform.position, 2);
         yield return new WaitForSeconds(0.6f);
 
+        LeanTween.rotateLocal(Mom.gameObject, new Vector3(0, 320, 0), 1.4f);
         LeanTween.rotateLocal(Door, new Vector3(-90, 100, 90), 0.5f);
 
         yield return new WaitForSeconds(1.4f);
+        Mom.SetFloat("Movement", 0f);
+        Mom.CrossFade("Talk", 0.25f);
 
         ConversationUI.ShowText(conversation.Message, () =>
         {
@@ -72,7 +77,7 @@ public class RoomCinematics : MonoBehaviour
         fadeColor.a = t;
         Fade.color = fadeColor;
 
-        Mom.SetActive(false);
+        Mom.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.5f);
 
 
@@ -101,9 +106,13 @@ public class RoomCinematics : MonoBehaviour
     IEnumerator FriendSequence()
     {
         Door.transform.localEulerAngles = new Vector3(-90, 100, 90);
+        FriendAnim.SetFloat("Movement", 2.4f);
+        LeanTween.rotateLocal(Friend.gameObject, new Vector3(0, 320, 0), 2f);
         LeanTween.move(Friend.gameObject, FriendFinalPos.transform.position, 2);
         yield return new WaitForSeconds(2f);
 
+        FriendAnim.SetFloat("Movement", 0f);
+        FriendAnim.CrossFade("Talk", 0.25f);
         ConversationUI.ShowText(conversation.Message, () =>
         {
             StartCoroutine(FriendEnd());

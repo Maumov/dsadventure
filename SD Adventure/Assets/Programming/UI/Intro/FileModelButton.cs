@@ -49,9 +49,10 @@ public class FileModelButton : MonoBehaviour
             avatarList[i].transform.localEulerAngles = Vector3.zero;
             avatarList[i].transform.localScale = Vector3.one;
             avatarList[i].layer = 5;
-            for(int j = 0; j < avatarList[i].transform.childCount; j++)
+            Renderer[] r = avatarList[i].GetComponentsInChildren<Renderer>();
+            for(int j = 0; j < r.Length; j++)
             {
-                avatarList[i].transform.GetChild(j).gameObject.layer = 5;
+                r[j].gameObject.layer = 5;
             }
             avatarList[i].SetActive(false);
         }

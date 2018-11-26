@@ -132,7 +132,7 @@ public class PetShopShape : BaseGame
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
             return;
         }
-
+        InGameStars.Show(LevelPos);
         ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
     }
 
@@ -192,7 +192,7 @@ public class PetShopShape : BaseGame
                 }
             }
         }
-
+        InGameStars.Show(LevelPos);
         ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
     }
 

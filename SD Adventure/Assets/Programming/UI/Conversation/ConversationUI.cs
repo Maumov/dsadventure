@@ -30,10 +30,13 @@ public class ConversationUI : MonoBehaviour
 
     const string value = "<value{0}>";
 
+    ConversationSound sound;
+
     void Awake()
     {
         instance = this;
         Content.SetActive(false);
+        sound = FindObjectOfType<ConversationSound>();
         allConversations = JsonUtility.FromJson<ConversationKeyJson>(ConversationKeys.text).Conversations;
     }
 
@@ -75,6 +78,9 @@ public class ConversationUI : MonoBehaviour
             BackButton.SetActive(i != 0);
             writing = true;
             displayText = string.Empty;
+
+            if(sound != null)
+                sound.PlayConversation(msg.Name + "-" + (i + 1));
 
             msg.Pages[i] = ReplaceTexts(msg.Pages[i]);
             if(values != null)

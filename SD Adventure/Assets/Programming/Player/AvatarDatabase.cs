@@ -10,6 +10,8 @@ public class AvatarDatabase : MonoBehaviour
     {
         get
         {
+            if(instance == null)
+                instance = FindObjectOfType<AvatarDatabase>();
             return instance.Model;
         }
     }
