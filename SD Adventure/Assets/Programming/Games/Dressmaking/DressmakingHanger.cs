@@ -84,6 +84,7 @@ public class DressmakingHanger : BaseGame
                 }
                 if(ClothesEasy[i].name.Equals("Ok"))
                 {
+                    InGameStars.Show(LevelPos);
                     ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
                     ClothesEasy[i].SetActive(false);
                 }
@@ -107,7 +108,10 @@ public class DressmakingHanger : BaseGame
             return;
         }
         if(Box.bounds.Contains(ClothesHard[0].transform.position))
+        {
+            InGameStars.Show(LevelPos);
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
+        }
         else
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
     }

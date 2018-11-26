@@ -89,6 +89,7 @@ public class FruitShopCount : BaseGame
         CompleteButton.SetActive(false);
         if(DataManager.IsNAGame)
         {
+            InGameStars.Show(LevelPos);
             NAEnd();
             return;
         }
@@ -112,7 +113,7 @@ public class FruitShopCount : BaseGame
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
             return;
         }
-
+        InGameStars.Show(LevelPos);
         ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
 
     }
@@ -155,6 +156,7 @@ public class FruitShopCount : BaseGame
 
             if(DataManager.IsNAGame)
             {
+                InGameStars.Show(LevelPos);
                 NAEnd();
                 go.transform.SetParent(GoodPosition);
                 go.transform.localPosition = Vector3.zero;
@@ -165,6 +167,7 @@ public class FruitShopCount : BaseGame
 
             if(go.name.Equals(targetNumber.ToString()))
             {
+                InGameStars.Show(LevelPos);
                 ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
                 go.transform.SetParent(GoodPosition);
                 go.transform.localPosition = Vector3.zero;

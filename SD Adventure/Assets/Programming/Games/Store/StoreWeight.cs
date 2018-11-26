@@ -78,6 +78,7 @@ public class StoreWeight : BaseGame
             }
             if(go.name.Equals(targetNumber.ToString()))
             {
+                InGameStars.Show(LevelPos);
                 go.transform.position = hit.transform.position + go.transform.forward * -0.01f;
                 if(DataManager.IsHardGame)
                     ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);

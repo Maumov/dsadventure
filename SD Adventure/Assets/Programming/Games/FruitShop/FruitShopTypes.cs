@@ -124,7 +124,7 @@ public class FruitShopTypes : BaseGame
             ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
             return;
         }
-
+        InGameStars.Show(LevelPos);
         ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
     }
 
@@ -218,7 +218,10 @@ public class FruitShopTypes : BaseGame
         CompleteButton.SetActive(false);
         SetControl(false);
         if(asignedYellow.Equals(yellow.ToString()) && asignedRed.Equals(red.ToString()) && asignedGreen.Equals(green.ToString()))
+        {
+            InGameStars.Show(LevelPos);
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
+        }
         else
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
     }

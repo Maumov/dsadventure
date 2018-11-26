@@ -64,7 +64,7 @@ public class PetShopColor : PetShopShape
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
             return;
         }
-
+        InGameStars.Show(LevelPos);
         ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
     }
 }

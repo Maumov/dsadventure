@@ -127,6 +127,7 @@ public class FruitShopPile : BaseGame
             if(go.name.Equals(targetNumber.ToString()))
             {
                 go.transform.position = hit.transform.position + go.transform.forward * -0.01f;
+                InGameStars.Show(LevelPos);
                 ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
             }
             else
@@ -246,7 +247,10 @@ public class FruitShopPile : BaseGame
     {
         CompleteButton.SetActive(false);
         if(assignedYellow.Equals(yellow.ToString()) && assignedRed.Equals(red.ToString()) && assignedGreen.Equals(green.ToString()) && assignedBrown.Equals(brown.ToString()))
+        {
+            InGameStars.Show(LevelPos);
             ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
+        }
         else
             ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
     }

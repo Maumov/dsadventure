@@ -132,6 +132,7 @@ public class StoreGroups : BaseGame
             if(go.name.Equals(targetNumber.ToString()))
             {
                 go.transform.position = hit.transform.position + go.transform.forward * -0.01f;
+                InGameStars.Show(LevelPos);
                 if(DataManager.IsHardGame)
                     ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
                 else

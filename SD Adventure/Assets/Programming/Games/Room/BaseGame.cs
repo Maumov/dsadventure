@@ -37,6 +37,9 @@ public class BaseGame : MonoBehaviour
     float currentInactivitry;
     bool counting;
 
+
+    public int LevelPos;
+
     protected virtual void Start()
     {
         finishWait = new WaitForSeconds(FinishDelay);
@@ -45,6 +48,13 @@ public class BaseGame : MonoBehaviour
             CompleteButton.SetActive(false);
         StartCoroutine(ShowDelay());
         Initialize();
+
+        if(LevelKeyName.Contains("1"))
+            LevelPos = 1;
+        else if(LevelKeyName.Contains("2"))
+            LevelPos = 2;
+        else
+            LevelPos = 3;
     }
 
     protected virtual void Initialize() { }
@@ -244,7 +254,7 @@ public class BaseGame : MonoBehaviour
 
     protected void NAEnd()
     {
-
+        InGameStars.Show(LevelPos);
         ConversationUI.ShowText("GenericaNAText", () =>
         {
             StatsHandler.Instance.Send(GameStats.FinishType.Complete, -1);
