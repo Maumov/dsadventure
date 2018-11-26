@@ -17,6 +17,7 @@ public class DressmakingManiquies : BaseGame
     [Header("Easy Settings")]
     public GameObject EasyClothes;
     public Collider[] ManiquiesContainers;
+    public GameObject[] ManiquiesClothes;
     int matches;
 
     protected override void Initialize()
@@ -45,6 +46,7 @@ public class DressmakingManiquies : BaseGame
     void InitHard()
     {
         EasyClothes.SetActive(false);
+        Maniquies[0].transform.parent.gameObject.SetActive(true);
         for(int i = 0; i < HardClothes.Length; i++)
             HardClothes[i].SetActive(true);
 
@@ -91,6 +93,8 @@ public class DressmakingManiquies : BaseGame
                 if(DataManager.IsNAGame)
                 {
                     NAEnd();
+                    go.SetActive(false);
+                    ManiquiesClothes[i].SetActive(true);
                     SetControl(false);
                     return;
                 }
@@ -99,6 +103,7 @@ public class DressmakingManiquies : BaseGame
                     Debug.Log("Match");
                     matches++;
                     go.SetActive(false);
+                    ManiquiesClothes[i].SetActive(true);
                     if(matches == 3)
                     {
                         InGameStars.Show(LevelPos);

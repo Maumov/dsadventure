@@ -97,6 +97,21 @@ public class IntroManager : MonoBehaviour
                 while(wait)
                     yield return null;
             }
+
+            if(!string.IsNullOrEmpty(files[i].RatingPending))
+            {
+                wait = true;
+                yield return StartCoroutine(StatsHandler.SendRating(files[i].RatingPending, (sw) =>
+                {
+                    if(sw)
+                        files[i].RatingPending = string.Empty;
+
+                    wait = false;
+                }));
+                while(wait)
+                    yield return null;
+            }
+
         }
         DataManager.Save();
         yield return null;

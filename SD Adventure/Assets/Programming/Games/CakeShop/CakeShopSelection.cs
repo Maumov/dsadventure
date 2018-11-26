@@ -13,6 +13,7 @@ public class CakeShopSelection : BaseGame
     DragAndDrop control;
 
     public Collider Container;
+    public Transform GoodPos;
 
     protected override void Initialize()
     {
@@ -60,7 +61,10 @@ public class CakeShopSelection : BaseGame
             if(Container.bounds.Contains(Options[i].Option.transform.position))
             {
                 if(i == Options.Length - 1)
+                {
                     correct = true;
+                    go.transform.position = GoodPos.position;
+                }
                 attempt = true;
             }
             else

@@ -86,7 +86,12 @@ public class DataManager
     {
         Check();
         Data.GameFiles[selectedFile].GameDifficult = i;
-        Debug.Log(JsonUtility.ToJson(new EvaluationJson(i.ToString())));
+        //Debug.Log(JsonUtility.ToJson(new EvaluationJson(i.ToString())));
+        StatsHandler.Instance.StartCoroutine(StatsHandler.SendRating(JsonUtility.ToJson(new EvaluationJson(i.ToString())), (sw)=> 
+        {
+            if(!sw)
+                Data.GameFiles[selectedFile].RatingPending = JsonUtility.ToJson(new EvaluationJson(i.ToString()));
+        }));
         Save();
     }
 
@@ -161,6 +166,7 @@ public class FileData
     public int GameDifficult = -1;
     public List<ProgressKey> ProgressKeys = new List<ProgressKey>();
     public List<string> PendingJsonFiles = new List<string>();
+    public string RatingPending;
 
     public FileData(string fileName, string age, int avatarId)
     {
