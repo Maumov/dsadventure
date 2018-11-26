@@ -67,9 +67,9 @@ public class OptionsManager : GenericMenu
     void Start()
     {
         Hide();
-        Mixer.SetFloat("BGMVol", config.BgmState ? 0 : -80);
-        Mixer.SetFloat("SFXVol", config.VfxState ? 0 : -80);
-        Mixer.SetFloat("VoiceVol", config.VoicesState ? 0 : -80);
+        Mixer.SetFloat("BGMVol", config.BgmState ? -20 : -80);
+        Mixer.SetFloat("SFXVol", config.VfxState ? -20 : -80);
+        Mixer.SetFloat("VoiceVol", config.VoicesState ? 10 : -80);
     }
 
     public override void Show()

@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     public float MovementSpeed = 1;
     Transform cam;
-    [HideInInspector]
-    [System.NonSerialized]
+    [HideInInspector][System.NonSerialized]
     public bool ControlState = true;
+    public Animator Anim;
 
     //Inputs
     Vector3 axis;
@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
     {
         axis.Set(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical"));
         axis.Normalize();
+
+        Anim.SetFloat("Movement", axis.magnitude * MovementSpeed);
 
         if(CrossPlatformInputManager.GetButtonDown("Action"))
         {

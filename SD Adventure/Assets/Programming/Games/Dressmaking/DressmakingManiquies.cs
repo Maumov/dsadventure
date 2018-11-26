@@ -88,6 +88,12 @@ public class DressmakingManiquies : BaseGame
         {
             if(ManiquiesContainers[i].bounds.Contains(go.transform.position))
             {
+                if(DataManager.IsNAGame)
+                {
+                    NAEnd();
+                    SetControl(false);
+                    return;
+                }
                 if(ManiquiesContainers[i].name.Contains(go.name))
                 {
                     Debug.Log("Match");

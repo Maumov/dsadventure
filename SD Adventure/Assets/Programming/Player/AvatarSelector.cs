@@ -14,7 +14,8 @@ public class AvatarSelector : MonoBehaviour
         SelectedAvatar.transform.SetParent(transform);
         SelectedAvatar.transform.localPosition = Vector3.zero;
         SelectedAvatar.transform.localScale = Vector3.one;
-        SelectedAvatar.transform.localEulerAngles = Vector3.zero + Vector3.right * -90;
+        SelectedAvatar.transform.localEulerAngles = Vector3.zero;
+        GetComponent<PlayerController>().Anim = SelectedAvatar.GetComponent<Animator>();
         AvatarDatabase.Delete();
     }
 }
