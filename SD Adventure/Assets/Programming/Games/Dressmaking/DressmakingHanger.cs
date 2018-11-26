@@ -15,6 +15,7 @@ public class DressmakingHanger : BaseGame
     public GameObject EasyContent;
     public GameObject[] ClothesEasy;
     public Collider Closet;
+    public GameObject HangClothes;
 
     DragAndDrop control;
 
@@ -80,11 +81,13 @@ public class DressmakingHanger : BaseGame
                 if(DataManager.IsNAGame)
                 {
                     NAEnd();
+                    HangClothes.SetActive(true);
                     return;
                 }
                 if(ClothesEasy[i].name.Equals("Ok"))
                 {
                     InGameStars.Show(LevelPos);
+                    HangClothes.SetActive(true);
                     ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
                     ClothesEasy[i].SetActive(false);
                 }

@@ -8,9 +8,20 @@ public class MainNpc : MonoBehaviour
     string toScene;
 
     PlayerController controller;
+    Animator anim;
+    Vector3 pos;
 
-    private void Start()
+    void Start()
     {
+        Animator[] a = GetComponentsInChildren<Animator>();
+        for(int i = 0; i < a.Length; i++)
+        {
+            if(a[i].runtimeAnimatorController.name.Equals("Avatar"))
+                anim = a[i];
+        }
+
+        anim.transform.localScale = Vector3.one * 1.2f;
+        anim.transform.localEulerAngles = new Vector3(0, 180, 0);
         controller = FindObjectOfType<PlayerController>();
     }
 
@@ -19,6 +30,11 @@ public class MainNpc : MonoBehaviour
         toScene = scene;
         controller.ControlState = false;
         ConversationUI.ShowText(Conversation, LoadLevel);
+        anim.CrossFade("Talk", 0.25f);
+
+        pos = controller.transform.position;
+        pos.y = anim.transform.position.y;
+        anim.transform.LookAt(pos);
     }
 
     void LoadLevel()

@@ -90,6 +90,38 @@ public class StatsHandler : MonoBehaviour
         }
     }
 
+    public static IEnumerator SendRating(string json, System.Action<bool> response)
+    {
+        Debug.Log(json);
+
+        WWWForm form = new WWWForm();
+        form.AddField("name", "uploaded_file");
+        form.AddField("data", json);
+        UnityWebRequest www = UnityWebRequest.Post("http://190.144.171.172/psd/actualizarnivel.php", form);
+        yield return www.SendWebRequest();
+
+        if(www.isNetworkError)
+        {
+            Debug.Log(www.error);
+            if(response != null)
+                response(false);
+        }
+        else
+        {
+            if(www.downloadHandler.text.Equals("nok"))
+            {
+                Debug.Log("error in server nok");
+                if(response != null)
+                    response(false);
+            }
+            else
+            {
+                Debug.Log("Success");
+                if(response != null)
+                    response(true);
+            }
+        }
+    }
 
 
 
