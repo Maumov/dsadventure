@@ -108,9 +108,23 @@ public class CakeShopBaking : BaseGame
                 win = false;
         }
 
+        if(!win)
+        {
+            win = true;
+            System.Array.Reverse(Containers);
+            for(int i = 0; i < Containers.Length; i++)
+            {
+                if(!Containers[i].bounds.Contains(Options[i].Option.transform.position))
+                    win = false;
+            }
+        }
+
         control.Active = false;
         if(win)
         {
+            for(int i = 0; i < Options.Length; i++)
+                Options[i].Option.transform.GetChild(2).gameObject.SetActive(true);
+
             InGameStars.Show(LevelPos);
             if(DataManager.IsHardGame)
                 ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
@@ -119,6 +133,9 @@ public class CakeShopBaking : BaseGame
         }
         else
         {
+            for(int i = 0; i < Options.Length; i++)
+                Options[i].Option.transform.GetChild(1).gameObject.SetActive(true);
+
             if(DataManager.IsHardGame)
                 ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
             else

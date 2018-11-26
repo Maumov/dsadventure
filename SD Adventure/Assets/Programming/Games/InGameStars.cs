@@ -15,13 +15,14 @@ public class InGameStars : MonoBehaviour
 
     public static void Show(int i)
     {
+        Debug.Log("asd");
         if(instance == null)
         {
             instance = Instantiate(Resources.Load<InGameStars>("InGameStars"));
             DontDestroyOnLoad(instance.gameObject);
-            instance.StopAllCoroutines();
-            instance.StartCoroutine(instance.ShowStars(i));
         }
+        instance.StopAllCoroutines();
+        instance.StartCoroutine(instance.ShowStars(i));
     }
 
     IEnumerator ShowStars(int i)

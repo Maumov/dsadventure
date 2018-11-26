@@ -60,10 +60,10 @@ public class CakeShopSelection : BaseGame
         {
             if(Container.bounds.Contains(Options[i].Option.transform.position))
             {
+                go.transform.position = GoodPos.position;
                 if(i == Options.Length - 1)
                 {
                     correct = true;
-                    go.transform.position = GoodPos.position;
                 }
                 attempt = true;
             }
