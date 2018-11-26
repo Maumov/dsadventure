@@ -40,6 +40,7 @@ public class FriendNpc : InteractionObject
             ConversationUI.ShowText(CurrentConversation, () => player.ControlState = true);
         else
             ConversationUI.ShowText(database.GetConversation(string.Empty), () => player.ControlState = true);
+        Anim.Play("Talk");
     }
 
     void LateUpdate()

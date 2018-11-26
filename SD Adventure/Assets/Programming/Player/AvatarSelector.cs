@@ -8,7 +8,7 @@ public class AvatarSelector : MonoBehaviour
     [System.NonSerialized]
     public GameObject SelectedAvatar;
 
-    void Start()
+    void Awake()
     {
         SelectedAvatar = Instantiate(AvatarDatabase.ModelList[DataManager.GetSelectedFile().AvatarId]);
         SelectedAvatar.transform.SetParent(transform);

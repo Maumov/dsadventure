@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour
 {
     public float MovementSpeed = 1;
     Transform cam;
-    [HideInInspector][System.NonSerialized]
+    [HideInInspector]
+    [System.NonSerialized]
     public bool ControlState = true;
+    [HideInInspector]
+    [System.NonSerialized]
     public Animator Anim;
 
     //Inputs
