@@ -153,7 +153,7 @@ public class ConversationUI : MonoBehaviour
     string ReplaceTexts(string str)
     {
         str = str.Replace(playerName, DataManager.GetSelectedFile().FileName);
-        str = str.Replace(friendName, "amiga");
+        str = str.Replace(friendName, "Andrea");
         str = str.Replace(cakeNpc, "panadero");
         str = str.Replace(petNpc, "veterinaria");
         str = str.Replace(clothesNpc, "modista");
