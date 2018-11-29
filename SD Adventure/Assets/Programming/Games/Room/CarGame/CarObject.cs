@@ -46,7 +46,7 @@ public class CarObject : MonoBehaviour
     public void Disable()
     {
         body.isKinematic = true;
-        GetComponentInChildren<TextMesh>().gameObject.SetActive(false);
+        GetComponentInChildren<UnityEngine.UI.Text>().gameObject.SetActive(false);
     }
 
 }

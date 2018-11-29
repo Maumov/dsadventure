@@ -239,9 +239,9 @@ public class GameStats
     #endregion
 
     #region Constructors
-    public GameStats(string scene)
+    public GameStats()
     {
-        Players = new PlayerInfo[] { new PlayerInfo(scene) };
+        Players = new PlayerInfo[] { new PlayerInfo() };
     }
 
     [System.Serializable]
@@ -264,14 +264,14 @@ public class GameStats
 
         public GameSessionData[] GameSessions;
 
-        public PlayerInfo(string scene)
+        public PlayerInfo()
         {
             ID = DataManager.GetSelectedFile().FileId;
             Nivel = DataManager.GetSelectedFile().GameDifficult.ToString();
             Nombre = DataManager.GetSelectedFile().FileName;
             Edad = DataManager.GetSelectedFile().Age;
 
-            GameSessions = new GameSessionData[] { new GameSessionData(scene) };
+            GameSessions = new GameSessionData[] { new GameSessionData() };
         }
     }
 
@@ -281,10 +281,10 @@ public class GameStats
         public string TimeStamp;
         public MinigameSessionData[] MiniGameSessions;
 
-        public GameSessionData(string scene)
+        public GameSessionData()
         {
             TimeStamp = DataHelper.GetTime().ToString();
-            MiniGameSessions = new MinigameSessionData[] { new MinigameSessionData(scene) };
+            MiniGameSessions = new MinigameSessionData[] { new MinigameSessionData() };
         }
     }
 
@@ -295,11 +295,11 @@ public class GameStats
         public string TimeStamp;
         public ActivitySessionData[] ActivitySessions;
 
-        public MinigameSessionData(string scene)
+        public MinigameSessionData()
         {
-            ID = scene;
+            ID = BaseGame.CurrentSceneId;
             TimeStamp = DataHelper.GetTime().ToString();
-            ActivitySessions = new ActivitySessionData[] { new ActivitySessionData(scene) };
+            ActivitySessions = new ActivitySessionData[] { new ActivitySessionData() };
         }
     }
 
@@ -320,9 +320,9 @@ public class GameStats
 
         public List<ActionEventData> ActionEvents;
 
-        public ActivitySessionData(string scene)
+        public ActivitySessionData()
         {
-            ID = scene;
+            ID = BaseGame.CurrentMinigameId;
             GameName = "";// name;
             TimeStampStart = DataHelper.GetTime().ToString();
             TimeToFirstEvent = "";

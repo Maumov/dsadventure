@@ -40,8 +40,18 @@ public class BaseGame : MonoBehaviour
 
     public int LevelPos;
 
+    public static string CurrentSceneId;
+    public static string CurrentMinigameId;
+
+    [Header("Server info")]
+    public string SceneId;
+    public string MinigameId;
+
     protected virtual void Start()
     {
+        CurrentSceneId = SceneId;
+        CurrentMinigameId = MinigameId;
+
         finishWait = new WaitForSeconds(FinishDelay);
         tutorial = FindObjectOfType<GameTutorial>();
         if(CompleteButton != null)

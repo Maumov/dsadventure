@@ -37,7 +37,7 @@ public class StatsHandler : MonoBehaviour
 
     public void Create()
     {
-        stats = new GameStats(SceneLoader.CurrentSceneId);
+        stats = new GameStats();
         initialized = true;
         cam = Camera.main;
     }
