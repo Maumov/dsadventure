@@ -37,7 +37,7 @@ public class StatsHandler : MonoBehaviour
 
     public void Create()
     {
-        stats = new GameStats(SceneLoader.CurrentScene);
+        stats = new GameStats(SceneLoader.CurrentSceneId);
         initialized = true;
         cam = Camera.main;
     }
@@ -83,7 +83,7 @@ public class StatsHandler : MonoBehaviour
             }
             else
             {
-                Debug.Log("Success");
+                Debug.Log("success: " + www.isDone);
                 if(response != null)
                     response(true);
             }

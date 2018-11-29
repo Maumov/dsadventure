@@ -154,11 +154,11 @@ public class ConversationUI : MonoBehaviour
     {
         str = str.Replace(playerName, DataManager.GetSelectedFile().FileName);
         str = str.Replace(friendName, "Andrea");
-        str = str.Replace(cakeNpc, "panadero");
-        str = str.Replace(petNpc, "veterinaria");
-        str = str.Replace(clothesNpc, "modista");
-        str = str.Replace(fruitsNpc, "frutero");
-        str = str.Replace(storeNpc, "el tendero");
+        str = str.Replace(cakeNpc, "Panadero");
+        str = str.Replace(petNpc, "Veterinaria");
+        str = str.Replace(clothesNpc, "Modista");
+        str = str.Replace(fruitsNpc, "Frutero");
+        str = str.Replace(storeNpc, "Tendero");
         return str;
     }
 }

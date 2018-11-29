@@ -87,7 +87,7 @@ public class DataManager
         Check();
         Data.GameFiles[selectedFile].GameDifficult = i;
         //Debug.Log(JsonUtility.ToJson(new EvaluationJson(i.ToString())));
-        StatsHandler.Instance.StartCoroutine(StatsHandler.SendRating(JsonUtility.ToJson(new EvaluationJson(i.ToString())), (sw)=> 
+        StatsHandler.Instance.StartCoroutine(StatsHandler.SendRating(JsonUtility.ToJson(new EvaluationJson(i.ToString())), (sw) =>
         {
             if(!sw)
                 Data.GameFiles[selectedFile].RatingPending = JsonUtility.ToJson(new EvaluationJson(i.ToString()));
@@ -239,9 +239,9 @@ public class GameStats
     #endregion
 
     #region Constructors
-    public GameStats(string name)
+    public GameStats(string scene)
     {
-        Players = new PlayerInfo[] { new PlayerInfo() };
+        Players = new PlayerInfo[] { new PlayerInfo(scene) };
     }
 
     [System.Serializable]
@@ -264,14 +264,14 @@ public class GameStats
 
         public GameSessionData[] GameSessions;
 
-        public PlayerInfo()
+        public PlayerInfo(string scene)
         {
             ID = DataManager.GetSelectedFile().FileId;
             Nivel = DataManager.GetSelectedFile().GameDifficult.ToString();
             Nombre = DataManager.GetSelectedFile().FileName;
             Edad = DataManager.GetSelectedFile().Age;
 
-            GameSessions = new GameSessionData[] { new GameSessionData() };
+            GameSessions = new GameSessionData[] { new GameSessionData(scene) };
         }
     }
 
@@ -281,10 +281,10 @@ public class GameStats
         public string TimeStamp;
         public MinigameSessionData[] MiniGameSessions;
 
-        public GameSessionData()
+        public GameSessionData(string scene)
         {
             TimeStamp = DataHelper.GetTime().ToString();
-            MiniGameSessions = new MinigameSessionData[] { new MinigameSessionData() };
+            MiniGameSessions = new MinigameSessionData[] { new MinigameSessionData(scene) };
         }
     }
 
@@ -295,11 +295,11 @@ public class GameStats
         public string TimeStamp;
         public ActivitySessionData[] ActivitySessions;
 
-        public MinigameSessionData()
+        public MinigameSessionData(string scene)
         {
-            ID = "0";
+            ID = scene;
             TimeStamp = DataHelper.GetTime().ToString();
-            ActivitySessions = new ActivitySessionData[] { new ActivitySessionData() };
+            ActivitySessions = new ActivitySessionData[] { new ActivitySessionData(scene) };
         }
     }
 
@@ -320,9 +320,9 @@ public class GameStats
 
         public List<ActionEventData> ActionEvents;
 
-        public ActivitySessionData()
+        public ActivitySessionData(string scene)
         {
-            ID = "0";
+            ID = scene;
             GameName = "";// name;
             TimeStampStart = DataHelper.GetTime().ToString();
             TimeToFirstEvent = "";

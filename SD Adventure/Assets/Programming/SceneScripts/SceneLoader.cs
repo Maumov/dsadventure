@@ -12,6 +12,7 @@ public class SceneLoader : MonoBehaviour
     WaitForSeconds loadDelay = new WaitForSeconds(0.5f);
     public static string LastScene = string.Empty;
     public static string CurrentScene = string.Empty;
+    public static string CurrentSceneId = string.Empty;
 
     readonly string[] SceneName = { "Room", "Calle", "Reposteria", "Veterinaria", "Modisteria", "Frutera", "Tienda" };
 
@@ -30,6 +31,7 @@ public class SceneLoader : MonoBehaviour
         DontDestroyOnLoad(instance.gameObject);
 
         CurrentScene = SceneManager.GetActiveScene().name;
+        CurrentSceneId = SceneManager.GetActiveScene().buildIndex.ToString();
     }
 
     public static void LoadScene(string scene)
@@ -43,6 +45,7 @@ public class SceneLoader : MonoBehaviour
         Content.SetActive(true);
         LastScene = SceneManager.GetActiveScene().name;
         CurrentScene = scene;
+        CurrentSceneId = SceneManager.GetActiveScene().buildIndex.ToString();
         AddLastScene();
 
         yield return StartCoroutine(FadeAnimation(0, 1));

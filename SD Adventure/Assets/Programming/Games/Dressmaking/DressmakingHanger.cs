@@ -81,6 +81,7 @@ public class DressmakingHanger : BaseGame
                 if(DataManager.IsNAGame)
                 {
                     NAEnd();
+                    go.SetActive(false);
                     HangClothes.SetActive(true);
                     return;
                 }

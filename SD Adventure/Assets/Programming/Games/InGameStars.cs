@@ -15,7 +15,6 @@ public class InGameStars : MonoBehaviour
 
     public static void Show(int i)
     {
-        Debug.Log("asd");
         if(instance == null)
         {
             instance = Instantiate(Resources.Load<InGameStars>("InGameStars"));

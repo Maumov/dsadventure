@@ -15,7 +15,7 @@ public class CarObject : MonoBehaviour
     {
         body = GetComponent<Rigidbody>();
         manager = FindObjectOfType<CarGame>();
-        GetComponentInChildren<TextMesh>().text = (transform.GetSiblingIndex() + 1).ToString();
+        GetComponentInChildren<UnityEngine.UI.Text>().text = (transform.GetSiblingIndex() + 1).ToString();
     }
     public void SetTarget(Vector3 target)
     {

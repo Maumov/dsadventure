@@ -73,20 +73,14 @@ public class CakeShopBaking : BaseGame
                 Options[i].Option.transform.position = startPos[i];
         }
 
-        bool empty;
-
         for(int i = 0; i < Containers.Length; i++)
         {
-            empty = true;
+            Containers[i].enabled = true;
             for(int j = 0; j < Options.Length; j++)
             {
                 if(Containers[i].bounds.Contains(Options[j].Option.transform.position))
-                {
-                    empty = false;
-                    break;
-                }
+                    Containers[i].enabled = false;
             }
-            Containers[i].enabled = empty;
         }
     }
 
