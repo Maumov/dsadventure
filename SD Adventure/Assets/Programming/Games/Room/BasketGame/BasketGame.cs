@@ -99,6 +99,7 @@ public class BasketGame : BaseGame
 
     protected override void CompleteValidations()
     {
+        TimerState(false);
         if(hits > 2)
         {
             acomplishmentLevel = 2;

@@ -93,7 +93,18 @@ public class FruitShopTypes : BaseGame
         ray = control.Cam.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, 100, DropLayer.value))
         {
-            go.transform.position = hit.point;
+            Vector3 p = hit.point;
+            //Collider[] c = Physics.OverlapSphere(p, 0.1f);
+            //for(int i = 0; i < c.Length; i++)
+            //{
+            //    if(c[i].CompareTag("Drag"))
+            //    {
+                    p.y += 0.2f;
+            //        break;
+            //    }
+            //}
+
+            go.transform.position = p;
             if(hit.transform.name.Equals("Target"))
                 ImportantAction();
         }

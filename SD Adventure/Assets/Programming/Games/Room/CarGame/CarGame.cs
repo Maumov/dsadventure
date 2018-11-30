@@ -83,7 +83,7 @@ public class CarGame : BaseGame
     protected override void CompleteValidations()
     {
         enableControls = false;
-
+        TimerState(false);
         for(int i = 0; i < Places.Length; i++)
         {
             if(Places[i].bounds.Contains(Cars[i].transform.position))

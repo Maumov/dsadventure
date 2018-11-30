@@ -34,7 +34,7 @@ public class BaseGame : MonoBehaviour
     bool firstAction;
 
     const float inactivityLimit = 30;
-    float currentInactivitry;
+    float currentInactivity;
     bool counting;
 
 
@@ -122,11 +122,11 @@ public class BaseGame : MonoBehaviour
 
     IEnumerator InactivityCounter()
     {
-        currentInactivitry = 0;
-        while(currentInactivitry < inactivityLimit)
+        currentInactivity = 0;
+        while(currentInactivity < inactivityLimit)
         {
             if(counting)
-                currentInactivitry += Time.deltaTime;
+                currentInactivity += Time.deltaTime;
             yield return null;
         }
 
@@ -146,11 +146,11 @@ public class BaseGame : MonoBehaviour
         else
             ConversationUI.ShowText(LevelKeyName + Warning + "-" + 1, () => SetControl(true));
 
-        currentInactivitry = 0;
-        while(currentInactivitry < inactivityLimit)
+        currentInactivity = 0;
+        while(currentInactivity < inactivityLimit)
         {
             if(counting)
-                currentInactivitry += Time.deltaTime;
+                currentInactivity += Time.deltaTime;
             yield return null;
         }
 
@@ -170,11 +170,11 @@ public class BaseGame : MonoBehaviour
         else
             ConversationUI.ShowText(LevelKeyName + Warning + "-" + 2, () => SetControl(true));
 
-        currentInactivitry = 0;
-        while(currentInactivitry < inactivityLimit)
+        currentInactivity = 0;
+        while(currentInactivity < inactivityLimit)
         {
             if(counting)
-                currentInactivitry += Time.deltaTime;
+                currentInactivity += Time.deltaTime;
             yield return null;
         }
         Quit = true;
@@ -264,6 +264,7 @@ public class BaseGame : MonoBehaviour
 
     protected void NAEnd()
     {
+        TimerState(false);
         InGameStars.Show(LevelPos);
         ConversationUI.ShowText("GenericaNAText", () =>
         {
