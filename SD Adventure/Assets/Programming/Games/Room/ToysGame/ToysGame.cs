@@ -25,6 +25,7 @@ public class ToysGame : CubesGame
 
     protected override void CompleteValidations()
     {
+        TimerState(false);
         int hits = 0;
         for(int i = 0; i < 3; i++)
         {

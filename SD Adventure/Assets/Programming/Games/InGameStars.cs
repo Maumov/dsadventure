@@ -26,6 +26,7 @@ public class InGameStars : MonoBehaviour
 
     IEnumerator ShowStars(int i)
     {
+        FindObjectOfType<BaseGame>().TimerState(false);
         S.sprite = Stars[i - 1];
         S.transform.position = OutPos.position;
 

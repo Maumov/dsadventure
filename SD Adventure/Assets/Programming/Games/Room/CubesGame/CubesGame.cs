@@ -63,6 +63,7 @@ public class CubesGame : BaseGame
 
     protected override void CompleteValidations()
     {
+        TimerState(false);
         int hits = 0;
         for(int i = 0; i < Containers.Length; i++)
             CheckContainer(i, ref hits);
