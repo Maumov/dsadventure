@@ -72,6 +72,15 @@ public class DressmakingBoxes : BaseGame
 
         for(int i = 0; i < EasyContainers.Length; i++)
         {
+            for(int j = 0; j < EasyClothes.Length; j++)
+            {
+                if(EasyContainers[i].bounds.Contains(EasyClothes[j].transform.position))
+                    gameSummary += "Caja " + i + " tiene " + EasyClothes[j].name + ";";
+            }
+        }
+
+        for(int i = 0; i < EasyContainers.Length; i++)
+        {
             if(!EasyContainers[i].bounds.Contains(EasyClothes[i].transform.position))
             {
                 ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);
@@ -110,9 +119,13 @@ public class DressmakingBoxes : BaseGame
         if(HardContainer.bounds.Contains(HardClothes[0].transform.position))
         {
             InGameStars.Show(LevelPos);
+            gameSummary = "Correcta";
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         }
         else
+        {
+            gameSummary = "Incorrecta";
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
+        }
     }
 }

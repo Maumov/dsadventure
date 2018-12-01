@@ -46,6 +46,8 @@ public class BaseGame : MonoBehaviour
     [Header("Server info")]
     public string SceneId;
     public string MinigameId;
+    protected string gameSummary;
+
 
     protected virtual void Start()
     {
@@ -68,6 +70,8 @@ public class BaseGame : MonoBehaviour
     }
 
     protected virtual void Initialize() { }
+
+    
 
     IEnumerator ShowDelay()
     {
@@ -107,7 +111,7 @@ public class BaseGame : MonoBehaviour
     public virtual void Complete()
     {
         CompleteValidations();
-        StatsHandler.Instance.Send(GameStats.FinishType.Complete, acomplishmentLevel);
+        StatsHandler.Instance.Send(GameStats.FinishType.Complete, acomplishmentLevel, gameSummary);
         StartCoroutine(CompleteDelay());
     }
 
@@ -178,7 +182,7 @@ public class BaseGame : MonoBehaviour
             yield return null;
         }
         Quit = true;
-        StatsHandler.Instance.Send(GameStats.FinishType.Afk, -1);
+        StatsHandler.Instance.Send(GameStats.FinishType.Afk, -1, "AFK Player");
         SceneLoader.LoadScene(BaseScene);
     }
 
@@ -204,7 +208,7 @@ public class BaseGame : MonoBehaviour
             {
                 Quit = true;
                 if(StatsHandler.Instance.initialized)
-                    StatsHandler.Instance.Send(GameStats.FinishType.Quit, -1);
+                    StatsHandler.Instance.Send(GameStats.FinishType.Quit, -1, "Player Quits");
                 SceneLoader.LoadScene(BaseScene);
             }
             else
@@ -243,7 +247,7 @@ public class BaseGame : MonoBehaviour
             }
         }
 
-        StatsHandler.Instance.Send(GameStats.FinishType.Complete, v);
+        StatsHandler.Instance.Send(GameStats.FinishType.Complete, v, gameSummary);
         for(int i = 0; i < OnCompleteKeys.Length; i++)
             DataManager.AddProgressKey(OnCompleteKeys[i], v);
 
@@ -252,7 +256,7 @@ public class BaseGame : MonoBehaviour
 
     protected void ResetLevel()
     {
-        StatsHandler.Instance.Send(GameStats.FinishType.Fail, -1);
+        StatsHandler.Instance.Send(GameStats.FinishType.Fail, -1, gameSummary);
         SceneLoader.LoadScene(SceneLoader.CurrentScene);
     }
 
@@ -268,7 +272,7 @@ public class BaseGame : MonoBehaviour
         InGameStars.Show(LevelPos);
         ConversationUI.ShowText("GenericaNAText", () =>
         {
-            StatsHandler.Instance.Send(GameStats.FinishType.Complete, -1);
+            StatsHandler.Instance.Send(GameStats.FinishType.Complete, -1, "N/A Player");
             for(int i = 0; i < OnCompleteKeys.Length; i++)
                 DataManager.AddProgressKey(OnCompleteKeys[i], -1);
 

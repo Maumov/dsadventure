@@ -77,6 +77,7 @@ public class DressmakingHanger : BaseGame
         {
             if(Closet.bounds.Contains(ClothesEasy[i].transform.position))
             {
+                gameSummary = "Selecciono " + go.name;
                 SetControl(false);
                 if(DataManager.IsNAGame)
                 {
@@ -113,10 +114,14 @@ public class DressmakingHanger : BaseGame
         }
         if(Box.bounds.Contains(ClothesHard[0].transform.position))
         {
+            gameSummary = "Correcta";
             InGameStars.Show(LevelPos);
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         }
         else
+        {
+            gameSummary = "Incorrecta";
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
+        }
     }
 }

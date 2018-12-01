@@ -88,11 +88,16 @@ public class CubesGame : BaseGame
 
     void CheckContainer(int ind, ref int hits)
     {
+        int each = 0;
         for(int i = 0; i < Cubes.Length; i++)
         {
             if(Containers[ind].name.Equals(Cubes[i].name) && Containers[ind].bounds.Contains(Cubes[i].transform.position))
+            {
                 hits++;
+                each++;
+            }
         }
+        gameSummary += "Caja '" + (ind + 1) + "' tiene " + each + " '" + (ind + 1) + "';";
     }
 
     public void CubeDrop()

@@ -313,6 +313,7 @@ public class GameStats
         public string TimeStampEnd;
         public string TimeToFirstEvent;
         public int LevelOfAccomplishment;
+        public string Resumen;
         [System.NonSerialized]
         public int ActionsAmount;
         [System.NonSerialized]
@@ -368,10 +369,11 @@ public class GameStats
         Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].ActionsAmount++;
     }
 
-    public void Close(FinishType finishType, int acomplishment)
+    public void Close(FinishType finishType, int acomplishment, string summary)
     {
         Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].TimeStampEnd = DataHelper.GetTime().ToString();
         Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].LevelOfAccomplishment = acomplishment;
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].Resumen = summary;
         Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].EndBy = finishType;
     }
 

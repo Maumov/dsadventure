@@ -118,6 +118,7 @@ public class CakeShopBuild : BaseGame
 
         for(int i = 0; i < currentOrder.Count; i++)
         {
+            gameSummary += currentOrder[i].name + " ; ";
             if(!currentOrder[i].Equals(Options[i].Option))
                 win = false;
         }

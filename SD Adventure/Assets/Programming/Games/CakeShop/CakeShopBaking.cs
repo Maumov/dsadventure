@@ -20,6 +20,10 @@ public class CakeShopBaking : BaseGame
         control.OnDrop += Check;
 
         Randomizer.Randomize(Options);
+
+        for(int i = 0; i < Options.Length; i++)
+            Options[i].Option.name = "Molde " + i;
+
         if(DataManager.IsHardGame)
         {
             for(int i = 0; i < Options.Length; i++)
@@ -94,6 +98,9 @@ public class CakeShopBaking : BaseGame
             return;
         }
 
+        for(int i = 0; i < Containers.Length; i++)
+            Containers[i].enabled = true;
+
 
         bool win = true;
         for(int i = 0; i < Containers.Length; i++)
@@ -110,6 +117,18 @@ public class CakeShopBaking : BaseGame
             {
                 if(!Containers[i].bounds.Contains(Options[i].Option.transform.position))
                     win = false;
+            }
+        }
+
+        System.Array.Reverse(Containers);
+        for(int i = 0; i < Containers.Length; i++)
+        {
+            for(int j = 0; j < Options.Length; j++)
+            {
+                if(Containers[i].bounds.Contains(Options[j].Option.transform.position))
+                {
+                    gameSummary += "Horno " + (i + 1) + " tiene " + " molde " + (j + 1) + ";";
+                }
             }
         }
 

@@ -97,19 +97,21 @@ public class CarGame : BaseGame
                 downwards++;
         }
 
+        System.Array.Reverse(Cars);
+
         for(int i = 0; i < Places.Length; i++)
         {
             for(int j = 0; j < Cars.Length; j++)
             {
                 if(Places[i].bounds.Contains(Cars[j].transform.position))
                 {
+                    gameSummary += "Carro " + (j + 1) + " en garaje " + (i + 1) + ";";
                     SaveCar(j, i);
                     break;
                 }
             }
         }
 
-        System.Array.Reverse(Cars);
 
         if(upwards == 5 || downwards == 5)
         {

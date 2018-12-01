@@ -119,6 +119,7 @@ public class FruitShopPile : BaseGame
         {
             ImportantAction();
             SetControl(false);
+            gameSummary = "Se pidio " + targetNumber + " y marco " + go.name;
             if(DataManager.IsNAGame)
             {
                 NAEnd();
@@ -246,6 +247,9 @@ public class FruitShopPile : BaseGame
     void CheckEasy()
     {
         CompleteButton.SetActive(false);
+
+        gameSummary = "Se pidio " + yellow + ", " + red + ", " + green + " y " + brown + ", y marco " + assignedYellow + ", " + assignedRed + ", " + assignedGreen + " y " + assignedBrown;
+
         if(assignedYellow.Equals(yellow.ToString()) && assignedRed.Equals(red.ToString()) && assignedGreen.Equals(green.ToString()) && assignedBrown.Equals(brown.ToString()))
         {
             InGameStars.Show(LevelPos);

@@ -107,6 +107,7 @@ public class DressmakingManiquies : BaseGame
                     if(matches == 3)
                     {
                         InGameStars.Show(LevelPos);
+                        gameSummary = "3 coincidencias";
                         ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
                     }
                 }
@@ -142,6 +143,7 @@ public class DressmakingManiquies : BaseGame
                 matches++;
         }
 
+        gameSummary = matches + " en la caja";
         if(matches == 2)
         {
             InGameStars.Show(LevelPos);

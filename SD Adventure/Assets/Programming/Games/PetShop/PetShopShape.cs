@@ -47,6 +47,7 @@ public class PetShopShape : BaseGame
         }
 
         control.OnDrop += ImportantActionHard;
+        control.OnDrop += PlaySound;
     }
 
     public override void SetControl(bool sw)
@@ -103,10 +104,12 @@ public class PetShopShape : BaseGame
         for(int i = 0; i < ContainerHard.Length; i++)
         {
             currentGroup = 0;
+            gameSummary += "Caja " + (i + 1) + " tiene ";
             for(int j = 0; j < allHardPets; j++)
             {
                 if(ContainerHard[i].bounds.Contains(PetsHard[j].position))
                 {
+                    gameSummary += PetsHard[j].name + ", ";
                     currentGroup++;
                     grouped++;
                 }
@@ -145,10 +148,12 @@ public class PetShopShape : BaseGame
         for(int i = 0; i < Container.Length; i++)
         {
             each = 0;
+            gameSummary += "Caja " + (i + 1) + " tiene ";
             for(int j = 0; j < Pets.Length; j++)
             {
                 if(Container[i].bounds.Contains(Pets[j].position))
                 {
+                    gameSummary += Pets[j].name + ", ";
                     total++;
                     each++;
                 }
@@ -214,6 +219,24 @@ public class PetShopShape : BaseGame
 
             return true;
         }
+    }
+
+    void PlaySound(GameObject go)
+    {
+        if(go.name.Contains("Cat"))
+        {
+            SfxManager.Play(SFXType.Cat);
+            return;
+        }
+
+        if(go.name.Contains("Dog"))
+        {
+            SfxManager.Play(SFXType.Dog);
+            return;
+        }
+
+        SfxManager.Play(SFXType.Mouse);
+        return;
     }
 }
 

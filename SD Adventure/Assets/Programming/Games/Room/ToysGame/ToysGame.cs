@@ -58,6 +58,7 @@ public class ToysGame : CubesGame
             if(Containers[ind].bounds.Contains(Cubes[i].transform.position))
                 a++;
         }
+        gameSummary += "Caja '" + (ind + 1) + "' pide " + amounts[ind] +  " tiene " + a + ";";
         return a == amounts[ind];
     }
 }

@@ -47,9 +47,9 @@ public class StatsHandler : MonoBehaviour
         stats.AddAction();
     }
 
-    public void Send(GameStats.FinishType finishType, int acomplishment)
+    public void Send(GameStats.FinishType finishType, int acomplishment, string summary)
     {
-        stats.Close(finishType, acomplishment);
+        stats.Close(finishType, acomplishment, summary);
         StartCoroutine(Server(TranslateJson(JsonUtility.ToJson(stats)), (sw) =>
         {
             if(!sw)
@@ -130,7 +130,7 @@ public class StatsHandler : MonoBehaviour
         if(cam != null)
         {
             ray = cam.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray, out hit, 50))
+            if(Physics.Raycast(ray, out hit, 50, ~LayerMask.GetMask("CameraPlane")))
             {
                 stats.AddTouch(pos, hit.transform.name);
                 return;

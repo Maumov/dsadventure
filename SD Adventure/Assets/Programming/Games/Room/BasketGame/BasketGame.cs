@@ -89,6 +89,7 @@ public class BasketGame : BaseGame
         Randomizer.Randomize(options);
 
         Question.text = a + "+" + b;
+        gameSummary += a + " + " + b;
         for(int i = 0; i < Balls.Length; i++)
         {
             Balls[i].name = options[i].ToString();
@@ -142,6 +143,8 @@ public class BasketGame : BaseGame
         UIContent.SetActive(false);
         ImportantAction();
         CompleteButton.SetActive(false);
+
+        gameSummary += " = " + currentBall.name + ";";
 
         tries++;
         if(currentBall.name.Equals(total.ToString()))

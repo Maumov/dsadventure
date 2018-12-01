@@ -45,5 +45,8 @@ public enum SFXType : byte
     Pick = 0,
     Button,
     Basket,
-    Star
+    Star,
+    Cat,
+    Dog,
+    Mouse
 }

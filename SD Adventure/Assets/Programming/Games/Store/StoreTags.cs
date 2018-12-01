@@ -70,6 +70,7 @@ public class StoreTags : BaseGame
         ray = control.Cam.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, 100, DropLayer.value))
         {
+            gameSummary = max + " - " + (max - targetNumber) + " = " + go.name;
             ImportantAction();
             SetControl(false);
             if(DataManager.IsNAGame)

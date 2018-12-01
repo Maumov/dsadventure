@@ -17,14 +17,18 @@ public class PetShopColor : PetShopShape
         int leftOvers = 0;
         string feature;
 
+        gameSummary = string.Empty;
+
         for(int i = 0; i < ContainerHard.Length; i++)
         {
             currentGroup = 0;
             feature = string.Empty;
+            gameSummary += "Caja " + (i + 1) + " tiene ";
             for(int j = 0; j < allHardPets; j++)
             {
                 if(ContainerHard[i].bounds.Contains(PetsHard[j].position))
                 {
+                    gameSummary += Pets[j].name + ", ";
                     currentGroup++;
                     grouped++;
 

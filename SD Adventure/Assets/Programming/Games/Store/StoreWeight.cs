@@ -69,6 +69,7 @@ public class StoreWeight : BaseGame
         ray = control.Cam.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, 100, DropLayer.value))
         {
+            gameSummary = "Se pidio " + targetNumber + " y marco " + go.name;
             ImportantAction();
             SetControl(false);
             if(DataManager.IsNAGame)

@@ -21,6 +21,9 @@ public class CakeShopSelection : BaseGame
         control.OnDrop += Check;
 
         Randomizer.Randomize(Options);
+        for(int i = 0; i < Options.Length; i++)
+            Options[i].Option.name = "Masa " + i;
+
         if(DataManager.IsHardGame)
         {
             for(int i = 0; i < Options.Length; i++)
@@ -82,6 +85,8 @@ public class CakeShopSelection : BaseGame
                 SetControl(false);
                 return;
             }
+
+            gameSummary = "Selecciona " + go;
 
             if(correct)
             {

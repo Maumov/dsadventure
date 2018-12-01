@@ -101,6 +101,7 @@ public class FruitShopCount : BaseGame
             {
                 if(i < 9)
                 {
+                    gameSummary = "Hay otras frutas ademas de limones";
                     ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
                     return;
                 }
@@ -108,6 +109,7 @@ public class FruitShopCount : BaseGame
                     lemons++;
             }
         }
+        gameSummary = "Se piden " + targetNumber + " limones y hay " + lemons;
         if(lemons != targetNumber)
         {
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
@@ -153,7 +155,7 @@ public class FruitShopCount : BaseGame
         {
             SetControl(false);
             ImportantAction();
-
+            gameSummary = "Se pide " + targetNumber + " y marco " + go.name;
             if(DataManager.IsNAGame)
             {
                 InGameStars.Show(LevelPos);
