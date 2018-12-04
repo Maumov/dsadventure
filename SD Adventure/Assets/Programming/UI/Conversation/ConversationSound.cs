@@ -14,6 +14,7 @@ public class ConversationSound : MonoBehaviour
 
     public void PlayConversation(string str)
     {
+        Debug.Log("Buscando audio: " + str);
         for(int i = 0; i < Clips.Length; i++)
         {
             if(Clips[i].name.Equals(str))

@@ -71,7 +71,7 @@ public class BaseGame : MonoBehaviour
 
     protected virtual void Initialize() { }
 
-    
+
 
     IEnumerator ShowDelay()
     {
@@ -232,7 +232,8 @@ public class BaseGame : MonoBehaviour
             if(Time.time - startTime > timeLimit2 || clues > 1)
             {
                 Debug.Log("Fin no exitoso");
-                ResetLevel();
+                ConversationUI.ShowText("DoItFaster", ResetLevel);
+                //ResetLevel();
                 return;
             }
             else if(Time.time - startTime < timeLimit1 && clues == 0)
@@ -278,5 +279,21 @@ public class BaseGame : MonoBehaviour
 
             SceneLoader.LoadScene(NextScene);
         });
+
+
+    }
+
+    WaitForSeconds checkStarTime = new WaitForSeconds(1);
+    IEnumerator CheckStars()
+    {
+        while(!InGameStars.cancelStar)
+        {
+            if(DataManager.GetSelectedFile().GameDifficult != 0)
+            {
+                if(Time.time - startTime > timeLimit2 || clues > 1)
+                    InGameStars.cancelStar = true;
+            }
+            yield return checkStarTime;
+        }
     }
 }

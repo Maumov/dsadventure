@@ -8,6 +8,8 @@ public class CakeShopBuild : BaseGame
     public CakeOption[] Options;
     protected Vector3[] startPos;
     public int[] OptionsValues;
+    public GameObject Pieces;
+    public GameObject BadCake;
 
     protected DragAndDrop control;
     public LayerMask CakeLayer;
@@ -137,6 +139,8 @@ public class CakeShopBuild : BaseGame
         }
         else
         {
+            Pieces.SetActive(false);
+            BadCake.SetActive(true);
             if(DataManager.IsHardGame)
                 ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
             else

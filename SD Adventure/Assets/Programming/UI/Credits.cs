@@ -31,11 +31,18 @@ public class Credits : MonoBehaviour
             FindObjectOfType<PlayerController>().ControlState = false;
             ConversationUI.ShowText(EndingText, () => 
             {
-                Set(sw);
+                FindObjectOfType<Ending>().AnimCamera();
+                StartCoroutine(FadeDelay(sw));
             });
         }
         else
             Set(sw);
+    }
+
+    IEnumerator FadeDelay(bool sw)
+    {
+        yield return new WaitForSeconds(2f);
+        Set(sw);
     }
 
     void Set(bool sw)
