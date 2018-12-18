@@ -509,6 +509,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc9b1ce4ab119141b7b6e656ebe6f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &64722280
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1706719423}
+    m_Modifications:
+    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114732346614850856, guid: 077cab086e0150b41a7067a27b945cd9,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1513595003}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!224 &79976418 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224695287964081742, guid: 37e2bd5292223f545a4addb90c091f6e,
@@ -3734,6 +3781,75 @@ RectTransform:
   m_AnchoredPosition: {x: -450, y: -18.999992}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1002939929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1002939930}
+  - component: {fileID: 1002939932}
+  - component: {fileID: 1002939931}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1002939930
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1002939929}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1513595004}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1002939931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1002939929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1002939932
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1002939929}
+  m_CullTransparentMesh: 0
 --- !u!1 &1006680027
 GameObject:
   m_ObjectHideFlags: 0
@@ -4767,53 +4883,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc9b1ce4ab119141b7b6e656ebe6f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1161259207
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1706719423}
-    m_Modifications:
-    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 077cab086e0150b41a7067a27b945cd9, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!4 &1161259208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4160113222456456, guid: 077cab086e0150b41a7067a27b945cd9,
     type: 2}
-  m_PrefabInternal: {fileID: 1161259207}
+  m_PrefabInternal: {fileID: 64722280}
 --- !u!1 &1170603615
 GameObject:
   m_ObjectHideFlags: 0
@@ -5037,7 +5111,7 @@ MonoBehaviour:
     m_PressedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
-    m_NormalTrigger: Normal
+    m_NormalTrigger: Normal2
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
@@ -5563,6 +5637,141 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1315090104}
+  m_CullTransparentMesh: 0
+--- !u!1 &1320370687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1320370688}
+  - component: {fileID: 1320370690}
+  - component: {fileID: 1320370689}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1320370688
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320370687}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1513595004}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -954.30005}
+  m_SizeDelta: {x: -391.6, y: 1908.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1320370689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320370687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\n\n\nPol\xEDtica de privacidad - La fiesta\r\n\r\nAntecedentes: su informaci\xF3n
+    personal y no personal y su privacidad es de la m\xE1s alta importancia para nosotros.\r\nSeguimos
+    estrictamente todos los requisitos legales pertinentes. Tenemos el derecho de
+    cambiar nuestra Pol\xEDtica de privacidad en cualquier momento sin avisarle. Para
+    usuarios menores de 18 a\xF1os, debe tener el permiso de su tutor antes de proporcionarnos
+    informaci\xF3n personal. Al aceptar nuestra Pol\xEDtica de privacidad, podemos
+    recopilar informaci\xF3n no personal, como una identificaci\xF3n del dispositivo
+    u otro identificador persistente vinculado al dispositivo o computadora.\r\nConsentimiento:
+    al acceder o utilizar nuestras aplicaciones, acepta la Pol\xEDtica de privacidad
+    en la que recopilaremos su informaci\xF3n personal y no personal. Para retirarse,
+    deje de acceder a nuestra WEB y para las aplicaciones y juegos que puede dejar
+    dentro de la aplicaci\xF3n o juego desde la configuraci\xF3n.\r\nInformaci\xF3n
+    no personal\r\nPodemos recopilar informaci\xF3n no personal que no revela ninguna
+    identificaci\xF3n de un usuario. La informaci\xF3n consiste en informaci\xF3n
+    t\xE9cnica, informaci\xF3n de comportamiento, actividad del usuario en el sitio
+    / aplicaci\xF3n / juego, tipo de sistema operativo, idioma, etc.\r\nInformaci\xF3n
+    personal\r\nEste tipo de informaci\xF3n puede revelar la identificaci\xF3n de
+    un usuario individual que puede ser de naturaleza sensible. Despu\xE9s de instalar
+    el juego / aplicaci\xF3n o v\xEDa web, su direcci\xF3n IP se recopila autom\xE1ticamente
+    y se utiliza para mejorar la experiencia del usuario.\r\nSu informaci\xF3n personal
+    se recopila \xFAnicamente con su CONSENTIMIENTO y APROBACI\xD3N. La informaci\xF3n
+    se obtiene solo cuando ACEPTA los t\xE9rminos y el di\xE1logo de consentimiento
+    de la pol\xEDtica de privacidad dentro del juego.\r\nTambi\xE9n podemos recopilar
+    informaci\xF3n siguiente\r\n\u2022 IDFAs, IDFVs;\r\n\u2022 Direcci\xF3n IP; C\xF3digo
+    de pa\xEDs;\r\n\u2022 Zona horaria, inicio / final de sesi\xF3n,\r\n\u2022 Cadena
+    de agente de usuario (UA), plataforma, versi\xF3n de SDK, marca de tiempo;\r\n\u2022
+    Idioma; Localizaci\xF3n (ubicaci\xF3n espec\xEDfica donde se habla un idioma determinado);\r\n\u2022
+    Estado de la red (WiFi, etc.), tipos de plug-in y versiones del navegador;\r\n\u2022
+    Informaci\xF3n t\xE9cnica del dispositivo (por ejemplo, modelo y nombre del dispositivo,
+    nombre y versi\xF3n del sistema operativo, operador de telefon\xEDa m\xF3vil,
+    informaci\xF3n de la CPU, tama\xF1o de almacenamiento, tama\xF1o de pantalla,
+    firmware, software, proveedor de servicios de Internet, identificador de clave
+    API para la aplicaci\xF3n, Identidad Internacional de Equipos M\xF3viles (IMEI)
+    ) en Android, Android ID, Android Serial No)\r\nRecopilamos su informaci\xF3n
+    personal y no personal cuando navega por nuestro sitio web, cuando juega nuestro
+    juego / aplicaci\xF3n en un tel\xE9fono m\xF3vil o cuando nos contacta a trav\xE9s
+    de correo electr\xF3nico / Facebook u otros medios de soporte.\r\nRaz\xF3n de
+    la recopilaci\xF3n de informaci\xF3n\r\n\u2022 La informaci\xF3n no personal se
+    recopila con fines de investigaci\xF3n con el fin de mejorar y mejorar nuestra
+    aplicaci\xF3n / juego.\r\n\u2022 La informaci\xF3n personal se usa para responder
+    requerimientos a trav\xE9s de canales de asistencia (Facebook / correo electr\xF3nico)\r\n\u2022
+    La ubicaci\xF3n / IP se recopila con el prop\xF3sito de comprender el comportamiento
+    del usuario y crear experiencias \xFAnicas.\r\nUtilizamos la informaci\xF3n que
+    recopilamos sobre usted / su dispositivo para brindarle los mejores servicios.
+    Tal uso por nosotros y por nuestros socios puede incluir:\r\nEntregando nuestros
+    servicios: Tratamos de desarrollar y entregar productos, servicios y juegos nuevos
+    y mejorados con las \xFAltimas actualizaciones y requisitos mediante el an\xE1lisis
+    de sus datos.\r\nPromoci\xF3n cruzada: lo que significa que podemos promocionar
+    una de nuestras Aplicaciones / Juegos mientras juegas a cualquier otra de nuestras
+    Aplicaciones / Juegos.\r\nAn\xE1lisis e investigaci\xF3n: los datos del usuario
+    se recopilan con fines de investigaci\xF3n o para analizar juegos para que podamos
+    mejorar de acuerdo con los requisitos del usuario. Los datos demogr\xE1ficos se
+    recopilan para conocer el pa\xEDs de nuestro usuario, lo que nos ayuda a crear
+    informes para analizar cualquier cambio requerido para un pa\xEDs espec\xEDfico.\r\nUso
+    y divulgaci\xF3n de informaci\xF3n: No divulgaremos ninguna informaci\xF3n personal
+    que no sea el prop\xF3sito de ofrecerle bienes y servicios, para cualquier otro
+    prop\xF3sito que pueda esperar razonablemente, para cualquier otro prop\xF3sito
+    autorizado por la ley o para cualquier otro prop\xF3sito divulgado a o autorizado
+    por usted. Esto puede incluir divulgaciones a organizaciones que nos brindan asesoramiento
+    profesional, como abogados, contadores y asesores comerciales.\r\n\r\nSi tiene
+    alguna consulta sobre esta Pol\xEDtica de privacidad, h\xE1ganoslo saber en augustosalazar@uninorte.edu.co\r\n\n"
+--- !u!222 &1320370690
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320370687}
   m_CullTransparentMesh: 0
 --- !u!1001 &1347477857
 Prefab:
@@ -6259,6 +6468,134 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224682100740108518, guid: 7f590cb44fac08e419de9f73efd1a73c,
     type: 2}
   m_PrefabInternal: {fileID: 1498173135}
+--- !u!1 &1513595003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513595004}
+  - component: {fileID: 1513595007}
+  - component: {fileID: 1513595006}
+  - component: {fileID: 1513595005}
+  - component: {fileID: 1513595008}
+  m_Layer: 5
+  m_Name: UserInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1513595004
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513595003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1002939930}
+  - {fileID: 1320370688}
+  - {fileID: 1654948978}
+  m_Father: {fileID: 1706719423}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1513595005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513595003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1513595006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513595003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1280, y: 720}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &1513595007
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513595003}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 1
+  m_Camera: {fileID: 1831871484}
+  m_PlaneDistance: 4
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &1513595008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513595003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1367256648, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 1320370688}
+  m_Horizontal: 0
+  m_Vertical: 1
+  m_MovementType: 2
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 1
+  m_Viewport: {fileID: 0}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 0}
+  m_HorizontalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1514146384 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1247926964943210, guid: 37e2bd5292223f545a4addb90c091f6e,
@@ -6482,6 +6819,153 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1640491292}
   m_CullTransparentMesh: 0
+--- !u!1 &1654948977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1654948978}
+  - component: {fileID: 1654948982}
+  - component: {fileID: 1654948981}
+  - component: {fileID: 1654948980}
+  - component: {fileID: 1654948979}
+  m_Layer: 5
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1654948978
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1654948977}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1513595004}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -25, y: 25}
+  m_SizeDelta: {x: 134, y: 134}
+  m_Pivot: {x: 1, y: 0}
+--- !u!95 &1654948979
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1654948977}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e68fe3def88c31429e9b609da5d1924, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1654948980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1654948977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 3
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1660300873}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1513595003}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1654948981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1654948977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 1e0955ede9e356743a035549474f7e4b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1654948982
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1654948977}
+  m_CullTransparentMesh: 0
+--- !u!114 &1660300873 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114200845994856760, guid: 077cab086e0150b41a7067a27b945cd9,
+    type: 2}
+  m_PrefabInternal: {fileID: 64722280}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1672162118
 GameObject:
   m_ObjectHideFlags: 0
@@ -6727,6 +7211,7 @@ Transform:
   - {fileID: 79976418}
   - {fileID: 133077893}
   - {fileID: 1161259208}
+  - {fileID: 1513595004}
   m_Father: {fileID: 796071829}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7218,6 +7703,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1802941110}
   m_CullTransparentMesh: 0
+--- !u!20 &1831871484 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20270053319852028, guid: 077cab086e0150b41a7067a27b945cd9,
+    type: 2}
+  m_PrefabInternal: {fileID: 64722280}
 --- !u!1 &1833531558
 GameObject:
   m_ObjectHideFlags: 0
@@ -7396,7 +7886,7 @@ CanvasRenderer:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114286384052785728, guid: 077cab086e0150b41a7067a27b945cd9,
     type: 2}
-  m_PrefabInternal: {fileID: 1161259207}
+  m_PrefabInternal: {fileID: 64722280}
   m_Script: {fileID: 11500000, guid: 9b365ffd51331264388f9fd7c769b90f, type: 3}
 --- !u!1 &1940207669
 GameObject:

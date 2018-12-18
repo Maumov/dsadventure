@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 114751374554966606}
   - component: {fileID: 114618015898316606}
   - component: {fileID: 95771529921056756}
+  - component: {fileID: 114059799517839108}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -105,6 +106,7 @@ GameObject:
   - component: {fileID: 114682180769196588}
   - component: {fileID: 114904402784816806}
   - component: {fileID: 95000854143764732}
+  - component: {fileID: 114479121458529980}
   m_Layer: 5
   m_Name: Next
   m_TagString: Untagged
@@ -166,6 +168,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114059799517839108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201639502300318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc9b1ce4ab119141b7b6e656ebe6f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114208893344246432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,6 +225,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 114720332646671968}
   Message: {fileID: 114208893344246432}
+--- !u!114 &114479121458529980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1653097478471240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc9b1ce4ab119141b7b6e656ebe6f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114618015898316606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,7 +417,7 @@ MonoBehaviour:
     m_PressedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
-    m_NormalTrigger: Normal
+    m_NormalTrigger: Normal2
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled

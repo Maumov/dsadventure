@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.613
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34740016, g: 0.3866062, b: 0.4520728, a: 0.613}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0.613}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -229,7 +229,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 5
-  Cam: {fileID: 1698849964}
 --- !u!143 &31635474
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6258,6 +6257,10 @@ MonoBehaviour:
   Content: {fileID: 611844455}
   Message: {fileID: 790126243}
   BackButton: {fileID: 1890810065}
+  Arrow: {fileID: 0}
+  FinalText: {fileID: 0}
+  NextButton: {fileID: 0}
+  ConversationKeys: {fileID: 0}
 --- !u!1 &1071274205
 GameObject:
   m_ObjectHideFlags: 0
@@ -10413,6 +10416,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 31635477}
   FollowSpeed: 5
+  Min: {x: 0, y: 0, z: 0}
+  Max: {x: 0, y: 0, z: 0}
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1701639215
 GameObject:
   m_ObjectHideFlags: 0

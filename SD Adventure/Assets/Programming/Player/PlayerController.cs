@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     //Components
     MobileControlRig inputs;
+    MobileControlRig inputs2;
     CharacterController controller;
     Vector3 move;
     Interaction interaction;
@@ -33,7 +34,9 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         actionButton = FindObjectOfType<ButtonHandler>();
-        inputs = FindObjectOfType<MobileControlRig>();
+
+        inputs = GameObject.FindGameObjectWithTag ("Joystick1").GetComponent<MobileControlRig>();
+        inputs2 = GameObject.FindGameObjectWithTag ("Joystick2").GetComponent<MobileControlRig>();
         cam = FindObjectOfType<PlayerCamera>().transform;
         actionButton.SetState(false);
     }
@@ -50,6 +53,9 @@ public class PlayerController : MonoBehaviour
         if(ControlState != inputs.gameObject.activeInHierarchy)
             inputs.gameObject.SetActive(ControlState);
 
+        if(ControlState != inputs2.gameObject.activeInHierarchy)
+            inputs2.gameObject.SetActive(ControlState);
+
         if(!ControlState)
         {
             axis.Set(0, 0, 0);
@@ -63,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     void GetInputs()
     {
-        axis.Set(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical"));
+        axis.Set(CrossPlatformInputManager.GetAxisRaw("Horizontal") + CrossPlatformInputManager.GetAxisRaw("Horizontal2"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical")+ CrossPlatformInputManager.GetAxisRaw("Vertical2"));
         axis.Normalize();
 
         Anim.SetFloat("Movement", axis.magnitude * MovementSpeed);

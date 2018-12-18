@@ -231,7 +231,7 @@ public class GameStats
 
     #region Variables
     public string DocVersion = "0.1";
-    public string GameVersion = "0.1";
+    public string GameVersion = "1.1.0";
     public string ParameterVersion = "0.1";
 
     public PlayerInfo[] Players;
