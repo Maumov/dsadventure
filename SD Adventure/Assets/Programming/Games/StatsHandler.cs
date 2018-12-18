@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class StatsHandler : MonoBehaviour
 {
-    const string url = "190.144.171.172/psd/upload.php";
+    const string url = "190.144.171.172/psd/upload2.php";
     static StatsHandler instance;
     public static StatsHandler Instance
     {
