@@ -351,8 +351,9 @@ public class GameStats
         public string CoordinatesStart;
         public string CoordinatesEnd;
         public string ObjectInteractedID;
+		public string ObjectID;
 
-        public ActionEventData(Vector2 pos, string obj)//touch
+		public ActionEventData(Vector2 pos, string obj, string objID)//touch
         {
             TimeStamp = DataHelper.GetTime().ToString();
             type = "touch";
@@ -362,9 +363,10 @@ public class GameStats
             coordenadaInicioY = pos.y.ToString ();
 
             ObjectInteractedID = obj;
+			ObjectID = objID;
         }
 
-        public ActionEventData(Vector2 ini, Vector2 end, string obj)//touch
+		public ActionEventData(Vector2 ini, Vector2 end, string obj, string objID)//touch
         {
             TimeStamp = DataHelper.GetTime().ToString();
             type = "DAndD";
@@ -378,6 +380,7 @@ public class GameStats
             CoordinatesEnd = end.ToString();
 
             ObjectInteractedID = obj;
+			ObjectID = objID;
         }
     }
     #endregion
@@ -400,14 +403,14 @@ public class GameStats
         Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].EndBy = finishType;
     }
 
-    public void AddTouch(Vector2 pos, string obj)
+	public void AddTouch(Vector2 pos, string obj, string objID)
     {
-        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].ActionEvents.Add(new ActionEventData(pos, obj));
+		Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].ActionEvents.Add(new ActionEventData(pos, obj, objID));
     }
 
-    public void AddDrag(string obj, Vector2 ini, Vector2 end)
+	public void AddDrag(string obj, Vector2 ini, Vector2 end, string objID)
     {
-        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].ActionEvents.Add(new ActionEventData(new Vector2(ini.x / Screen.width, ini.y / Screen.height), new Vector2(end.x / Screen.width, end.y / Screen.height), obj));
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].ActionEvents.Add(new ActionEventData(new Vector2(ini.x / Screen.width, ini.y / Screen.height), new Vector2(end.x / Screen.width, end.y / Screen.height), obj, objID));
     }
     #endregion
 }

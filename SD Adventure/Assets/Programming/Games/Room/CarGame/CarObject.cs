@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarObject : MonoBehaviour
+public class CarObject : MonoBehaviour, IObjectIDController
 {
     [HideInInspector]
     [System.NonSerialized]
@@ -10,6 +10,16 @@ public class CarObject : MonoBehaviour
     bool follow;
     Rigidbody body;
     CarGame manager;
+
+	public string id;
+	public string objectId{
+		get{
+			return id;
+		}
+		set{
+			id = value;
+		}
+	}
 
     private void Start()
     {

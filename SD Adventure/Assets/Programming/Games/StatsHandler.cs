@@ -132,16 +132,22 @@ public class StatsHandler : MonoBehaviour
             ray = cam.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit, 50, ~LayerMask.GetMask("CameraPlane")))
             {
-                stats.AddTouch(pos, hit.transform.name);
+				IObjectIDController objID = hit.collider.GetComponent<IObjectIDController>();
+				if(objID != null){
+					stats.AddTouch(pos, hit.transform.name, objID.objectId);	
+				}else{
+					stats.AddTouch(pos, hit.transform.name, hit.transform.name);
+				}
+
                 return;
             }
         }
-        stats.AddTouch(pos, "Null");
+        stats.AddTouch(pos, "Null", "Null");
     }
 
-    public void AddDrag(string obj, Vector2 ini, Vector2 end)
+	public void AddDrag(string obj, Vector2 ini, Vector2 end, string objID)
     {
-        stats.AddDrag(obj, ini, end);
+        stats.AddDrag(obj, ini, end, objID);
     }
 
 

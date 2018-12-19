@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeObject : MonoBehaviour
+public class CubeObject : MonoBehaviour, IObjectIDController
 {
     public GameObjectArray[] Cubes;
     protected static int[] Index;
+
+	public string id;
+	public string objectId{
+		get{
+			return id;
+		}
+		set{
+			id = value;
+		}
+	}
 
     private void Start()
     {
@@ -22,6 +32,7 @@ public class CubeObject : MonoBehaviour
         current.localPosition = Vector3.zero;
         Index[id]++;
         name = id.ToString();
+		objectId = id+"";
     }
 
     private void OnDestroy()

@@ -299,4 +299,10 @@ public class BaseGame : MonoBehaviour
             yield return checkStarTime;
         }
     }
+
+	public static Vector2 ScreenCoordinates(Camera cam, Vector3 pos){
+		//return new Vector2(pos.x / Screen.width, pos.y / Screen.height);
+		Vector2 p = cam.WorldToViewportPoint (pos);
+		return new Vector2(p.x , p.y);
+	}
 }

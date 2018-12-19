@@ -5,6 +5,7 @@ using UnityEngine;
 public class CubesGame : BaseGame
 {
     [Header("Cubes Game")]
+	public Camera GameCam;
     public Collider[] Containers;
     public CubeObject[] Cubes;
     DragAndDrop control;
@@ -27,13 +28,13 @@ public class CubesGame : BaseGame
 
     protected override void Summary(){
         for (int i = 0; i < Cubes.Length; i++) {
-            Vector2 pos = Camera.main.ViewportToScreenPoint (Cubes[i].transform.position);
-            gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+			Vector2 pos = ScreenCoordinates(GameCam, Cubes[i].transform.position);
+			gameObjets += "" + i + "," + pos.x + "," + pos.y +"," +Cubes[i].name+";";
         }
 
         for(int i = 0; i < Containers.Length; i++){
-            Vector2 pos = Camera.main.ViewportToScreenPoint (Containers [i].transform.position);
-            gameSockets += "SocketID:" + i + pos.x + " , " + pos.y;
+			Vector2 pos = ScreenCoordinates(GameCam, Containers [i].transform.position);
+			gameSockets += "" + i+"," + pos.x + "," + pos.y +"," + Containers[i].name + ";";
         }
     }
     public override void StartGame()
@@ -110,7 +111,14 @@ public class CubesGame : BaseGame
                 each++;
             }
         }
-        gameSummary += "Caja '" + (ind + 1) + "' tiene " + each + " '" + (ind + 1) + "';";
+		string s = "" + ind;
+		for(int i = 0; i < Cubes.Length; i++){
+			if(Containers[ind].bounds.Contains(Cubes[i].transform.position)){
+				s += "," + Cubes[i].name;
+			}
+		}
+		s += ";";
+        gameSummary += s;
     }
 
     public void CubeDrop()

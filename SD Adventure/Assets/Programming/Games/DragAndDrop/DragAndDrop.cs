@@ -73,7 +73,7 @@ public class DragAndDrop : MonoBehaviour
         if(OnDrop != null)
             OnDrop(dragObject);
 
-        StatsHandler.Instance.AddDrag(dragObject.name, dragStartPos, mousePos);
+		StatsHandler.Instance.AddDrag(dragObject.name, dragStartPos, mousePos, dragObject.GetComponent<IObjectIDController>().objectId);
 
         dragCollider.enabled = true;
         if(dragRigidbody != null)

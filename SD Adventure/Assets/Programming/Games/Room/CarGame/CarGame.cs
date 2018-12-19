@@ -34,13 +34,13 @@ public class CarGame : BaseGame
 
     protected override void Summary(){
         for (int i = 0; i < Cars.Length; i++) {
-            Vector2 pos = Camera.main.ViewportToScreenPoint (Cars[i].transform.position);
-            gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+			Vector2 pos = ScreenCoordinates(GameCam, Cars[i].transform.position);
+			gameObjets += "" + i + "," + pos.x + "," + pos.y + ";";
         }
 
         for(int i = 0; i < Places.Length; i++){
-            Vector2 pos = Camera.main.ViewportToScreenPoint (Places [i].transform.position);
-            gameSockets += "SocketID:" + i + pos.x + " , " + pos.y;
+			Vector2 pos = ScreenCoordinates(GameCam,Places [i].transform.position);
+			gameSockets += "" + i + ","+ pos.x + "," + pos.y + ";";
         }
     }
 
@@ -76,7 +76,7 @@ public class CarGame : BaseGame
         if(Input.GetMouseButtonUp(0))
         {
             if(current != null)
-                StatsHandler.Instance.AddDrag(current.name, dragStartPos, Input.mousePosition);
+				StatsHandler.Instance.AddDrag(current.name, dragStartPos, Input.mousePosition, current.objectId);
             current = null;
             Mark.gameObject.SetActive(false);
         }
@@ -119,7 +119,7 @@ public class CarGame : BaseGame
             {
                 if(Places[i].bounds.Contains(Cars[j].transform.position))
                 {
-                    gameSummary += "Carro " + (j + 1) + " en garaje " + (i + 1) + ";";
+					gameSummary += j + "," + i + ";";
                     SaveCar(j, i);
                     break;
                 }
