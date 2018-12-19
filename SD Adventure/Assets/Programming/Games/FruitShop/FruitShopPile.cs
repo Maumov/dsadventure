@@ -52,6 +52,32 @@ public class FruitShopPile : BaseGame
             InitHard();
         else
             InitEasy();
+
+        Summary ();
+    }
+
+    protected override void Summary(){
+        if (DataManager.IsHardGame) {
+            for (int i = 0; i < NumbersHard.Length; i++) {
+               
+                Vector2 pos = Camera.main.ViewportToScreenPoint (NumbersHard[i].transform.position);
+                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+            }
+
+            Vector2 p = Camera.main.ViewportToScreenPoint (Tags[0].transform.position);
+            gameSockets += "SocketID:" + p.x + " , " + p.y;
+
+        }else{
+            for(int i = 0; i < Numbers.Length; i++){
+                Vector2 pos = Camera.main.ViewportToScreenPoint (Numbers [i].transform.position);
+                gameObjets += "ObjectID:"+ i +":" + pos.x+ " , " + pos.y;
+            }
+            for(int i = 0; i < Tags.Length; i++){
+                Vector2 pos = Camera.main.ViewportToScreenPoint (Tags [i].transform.position);
+                gameSockets += "SocketID:" + pos.x + " , " + pos.y;
+            }
+        }
+
     }
 
     public void Check()

@@ -21,10 +21,39 @@ public class DressmakingBoxes : BaseGame
     {
         control = FindObjectOfType<DragAndDrop>();
 
-        if(DataManager.IsHardGame)
-            InitHard();
-        else
+        if (DataManager.IsHardGame)
+        { 
+            InitHard ();
+        }else {
             InitEasy();
+        }  
+
+        Summary ();
+    }
+
+
+    protected override void Summary() { 
+        if (DataManager.IsHardGame) {
+            for (int i = 0; i < HardClothes.Length; i++) {
+                Vector2 pos = Camera.main.ViewportToScreenPoint (HardClothes [i].transform.position);
+                gameObjets += "ObjectID:" + i + 1 + ":" + pos.x + " , " + pos.y;
+            }
+
+            Vector2 p = Camera.main.ViewportToScreenPoint (HardContainer.transform.position);
+            gameSockets += "SocketID:" + p.x + " , " + p.y;
+                
+        } else {
+            for(int i = 0; i < EasyClothes.Length; i++){
+                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyClothes [i].transform.position);
+                gameObjets += "ObjectID:"+ EasyClothes [i].name +":" + pos.x+ " , " + pos.y;
+            }
+
+            for(int i = 0; i < EasyContainers.Length; i++){
+                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyContainers [i].transform.position);
+                gameSockets += "SocketID" + i +":" + pos.x+ " , " + pos.y;
+            }
+        }
+
     }
 
     public override void SetControl(bool sw)

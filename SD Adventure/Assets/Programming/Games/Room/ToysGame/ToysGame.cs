@@ -21,7 +21,21 @@ public class ToysGame : CubesGame
         {
             Guides[i].text = amounts[i].ToString();
         }
+
+        Summary ();
     }
+
+//    protected override void Summary(){
+//        for (int i = 0; i < Cubes.Length; i++) {
+//            Vector2 pos = Camera.main.ViewportToScreenPoint (Cubes[i].transform.position);
+//            gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+//        }
+//
+//        for(int i = 0; i < Containers.Length; i++){
+//            Vector2 pos = Camera.main.ViewportToScreenPoint (Containers [i].transform.position);
+//            gameSockets += "SocketID:" + i + pos.x + " , " + pos.y;
+//        }
+//    }
 
     protected override void CompleteValidations()
     {

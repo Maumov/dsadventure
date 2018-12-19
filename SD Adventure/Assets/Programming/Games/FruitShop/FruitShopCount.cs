@@ -48,7 +48,31 @@ public class FruitShopCount : BaseGame
             InitEasy();
 
         SetControl(false);
+
+        Summary ();
     }
+    protected override void Summary(){
+        if (DataManager.IsHardGame) {
+            for (int i = 0; i < HardFruits.Length; i++) {
+                Vector2 pos = Camera.main.ViewportToScreenPoint (HardFruits [i].transform.position);
+                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+            }
+
+            Vector2 p = Camera.main.ViewportToScreenPoint (FruitContainer.transform.position);
+            gameSockets += "SocketID:" + p.x + " , " + p.y;
+
+        }else{
+            for(int i = 0; i < Numbers.Length; i++){
+                Vector2 pos = Camera.main.ViewportToScreenPoint (Numbers [i].transform.position);
+                gameObjets += "ObjectID:"+ i +":" + pos.x+ " , " + pos.y;
+            }
+            Vector2 p = Camera.main.ViewportToScreenPoint (GoodPosition.transform.position);
+            gameSockets += "SocketID:" + p.x + " , " + p.y;
+
+        }
+
+    }
+
 
     void InitHard()
     {

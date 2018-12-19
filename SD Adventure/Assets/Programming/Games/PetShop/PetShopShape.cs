@@ -48,7 +48,34 @@ public class PetShopShape : BaseGame
 
         control.OnDrop += ImportantActionHard;
         control.OnDrop += PlaySound;
+
+        Summary ();
     }
+
+    public void Summary(){
+        if (DataManager.IsHardGame) {
+            for (int i = 0; i < PetsHard.Length; i++) {
+                Vector2 pos = Camera.main.ViewportToScreenPoint (PetsHard[i].transform.position);
+                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+            }
+
+            for(int i = 0; i < ContainerHard.Length; i++){
+                Vector2 pos = Camera.main.ViewportToScreenPoint (ContainerHard [i].transform.position);
+                gameSockets += "SocketID:" + i + pos.x + " , " + pos.y;
+            }
+
+        }else{
+            for(int i = 0; i < Pets.Length; i++){
+                Vector2 pos = Camera.main.ViewportToScreenPoint (Pets [i].transform.position);
+                gameObjets += "ObjectID:"+ i +":" + pos.x+ " , " + pos.y;
+            }
+            for (int i = 0; i < Container.Length; i++) {
+                Vector2 p = Camera.main.ViewportToScreenPoint (Container [i].transform.position);
+                gameSockets += "SocketID:"+ i + p.x + " , " + p.y;
+            }
+        }
+    }
+
 
     public override void SetControl(bool sw)
     {

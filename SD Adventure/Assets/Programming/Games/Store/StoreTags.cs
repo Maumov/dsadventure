@@ -50,6 +50,25 @@ public class StoreTags : BaseGame
         tutorial.SetValues(new string[] { max.ToString(), (max - targetNumber).ToString() });
     }
 
+
+    protected override void Summary(){
+        if (DataManager.IsHardGame) {
+            for (int i = 0; i < HardNumbers.Length; i++) {
+                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyNumbers [i].transform.position);
+                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+            }
+
+        } else {
+            for (int i = 0; i < EasyNumbers.Length; i++) {
+                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyNumbers [i].transform.position);
+                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+            }
+        }
+        Vector2 p = Camera.main.ViewportToScreenPoint ( GameObject.FindGameObjectWithTag("EtiquetaContainer").transform.position);
+        gameSockets += "SocketID:" + p.x +"," + p.y;
+    }
+
+
     public override void SetControl(bool sw)
     {
         base.SetControl(sw);

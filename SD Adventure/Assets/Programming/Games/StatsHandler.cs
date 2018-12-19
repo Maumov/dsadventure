@@ -47,9 +47,9 @@ public class StatsHandler : MonoBehaviour
         stats.AddAction();
     }
 
-    public void Send(GameStats.FinishType finishType, int acomplishment, string summary)
+    public void Send(GameStats.FinishType finishType, int acomplishment, string summary, string summaryObjetos, string summaryEspacios)
     {
-        stats.Close(finishType, acomplishment, summary);
+        stats.Close(finishType, acomplishment, summary, summaryObjetos, summaryEspacios);
         StartCoroutine(Server(TranslateJson(JsonUtility.ToJson(stats)), (sw) =>
         {
             if(!sw)

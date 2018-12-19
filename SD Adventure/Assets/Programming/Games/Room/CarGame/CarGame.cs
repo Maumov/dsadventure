@@ -28,6 +28,20 @@ public class CarGame : BaseGame
         {
             Cars[i].transform.position = StartPlaces[i].position;
         }
+
+        Summary ();
+    }
+
+    protected override void Summary(){
+        for (int i = 0; i < Cars.Length; i++) {
+            Vector2 pos = Camera.main.ViewportToScreenPoint (Cars[i].transform.position);
+            gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+        }
+
+        for(int i = 0; i < Places.Length; i++){
+            Vector2 pos = Camera.main.ViewportToScreenPoint (Places [i].transform.position);
+            gameSockets += "SocketID:" + i + pos.x + " , " + pos.y;
+        }
     }
 
     void Update()

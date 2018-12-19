@@ -16,6 +16,7 @@ public class CakeShopBaking : BaseGame
 
     protected override void Initialize()
     {
+        
         control = FindObjectOfType<DragAndDrop>();
         control.OnDrop += Check;
 
@@ -43,8 +44,24 @@ public class CakeShopBaking : BaseGame
         }
 
         startPos = new Vector3[Options.Length];
-        for(int i = 0; i < startPos.Length; i++)
-            startPos[i] = Options[i].Option.transform.position;
+        for (int i = 0; i < startPos.Length; i++) {
+            startPos [i] = Options [i].Option.transform.position;
+        }
+
+        Summary ();
+
+    }
+
+    protected override void Summary() { 
+        for(int i = 0; i < Options.Length; i++){
+            Vector2 pos = Camera.main.ViewportToScreenPoint (Options [i].Option.transform.position);
+            gameObjets += "ObjectID:" + i+1 +":" + pos.x+ " , " + pos.y;
+        }
+
+        for(int i = 0; i < Containers.Length; i++){
+            Vector2 pos = Camera.main.ViewportToScreenPoint (Containers [i].transform.position);
+            gameSockets += "SocketID" + i+1 +":" + pos.x+ " , " + pos.y;
+        }
     }
 
     public override void SetControl(bool sw)

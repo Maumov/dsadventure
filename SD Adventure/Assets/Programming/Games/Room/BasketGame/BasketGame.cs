@@ -46,6 +46,16 @@ public class BasketGame : BaseGame
         Question.text = string.Empty;
         for(int i = 0; i < Answers.Length; i++)
             Answers[i].text = string.Empty;
+
+        Summary ();
+    }
+
+    protected override void Summary(){
+        for (int i = 0; i < Balls.Length; i++) {
+            Vector2 pos = Camera.main.ViewportToScreenPoint (Balls[i].transform.position);
+            gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+        }
+        gameSockets = "";
     }
 
     void SetQuestion()

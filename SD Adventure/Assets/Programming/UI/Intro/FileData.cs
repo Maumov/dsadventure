@@ -313,7 +313,12 @@ public class GameStats
         public string TimeStampEnd;
         public string TimeToFirstEvent;
         public int LevelOfAccomplishment;
-        public string Resumen;
+
+
+        public string EstadoInicialSockets;
+        public string EstadoInicialObjetos;
+        public string EstadoFinal;
+
         [System.NonSerialized]
         public int ActionsAmount;
         [System.NonSerialized]
@@ -338,6 +343,11 @@ public class GameStats
     {
         public string TimeStamp;
         public string type;
+        public string coordenadaInicioX;
+        public string coordenadaInicioY;
+        public string coordenadaFinX;
+        public string coordenadaFinY;
+
         public string CoordinatesStart;
         public string CoordinatesEnd;
         public string ObjectInteractedID;
@@ -347,6 +357,10 @@ public class GameStats
             TimeStamp = DataHelper.GetTime().ToString();
             type = "touch";
             CoordinatesStart = pos.ToString();
+
+            coordenadaInicioX = pos.x.ToString ();
+            coordenadaInicioY = pos.y.ToString ();
+
             ObjectInteractedID = obj;
         }
 
@@ -355,7 +369,14 @@ public class GameStats
             TimeStamp = DataHelper.GetTime().ToString();
             type = "DAndD";
             CoordinatesStart = ini.ToString();
+
+            coordenadaInicioX = ini.x.ToString ();
+            coordenadaInicioY = ini.y.ToString ();
+            coordenadaFinX = end.x.ToString();
+            coordenadaFinY = end.y.ToString();
+
             CoordinatesEnd = end.ToString();
+
             ObjectInteractedID = obj;
         }
     }
@@ -369,11 +390,13 @@ public class GameStats
         Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].ActionsAmount++;
     }
 
-    public void Close(FinishType finishType, int acomplishment, string summary)
+    public void Close(FinishType finishType, int acomplishment, string summary, string summaryObjetos, string summaryEspacios)
     {
         Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].TimeStampEnd = DataHelper.GetTime().ToString();
         Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].LevelOfAccomplishment = acomplishment;
-        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].Resumen = summary;
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].EstadoFinal = summary;
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].EstadoInicialObjetos = summaryObjetos;
+        Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].EstadoInicialSockets = summaryEspacios;
         Players[0].GameSessions[0].MiniGameSessions[0].ActivitySessions[0].EndBy = finishType;
     }
 

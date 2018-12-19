@@ -47,7 +47,8 @@ public class BaseGame : MonoBehaviour
     public string SceneId;
     public string MinigameId;
     protected string gameSummary;
-
+    protected string gameObjets;
+    protected string gameSockets;
 
     protected virtual void Start()
     {
@@ -71,7 +72,9 @@ public class BaseGame : MonoBehaviour
 
     protected virtual void Initialize() { }
 
-
+    protected virtual void Summary() { 
+        Debug.LogError ("Summary Not Done Here!");
+    }
 
     IEnumerator ShowDelay()
     {
@@ -111,7 +114,7 @@ public class BaseGame : MonoBehaviour
     public virtual void Complete()
     {
         CompleteValidations();
-        StatsHandler.Instance.Send(GameStats.FinishType.Complete, acomplishmentLevel, gameSummary);
+        StatsHandler.Instance.Send(GameStats.FinishType.Complete, acomplishmentLevel, gameSummary, gameObjets, gameSockets);
         StartCoroutine(CompleteDelay());
     }
 
@@ -182,7 +185,7 @@ public class BaseGame : MonoBehaviour
             yield return null;
         }
         Quit = true;
-        StatsHandler.Instance.Send(GameStats.FinishType.Afk, -1, "AFK Player");
+        StatsHandler.Instance.Send(GameStats.FinishType.Afk, -1, "AFK Player", gameObjets, gameSockets);
         SceneLoader.LoadScene(BaseScene);
     }
 
@@ -208,7 +211,7 @@ public class BaseGame : MonoBehaviour
             {
                 Quit = true;
                 if(StatsHandler.Instance.initialized)
-                    StatsHandler.Instance.Send(GameStats.FinishType.Quit, -1, "Player Quits");
+                    StatsHandler.Instance.Send(GameStats.FinishType.Quit, -1, "Player Quits", gameObjets, gameSockets);
                 SceneLoader.LoadScene(BaseScene);
             }
             else
@@ -248,7 +251,7 @@ public class BaseGame : MonoBehaviour
             }
         }
 
-        StatsHandler.Instance.Send(GameStats.FinishType.Complete, v, gameSummary);
+        StatsHandler.Instance.Send(GameStats.FinishType.Complete, v, gameSummary, gameObjets, gameSockets);
         for(int i = 0; i < OnCompleteKeys.Length; i++)
             DataManager.AddProgressKey(OnCompleteKeys[i], v);
 
@@ -257,7 +260,7 @@ public class BaseGame : MonoBehaviour
 
     protected void ResetLevel()
     {
-        StatsHandler.Instance.Send(GameStats.FinishType.Fail, -1, gameSummary);
+        StatsHandler.Instance.Send(GameStats.FinishType.Fail, -1, gameSummary, gameObjets, gameSockets);
         SceneLoader.LoadScene(SceneLoader.CurrentScene);
     }
 
@@ -273,7 +276,7 @@ public class BaseGame : MonoBehaviour
         InGameStars.Show(LevelPos);
         ConversationUI.ShowText("GenericaNAText", () =>
         {
-            StatsHandler.Instance.Send(GameStats.FinishType.Complete, -1, "N/A Player");
+            StatsHandler.Instance.Send(GameStats.FinishType.Complete, -1, "N/A Player", gameObjets, gameSockets);
             for(int i = 0; i < OnCompleteKeys.Length; i++)
                 DataManager.AddProgressKey(OnCompleteKeys[i], -1);
 

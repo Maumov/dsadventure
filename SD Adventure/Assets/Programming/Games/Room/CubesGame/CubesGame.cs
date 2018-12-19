@@ -21,8 +21,21 @@ public class CubesGame : BaseGame
     protected override void Initialize()
     {
         SetContainers();
+
+        Summary ();
     }
 
+    protected override void Summary(){
+        for (int i = 0; i < Cubes.Length; i++) {
+            Vector2 pos = Camera.main.ViewportToScreenPoint (Cubes[i].transform.position);
+            gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+        }
+
+        for(int i = 0; i < Containers.Length; i++){
+            Vector2 pos = Camera.main.ViewportToScreenPoint (Containers [i].transform.position);
+            gameSockets += "SocketID:" + i + pos.x + " , " + pos.y;
+        }
+    }
     public override void StartGame()
     {
         base.StartGame();

@@ -46,6 +46,20 @@ public class CakeShopBuild : BaseGame
             Options[i].Option.transform.position = startPos[i];
 
         control.Active = false;
+
+        Summary ();
+    }
+
+    protected override void Summary() { 
+        for(int i = 0; i < Options.Length; i++){
+            Vector2 pos = Camera.main.ViewportToScreenPoint (Options [i].Option.transform.position);
+            gameObjets += "ObjectID:" + i+1 +":" + pos.x+ " , " + pos.y;
+        }
+
+//        for(int i = 0; i < Containers.Length; i++){
+//            Vector2 pos = Camera.main.ViewportToScreenPoint (Containers [i].transform.position);
+//            gameSockets += "SocketID" + i+1 +":" + pos.x+ " , " + pos.y;
+//        }
     }
 
     void Check(GameObject go)

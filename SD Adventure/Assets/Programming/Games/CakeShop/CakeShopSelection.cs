@@ -47,7 +47,22 @@ public class CakeShopSelection : BaseGame
             startPos[i] = Options[i].Option.transform.position;
 
         control.Active = false;
+
+        Summary ();
     }
+
+    protected override void Summary() { 
+        for(int i = 0; i < Options.Length; i++){
+            Vector2 pos = Camera.main.ViewportToScreenPoint (Options [i].Option.transform.position);
+            gameObjets += "ObjectID:" + i+1 +":" + pos.x+ " , " + pos.y;
+        }
+
+        Vector2 p = Camera.main.ViewportToScreenPoint (Container.transform.position);
+        gameSockets += "SocketID:" + p.x+ " , " + p.y;
+       
+    }
+
+
 
     public override void SetControl(bool sw)
     {

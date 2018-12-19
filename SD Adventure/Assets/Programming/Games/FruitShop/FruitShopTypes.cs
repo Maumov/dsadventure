@@ -52,6 +52,32 @@ public class FruitShopTypes : BaseGame
             InitHard();
         else
             InitEasy();
+
+        Summary ();
+    }
+
+    public void Summary(){
+        if (DataManager.IsHardGame) {
+            for (int i = 0; i < Numbers.Length; i++) {
+                Vector2 pos = Camera.main.ViewportToScreenPoint (Numbers[i].transform.position);
+                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+            }
+
+            for(int i = 0; i < Tags.Length; i++){
+                Vector2 pos = Camera.main.ViewportToScreenPoint (Tags [i].transform.position);
+                gameSockets += "SocketID:" + pos.x + " , " + pos.y;
+            }
+
+        }else{
+            for(int i = 0; i < EasyFruits.Length; i++){
+                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyFruits [i].transform.position);
+                gameObjets += "ObjectID:"+ i +":" + pos.x+ " , " + pos.y;
+            }
+           
+            Vector2 p = Camera.main.ViewportToScreenPoint (FruitContainer.transform.position);
+                gameSockets += "SocketID:" + p.x + " , " + p.y;
+
+        }
     }
 
     public void Check()

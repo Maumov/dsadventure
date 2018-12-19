@@ -29,6 +29,29 @@ public class DressmakingHanger : BaseGame
             InitEasy();
     }
 
+    protected override void Summary(){
+        if (DataManager.IsHardGame) {
+            for (int i = 0; i < ClothesHard.Length; i++) {
+                Vector2 pos = Camera.main.ViewportToScreenPoint (ClothesHard [i].transform.position);
+                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+            }
+
+            Vector2 p = Camera.main.ViewportToScreenPoint (Box.transform.position);
+            gameSockets += "SocketID:" + p.x + " , " + p.y;
+        
+        }else{
+            for(int i = 0; i < ClothesEasy.Length; i++){
+                Vector2 pos = Camera.main.ViewportToScreenPoint (ClothesEasy [i].transform.position);
+                gameObjets += "ObjectID:"+ ClothesEasy [i].name +":" + pos.x+ " , " + pos.y;
+            }
+            Vector2 p = Camera.main.ViewportToScreenPoint (Closet.transform.position);
+            gameSockets += "SocketID:" + p.x + " , " + p.y;
+
+        }
+            
+    }
+
+
     public override void SetControl(bool sw)
     {
         base.SetControl(sw);
