@@ -5,7 +5,7 @@ using UnityEngine;
 public class DressmakingHanger : BaseGame
 {
     Vector3[] startPos;
-
+    public Camera gameCam;
     [Header("Dressmaking Hard")]
     public GameObject HardContent;
     public GameObject[] ClothesHard;
@@ -32,20 +32,20 @@ public class DressmakingHanger : BaseGame
     protected override void Summary(){
         if (DataManager.IsHardGame) {
             for (int i = 0; i < ClothesHard.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (ClothesHard [i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,ClothesHard [i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y+";";
             }
 
-            Vector2 p = Camera.main.ViewportToScreenPoint (Box.transform.position);
-            gameSockets += "SocketID:" + p.x + " , " + p.y;
+            Vector2 p = ScreenCoordinates(gameCam,Box.transform.position);
+            gameSockets += "0"+"," + p.x + "," + p.y +";";
         
         }else{
             for(int i = 0; i < ClothesEasy.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (ClothesEasy [i].transform.position);
-                gameObjets += "ObjectID:"+ ClothesEasy [i].name +":" + pos.x+ " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,ClothesEasy [i].transform.position);
+                gameObjets += ""+ ClothesEasy [i].name +"," + pos.x+ "," + pos.y+";";
             }
-            Vector2 p = Camera.main.ViewportToScreenPoint (Closet.transform.position);
-            gameSockets += "SocketID:" + p.x + " , " + p.y;
+            Vector2 p = ScreenCoordinates(gameCam,Closet.transform.position);
+            gameSockets += "0"+"," + p.x + "," + p.y +";";
 
         }
             
@@ -137,14 +137,20 @@ public class DressmakingHanger : BaseGame
         }
         if(Box.bounds.Contains(ClothesHard[0].transform.position))
         {
-            gameSummary = "Correcta";
+            //gameSummary = "Correcta";
             InGameStars.Show(LevelPos);
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         }
         else
         {
-            gameSummary = "Incorrecta";
+            //gameSummary = "Incorrecta";
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
         }
+        for(int i = 0; i< ClothesHard.Length; i++){
+            if(Box.bounds.Contains(ClothesHard[i].transform.position)){
+                gameSummary += "0" +"," + i +";";
+            }
+        }
+
     }
 }

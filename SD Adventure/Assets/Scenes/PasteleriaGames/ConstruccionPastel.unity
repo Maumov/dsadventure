@@ -169,6 +169,7 @@ MonoBehaviour:
   LevelPos: 0
   SceneId: 1
   MinigameId: 2
+  gameCam: {fileID: 1698849963}
   Options:
   - Option: {fileID: 1718541007}
     Text: {fileID: 950563655}
@@ -307,6 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 268927594}
   - component: {fileID: 268927595}
+  - component: {fileID: 268927596}
   m_Layer: 0
   m_Name: Adorno
   m_TagString: Drag
@@ -341,6 +343,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38330078, y: 0.22959042, z: 0.3383026}
   m_Center: {x: -0.016121864, y: 0.11370921, z: -0.037607193}
+--- !u!114 &268927596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 268927593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 4
 --- !u!1001 &314451571
 Prefab:
   m_ObjectHideFlags: 0
@@ -1893,6 +1907,7 @@ GameObject:
   - component: {fileID: 798834173}
   - component: {fileID: 798834174}
   - component: {fileID: 798834175}
+  - component: {fileID: 798834176}
   m_Layer: 0
   m_Name: Piso 3
   m_TagString: Drag
@@ -1993,6 +2008,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &798834176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798834172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3
 --- !u!1 &802917311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,6 +2478,7 @@ GameObject:
   - component: {fileID: 1128583987}
   - component: {fileID: 1128583988}
   - component: {fileID: 1128583989}
+  - component: {fileID: 1128583990}
   m_Layer: 0
   m_Name: Piso 2
   m_TagString: Drag
@@ -2551,6 +2579,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1128583990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128583986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
 --- !u!1 &1189722930
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,6 +3181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1430235250}
   - component: {fileID: 1430235251}
+  - component: {fileID: 1430235252}
   m_Layer: 0
   m_Name: Piso 1
   m_TagString: Drag
@@ -3175,6 +3216,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6019745, y: 0.10465741, z: 0.61389637}
   m_Center: {x: -0.001373291, y: 0.055386662, z: 0.0014777184}
+--- !u!114 &1430235252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1430235249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
 --- !u!1001 &1651028345
 Prefab:
   m_ObjectHideFlags: 0
@@ -3778,6 +3831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1718541008}
   - component: {fileID: 1718541009}
+  - component: {fileID: 1718541010}
   m_Layer: 0
   m_Name: Base
   m_TagString: Drag
@@ -3812,6 +3866,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6971848, y: 0.015162945, z: 0.7088305}
   m_Center: {x: 0, y: 0.006893158, z: 0}
+--- !u!114 &1718541010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1718541007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!4 &1817992498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4817296493981988, guid: 1eea4a781ecb08f45920eaf9a52a95fe,

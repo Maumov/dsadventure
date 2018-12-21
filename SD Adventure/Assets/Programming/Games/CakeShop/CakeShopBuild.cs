@@ -5,6 +5,7 @@ using UnityEngine;
 public class CakeShopBuild : BaseGame
 {
     [Header("Cake Shop")]
+    public Camera gameCam;
     public CakeOption[] Options;
     protected Vector3[] startPos;
     public int[] OptionsValues;
@@ -52,8 +53,8 @@ public class CakeShopBuild : BaseGame
 
     protected override void Summary() { 
         for(int i = 0; i < Options.Length; i++){
-            Vector2 pos = Camera.main.ViewportToScreenPoint (Options [i].Option.transform.position);
-            gameObjets += "ObjectID:" + i+1 +":" + pos.x+ " , " + pos.y;
+            Vector2 pos = ScreenCoordinates(gameCam,  Options [i].Option.transform.position);
+            gameObjets += "" + i +"," + pos.x+ "," + pos.y+";";
         }
 
 //        for(int i = 0; i < Containers.Length; i++){

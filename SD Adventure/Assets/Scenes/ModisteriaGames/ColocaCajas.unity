@@ -714,6 +714,7 @@ GameObject:
   - component: {fileID: 206604185}
   - component: {fileID: 206604188}
   - component: {fileID: 206604187}
+  - component: {fileID: 206604189}
   m_Layer: 0
   m_Name: Ropa 5
   m_TagString: Drag
@@ -808,6 +809,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &206604189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 206604183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!4 &240330986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4816761261798624, guid: 7ed4c33455362284099481670c115437,
@@ -2060,6 +2073,7 @@ GameObject:
   - component: {fileID: 418539618}
   - component: {fileID: 418539617}
   - component: {fileID: 418539616}
+  - component: {fileID: 418539620}
   m_Layer: 0
   m_Name: Ropa 2
   m_TagString: Drag
@@ -2151,6 +2165,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 418539614}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &418539620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 418539614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
 --- !u!1 &428648063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,6 +3163,7 @@ GameObject:
   - component: {fileID: 621036674}
   - component: {fileID: 621036673}
   - component: {fileID: 621036672}
+  - component: {fileID: 621036676}
   m_Layer: 0
   m_Name: Ropa 2
   m_TagString: Drag
@@ -3228,6 +3255,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621036670}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &621036676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 621036670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3
 --- !u!1001 &652358337
 Prefab:
   m_ObjectHideFlags: 0
@@ -5137,6 +5176,7 @@ GameObject:
   - component: {fileID: 972242364}
   - component: {fileID: 972242367}
   - component: {fileID: 972242366}
+  - component: {fileID: 972242368}
   m_Layer: 0
   m_Name: Ropa 3
   m_TagString: Drag
@@ -5229,6 +5269,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &972242368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 972242362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
 --- !u!1 &991139691
 GameObject:
   m_ObjectHideFlags: 0
@@ -5315,6 +5367,7 @@ MonoBehaviour:
   LevelPos: 0
   SceneId: 3
   MinigameId: 2
+  gameCam: {fileID: 840650100}
   EasyContent: {fileID: 450918220}
   EasyContainers:
   - {fileID: 1033221657}
@@ -7320,6 +7373,7 @@ GameObject:
   - component: {fileID: 1306576875}
   - component: {fileID: 1306576878}
   - component: {fileID: 1306576877}
+  - component: {fileID: 1306576879}
   m_Layer: 0
   m_Name: Ropa 1
   m_TagString: Drag
@@ -7410,6 +7464,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1306576879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306576873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
 --- !u!4 &1319076763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4563372278630502, guid: 27dc095f227e926489392f5d3b1680c8,
@@ -8176,6 +8242,7 @@ GameObject:
   - component: {fileID: 1514947198}
   - component: {fileID: 1514947197}
   - component: {fileID: 1514947196}
+  - component: {fileID: 1514947200}
   m_Layer: 0
   m_Name: Ok
   m_TagString: Drag
@@ -8267,6 +8334,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514947194}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1514947200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1514947194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &1552643511
 GameObject:
   m_ObjectHideFlags: 0
@@ -9275,6 +9354,7 @@ GameObject:
   - component: {fileID: 1789962089}
   - component: {fileID: 1789962088}
   - component: {fileID: 1789962087}
+  - component: {fileID: 1789962091}
   m_Layer: 0
   m_Name: Ropa 1
   m_TagString: Drag
@@ -9366,6 +9446,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1789962085}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1789962091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1789962085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
 --- !u!1 &1791598101
 GameObject:
   m_ObjectHideFlags: 0

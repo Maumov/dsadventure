@@ -5,6 +5,8 @@ using UnityEngine;
 public class CakeShopSelection : BaseGame
 {
     [Header("Cake Shop")]
+
+    public Camera gameCam;
     public CakeOption[] Options;
     Vector3[] startPos;
     public float[] Scales;
@@ -22,7 +24,7 @@ public class CakeShopSelection : BaseGame
 
         Randomizer.Randomize(Options);
         for(int i = 0; i < Options.Length; i++)
-            Options[i].Option.name = "Masa " + i;
+            Options[i].Option.name = "" + i;
 
         if(DataManager.IsHardGame)
         {
@@ -53,12 +55,12 @@ public class CakeShopSelection : BaseGame
 
     protected override void Summary() { 
         for(int i = 0; i < Options.Length; i++){
-            Vector2 pos = Camera.main.ViewportToScreenPoint (Options [i].Option.transform.position);
-            gameObjets += "ObjectID:" + i+1 +":" + pos.x+ " , " + pos.y;
+            Vector2 pos = ScreenCoordinates (gameCam, Options [i].Option.transform.position);
+            gameObjets += "" + i +"," + pos.x+ "," + pos.y +";";
         }
 
-        Vector2 p = Camera.main.ViewportToScreenPoint (Container.transform.position);
-        gameSockets += "SocketID:" + p.x+ " , " + p.y;
+        Vector2 p = ScreenCoordinates (gameCam, Container.transform.position);
+        gameSockets += "0" + p.x+ "," + p.y + ";";
        
     }
 
@@ -101,7 +103,7 @@ public class CakeShopSelection : BaseGame
                 return;
             }
 
-            gameSummary = "Selecciona " + go;
+            gameSummary = "" + go.name;
 
             if(correct)
             {

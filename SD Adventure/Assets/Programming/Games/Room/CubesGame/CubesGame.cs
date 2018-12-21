@@ -22,7 +22,6 @@ public class CubesGame : BaseGame
     protected override void Initialize()
     {
         SetContainers();
-
         Summary ();
     }
 

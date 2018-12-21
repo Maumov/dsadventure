@@ -302,6 +302,7 @@ MonoBehaviour:
   MinigameId: 0
   EasyContent: {fileID: 1698849961}
   HardContent: {fileID: 1647843770}
+  gameCam: {fileID: 1698849963}
   Groups: []
   GroupDistance: 1.2
   GroupsSize: 3
@@ -348,6 +349,7 @@ GameObject:
   - component: {fileID: 252633010}
   - component: {fileID: 252633013}
   - component: {fileID: 252633012}
+  - component: {fileID: 252633014}
   m_Layer: 0
   m_Name: Cat (0)
   m_TagString: Drag
@@ -438,6 +440,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.49999997
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &252633014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 252633008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 5
 --- !u!1 &263699824
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +464,7 @@ GameObject:
   - component: {fileID: 263699826}
   - component: {fileID: 263699829}
   - component: {fileID: 263699828}
+  - component: {fileID: 263699830}
   m_Layer: 0
   m_Name: Cat (2)
   m_TagString: Drag
@@ -540,6 +555,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.49999997
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &263699830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263699824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 7
 --- !u!1001 &272721261
 Prefab:
   m_ObjectHideFlags: 0
@@ -1034,6 +1061,7 @@ GameObject:
   - component: {fileID: 498143769}
   - component: {fileID: 498143772}
   - component: {fileID: 498143771}
+  - component: {fileID: 498143773}
   m_Layer: 0
   m_Name: Dog (1)
   m_TagString: Drag
@@ -1124,6 +1152,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Center: {x: 0, y: -0.00000011920929, z: -0.00000023841858}
+--- !u!114 &498143773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 498143767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
 --- !u!1001 &505191821
 Prefab:
   m_ObjectHideFlags: 0
@@ -1435,6 +1475,7 @@ GameObject:
   - component: {fileID: 550731069}
   - component: {fileID: 550731068}
   - component: {fileID: 550731067}
+  - component: {fileID: 550731071}
   m_Layer: 0
   m_Name: Dog (5)
   m_TagString: Drag
@@ -1525,6 +1566,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 550731065}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &550731071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 550731065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 5
 --- !u!1 &562446591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,6 +1590,7 @@ GameObject:
   - component: {fileID: 562446595}
   - component: {fileID: 562446594}
   - component: {fileID: 562446593}
+  - component: {fileID: 562446597}
   m_Layer: 0
   m_Name: Dog (3)
   m_TagString: Drag
@@ -1627,6 +1681,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562446591}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &562446597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562446591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3
 --- !u!1001 &563889314
 Prefab:
   m_ObjectHideFlags: 0
@@ -1886,6 +1952,7 @@ GameObject:
   - component: {fileID: 667145320}
   - component: {fileID: 667145319}
   - component: {fileID: 667145318}
+  - component: {fileID: 667145322}
   m_Layer: 0
   m_Name: Cat (3)
   m_TagString: Drag
@@ -1976,6 +2043,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 667145316}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &667145322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 667145316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 8
 --- !u!1001 &669363214
 Prefab:
   m_ObjectHideFlags: 0
@@ -2218,6 +2297,7 @@ GameObject:
   - component: {fileID: 696467028}
   - component: {fileID: 696467031}
   - component: {fileID: 696467030}
+  - component: {fileID: 696467032}
   m_Layer: 0
   m_Name: Dog (0)
   m_TagString: Drag
@@ -2308,6 +2388,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Center: {x: 0, y: -0.00000011920929, z: -0.00000023841858}
+--- !u!114 &696467032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 696467026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &714114006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2724,6 +2816,7 @@ GameObject:
   - component: {fileID: 763164241}
   - component: {fileID: 763164240}
   - component: {fileID: 763164239}
+  - component: {fileID: 763164243}
   m_Layer: 0
   m_Name: Dog (6)
   m_TagString: Drag
@@ -2814,6 +2907,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 763164237}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &763164243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 763164237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 6
 --- !u!1 &774485724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3117,7 @@ GameObject:
   - component: {fileID: 787549002}
   - component: {fileID: 787549005}
   - component: {fileID: 787549004}
+  - component: {fileID: 787549006}
   m_Layer: 0
   m_Name: Dog (2)
   m_TagString: Drag
@@ -3102,6 +3208,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Center: {x: 0, y: -0.00000011920929, z: -0.00000017881393}
+--- !u!114 &787549006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 787549000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
 --- !u!1 &827625632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,6 +3232,7 @@ GameObject:
   - component: {fileID: 827625636}
   - component: {fileID: 827625635}
   - component: {fileID: 827625634}
+  - component: {fileID: 827625638}
   m_Layer: 0
   m_Name: Dog (4)
   m_TagString: Drag
@@ -3204,6 +3323,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 827625632}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &827625638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 827625632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 4
 --- !u!1 &841236423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3500,6 +3631,7 @@ GameObject:
   - component: {fileID: 906258717}
   - component: {fileID: 906258716}
   - component: {fileID: 906258715}
+  - component: {fileID: 906258719}
   m_Layer: 0
   m_Name: Dog (4)
   m_TagString: Drag
@@ -3590,6 +3722,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 906258713}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &906258719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906258713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 4
 --- !u!1 &941952241
 GameObject:
   m_ObjectHideFlags: 0
@@ -3602,6 +3746,7 @@ GameObject:
   - component: {fileID: 941952245}
   - component: {fileID: 941952244}
   - component: {fileID: 941952243}
+  - component: {fileID: 941952247}
   m_Layer: 0
   m_Name: Dog (7)
   m_TagString: Drag
@@ -3692,6 +3837,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 941952241}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &941952247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 941952241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 7
 --- !u!1 &942509043
 GameObject:
   m_ObjectHideFlags: 0
@@ -4049,6 +4206,7 @@ GameObject:
   - component: {fileID: 1038133571}
   - component: {fileID: 1038133574}
   - component: {fileID: 1038133573}
+  - component: {fileID: 1038133575}
   m_Layer: 0
   m_Name: Cat (1)
   m_TagString: Drag
@@ -4139,6 +4297,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.49999997
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1038133575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1038133569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 6
 --- !u!1001 &1071667826
 Prefab:
   m_ObjectHideFlags: 0
@@ -4288,6 +4458,7 @@ GameObject:
   - component: {fileID: 1090257323}
   - component: {fileID: 1090257326}
   - component: {fileID: 1090257325}
+  - component: {fileID: 1090257327}
   m_Layer: 0
   m_Name: Dog (3)
   m_TagString: Drag
@@ -4378,6 +4549,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Center: {x: 0, y: -0.00000011920929, z: -0.00000023841858}
+--- !u!114 &1090257327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1090257321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3
 --- !u!1 &1105429117
 GameObject:
   m_ObjectHideFlags: 0
@@ -4476,6 +4659,7 @@ GameObject:
   - component: {fileID: 1162333652}
   - component: {fileID: 1162333651}
   - component: {fileID: 1162333650}
+  - component: {fileID: 1162333654}
   m_Layer: 0
   m_Name: Dog (0)
   m_TagString: Drag
@@ -4566,6 +4750,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1162333648}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1162333654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162333648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1001 &1194232535
 Prefab:
   m_ObjectHideFlags: 0
@@ -5251,6 +5447,7 @@ GameObject:
   - component: {fileID: 1350801140}
   - component: {fileID: 1350801139}
   - component: {fileID: 1350801138}
+  - component: {fileID: 1350801142}
   m_Layer: 0
   m_Name: Dog (1)
   m_TagString: Drag
@@ -5341,6 +5538,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1350801136}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1350801142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1350801136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
 --- !u!1001 &1427512549
 Prefab:
   m_ObjectHideFlags: 0
@@ -6735,6 +6944,7 @@ GameObject:
   - component: {fileID: 1795298336}
   - component: {fileID: 1795298335}
   - component: {fileID: 1795298334}
+  - component: {fileID: 1795298338}
   m_Layer: 0
   m_Name: Dog (2)
   m_TagString: Drag
@@ -6825,6 +7035,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1795298332}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1795298338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1795298332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
 --- !u!1 &1813431425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 299acdca88c33fb469d0fe77a68ccd11,
@@ -7488,6 +7710,7 @@ GameObject:
   - component: {fileID: 2045583232}
   - component: {fileID: 2045583231}
   - component: {fileID: 2045583230}
+  - component: {fileID: 2045583234}
   m_Layer: 0
   m_Name: Dog (8)
   m_TagString: Drag
@@ -7578,6 +7801,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2045583228}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2045583234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2045583228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 8
 --- !u!1001 &2115822138
 Prefab:
   m_ObjectHideFlags: 0

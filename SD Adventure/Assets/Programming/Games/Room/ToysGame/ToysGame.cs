@@ -72,7 +72,14 @@ public class ToysGame : CubesGame
             if(Containers[ind].bounds.Contains(Cubes[i].transform.position))
                 a++;
         }
-        gameSummary += "Caja '" + (ind + 1) + "' pide " + amounts[ind] +  " tiene " + a + ";";
+        string s = "" + ind;
+        for(int i = 0; i < Cubes.Length; i++){
+            if(Containers[ind].bounds.Contains(Cubes[i].transform.position)){
+                s += "," + Cubes[i].name;
+            }
+        }
+        s += ";";
+        gameSummary += s;
         return a == amounts[ind];
     }
 }

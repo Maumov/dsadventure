@@ -6,6 +6,7 @@ public class DressmakingBoxes : BaseGame
 {
     DragAndDrop control;
     Vector3[] pos;
+    public Camera gameCam;
 
     [Header("Dressmaking Easy")]
     public GameObject EasyContent;
@@ -35,22 +36,22 @@ public class DressmakingBoxes : BaseGame
     protected override void Summary() { 
         if (DataManager.IsHardGame) {
             for (int i = 0; i < HardClothes.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (HardClothes [i].transform.position);
-                gameObjets += "ObjectID:" + i + 1 + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,HardClothes [i].transform.position);
+                gameObjets += "" + i  + "," + pos.x + "," + pos.y+";";
             }
 
-            Vector2 p = Camera.main.ViewportToScreenPoint (HardContainer.transform.position);
-            gameSockets += "SocketID:" + p.x + " , " + p.y;
+            Vector2 p = ScreenCoordinates(gameCam,HardContainer.transform.position);
+            gameSockets += "0"+"," + p.x + "," + p.y+";";
                 
         } else {
             for(int i = 0; i < EasyClothes.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyClothes [i].transform.position);
-                gameObjets += "ObjectID:"+ EasyClothes [i].name +":" + pos.x+ " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,EasyClothes [i].transform.position);
+                gameObjets += ""+ EasyClothes [i].name +"," + pos.x+ "," + pos.y +";";
             }
 
             for(int i = 0; i < EasyContainers.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyContainers [i].transform.position);
-                gameSockets += "SocketID" + i +":" + pos.x+ " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,EasyContainers [i].transform.position);
+                gameSockets += "" + i +"," + pos.x+ "," + pos.y+";";
             }
         }
 
@@ -104,7 +105,7 @@ public class DressmakingBoxes : BaseGame
             for(int j = 0; j < EasyClothes.Length; j++)
             {
                 if(EasyContainers[i].bounds.Contains(EasyClothes[j].transform.position))
-                    gameSummary += "Caja " + i + " tiene " + EasyClothes[j].name + ";";
+                    gameSummary += "" + i + "," + EasyClothes[j].name + ";";
             }
         }
 
@@ -148,13 +149,18 @@ public class DressmakingBoxes : BaseGame
         if(HardContainer.bounds.Contains(HardClothes[0].transform.position))
         {
             InGameStars.Show(LevelPos);
-            gameSummary = "Correcta";
+
             ConversationUI.ShowText(LevelKeyName + Hard + Fine, Win);
         }
         else
         {
-            gameSummary = "Incorrecta";
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
         }
+        for(int i = 0; i< HardClothes.Length; i++){
+            if(HardContainer.bounds.Contains(HardClothes[i].transform.position)){
+                gameSummary += "0" +"," + i +";";
+            }
+        }
+
     }
 }

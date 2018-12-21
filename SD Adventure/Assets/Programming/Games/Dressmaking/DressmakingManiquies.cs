@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DressmakingManiquies : BaseGame
 {
+
+    public Camera gameCam;
     [Header("Dressmaking")]
     public GameObject[] Maniquies;
     Vector3[] threeLayout;
@@ -42,22 +44,22 @@ public class DressmakingManiquies : BaseGame
     protected override void Summary(){
         if (DataManager.IsHardGame) {
             for (int i = 0; i < HardClothes.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (HardClothes [i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,HardClothes [i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y+";";
             }
 
-            Vector2 p = Camera.main.ViewportToScreenPoint (Container.transform.position);
-            gameSockets += "SocketID:" + p.x + " , " + p.y;
+            Vector2 p = ScreenCoordinates(gameCam,Container.transform.position);
+            gameSockets += "0"+"," + p.x + "," + p.y+";";
 
 
         } else {
-            for (int i = 0; i < HardClothes.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (ManiquiesClothes [i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+            for (int i = 0; i < ManiquiesClothes.Length; i++) {
+                Vector2 pos = ScreenCoordinates(gameCam,ManiquiesClothes [i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y+";";
             }
             for(int i = 0; i < ManiquiesContainers.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (ManiquiesContainers [i].transform.position);
-                gameSockets += "SocketID" + i+1 +":" + pos.x+ " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,ManiquiesContainers [i].transform.position);
+                gameSockets += "" + i +"," + pos.x+ "," + pos.y+";";
             }
 
         }
@@ -128,12 +130,13 @@ public class DressmakingManiquies : BaseGame
                 {
                     Debug.Log("Match");
                     matches++;
+                    gameSummary += ManiquiesContainers [i].name + "," + go.name;
                     go.SetActive(false);
                     ManiquiesClothes[i].SetActive(true);
                     if(matches == 3)
                     {
                         InGameStars.Show(LevelPos);
-                        gameSummary = "3 coincidencias";
+                        //gameSummary = "3 coincidencias";
                         ConversationUI.ShowText(LevelKeyName + Easy + Fine, Win);
                     }
                 }
@@ -163,13 +166,17 @@ public class DressmakingManiquies : BaseGame
             return;
         }
 
+        gameSummary += "0";
         for(int i = 0; i < HardClothes.Length; i++)
         {
-            if(Container.bounds.Contains(HardClothes[i].transform.position))
+            if(Container.bounds.Contains(HardClothes[i].transform.position)){
+                gameSummary +=   "," +HardClothes[i];
                 matches++;
+            }
+                
         }
+        gameSummary += ";";
 
-        gameSummary = matches + " en la caja";
         if(matches == 2)
         {
             InGameStars.Show(LevelPos);

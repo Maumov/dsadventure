@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FruitShopCount : BaseGame
 {
+    public Camera gameCamEasy;
+    public Camera gameCamHard;
     [Header("Fruit Shop")]
     public LayerMask DropLayer;
     DragAndDrop control;
@@ -54,20 +56,20 @@ public class FruitShopCount : BaseGame
     protected override void Summary(){
         if (DataManager.IsHardGame) {
             for (int i = 0; i < HardFruits.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (HardFruits [i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCamHard,HardFruits [i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y+";";
             }
 
-            Vector2 p = Camera.main.ViewportToScreenPoint (FruitContainer.transform.position);
-            gameSockets += "SocketID:" + p.x + " , " + p.y;
+            Vector2 p = ScreenCoordinates(gameCamHard,FruitContainer.transform.position);
+            gameSockets += "0," + p.x + "," + p.y+";";
 
         }else{
             for(int i = 0; i < Numbers.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (Numbers [i].transform.position);
-                gameObjets += "ObjectID:"+ i +":" + pos.x+ " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCamEasy,Numbers [i].transform.position);
+                gameObjets += ""+ i +"," + pos.x+ "," + pos.y+","+Numbers[i].name+";";
             }
-            Vector2 p = Camera.main.ViewportToScreenPoint (GoodPosition.transform.position);
-            gameSockets += "SocketID:" + p.x + " , " + p.y;
+            Vector2 p = ScreenCoordinates(gameCamEasy,GoodPosition.transform.position);
+            gameSockets += "0," + p.x + "," + p.y+";";
 
         }
 
@@ -111,6 +113,15 @@ public class FruitShopCount : BaseGame
     {
         SetControl(false);
         CompleteButton.SetActive(false);
+        gameSummary = "0,"+targetNumber+",";
+        for(int i = 0; i < HardFruits.Length; i++)
+        {
+            if(FruitContainer.bounds.Contains(HardFruits[i].transform.position))
+            {
+                gameSummary += "," + i ;
+            }
+        }
+        gameSummary += ";";
         if(DataManager.IsNAGame)
         {
             InGameStars.Show(LevelPos);
@@ -125,7 +136,7 @@ public class FruitShopCount : BaseGame
             {
                 if(i < 9)
                 {
-                    gameSummary = "Hay otras frutas ademas de limones";
+                   
                     ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
                     return;
                 }
@@ -133,7 +144,7 @@ public class FruitShopCount : BaseGame
                     lemons++;
             }
         }
-        gameSummary = "Se piden " + targetNumber + " limones y hay " + lemons;
+       
         if(lemons != targetNumber)
         {
             ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
@@ -175,11 +186,12 @@ public class FruitShopCount : BaseGame
     void EasyDrop(GameObject go)
     {
         ray = control.Cam.ScreenPointToRay(Input.mousePosition);
+
         if(Physics.Raycast(ray, out hit, 100, DropLayer.value))
         {
             SetControl(false);
             ImportantAction();
-            gameSummary = "Se pide " + targetNumber + " y marco " + go.name;
+            gameSummary = "0," + targetNumber + "," + go.name;
             if(DataManager.IsNAGame)
             {
                 InGameStars.Show(LevelPos);

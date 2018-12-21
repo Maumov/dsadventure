@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FruitShopTypes : BaseGame
 {
+    public Camera gameCam;
     [Header("Fruit Shop")]
     public LayerMask DropLayer;
     DragAndDrop control;
@@ -56,26 +57,26 @@ public class FruitShopTypes : BaseGame
         Summary ();
     }
 
-    public void Summary(){
+    protected override void Summary(){
         if (DataManager.IsHardGame) {
             for (int i = 0; i < Numbers.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (Numbers[i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,Numbers[i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y + Numbers[i].name+";";
             }
 
             for(int i = 0; i < Tags.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (Tags [i].transform.position);
-                gameSockets += "SocketID:" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,Tags [i].transform.position);
+                gameSockets += i+"," + pos.x + "," + pos.y+";";
             }
 
         }else{
             for(int i = 0; i < EasyFruits.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyFruits [i].transform.position);
-                gameObjets += "ObjectID:"+ i +":" + pos.x+ " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,EasyFruits [i].transform.position);
+                gameObjets += ""+ i +"," + pos.x+ "," + pos.y+";";
             }
            
-            Vector2 p = Camera.main.ViewportToScreenPoint (FruitContainer.transform.position);
-                gameSockets += "SocketID:" + p.x + " , " + p.y;
+            Vector2 p = ScreenCoordinates(gameCam,FruitContainer.transform.position);
+            gameSockets += "0," + p.x + "," + p.y+";";
 
         }
     }
@@ -258,8 +259,10 @@ public class FruitShopTypes : BaseGame
         SetControl(false);
 
 
-        gameSummary = "Se pidio " + yellow + ", " + red + " y " + green + ", y marco " + asignedYellow + ", " + asignedRed + " y " + asignedGreen;
-
+        //gameSummary = yellow-1 +"," + yellow+","+asignedYellow + ", " + red + " y " + green + ", y marco " + asignedYellow + ", " + asignedRed + " y " + asignedGreen;
+        gameSummary = yellow - 1 + "," + yellow + "," + asignedYellow+";";
+        gameSummary += red - 1 + "," + red + "," + asignedRed+";";
+        gameSummary += green - 1 + "," + green + "," + asignedGreen + ";";
         if(asignedYellow.Equals(yellow.ToString()) && asignedRed.Equals(red.ToString()) && asignedGreen.Equals(green.ToString()))
         {
             InGameStars.Show(LevelPos);

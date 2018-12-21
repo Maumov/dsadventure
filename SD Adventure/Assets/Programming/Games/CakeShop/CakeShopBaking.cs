@@ -5,6 +5,7 @@ using UnityEngine;
 public class CakeShopBaking : BaseGame
 {
     [Header("Cake Shop")]
+    public Camera gameCam;
     public CakeOption[] Options;
     DragAndDrop control;
     public Vector3[] Scales;
@@ -54,13 +55,13 @@ public class CakeShopBaking : BaseGame
 
     protected override void Summary() { 
         for(int i = 0; i < Options.Length; i++){
-            Vector2 pos = Camera.main.ViewportToScreenPoint (Options [i].Option.transform.position);
-            gameObjets += "ObjectID:" + i+1 +":" + pos.x+ " , " + pos.y;
+            Vector2 pos = ScreenCoordinates (gameCam, Options [i].Option.transform.position);
+            gameObjets += "" + i+"," + pos.x+ "," + pos.y +";";
         }
 
         for(int i = 0; i < Containers.Length; i++){
-            Vector2 pos = Camera.main.ViewportToScreenPoint (Containers [i].transform.position);
-            gameSockets += "SocketID" + i+1 +":" + pos.x+ " , " + pos.y;
+            Vector2 pos = ScreenCoordinates (gameCam, Containers [i].transform.position);
+            gameSockets += "" + i + "," + pos.x+ "," + pos.y +";";
         }
     }
 
@@ -144,7 +145,7 @@ public class CakeShopBaking : BaseGame
             {
                 if(Containers[i].bounds.Contains(Options[j].Option.transform.position))
                 {
-                    gameSummary += "Horno " + (i + 1) + " tiene " + " molde " + (j + 1) + ";";
+                    gameSummary += "" + i + "," +j+ ";";
                 }
             }
         }

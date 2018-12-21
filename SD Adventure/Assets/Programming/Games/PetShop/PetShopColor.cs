@@ -23,12 +23,12 @@ public class PetShopColor : PetShopShape
         {
             currentGroup = 0;
             feature = string.Empty;
-            gameSummary += "Caja " + (i + 1) + " tiene ";
+            gameSummary += "" + i  + "";
             for(int j = 0; j < allHardPets; j++)
             {
                 if(ContainerHard[i].bounds.Contains(PetsHard[j].position))
                 {
-                    gameSummary += Pets[j].name + ", ";
+                    gameSummary += ","+Pets[j].name;
                     currentGroup++;
                     grouped++;
 
@@ -47,6 +47,7 @@ public class PetShopColor : PetShopShape
                     }
                 }
             }
+            gameSummary += ";";
             if(currentGroup > GroupsSize)
             {
                 ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);

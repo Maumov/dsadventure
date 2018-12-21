@@ -418,6 +418,7 @@ GameObject:
   - component: {fileID: 117144429}
   - component: {fileID: 117144432}
   - component: {fileID: 117144430}
+  - component: {fileID: 117144431}
   m_Layer: 0
   m_Name: Molde 1
   m_TagString: Drag
@@ -507,6 +508,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &117144431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117144428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!135 &117144432
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -579,6 +592,7 @@ MonoBehaviour:
   LevelPos: 0
   SceneId: 1
   MinigameId: 1
+  gameCam: {fileID: 1187425193}
   Options:
   - Option: {fileID: 117144428}
     Text: {fileID: 614767028}
@@ -604,6 +618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 258910021}
   - component: {fileID: 258910024}
+  - component: {fileID: 258910022}
   m_Layer: 0
   m_Name: Molde 2
   m_TagString: Drag
@@ -627,6 +642,18 @@ Transform:
   m_Father: {fileID: 869718142}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &258910022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 258910020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
 --- !u!135 &258910024
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3316,6 +3343,7 @@ GameObject:
   - component: {fileID: 1026078614}
   - component: {fileID: 1026078617}
   - component: {fileID: 1026078615}
+  - component: {fileID: 1026078616}
   m_Layer: 0
   m_Name: Molde 3
   m_TagString: Drag
@@ -3405,6 +3433,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1026078616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1026078613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
 --- !u!135 &1026078617
 SphereCollider:
   m_ObjectHideFlags: 0

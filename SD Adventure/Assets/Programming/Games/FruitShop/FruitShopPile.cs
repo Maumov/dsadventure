@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FruitShopPile : BaseGame
 {
+    public Camera gameCam;
     [Header("Fruit Shop")]
     public LayerMask DropLayer;
     DragAndDrop control;
@@ -60,21 +61,21 @@ public class FruitShopPile : BaseGame
         if (DataManager.IsHardGame) {
             for (int i = 0; i < NumbersHard.Length; i++) {
                
-                Vector2 pos = Camera.main.ViewportToScreenPoint (NumbersHard[i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,NumbersHard[i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y+";";
             }
 
-            Vector2 p = Camera.main.ViewportToScreenPoint (Tags[0].transform.position);
-            gameSockets += "SocketID:" + p.x + " , " + p.y;
+            Vector2 p =ScreenCoordinates(gameCam,Tags[0].transform.position);
+            gameSockets += "0," + p.x + "," + p.y+";";
 
         }else{
             for(int i = 0; i < Numbers.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (Numbers [i].transform.position);
-                gameObjets += "ObjectID:"+ i +":" + pos.x+ " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,Numbers [i].transform.position);
+                gameObjets += ""+ i +"," + pos.x+ "," + pos.y+";";
             }
             for(int i = 0; i < Tags.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (Tags [i].transform.position);
-                gameSockets += "SocketID:" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,Tags [i].transform.position);
+                gameSockets += i+"," + pos.x + "," + pos.y+";";
             }
         }
 

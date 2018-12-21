@@ -11,6 +11,7 @@ public class PetShopShape : BaseGame
     DragAndDrop control;
 
     [Header("Hard")]
+    public Camera gameCam;
     public List<PetGroup> Groups = new List<PetGroup>();
     public float GroupDistance = 1.2f;
     public int GroupsSize = 3;
@@ -52,26 +53,26 @@ public class PetShopShape : BaseGame
         Summary ();
     }
 
-    public void Summary(){
+    protected override void Summary(){
         if (DataManager.IsHardGame) {
             for (int i = 0; i < PetsHard.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (PetsHard[i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,PetsHard[i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y+";";
             }
 
             for(int i = 0; i < ContainerHard.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (ContainerHard [i].transform.position);
-                gameSockets += "SocketID:" + i + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam, ContainerHard [i].transform.position);
+                gameSockets += "" + i +","+ pos.x + "," + pos.y+";";
             }
 
         }else{
             for(int i = 0; i < Pets.Length; i++){
-                Vector2 pos = Camera.main.ViewportToScreenPoint (Pets [i].transform.position);
-                gameObjets += "ObjectID:"+ i +":" + pos.x+ " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,Pets [i].transform.position);
+                gameObjets += ""+ i +"," + pos.x+ "," + pos.y+";";
             }
             for (int i = 0; i < Container.Length; i++) {
-                Vector2 p = Camera.main.ViewportToScreenPoint (Container [i].transform.position);
-                gameSockets += "SocketID:"+ i + p.x + " , " + p.y;
+                Vector2 p = ScreenCoordinates(gameCam,Container [i].transform.position);
+                gameSockets += ""+ i +","+ p.x + "," + p.y+";";
             }
         }
     }
@@ -131,16 +132,17 @@ public class PetShopShape : BaseGame
         for(int i = 0; i < ContainerHard.Length; i++)
         {
             currentGroup = 0;
-            gameSummary += "Caja " + (i + 1) + " tiene ";
+            gameSummary += "" +i+ "";
             for(int j = 0; j < allHardPets; j++)
             {
                 if(ContainerHard[i].bounds.Contains(PetsHard[j].position))
                 {
-                    gameSummary += PetsHard[j].name + ", ";
+                    gameSummary += ","+PetsHard[j].name;
                     currentGroup++;
                     grouped++;
                 }
             }
+            gameSummary += ";";
             if(currentGroup > GroupsSize)
             {
                 ConversationUI.ShowText(LevelKeyName + Hard + Wrong, ResetLevel);
@@ -175,16 +177,17 @@ public class PetShopShape : BaseGame
         for(int i = 0; i < Container.Length; i++)
         {
             each = 0;
-            gameSummary += "Caja " + (i + 1) + " tiene ";
+            gameSummary += "" + i + "";
             for(int j = 0; j < Pets.Length; j++)
             {
                 if(Container[i].bounds.Contains(Pets[j].position))
                 {
-                    gameSummary += Pets[j].name + ", ";
+                    gameSummary += ","+Pets[j].name;
                     total++;
                     each++;
                 }
             }
+            gameSummary += ";";
             if(each == 0)
             {
                 ConversationUI.ShowText(LevelKeyName + Easy + Wrong, ResetLevel);

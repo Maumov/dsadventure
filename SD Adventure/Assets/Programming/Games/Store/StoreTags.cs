@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StoreTags : BaseGame
 {
+    public Camera gameCam;
     [Header("Store")]
     public GameObject EasyNumbersParent;
     public GameObject HardNumbersParent;
@@ -48,24 +49,26 @@ public class StoreTags : BaseGame
         Total.text = max.ToString();
         Cokies.text = (max - targetNumber).ToString();
         tutorial.SetValues(new string[] { max.ToString(), (max - targetNumber).ToString() });
+
+        Summary ();
     }
 
 
     protected override void Summary(){
         if (DataManager.IsHardGame) {
             for (int i = 0; i < HardNumbers.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyNumbers [i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,HardNumbers [i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y+","+HardNumbers [i].name+";";
             }
 
         } else {
             for (int i = 0; i < EasyNumbers.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyNumbers [i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,EasyNumbers [i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y+","+EasyNumbers[i]+";";
             }
         }
-        Vector2 p = Camera.main.ViewportToScreenPoint ( GameObject.FindGameObjectWithTag("EtiquetaContainer").transform.position);
-        gameSockets += "SocketID:" + p.x +"," + p.y;
+        Vector2 p = ScreenCoordinates(gameCam,GameObject.FindGameObjectWithTag("EtiquetaContainer").transform.position);
+        gameSockets += "0," + p.x +"," + p.y;
     }
 
 
@@ -89,7 +92,8 @@ public class StoreTags : BaseGame
         ray = control.Cam.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, 100, DropLayer.value))
         {
-            gameSummary = max + " - " + (max - targetNumber) + " = " + go.name;
+            //gameSummary = max + " - " + (max - targetNumber) + " = " + go.name;
+            gameSummary = "0," + (max - targetNumber) + "," + go.name + ";";
             ImportantAction();
             SetControl(false);
             if(DataManager.IsNAGame)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StoreWeight : BaseGame
 {
+    public Camera gameCam;
     [Header("Store")]
     public GameObject EasyNumbersParent;
     public GameObject HardNumbersParent;
@@ -55,18 +56,18 @@ public class StoreWeight : BaseGame
     protected override void Summary(){
         if (DataManager.IsHardGame) {
             for (int i = 0; i < HardNumbers.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyNumbers [i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,HardNumbers [i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y+","+HardNumbers[i].name+";";
             }
         } else {
             for (int i = 0; i < EasyNumbers.Length; i++) {
-                Vector2 pos = Camera.main.ViewportToScreenPoint (EasyNumbers [i].transform.position);
-                gameObjets += "ObjectID:" + i + ":" + pos.x + " , " + pos.y;
+                Vector2 pos = ScreenCoordinates(gameCam,EasyNumbers [i].transform.position);
+                gameObjets += "" + i + "," + pos.x + "," + pos.y+","+EasyNumbers[i].name+";";
             }
         }
 
         Vector2 p = Camera.main.ViewportToScreenPoint ( GameObject.FindGameObjectWithTag("EtiquetaContainer").transform.position);
-        gameSockets += "SocketID:" + p.x +"," + p.y; 
+        gameSockets += "0," + p.x +"," + p.y+";"; 
 
 
     }
@@ -90,7 +91,7 @@ public class StoreWeight : BaseGame
         ray = control.Cam.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, 100, DropLayer.value))
         {
-            gameSummary = "Se pidio " + targetNumber + " y marco " + go.name;
+            gameSummary = "0," + targetNumber + "," + go.name+";";
             ImportantAction();
             SetControl(false);
             if(DataManager.IsNAGame)

@@ -779,6 +779,7 @@ MonoBehaviour:
   LevelPos: 0
   SceneId: 3
   MinigameId: 1
+  gameCam: {fileID: 840650100}
   HardContent: {fileID: 1593081473}
   ClothesHard:
   - {fileID: 1717837780}
@@ -834,6 +835,7 @@ GameObject:
   - component: {fileID: 234541641}
   - component: {fileID: 234541640}
   - component: {fileID: 234541642}
+  - component: {fileID: 234541643}
   m_Layer: 0
   m_Name: Ok
   m_TagString: Drag
@@ -914,6 +916,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &234541643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 234541638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &265317378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,6 +2715,7 @@ GameObject:
   - component: {fileID: 718353922}
   - component: {fileID: 718353921}
   - component: {fileID: 718353923}
+  - component: {fileID: 718353924}
   m_Layer: 0
   m_Name: Ropa 1
   m_TagString: Drag
@@ -2779,6 +2794,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &718353924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 718353919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
 --- !u!1001 &727292602
 Prefab:
   m_ObjectHideFlags: 0
@@ -5662,6 +5689,7 @@ GameObject:
   - component: {fileID: 1332850873}
   - component: {fileID: 1332850872}
   - component: {fileID: 1332850874}
+  - component: {fileID: 1332850875}
   m_Layer: 0
   m_Name: Ropa 2
   m_TagString: Drag
@@ -5739,6 +5767,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1332850875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1332850870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
 --- !u!1 &1347607821
 GameObject:
   m_ObjectHideFlags: 0
@@ -7106,6 +7146,7 @@ GameObject:
   - component: {fileID: 1717837783}
   - component: {fileID: 1717837785}
   - component: {fileID: 1717837782}
+  - component: {fileID: 1717837786}
   m_Layer: 0
   m_Name: Ok
   m_TagString: Drag
@@ -7198,6 +7239,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1717837786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1717837780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &1725498213
 GameObject:
   m_ObjectHideFlags: 0
@@ -7362,6 +7415,7 @@ GameObject:
   - component: {fileID: 1745609634}
   - component: {fileID: 1745609636}
   - component: {fileID: 1745609633}
+  - component: {fileID: 1745609637}
   m_Layer: 0
   m_Name: Ropa
   m_TagString: Drag
@@ -7454,6 +7508,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1745609637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1745609631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ba80c639e1d147ad7af2b4d5f5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
 --- !u!1001 &1801257254
 Prefab:
   m_ObjectHideFlags: 0
