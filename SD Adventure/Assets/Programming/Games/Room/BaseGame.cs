@@ -16,8 +16,8 @@ public class BaseGame : MonoBehaviour
     public float FinishDelay;
     WaitForSeconds finishWait;
 
-    float timeLimit1 = 180;
-    float timeLimit2 = 60;
+    float timeLimit1 = 240;
+    float timeLimit2 = 120;
     float startTime;
     int clues;
 
